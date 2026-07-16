@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Character Sheet</title>
+    <link rel="stylesheet" href="css/character.css">
+</head>
+<body>
+
+    <button onclick="location.href='index.html'">
+Back to Menu
+</button>
+<div id="characterHeader">
+
+    <div class="headerRow">
+        <span>Name: <strong id="name"></strong><input type="text" id="characterName"></span>
+        <span>Level: <strong id="level"></strong><input class="inputbar"
+    type="number"
+    id="characterLevel"
+    min="1"
+    value="1"></span>
+    </div>
+
+    <div class="headerRow">
+
+        <span>Health:
+            <input class="inputbar" id="health" type="number"> /
+            <strong id="maxHealth"></strong>
+        </span>
+
+        <span>Mana:
+            <input class="inputbar" id="mana" type="number"> /
+            <strong id="maxMana"></strong>
+        </span>
+
+        <span>Mana Regen:
+            <strong id="manaRegen"></strong>
+        </span>
+
+        <span>Stamina:
+            <input class="inputbar" id="stamina" type="number"> /
+            <strong id="maxStamina"></strong>
+        </span>
+
+        <span>Armor:
+            <strong id="armor">10</strong>
+        </span>
+
+    </div>
+
+</div>
+
+<div id="tabs">
+
+    <button class="tabButton active" data-tab="stats">Stats</button>
+    <button class="tabButton" data-tab="skills">Skills</button>
+    <button class="tabButton" data-tab="inventory">Inventory</button>
+    <button class="tabButton" data-tab="magic">Magic</button>
+
+</div>
+
+<div id="tabContent">
+
+    <div class="tab active" id="character">
+        Character information.
+    </div>
+
+   
+    <div class="tab" id="inventory">
+        Inventory goes here.
+    </div>
+
+    <div class="tab" id="magic">
+        Magic goes here.
+    </div>
+
+</div>
+<div class="tab active" id="stats">
+
+    <div class="statsContainer">
+
+        <!-- LEFT SIDE -->
+        <div class="statsPanel">
+
+            <h2>Stats</h2>
+
+            <H4>Pointis</H4><span id="availablePoints">45</span>
+/
+<span id="maxPointsHeader">45</span>
+
+            <table class="statsTable">
+
+                <thead>
+                    <tr>
+                        <th>Stat</th>
+                        <th>Score</th>
+                        <th>Mod</th>
+                        <th></th>
+                        <th>Invested</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr data-stat="strength">
+                        <td>Strength</td>
+                        <td id="strengthValue">8</td>
+                        <td id="strengthMod">-1</td>
+                        <td><button class="minus" data-stat="strength">−</button></td>
+                        <td id="strengthInvested">0</td>
+                        <td><button class="plus" data-stat="strength">+</button></td>
+                    </tr>
+
+                    <tr data-stat="agility">
+                        <td>Agility</td>
+                        <td id="agilityValue">8</td>
+                        <td id="agilityMod">-1</td>
+                        <td><button class="minus" data-stat="agility">−</button></td>
+                        <td id="agilityInvested">0</td>
+                        <td><button class="plus" data-stat="agility">+</button></td>
+                    </tr>
+
+                    <tr data-stat="constitution">
+                        <td>Constitution</td>
+                        <td id="constitutionValue">8</td>
+                        <td id="constitutionMod">-1</td>
+                        <td><button class="minus" data-stat="constitution">−</button></td>
+                        <td id="constitutionInvested">0</td>
+                        <td><button class="plus" data-stat="constitution">+</button></td>
+                    </tr>
+
+                    <tr data-stat="charisma">
+                        <td>Charisma</td>
+                        <td id="charismaValue">8</td>
+                        <td id="charismaMod">-1</td>
+                        <td><button class="minus" data-stat="charisma">−</button></td>
+                        <td id="charismaInvested">0</td>
+                        <td><button class="plus" data-stat="charisma">+</button></td>
+                    </tr>
+
+                    <tr data-stat="mind">
+                        <td>Mind</td>
+                        <td id="mindValue">8</td>
+                        <td id="mindMod">-1</td>
+                        <td><button class="minus" data-stat="mind">−</button></td>
+                        <td id="mindInvested">0</td>
+                        <td><button class="plus" data-stat="mind">+</button></td>
+                    </tr>
+
+                    <tr data-stat="soul">
+                        <td>Soul</td>
+                        <td id="soulValue">8</td>
+                        <td id="soulMod">-1</td>
+                        <td><button class="minus" data-stat="soul">−</button></td>
+                        <td id="soulInvested">0</td>
+                        <td><button class="plus" data-stat="soul">+</button></td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="racePanel">
+
+            <h2>Character</h2>
+
+            <label for="raceSelect">Race</label>
+            <select id="raceSelect"></select>
+
+            <select id="genderSelect">
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+</select>
+
+            <hr>
+
+            <h3>Description</h3>
+
+            <p id="raceDescription">
+                Select a race.
+            </p>
+
+            <h3>Racial Bonuses</h3>
+
+            <ul id="raceBonuses"></ul>
+
+            <h3>Starting Magic</h3>
+
+            <ul id="raceMagic"></ul>
+
+            <h3>Starting Abilities</h3>
+
+            <ul id="raceAbilities"></ul>
+
+        </div>
+
+    </div>
+
+</div>
+<div id="skills" class="tab">
+
+    <h2>Skills</h2>
+
+    <p>
+        Starting Free Proficiencies:
+        <span id="freeProficiencies">2</span>
+    </p>
+
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Skill</th>
+                <th>Passive</th>
+                <th>Active</th>
+                <th>Proficiency</th>
+                <th>Expertise</th>
+            </tr>
+        </thead>
+
+        <tbody id="skillsTable">
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<script src="js/rules.js"></script>
+<script src="js/races.js"></script>
+<script src="js/skills.js"></script>
+<script src="js/characterData.js"></script>
+<script src="js/character.js"></script>
+
+
+</body>
+</html>

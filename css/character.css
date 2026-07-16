@@ -1,0 +1,107 @@
+body{
+    font-family: Arial, sans-serif;
+    margin:20px;
+}
+
+#characterHeader{
+    border:2px solid black;
+    padding:15px;
+    margin-bottom:15px;
+}
+
+.headerRow{
+    display:flex;
+    flex-wrap:wrap;
+    gap:30px;
+    margin-bottom:10px;
+}
+
+#tabs{
+    margin-bottom:10px;
+}
+
+.tabButton{
+    padding:10px 20px;
+    cursor:pointer;
+}
+
+.tabButton.active{
+    background:#444;
+    color:white;
+}
+.inputbar{
+    width:60px;
+    text-align:center;
+}
+.tab{
+    display:none;
+    border:1px solid gray;
+    padding:20px;
+}
+
+.tab.active{
+    display:block;
+}
+.statsContainer{
+    display:flex;
+    gap:40px;
+    align-items:flex-start;
+}
+
+.statsPanel{
+    flex:1;
+}
+
+.racePanel{
+    width:320px;
+    border-left:2px solid #888;
+    padding-left:25px;
+}
+
+.pointsAvailable{
+    margin-bottom:20px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.statRow{
+    display:grid;
+    grid-template-columns:140px 50px 35px 40px 35px;
+    align-items:center;
+    margin-bottom:12px;
+    gap:10px;
+}
+
+.statName{
+    font-weight:bold;
+}
+
+.statValue{
+    text-align:center;
+    font-size:18px;
+}
+
+.invested{
+    text-align:center;
+}
+
+.plus,
+.minus{
+    width:30px;
+    height:30px;
+    cursor:pointer;
+}
+
+.racePanel select{
+    width:100%;
+    margin-bottom:20px;
+    padding:6px;
+}
+
+.racePanel ul{
+    padding-left:20px;
+}
+
+.racePanel h3{
+    margin-top:25px;
+}

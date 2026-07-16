@@ -1,0 +1,236 @@
+{
+    "Human Midgard": {
+        "genders": {
+            "Male": {
+                "bonuses": {
+                    "strength": 1,
+                    "charisma": 1
+                }
+            },
+            "Female": {
+                "bonuses": {
+                    "strength": -1,
+                    "agility": 2,
+                    "charisma": 1
+                }
+            }
+        },
+        "magic": [
+            "Spirit",
+            "None",
+            "Arcane"
+        ],
+        "skills": [
+            "Medicine"
+        ]
+    },
+
+    "Human Spirit World": {
+        "genders": {
+            "Male": {
+                "bonuses": {
+                    "strength": 1,
+                    "charisma": 1
+                }
+            },
+            "Female": {
+                "bonuses": {
+                    "strength": -1,
+                    "agility": 2,
+                    "charisma": 1
+                }
+            }
+        },
+        "magic": [
+            "Spirit Whisper"
+        ],
+        "skills": [
+            "Persuasion"
+        ]
+    },
+
+    "Dragon Ralisne": {
+        "genders": {
+            "Male": {
+                "bonuses": {
+                    "intelligence": 1
+                }
+            },
+            "Female": {
+                "bonuses": {
+                    "intelligence": 1
+                }
+            }
+        },
+        "magic": [
+            "Arcane",
+            "Liveblood"
+        ],
+        "skills": [
+            "Arcana"
+        ]
+    },
+
+    "Beastmen Hartrane": {
+        "genders": {
+            "Male": {
+                "bonuses": {
+                    "strength": 1,
+                    "constitution": 1
+                }
+            },
+            "Female": {
+                "bonuses": {
+                    "liveblood": 1,
+                    "constitution": 1
+                }
+            }
+        },
+        "magic": [
+            "Liveblood"
+        ],
+        "skills": [
+            "Perception"
+        ]
+    },
+
+    "Elf Hartside": {
+        "genders": {
+            "Male": {
+                "bonuses": {
+                    "agility": 1
+                }
+            },
+            "Female": {
+                "bonuses": {
+                    "strength": -1,
+                    "agility": 1
+                }
+            }
+        },
+        "magic": [
+            "Pocket Dimension"
+        ],
+        "skills": [
+            "Survival"
+        ]
+    },
+
+    "Elf Hartside Monster Hunter": {
+        "genders": {
+            "Male": {
+                "bonuses": {
+                    "strength": 1,
+                    "constitution": 1
+                }
+            },
+            "Female": {
+                "bonuses": {
+                    "strength": -1,
+                    "agility": 1,
+                    "constitution": 1
+                }
+            }
+        },
+        "magic": [
+            "Monster Hunter"
+        ]
+    },
+
+    "Elf Sun Elf": {
+        "genders": {
+            "Male": {
+                "bonuses": {
+                    "mind": 1
+                }
+            },
+            "Female": {
+                "bonuses": {
+                    "mind": 1
+                }
+            }
+        },
+        "magic": [
+            "Arcane"
+        ],
+        "skills": [
+            "Investigation"
+        ]
+    },
+
+    "Elf Moon Elf": {
+        "genders": {
+            "Male": {
+                "bonuses": {
+                    "agility": 1
+                }
+            },
+            "Female": {
+                "bonuses": {
+                    "agility": 1
+                }
+            }
+        },
+        "magic": [
+            "Arcane",
+            "None"
+        ],
+        "skills": [
+            "Stealth"
+        ]
+    },
+
+    "Demon DW": {
+        "genders": {
+            "Male": {
+                "bonuses": {
+                    "strength": 1,
+                    "constitution": 1
+                }
+            },
+            "Female": {
+                "bonuses": {
+                    "strength": -1,
+                    "agility": 1,
+                    "constitution": 1
+                }
+            }
+        },
+        "magic": [
+            "Elemental",
+            "Shift"
+        ],
+        "skills": [
+            "Depends on Form"
+        ]
+    },
+
+    "Dragon Dewrane": {
+        "genders": {
+            "Male": {
+                "bonuses": {
+                    "strength": 2,
+                    "agility": 2,
+                    "constitution": 2,
+                    "charisma": 2,
+                    "mind": 2,
+                    "soul": 2
+                }
+            },
+            "Female": {
+                "bonuses": {
+                    "strength": 2,
+                    "agility": 2,
+                    "constitution": 2,
+                    "charisma": 2,
+                    "mind": 2,
+                    "soul": 2
+                }
+            }
+        },
+        "magic": [
+            "Arcane",
+            "Liveblood"
+        ]
+    }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Character Sheet</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <h1>Character Sheet</h1>
+
+    <button onclick="newCharacter()">
+        New Character
+    </button>
+
+    <button onclick="continueCharacter()">
+        Continue Character
+    </button>
+
+    <button onclick="document.getElementById('loadFile').click()">
+        Load Character
+    </button>
+
+    <button onclick="exportCharacter()">
+        Export Character
+    </button>
+
+    <input
+        type="file"
+        id="loadFile"
+        accept=".json"
+        style="display:none">
+
+    <p id="status"></p>
+
+    <script src="js/characterData.js"></script>
+    <script src="js/load.js"></script>
+    <script src="js/rules.js"></script>
+
+</body>
+
+</html>

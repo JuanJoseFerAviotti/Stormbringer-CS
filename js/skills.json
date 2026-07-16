@@ -1,0 +1,73 @@
+{
+    "Athletics":{
+        "stat":"strength"
+    },
+
+    "Acrobatics":{
+        "stat":"agility"
+    },
+
+    "Sleight of Hand":{
+        "stat":"agility"
+    },
+
+    "Stealth":{
+        "stat":"agility"
+    },
+
+    "Arcana":{
+        "stat":"mind"
+    },
+
+    "History":{
+        "stat":"mind"
+    },
+
+    "Investigation":{
+        "stat":"mind"
+    },
+
+    "Nature":{
+        "stat":"mind"
+    },
+
+    "Religion":{
+        "stat":"mind"
+    },
+
+    "Animal Handling":{
+        "stat":"mind"
+    },
+
+    "Insight":{
+        "stat":"mind"
+    },
+
+    "Medicine":{
+        "stat":"mind"
+    },
+
+    "Perception":{
+        "stat":"mind"
+    },
+
+    "Survival":{
+        "stat":"mind"
+    },
+
+    "Deception":{
+        "stat":"charisma"
+    },
+
+    "Intimidation":{
+        "stat":"charisma"
+    },
+
+    "Performance":{
+        "stat":"charisma"
+    },
+
+    "Persuasion":{
+        "stat":"charisma"
+    }
+}

@@ -197,7 +197,7 @@ function addSkillListeners(){
 }
 function updateSkills(){
 
-    const stats=getFinalStats();
+    const stats=Rules.getFinalStats(character);
 
 
     for(const skill in skills){
@@ -207,7 +207,7 @@ function updateSkills(){
 
 
         let bonus =
-        getModifier(stats[stat]);
+        Rules.getModifier(stats[stat]);
 
 
         let prof=0;

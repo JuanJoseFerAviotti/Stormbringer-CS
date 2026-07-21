@@ -1,45 +1,8 @@
-const fileInput = document.getElementById("saveFile");
-const button = document.getElementById("loadButton");
-const status = document.getElementById("status");
+// ==========================
+// New Character
+// ==========================
 
-button.addEventListener("click", () => {
-
-    const file = fileInput.files[0];
-
-    if (!file) {
-        status.textContent = "Please choose a save file.";
-        return;
-    }
-
-    const reader = new FileReader();
-
-    reader.onload = function(e) {
-
-        try {
-
-            // Convert the JSON text into an object
-            const character = JSON.parse(e.target.result);
-
-            // Save it for the next page
-            localStorage.setItem("character", JSON.stringify(character));
-
-            status.textContent = "Character loaded!";
-
-            window.location.href = "character.html";
-
-        }
-        catch(error) {
-            status.textContent = "Invalid save file.";
-            console.error(error);
-        }
-
-    };
-
-    reader.readAsText(file);
-
-});
-
-function newCharacter(){
+function newCharacter() {
 
     const character = createDefaultCharacter();
 
@@ -52,81 +15,98 @@ function newCharacter(){
 
 }
 
-function exportCharacter(){
+// ==========================
+// Continue Character
+// ==========================
 
-    const json =
-    JSON.stringify(character,null,4);
+function continueCharacter() {
 
-    const blob =
-    new Blob([json],{type:"application/json"});
+    const saved = localStorage.getItem("currentCharacter");
 
-    const url =
-    URL.createObjectURL(blob);
+    if (saved) {
 
-    const a =
-    document.createElement("a");
+        window.location.href = "character.html";
 
-    a.href=url;
+    } else {
 
-    a.download=
-    (character.name || "Character") + ".json";
+        alert("No saved character found.");
 
+    }
+
+}
+
+// ==========================
+// Export Character
+// ==========================
+
+function exportCharacter() {
+
+    const data = localStorage.getItem("currentCharacter");
+
+    if (!data) {
+
+        alert("No character to export.");
+        return;
+
+    }
+
+    const character = JSON.parse(data);
+
+    const blob = new Blob(
+        [JSON.stringify(character, null, 4)],
+        { type: "application/json" }
+    );
+
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+
+    a.href = url;
+    a.download = (character.name || "Character") + ".json";
+
+    document.body.appendChild(a);
     a.click();
+    document.body.removeChild(a);
 
     URL.revokeObjectURL(url);
 
 }
-function importCharacter(event){
+
+// ==========================
+// Import Character
+// ==========================
+
+function importCharacter(event) {
 
     const file = event.target.files[0];
 
-    if(!file)
+    if (!file)
         return;
 
     const reader = new FileReader();
 
-    reader.onload = function(){
+    reader.onload = function () {
 
-        localStorage.setItem(
-            "currentCharacter",
-            reader.result
-        );
+        try {
 
-        window.location.href = "character.html";
+            JSON.parse(reader.result);
+
+            localStorage.setItem(
+                "currentCharacter",
+                reader.result
+            );
+
+            window.location.href = "character.html";
+
+        }
+        catch {
+
+            alert("That isn't a valid character file.");
+
+        }
 
     };
 
     reader.readAsText(file);
 
 }
-let character = createDefaultCharacter();
-
-localStorage.setItem("character", JSON.stringify(character));
-
-location.href = "character.html";
-function continueCharacter(){
-
-    if(localStorage.getItem("currentCharacter")){
-
-        window.location.href = "character.html";
-
-    }
-    else{
-
-        alert("No character found.");
-
-    }
-
-}
-reader.onload=function(){
-
-    localStorage.setItem(
-        "currentCharacter",
-        reader.result
-    );
-
-    location.href="character.html";
-
-}
-const data=
-localStorage.getItem("currentCharacter");

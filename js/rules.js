@@ -1,3 +1,15 @@
+/* let character = JSON.parse(
+    localStorage.getItem("currentCharacter")
+); */
+window.races = {};
+
+window.racesLoaded = fetch("js/races.json")
+    .then(response => response.json())
+    .then(data => {
+
+        window.races = data;
+
+    });
 const Rules = {
 
     BASE_STAT: 8,
@@ -13,18 +25,69 @@ const Rules = {
     
 
  getMaxHealth(stats){
-    return Math.floor(stats.constitution / 2 + getModifier(stats.strength)+6);
+    return Math.floor(stats.constitution / 2 + Rules.getModifier(stats.strength)+6);
 },
  getArmor(stats){
-    return 10+getModifier(stats.agility);
+    return 10+Rules.getModifier(stats.agility);
     
-},
-  getMaxStamina(stats){
+}, getFinalStats(character){
 
+    let stats = {};
+
+    // Base 8 + player point buy
+    for(const stat in character.investedStats){
+
+        stats[stat] =
+            8 + character.investedStats[stat];
+
+    }
+
+
+    // Race + Gender bonuses
+    const race = window.races[character.race];
+
+    if(race){
+
+        const gender = race.genders[character.gender];
+
+        if(gender){
+
+            const bonuses = gender.bonuses;
+
+            for(const stat in bonuses){
+
+                if(stats[stat] !== undefined){
+
+                    stats[stat] += bonuses[stat];
+
+                }
+
+            }
+
+        }
+
+    }
+
+
+   console.log(
+    "Race:",
+    character.race,
+    "Gender:",
+    character.gender,
+    "Stats:",
+    stats
+);
+
+return stats;
+
+}, 
+
+  getMaxStamina(stats,level){
+console.log("Level:",level);
     return Math.max(
         1,
-        getModifier(stats.constitution) *
-        (1 + Math.floor((character.level + 1) / 6))
+        this.getModifier(stats.constitution) *
+        (1 + Math.floor((level + 1) / 6))
     );
 
 },

@@ -28,7 +28,7 @@ function createDefaultCharacter() {
 
     character.maxHealth = Rules.getMaxHealth(stats);
     character.maxMana = Rules.getMaxMana(stats);
-    character.maxStamina = Rules.getMaxStamina(stats);
+    character.maxStamina = Rules.getMaxStamina(stats, character.level);
     character.armor = Rules.getArmor(stats);
     character.health = character.maxHealth;
     character.mana = character.maxMana;

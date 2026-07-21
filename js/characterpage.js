@@ -22,7 +22,18 @@ if(!character.skills){
 
 }
 
+function eightrest(){
+    updateHeader();
+return Math.max(
+        1,
+        (this.getModifier(stats.constitution)+2 * level) 
+    );
 
+}
+function twentyfourrest(){
+    updateHeader();
+return 2*eightrest();
+}
 
 
 //document.getElementById("name").textContent = character.name;
@@ -33,17 +44,36 @@ document.getElementById("characterName").addEventListener("input", function () {
     saveCharacter();
 
 });
+const healthInput = document.getElementById("health");
+
+healthInput.addEventListener("input", () => {
+    character.health = Number(healthInput.value);
+    saveCharacter();
+});
+
+const manaInput = document.getElementById("mana");
+
+manaInput.addEventListener("input", () => {
+    character.mana = Number(manaInput.value);
+    saveCharacter();
+});
+const staminaInput = document.getElementById("stamina");
+
+staminaInput.addEventListener("input", () => {
+    character.stamina = Number(staminaInput.value);
+    saveCharacter();
+});
 document.getElementById("level").textContent = character.level;
 
-document.getElementById("health").textContent = character.health;
+document.getElementById("health").value = character.health;
 document.getElementById("maxHealth").textContent = character.maxHealth;
 
-document.getElementById("mana").textContent = character.mana;
+document.getElementById("mana").value = character.mana;
 document.getElementById("maxMana").textContent = character.maxMana;
 
 document.getElementById("manaRegen").textContent = character.manaRegen;
 
-document.getElementById("stamina").textContent = character.stamina;
+document.getElementById("stamina").value = character.stamina;
 document.getElementById("maxStamina").textContent = character.maxStamina;
 
 document.getElementById("armor").textContent = character.armor;
@@ -151,7 +181,7 @@ function updateStats(){
         getAvailablePoints();
 
 
-    const stats = getFinalStats();
+    const stats = Rules.getFinalStats(character);
 
 
     for(const stat in stats){
@@ -200,14 +230,14 @@ localStorage.setItem("character", JSON.stringify(character));
 } */
 function recalculateDerivedStats(){
 
-    const stats = getFinalStats();
+    const stats = Rules.getFinalStats(character);
 
     character.maxHealth = Rules.getMaxHealth(stats);
     character.maxMana = Rules.getMaxMana(stats);
-    character.maxStamina = Rules.getMaxStamina(stats);
+    character.maxStamina = Rules.getMaxStamina(stats, character.level);
 
     character.maxPoints = Rules.getMaxPoints(character.level);
-    character.armor = getArmor(stats);
+    character.armor = Rules.getArmor(stats);
     
 
     updateHeader();
@@ -252,23 +282,23 @@ function getAvailablePoints(){
 }
 function updateHeader(){
 
-    document.getElementById("health").textContent = character.health;
+    document.getElementById("health").value = character.health;
     document.getElementById("maxHealth").textContent = character.maxHealth;
 
-    document.getElementById("mana").textContent = character.mana;
+    document.getElementById("mana").value = character.mana;
     document.getElementById("maxMana").textContent = character.maxMana;
 
-    document.getElementById("stamina").textContent = character.stamina;
-     document.getElementById("armor").textContent = character.armor;
+    document.getElementById("stamina").value = character.stamina;
+    document.getElementById("armor").textContent = character.armor;
     document.getElementById("maxStamina").textContent = character.maxStamina;
     document.getElementById("availablePoints").textContent = getAvailablePoints();
 
-document.getElementById("maxPointsHeader").textContent =
+    document.getElementById("maxPointsHeader").textContent =
     Rules.getMaxPoints(character.level);
 
 }
-const finalStats = getFinalStats(character);
-function getFinalStats(){
+const finalStats = Rules.getFinalStats(character);
+/* function getFinalStats(){
 
     let stats = {};
 
@@ -318,7 +348,7 @@ function getFinalStats(){
 
 return stats;
 
-}
+} */
 
 buttons.forEach(button=>{
 

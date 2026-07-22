@@ -14,6 +14,9 @@ Back to Menu
 </button><button onclick="twentyfourrest()">
 24 hrs rest
 </button>
+<button onclick="reload()">
+¿?
+</button>
 <div id="characterHeader">
 
     <div class="headerRow">
@@ -60,14 +63,13 @@ Back to Menu
     <button class="tabButton" data-tab="skills">Skills</button>
     <button class="tabButton" data-tab="inventory">Inventory</button>
     <button class="tabButton" data-tab="magic">Magic</button>
+    <button class="tabButton" data-tab="talents">Talents</button>
 
 </div>
 
 <div id="tabContent">
 
-    <div class="tab active" id="character">
-        Character information.
-    </div>
+    
 
    
     <div class="tab" id="inventory">
@@ -234,12 +236,34 @@ Back to Menu
     </table>
 
 </div>
+<div id="talents" class="tab">
+
+    <h2>Talents</h2>
+
+    <select id="talentTreeSelect">
+        <option value="strength">Strength</option>
+        <option value="agility">Agility</option>
+        <option value="constitution">Constitution</option>
+        <option value="mind">Mind</option>
+        <option value="charisma">Charisma</option>
+        <option value="liveblood">Live Blood</option>
+    </select>
+
+<div id="talentArea">
+
+    <svg id="talentLines"></svg>
+
+    <div id="talentContainer"></div>
+
+</div>
 
 <script src="js/rules.js"></script>
 <script src="js/races.js"></script>
 <script src="js/skills.js"></script>
 <script src="js/characterData.js"></script>
 <script src="js/characterpage.js"></script>
+<script src="js/talents.js"></script>
+
 
 
 </body>

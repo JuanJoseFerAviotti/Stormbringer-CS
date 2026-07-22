@@ -1,0 +1,1037 @@
+{
+  "trees": [
+    {
+      "id": "strength",
+      "name": "Strength",
+      "requiredStat": "strength",
+      "minimumStat": 14,
+      "talents": [
+
+        {
+          "id":"fighting_style",
+          "name":"Fighting Style",
+          "requires":[],
+          "maxRank":1
+        },
+        {
+          "id":"improved_critical",
+          "name":"Improved Critical",
+          "requires":["fighting_style"],
+          "maxRank":1
+        },
+        {
+          "id":"remarkable_athlete",
+          "name":"Remarkable Athlete",
+          "requires":["improved_critical"],
+          "maxRank":1
+        },
+        {
+          "id":"superior_critical",
+          "name":"Superior Critical",
+          "requires":["remarkable_athlete"],
+          "maxRank":1
+        },
+
+        {
+          "id":"combat_superiority",
+          "name":"Combat Superiority",
+          "requires":[],
+          "maxRank":1
+        },
+        {
+          "id":"improved_combat_superiority",
+          "name":"Improved Combat Superiority",
+          "requires":["combat_superiority"],
+          "maxRank":1
+        },
+
+        {
+          "id":"reckless_attack",
+          "name":"Reckless Attack",
+          "requires":[],
+          "maxRank":1
+        },
+        {
+          "id":"brutal_critical",
+          "name":"Brutal Critical",
+          "requires":["reckless_attack"],
+          "maxRank":1
+        },
+        {
+          "id":"improved_brutal_critical",
+          "name":"Improved Brutal Critical",
+          "requires":["brutal_critical"],
+          "maxRank":1
+        },
+        {
+          "id":"master_brutal_critical",
+          "name":"Master Brutal Critical",
+          "requires":["improved_brutal_critical"],
+          "maxRank":1
+        },
+
+        {
+          "id":"stunning_strike",
+          "name":"Stuning Strike",
+          "requires":["reckless_attack"],
+          "maxRank":1
+        },
+        {
+          "id":"heavy_attack",
+          "name":"Heavy Attack",
+          "requires":["stunning_strike"],
+          "maxRank":1
+        },
+        {
+          "id":"heavy_attack_damage",
+          "name":"Heavy Attack Extra Damage",
+          "requires":["heavy_attack"],
+          "maxRank":8
+        },
+
+        {
+          "id":"born_to_the_saddle",
+          "name":"Born to the Saddle",
+          "requires":[],
+          "maxRank":1
+        },
+        {
+          "id":"unwavering_mark",
+          "name":"Unwavering Mark",
+          "requires":["born_to_the_saddle"],
+          "maxRank":1
+        },
+        {
+          "id":"warding_maneuver",
+          "name":"Warding Maneuver",
+          "requires":["unwavering_mark"],
+          "maxRank":1
+        },
+        {
+          "id":"hold_the_line",
+          "name":"Hold the Line",
+          "requires":["warding_maneuver"],
+          "maxRank":1
+        },
+        {
+          "id":"ferocious_charger",
+          "name":"Ferocious Charger",
+          "requires":["hold_the_line"],
+          "maxRank":1
+        },
+        {
+          "id":"vigilant_defender",
+          "name":"Vigilant Defender",
+          "requires":["ferocious_charger"],
+          "maxRank":2
+        },
+
+        {
+          "id":"fighting_spirit",
+          "name":"Fighting Spirit",
+          "requires":[],
+          "maxRank":1
+        },
+        {
+          "id":"tireless_spirit",
+          "name":"Tireless Spirit",
+          "requires":["fighting_spirit"],
+          "maxRank":1
+        },
+        {
+          "id":"rapid_strike",
+          "name":"Rapid Strike",
+          "requires":["tireless_spirit"],
+          "maxRank":2
+        },
+        {
+          "id":"strength_before_death",
+          "name":"Strength Before Death",
+          "requires":["rapid_strike"],
+          "maxRank":2
+        },
+
+        {
+          "id":"athlete","name":"Athlete","requires":[],"maxRank":1
+        },
+        {
+          "id":"charger","name":"Charger","requires":[],"maxRank":1
+        },
+        {
+          "id":"crossbow_expert","name":"Crossbow Expert","requires":[],"maxRank":1
+        },
+        {
+          "id":"crusher","name":"Crusher","requires":[],"maxRank":1
+        },
+        {
+          "id":"grappler","name":"Grappler","requires":[],"maxRank":1
+        },
+        {
+          "id":"great_weapon_master","name":"Great Weapon Master","requires":[],"maxRank":1
+        },
+        {
+          "id":"heavily_armored","name":"Heavily Armored","requires":[],"maxRank":1
+        },
+        {
+          "id":"heavy_armor_master","name":"Heavy Armor Master","requires":[],"maxRank":1
+        },
+        {
+          "id":"lightly_armored","name":"Lightly Armored","requires":[],"maxRank":1
+        },
+        {
+          "id":"martial_adept","name":"Martial Adept","requires":[],"maxRank":1
+        },
+        {
+          "id":"medium_armor_master","name":"Medium Armor Master","requires":[],"maxRank":1
+        },
+        {
+          "id":"moderately_armored","name":"Moderately Armored","requires":[],"maxRank":1
+        },
+        {
+          "id":"mounted_combatant","name":"Mounted Combatant","requires":[],"maxRank":1
+        },
+        {
+          "id":"polearm_master","name":"Polearm Master","requires":[],"maxRank":1
+        },
+        {
+          "id":"savage_attacker","name":"Savage Attacker","requires":[],"maxRank":1
+        },
+        {
+          "id":"shield_master","name":"Shield Master","requires":[],"maxRank":1
+        },
+        {
+          "id":"slasher","name":"Slasher","requires":[],"maxRank":1
+        },
+        {
+          "id":"tavern_brawler","name":"Tavern Brawler","requires":[],"maxRank":1
+        },
+        {
+          "id":"tough","name":"Tough","requires":[],"maxRank":1
+        },
+        {
+          "id":"war_caster","name":"War Caster","requires":[],"maxRank":1
+        },
+        {
+          "id":"weapon_master","name":"Weapon Master","requires":[],"maxRank":1
+        }
+      ]
+    },
+
+    {
+      "id":"agility",
+      "name":"Agility",
+      "requiredStat":"agility",
+      "minimumStat":14,
+      "talents":[
+
+        {
+          "id":"sneak_attack",
+          "name":"Sneak Attack",
+          "requires":[],
+          "maxRank":5
+        },
+        {
+          "id":"steady_aim",
+          "name":"Steady Aim",
+          "requires":["sneak_attack"],
+          "maxRank":1
+        },
+        {
+          "id":"uncanny_dodge",
+          "name":"Uncanny Dodge",
+          "requires":["steady_aim"],
+          "maxRank":1
+        },
+        {
+          "id":"evasion",
+          "name":"Evasion",
+          "requires":["uncanny_dodge"],
+          "maxRank":1
+        },
+        {
+          "id":"elusive",
+          "name":"Elusive",
+          "requires":["evasion"],
+          "maxRank":1
+        },
+
+        {
+          "id":"cunning_action",
+          "name":"Cunning Action",
+          "requires":[],
+          "maxRank":1
+        },
+        {
+          "id":"action_surge",
+          "name":"Action Surge",
+          "requires":["cunning_action"],
+          "maxRank":1
+        },
+        {
+          "id":"flurry_of_blows",
+          "name":"Flurry of Blows",
+          "requires":["action_surge"],
+          "maxRank":1
+        },
+        {
+          "id":"flurry_extra_attack",
+          "name":"Flurry Extra Attack",
+          "requires":["flurry_of_blows"],
+          "maxRank":6
+        },
+
+        {
+          "id":"assassinate",
+          "name":"Assassinate",
+          "requires":["steady_aim"],
+          "maxRank":1
+        },
+        {
+          "id":"death_strike",
+          "name":"Death Strike",
+          "requires":["assassinate"],
+          "maxRank":2
+        },
+
+        {
+          "id":"fast_hands",
+          "name":"Fast Hands",
+          "requires":[],
+          "maxRank":1
+        },
+        {
+          "id":"second_story_work",
+          "name":"Second-Story Work",
+          "requires":["fast_hands"],
+          "maxRank":1
+        },
+        {
+          "id":"supreme_sneak",
+          "name":"Supreme Sneak",
+          "requires":["second_story_work"],
+          "maxRank":1
+        },
+        {
+          "id":"thiefs_reflexes",
+          "name":"Thief's Reflexes",
+          "requires":["supreme_sneak"],
+          "maxRank":2
+        },
+
+        {
+          "id":"skirmisher",
+          "name":"Skirmisher",
+          "requires":[],
+          "maxRank":1
+        },
+        {
+          "id":"survivalist",
+          "name":"Survivalist",
+          "requires":["skirmisher"],
+          "maxRank":1
+        },
+        {
+          "id":"superior_mobility",
+          "name":"Superior Mobility",
+          "requires":["survivalist"],
+          "maxRank":1
+        },
+        {
+          "id":"ambush_master",
+          "name":"Ambush Master",
+          "requires":["superior_mobility"],
+          "maxRank":1
+        },
+        {
+          "id":"sudden_strike",
+          "name":"Sudden Strike",
+          "requires":["ambush_master"],
+          "maxRank":1
+        },
+
+        {
+          "id":"danger_sense",
+          "name":"Danger Sense",
+          "requires":[],
+          "maxRank":1
+        },
+
+        {
+          "id":"fancy_footwork",
+          "name":"Fancy Footwork",
+          "requires":[],
+          "maxRank":1
+        },
+        {
+          "id":"rakish_audacity",
+          "name":"Rakish Audacity",
+          "requires":["fancy_footwork"],
+          "maxRank":1
+        },
+        {
+          "id":"elegant_maneuver",
+          "name":"Elegant Maneuver",
+          "requires":["rakish_audacity"],
+          "maxRank":1
+        },
+        {
+          "id":"master_duelist",
+          "name":"Master Duelist",
+          "requires":["elegant_maneuver"],
+          "maxRank":1
+        }
+      ]
+    },
+ 
+  
+    {
+      "id": "constitution",
+      "name": "Constitution",
+      "requiredStat": "constitution",
+      "minimumStat": 14,
+      "talents": [
+
+        {
+          "id":"second_wind",
+          "name":"Second Wind",
+          "requires":[],
+          "maxRank":1
+        },
+        {
+          "id":"indomitable",
+          "name":"Indomitable",
+          "requires":["second_wind"],
+          "maxRank":3
+        },
+        {
+          "id":"survivor",
+          "name":"Survivor",
+          "requires":["indomitable"],
+          "maxRank":1
+        },
+
+        {
+          "id":"rage",
+          "name":"Rage",
+          "requires":[],
+          "maxRank":1
+        },
+        {
+          "id":"unarmored_defense",
+          "name":"Unarmored Defense",
+          "requires":["rage"],
+          "maxRank":1
+        },
+        {
+          "id":"relentless_rage",
+          "name":"Relentless Rage",
+          "requires":["unarmored_defense"],
+          "maxRank":1
+        },
+        {
+          "id":"persistent_rage",
+          "name":"Persistent Rage",
+          "requires":["relentless_rage"],
+          "maxRank":1
+        },
+        {
+          "id":"primal_champion",
+          "name":"Primal Champion",
+          "requires":["persistent_rage"],
+          "maxRank":1
+        },
+
+        {
+          "id":"light_armor_shield",
+          "name":"Light Armor & Shield",
+          "requires":[],
+          "maxRank":1
+        },
+        {
+          "id":"medium_heavy_armor",
+          "name":"Medium & Heavy Armor",
+          "requires":["light_armor_shield"],
+          "maxRank":1
+        },
+        {
+          "id":"armor_expert",
+          "name":"Armor Expert",
+          "requires":["medium_heavy_armor"],
+          "maxRank":1
+        },
+        {
+          "id":"baluart",
+          "name":"Baluart",
+          "requires":["armor_expert"],
+          "maxRank":2
+        },
+
+        {
+          "id":"distance_runner",
+          "name":"Distance Runner",
+          "requires":[],
+          "maxRank":1
+        },
+        {
+          "id":"partial_hit",
+          "name":"Partial Hit",
+          "requires":["distance_runner"],
+          "maxRank":1
+        },
+        {
+          "id":"durable",
+          "name":"Durable",
+          "requires":["partial_hit"],
+          "maxRank":1
+        },
+        {
+          "id":"resilient",
+          "name":"Resilient",
+          "requires":["durable"],
+          "maxRank":1
+        },
+        {
+          "id":"tavern_brawler",
+          "name":"Tavern Brawler",
+          "requires":["resilient"],
+          "maxRank":1
+        },
+        {
+          "id":"bastion",
+          "name":"Bastion",
+          "requires":["tavern_brawler"],
+          "maxRank":1
+        }
+
+      ]
+    },
+
+    {
+      "id":"mind",
+      "name":"Mind",
+      "requiredStat":"mind",
+      "minimumStat":14,
+      "talents":[
+
+        {
+          "id":"tame_beast",
+          "name":"Tame Beast",
+          "requires":[],
+          "maxRank":1
+        },
+        {
+          "id":"beastmaster",
+          "name":"Beastmaster",
+          "requires":["tame_beast"],
+          "maxRank":1
+        },
+        {
+          "id":"beast_bond",
+          "name":"Beast Bond",
+          "requires":["beastmaster"],
+          "maxRank":1
+        },
+
+        {
+          "id":"novice_alchemist",
+          "name":"Novice Alchemist",
+          "requires":[],
+          "maxRank":1
+        },
+        {
+          "id":"adept_alchemist",
+          "name":"Adept Alchemist",
+          "requires":["novice_alchemist"],
+          "maxRank":1
+        },
+        {
+          "id":"expert_alchemist",
+          "name":"Expert Alchemist",
+          "requires":["adept_alchemist"],
+          "maxRank":1
+        },
+
+        {
+          "id":"novice_glyphmaker",
+          "name":"Novice Glyphmaker",
+          "requires":[],
+          "maxRank":1
+        },
+        {
+          "id":"adept_glyphmaker",
+          "name":"Adept Glyphmaker",
+          "requires":["novice_glyphmaker"],
+          "maxRank":1
+        },
+        {
+          "id":"expert_glyphmaker",
+          "name":"Expert Glyphmaker",
+          "requires":["adept_glyphmaker"],
+          "maxRank":1
+        },
+
+        {
+          "id":"novice_enchanting",
+          "name":"Novice Enchanting",
+          "requires":[],
+          "maxRank":1
+        },
+        {
+          "id":"adept_enchanting",
+          "name":"Adept Enchanting",
+          "requires":["novice_enchanting"],
+          "maxRank":1
+        },
+        {
+          "id":"master_enchanting",
+          "name":"Master Enchanting",
+          "requires":["adept_enchanting"],
+          "maxRank":1
+        },
+
+        {
+          "id":"arcane_training",
+          "name":"Arcane Training",
+          "requires":[],
+          "maxRank":1
+        },
+        {
+          "id":"advanced_casting",
+          "name":"Advanced Casting",
+          "requires":["arcane_training"],
+          "maxRank":1
+        },
+        {
+          "id":"expert_casting",
+          "name":"Expert Casting",
+          "requires":["advanced_casting"],
+          "maxRank":1
+        },
+
+        {
+          "id":"bad_at_nothing",
+          "name":"Bad at Nothing",
+          "requires":[],
+          "maxRank":1
+        },
+        {
+          "id":"jack_of_all_trades",
+          "name":"Jack of All Trades",
+          "requires":["bad_at_nothing"],
+          "maxRank":1
+        },
+        {
+          "id":"expertise",
+          "name":"Expertise",
+          "requires":["jack_of_all_trades"],
+          "maxRank":1
+        },
+
+        {
+          "id":"mind_fighting_style",
+          "name":"Fighting Style",
+          "requires":[],
+          "maxRank":1
+        },
+        {
+          "id":"weapon_expertise",
+          "name":"Weapon Expertise",
+          "requires":["mind_fighting_style"],
+          "maxRank":1
+        },
+
+        {
+          "id":"spell_shield",
+          "name":"Spell Shield",
+          "requires":[],
+          "maxRank":1
+        },
+        {
+          "id":"spell_sword",
+          "name":"Spell Sword",
+          "requires":["spell_shield"],
+          "maxRank":1
+        },
+
+        {
+          "id":"elemental_adept","name":"Elemental Adept","requires":[],"maxRank":1
+        },
+        {
+          "id":"healer","name":"Healer","requires":[],"maxRank":1
+        },
+        {
+          "id":"keen_mind","name":"Keen Mind","requires":[],"maxRank":1
+        },
+        {
+          "id":"linguist","name":"Linguist","requires":[],"maxRank":1
+        },
+        {
+          "id":"observant","name":"Observant","requires":[],"maxRank":1
+        },
+        {
+          "id":"poisoner","name":"Poisoner","requires":[],"maxRank":1
+        },
+        {
+          "id":"skill_expert","name":"Skill Expert","requires":[],"maxRank":1
+        },
+        {
+          "id":"skilled","name":"Skilled","requires":[],"maxRank":1
+        },
+        {
+          "id":"spell_sniper","name":"Spell Sniper","requires":[],"maxRank":1
+        },
+        {
+          "id":"weapon_master","name":"Weapon Master","requires":[],"maxRank":1
+        },
+        {
+          "id":"willpower","name":"Willpower","requires":[],"maxRank":1
+        },
+        {
+          "id":"know_your_enemy","name":"Know Your Enemy","requires":[],"maxRank":1
+        },
+        {
+          "id":"training_of_soul","name":"Training of Soul","requires":[],"maxRank":1
+        },
+        {
+          "id":"dual_spells","name":"Dual Spells","requires":[],"maxRank":1
+        },
+        {
+          "id":"war_caster","name":"War Caster","requires":[],"maxRank":1
+        },
+        {
+          "id":"chef","name":"Chef","requires":[],"maxRank":1
+        },
+        {
+          "id":"alert","name":"Alert","requires":[],"maxRank":1
+        },
+        {
+          "id":"spirit_whisper_practice","name":"Spirit Whisper Practice","requires":[],"maxRank":1
+        },
+        {
+          "id":"arcane_practice","name":"Arcane Practice","requires":[],"maxRank":1
+        },
+        {
+          "id":"beast_training","name":"Beast Training","requires":[],"maxRank":1
+        }
+
+      ]
+    },
+    {
+      "id": "charisma",
+      "name": "Charisma",
+      "requiredStat": "charisma",
+      "minimumStat": 14,
+      "talents": [
+
+        {
+          "id":"actor",
+          "name":"Actor",
+          "requires":[],
+          "maxRank":1
+        },
+        {
+          "id":"inspiring_leader",
+          "name":"Inspiring Leader",
+          "requires":[],
+          "maxRank":1
+        },
+
+        {
+          "id":"panache",
+          "name":"Panache",
+          "requires":[],
+          "maxRank":1
+        },
+        {
+          "id":"master_of_intrigue",
+          "name":"Master of Intrigue",
+          "requires":["panache"],
+          "maxRank":1
+        }
+
+      ]
+    },
+
+    {
+      "id":"creation",
+      "name":"Creation",
+      "requiredStat":null,
+      "minimumStat":0,
+      "creationOnly":true,
+
+      "talents":[
+
+        {
+          "id":"light_armor_shield",
+          "name":"Light Armor & Shield",
+          "requires":[],
+          "maxRank":1,
+          "equipment":"Leather Armor or Shield"
+        },
+
+        {
+          "id":"medium_heavy_armor",
+          "name":"Medium & Heavy Armor",
+          "requires":["light_armor_shield"],
+          "maxRank":1,
+          "equipment":"Chain Mail"
+        },
+
+        {
+          "id":"simple_weapons",
+          "name":"Simple Weapons",
+          "requires":[],
+          "maxRank":1,
+          "equipment":"Two Simple Weapons (max 100 gp)"
+        },
+
+        {
+          "id":"martial_weapons",
+          "name":"Martial Weapons",
+          "requires":["simple_weapons"],
+          "maxRank":1,
+          "equipment":"Replace Simple Weapons with Martial Weapons (max 100 gp)"
+        },
+
+        {
+          "id":"magic_spark_arcane",
+          "name":"Magic Spark: Arcane",
+          "requires":[],
+          "maxRank":2
+        },
+
+        {
+          "id":"riding",
+          "name":"Riding",
+          "requires":[],
+          "maxRank":1,
+          "equipment":"Riding Animal"
+        },
+
+        {
+          "id":"sailor",
+          "name":"Sailor",
+          "requires":[],
+          "maxRank":1,
+          "equipment":"Small/Medium Vessel"
+        },
+
+        {
+          "id":"tools_proficiency",
+          "name":"Tools Proficiency",
+          "requires":[],
+          "maxRank":1,
+          "equipment":"Tools + Materials"
+        },
+
+        {
+          "id":"creation_skilled",
+          "name":"Skilled",
+          "requires":[],
+          "maxRank":1,
+          "effect":"Choose 3 skills to become proficient, or upgrade one proficiency to Expertise and gain one additional proficiency."
+        },
+
+        {
+          "id":"other",
+          "name":"Other",
+          "requires":[],
+          "maxRank":1,
+          "effect":"Gain an additional 60 gp (weapons may total up to 160 gp)."
+        }
+
+      ]
+    },
+    {
+  "id": "liveblood",
+  "name": "Live Blood",
+  "requiredStat": null,
+  "minimumStat": 0,
+  "talents": [
+
+    {
+      "id": "shapeshift",
+      "name": "Shapeshift",
+      "requires": [],
+      "maxRank": 4
+    },
+    {
+      "id": "shapeshift_air",
+      "name": "SS: Air",
+      "requires": ["shapeshift"],
+      "maxRank": 1
+    },
+    {
+      "id": "shapeshift_earth",
+      "name": "SS: Earth",
+      "requires": ["shapeshift_air"],
+      "maxRank": 1
+    },
+    {
+      "id": "shapeshift_water",
+      "name": "SS: Water",
+      "requires": ["shapeshift_earth"],
+      "maxRank": 1
+    },
+    {
+      "id": "shapeshift_beast",
+      "name": "SS: Beast",
+      "requires": ["shapeshift_water"],
+      "maxRank": 1
+    },
+    {
+      "id": "true_form",
+      "name": "SS: True Form",
+      "requires": ["shapeshift_beast"],
+      "maxRank": 1
+    },
+    {
+      "id": "consume_form",
+      "name": "Consume Form",
+      "requires": ["true_form"],
+      "maxRank": 1
+    },
+
+    {
+      "id": "regeneration",
+      "name": "Regeneration",
+      "requires": [],
+      "maxRank": 1
+    },
+    {
+      "id": "reinforce_skin",
+      "name": "Reinforce Skin",
+      "requires": ["regeneration"],
+      "maxRank": 1
+    },
+    {
+      "id": "defense_burst",
+      "name": "Defense Burst",
+      "requires": ["reinforce_skin"],
+      "maxRank": 1
+    },
+    {
+      "id": "kinetic_absorption",
+      "name": "Kinetic Absorption",
+      "requires": ["defense_burst"],
+      "maxRank": 1
+    },
+    {
+  "id": "electric_absorption",
+  "name": "Electric Absorption",
+  "requiresAny": [
+    "shapeshift_earth",
+    "reinforce_skin"
+  ]
+},
+
+    {
+      "id": "bestial_agility",
+      "name": "Bestial Agility",
+      "requires": [],
+      "maxRank": 1
+    },
+    {
+      "id": "agility_burst",
+      "name": "Agility Burst",
+      "requires": ["bestial_agility"],
+      "maxRank": 1
+    },
+
+    {
+      "id": "bestial_strength",
+      "name": "Bestial Strength",
+      "requires": [],
+      "maxRank": 1
+    },
+    {
+      "id": "strength_burst",
+      "name": "Strength Burst",
+      "requires": ["bestial_strength"],
+      "maxRank": 1
+    },
+
+    {
+      "id": "mental_speed",
+      "name": "Mental Speed",
+      "requires": [],
+      "maxRank": 1
+    },
+    {
+      "id": "mental_burst",
+      "name": "Mental Burst",
+      "requires": ["mental_speed"],
+      "maxRank": 1
+    },
+    {
+      "id": "electric_shock",
+      "name": "Electric Shock",
+      "requires": ["mental_burst"],
+      "maxRank": 1
+    },
+
+    {
+      "id": "reflex",
+      "name": "Reflex",
+      "requires": ["mental_speed"],
+      "maxRank": 1
+    },
+
+    {
+      "id": "natural_weapons",
+      "name": "Natural Weapons",
+      "requires": [],
+      "maxRank": 1
+    },
+    {
+      "id": "nw_overcharge",
+      "name": "NW Overcharge",
+      "requires": ["natural_weapons"],
+      "maxRank": 1
+    },
+
+    {
+      "id": "venom",
+      "name": "Venom",
+      "requires": ["natural_weapons"],
+      "maxRank": 1
+    },
+
+    {
+      "id": "antibody_overcharge",
+      "name": "Antibody Overcharge",
+      "requires": [],
+      "maxRank": 1
+    },
+    {
+      "id": "venom_master",
+      "name": "Venom",
+      "requires": ["antibody_overcharge"],
+      "maxRank": 1
+    },
+
+    {
+      "id": "force_reflection",
+      "name": "Force Reflection",
+      "requires": [],
+      "maxRank": 1
+    },
+
+    {
+      "id": "liveblood_practice",
+      "name": "LiveBlood Practice",
+      "requires": [],
+      "maxRank": 1
+    },
+    {
+      "id": "liveblood_level",
+      "name": "LiveBlood Level",
+      "requires": ["liveblood_practice"],
+      "maxRank": 1
+    }
+
+  ]
+    }
+  ]
+}
+  

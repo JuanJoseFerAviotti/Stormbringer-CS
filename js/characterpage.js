@@ -22,19 +22,33 @@ if(!character.skills){
 
 }
 
-function eightrest(){
-    updateHeader();
-return Math.max(
-        1,
-        (this.getModifier(stats.constitution)+2 * level) 
-    );
+function eightrest() {
+    const stats = Rules.getFinalStats(character);
 
+    character.health += Rules.getModifier(stats.constitution) + (2 * character.level);
+    character.mana = character.maxMana;
+    // Don't heal above max HP
+    if (character.health > character.maxHealth) {
+        character.health = character.maxHealth;
+    }
+   
+    if (character.mana > character.maxMana) {
+        character.mana = character.maxMana;
+    }
+
+    saveCharacter();
+    updateHeader();
 }
+
 function twentyfourrest(){
+    eightrest();
+    eightrest();
     updateHeader();
-return 2*eightrest();
 }
-
+function reload(){
+    
+   loadCharacterToUI();
+}
 
 //document.getElementById("name").textContent = character.name;
 document.getElementById("characterName").addEventListener("input", function () {
@@ -63,6 +77,7 @@ staminaInput.addEventListener("input", () => {
     character.stamina = Number(staminaInput.value);
     saveCharacter();
 });
+document.getElementById("characterName").value = character.name;
 document.getElementById("level").textContent = character.level;
 
 document.getElementById("health").value = character.health;
@@ -96,7 +111,6 @@ document.getElementById("characterLevel").addEventListener("change", function(){
 
 });
 
-console.log("ADDING STAT BUTTON EVENTS");
 const buttons = document.querySelectorAll(".tabButton");
 
 document.querySelectorAll(".plus").forEach(button=>{
@@ -366,6 +380,15 @@ buttons.forEach(button=>{
             .getElementById(button.dataset.tab)
             .classList.add("active");
 
+            if(button.dataset.tab === "talents"){
+
+                setTimeout(()=>{
+
+                loadTalentTree("strength");
+
+            },50);
+
+        }
     });
 
     
@@ -375,9 +398,7 @@ function loadCharacterToUI(){
 document.getElementById("characterLevel").value = character.level;
     
     updateStats();
-
     updateSkills();
-
     updateRaceInfo();
     updateHeader();
 

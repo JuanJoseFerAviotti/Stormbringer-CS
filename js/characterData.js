@@ -1,7 +1,7 @@
 function createDefaultCharacter() {
 
     const character = {
-        name: "test",
+        name: "Test",
         level: 1,
 
         race: "Human Midgard",

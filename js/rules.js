@@ -83,7 +83,7 @@ return stats;
 }, 
 
   getMaxStamina(stats,level){
-console.log("Level:",level);
+
     return Math.max(
         1,
         this.getModifier(stats.constitution) *
@@ -95,40 +95,32 @@ console.log("Level:",level);
  getMaxMana(stats){
     return stats.soul;
 },
-
-    getStatCost(score){
+getStatCost(score){
 
     let cost = 0;
-
 
     // Going below base gives points back
     if(score < this.BASE_STAT){
 
         for(let i = this.BASE_STAT; i > score; i--){
-
-            cost -= 2;
-
+            cost -= 1;
         }
 
         return cost;
     }
 
-
     // Buying above base
     while(score > this.BASE_STAT){
 
-        if(score <= 15)
-            cost += 2;
+        if(score <= 13)
+            cost += 1;
         else
-            cost += score - 12;
+            cost += 2;
 
         score--;
-
     }
 
-
     return cost;
-
 }
 
 };

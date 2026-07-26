@@ -1,5 +1,5 @@
 let talentsData;
-
+let currentTalentTree = "creation";
 
 document.addEventListener("DOMContentLoaded",()=>{
 
@@ -8,9 +8,17 @@ fetch("js/talents.json")
 .then(response=>response.json())
 .then(data=>{
 
-    talentsData=data;
+    talentsData = data;
 
-    
+    updateTalentTreeSelector();
+
+    if(document.getElementById("talentTreeSelect").options.length > 0){
+
+        loadTalentTree(
+            document.getElementById("talentTreeSelect").value
+        );
+
+    }
 
 });
 
@@ -19,7 +27,10 @@ document
 .getElementById("talentTreeSelect")
 .addEventListener("change",function(){
 
-    loadTalentTree(this.value);
+    currentTalentTree = this.value;
+
+    loadTalentTree(currentTalentTree);
+
 
 });
 
@@ -70,8 +81,25 @@ normalTalents.forEach(talent=>{
         div.className="talent";
         div.id = talent.id;
 
-        div.textContent=talent.name;
+        div.innerHTML = `
+    <div>${talent.name}</div>
+    <small>${getTalentRank(talent.id)} / ${talent.maxRank}</small>
+`;
+div.addEventListener("click", () => {
 
+    buyTalent(talent);
+
+});
+
+div.addEventListener("contextmenu", e => {
+
+    e.preventDefault();
+
+    unlearnTalent(talent);
+
+});
+if(hasTalent(talent.id))
+    div.classList.add("owned");
 
 div.style.left =
 positions[talent.id].x + treeOffsetX + "px";
@@ -95,8 +123,25 @@ standaloneTalents.forEach((talent,index)=>{
     div.className="talent";
     div.id=talent.id;
 
-    div.textContent=talent.name;
+    div.innerHTML = `
+    <div>${talent.name}</div>
+    <small>${getTalentRank(talent.id)} / ${talent.maxRank}</small>
+`;
+div.addEventListener("click", () => {
 
+    buyTalent(talent);
+
+});
+
+div.addEventListener("contextmenu", e => {
+
+    e.preventDefault();
+
+    unlearnTalent(talent);
+
+});
+if(hasTalent(talent.id))
+    div.classList.add("owned");
 
     const columns = Math.floor(
     container.clientWidth / 150
@@ -398,5 +443,164 @@ function resizeTalentContainer(){
 
     container.style.height =
     maxY + 100 + "px";
+
+}
+function hasTalent(id){
+
+    return character.talents[id] !== undefined;
+
+}
+function meetsRequirements(talent){
+
+    if(!talent.requires || talent.requires.length === 0)
+        return true;
+
+    return talent.requires.every(id => {
+
+        let parent =
+            getCurrentTree().talents.find(t => t.id === id);
+
+        return getTalentRank(id) >= parent.maxRank;
+
+    });
+
+}
+function buyTalent(talent){
+
+    let rank = getTalentRank(talent.id);
+
+    if(rank >= talent.maxRank)
+        return;
+
+    if(!meetsRequirements(talent))
+        return;
+
+    if(getAvailablePoints() < 4)
+        return;
+
+    character.talents[talent.id] = rank + 1;
+
+    saveCharacter();
+
+    loadTalentTree(currentTalentTree);
+
+    updateStats();
+
+}
+function unlearnTalent(talent){
+
+    let rank = getTalentRank(talent.id);
+
+    if(rank <= 0)
+        return;
+
+    if(hasDependentTalents(talent.id))
+        return;
+
+    character.talents[talent.id] = rank - 1;
+
+    if(character.talents[talent.id] === 0)
+        delete character.talents[talent.id];
+
+    saveCharacter();
+
+    loadTalentTree(currentTalentTree);
+    updateStats();
+    
+
+}
+function getTalentRank(id){
+
+    return character.talents[id] || 0;
+
+}
+function getSpentPoints(){
+
+    let spent = 0;
+
+    for(const stat in character.investedStats){
+
+        spent += Rules.getStatCost(
+            getStatScore(stat)
+        );
+
+    }
+
+    for(const talentId in character.talents){
+
+        spent += character.talents[talentId] * 4;
+
+    }
+    
+
+    return spent;
+
+}
+function getMaxTalentPoints(){
+
+    return character.level;
+
+}
+
+function getCurrentTree(){
+
+    const treeName =
+        document.getElementById("talentTreeSelect").value;
+
+    return talentsData.trees.find(
+        t => t.id === treeName
+    );
+
+}
+function hasDependentTalents(talentId){
+
+    for(const tree of talentsData.trees){
+
+        for(const talent of tree.talents){
+
+            if(
+                talent.requires &&
+                talent.requires.includes(talentId) &&
+                getTalentRank(talent.id) > 0
+            ){
+                return true;
+            }
+
+        }
+
+    }
+
+    return false;
+
+}
+function updateTalentTreeSelector(){
+
+    const select = document.getElementById("talentTreeSelect");
+
+    const selected = currentTalentTree;
+
+    select.innerHTML = "";
+
+    const stats = Rules.getFinalStats(character);
+
+    talentsData.trees.forEach(tree => {
+
+        if(stats[tree.requiredStat] < tree.minimumStat)
+            return;
+
+        const option = document.createElement("option");
+
+        option.value = tree.id;
+        option.textContent = tree.name;
+
+        select.appendChild(option);
+
+    });
+
+    if([...select.options].some(o => o.value === selected)){
+        select.value = selected;
+    }else{
+        currentTalentTree = select.value;
+    }
 
 }

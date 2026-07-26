@@ -82,7 +82,20 @@ body{
     
 
 }
+.talent{
 
+    background:#444;
+    color:white;
+
+}
+
+.talent.owned{
+
+    background:gold;
+    color:black;
+    border-color:orange;
+
+}
 
 #talentContainer{
 
@@ -111,6 +124,7 @@ border-radius: 50%;
 
     border:2px solid black;
     background:white;
+    color: black;
 
 }
 

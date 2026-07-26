@@ -21,7 +21,8 @@ function createDefaultCharacter() {
             soul: 0
         },
 
-        skills: {}
+        skills: {},
+        talents: {}
     };
 
     const stats = Rules.getFinalStats(character);

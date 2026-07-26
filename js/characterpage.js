@@ -220,6 +220,7 @@ function updateStats(){
 
 
     recalculateDerivedStats();
+    updateTalentTreeSelector();
 
 }
 
@@ -402,5 +403,18 @@ document.getElementById("characterLevel").value = character.level;
     updateRaceInfo();
     updateHeader();
 
+
+}
+function getSpentTalentPoints(){
+
+    let spent = 0;
+
+    for(const id in character.talents){
+
+        spent += character.talents[id];
+
+    }
+
+    return spent;
 
 }

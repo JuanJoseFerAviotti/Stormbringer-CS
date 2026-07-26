@@ -4,7 +4,7 @@
       "id": "strength",
       "name": "Strength",
       "requiredStat": "strength",
-      "minimumStat": 14,
+      "minimumStat": 13,
       "talents": [
 
         {
@@ -221,7 +221,7 @@
       "id":"agility",
       "name":"Agility",
       "requiredStat":"agility",
-      "minimumStat":14,
+      "minimumStat":13,
       "talents":[
 
         {
@@ -388,7 +388,7 @@
       "id": "constitution",
       "name": "Constitution",
       "requiredStat": "constitution",
-      "minimumStat": 14,
+      "minimumStat": 13,
       "talents": [
 
         {
@@ -510,7 +510,7 @@
       "id":"mind",
       "name":"Mind",
       "requiredStat":"mind",
-      "minimumStat":14,
+      "minimumStat":13,
       "talents":[
 
         {
@@ -720,7 +720,7 @@
       "id": "charisma",
       "name": "Charisma",
       "requiredStat": "charisma",
-      "minimumStat": 14,
+      "minimumStat": 13,
       "talents": [
 
         {

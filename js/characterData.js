@@ -28,7 +28,23 @@ function createDefaultCharacter() {
     weapon:null,
     armor:null,
     shield:null
-}
+},arcane: {
+
+    enabled: false,
+
+    primary: {
+        element: "",
+        level: 1
+    },
+
+    secondary: {
+        element: "",
+        level: 1
+    },
+
+    knownSpells: []
+
+},
     };
 
     const stats = Rules.getFinalStats(character);

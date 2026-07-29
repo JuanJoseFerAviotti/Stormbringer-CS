@@ -22,7 +22,13 @@ function createDefaultCharacter() {
         },
 
         skills: {},
-        talents: {}
+        talents: {},
+        inventory: [],
+        equipped:{
+    weapon:null,
+    armor:null,
+    shield:null
+}
     };
 
     const stats = Rules.getFinalStats(character);

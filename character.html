@@ -78,9 +78,49 @@ Back to Menu
     
 
    
-    <div class="tab" id="inventory">
-        Inventory goes here.
+    <div id="inventory" class="tab">
+
+    <h2>Inventory</h2>
+
+    <div>
+        Weight:
+        <span id="currentWeight">0</span>
+        /
+        <span id="maxWeight">0</span>
+        kg
     </div>
+
+
+    <table>
+<div>
+
+<input 
+id="itemSearch"
+list="itemSuggestions"
+placeholder="Search item">
+<datalist id="itemSuggestions"></datalist>
+<button onclick="addSelectedItem()">
+Add
+</button>
+
+</div>
+
+
+
+        <table>
+
+<thead id="inventoryHeader">
+
+</thead>
+
+<tbody id="inventoryTable">
+
+</tbody>
+
+</table>
+
+
+</div>
 
     <div class="tab" id="magic">
         Magic goes here.
@@ -262,10 +302,12 @@ Back to Menu
     <div id="talentContainer"></div>
 
 </div>
+<div id="talentTooltip"></div>
 
 <script src="js/rules.js"></script>
 <script src="js/races.js"></script>
 <script src="js/skills.js"></script>
+<script src="js/inventory.js"></script>
 <script src="js/characterData.js"></script>
 <script src="js/characterpage.js"></script>
 <script src="js/talents.js"></script>

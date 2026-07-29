@@ -21,6 +21,19 @@ if(!character.skills){
     character.skills = {};
 
 }
+if(!character.inventory){
+
+    character.inventory = [];
+
+}if(!character.equipped){
+
+    character.equipped = { 
+    weapon:null,
+    armor:null,
+    shield:null
+};
+
+}
 
 function eightrest() {
     const stats = Rules.getFinalStats(character);
@@ -383,11 +396,9 @@ buttons.forEach(button=>{
 
             if(button.dataset.tab === "talents"){
 
-                setTimeout(()=>{
+               
 
-                loadTalentTree("strength");
-
-            },50);
+            loadTalentTree(currentTalentTree);
 
         }
     });

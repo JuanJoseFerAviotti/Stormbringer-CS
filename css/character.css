@@ -96,7 +96,35 @@ body{
     border-color:orange;
 
 }
+#talentTooltip{
 
+    position:fixed;
+
+    display:none;
+
+    max-width:300px;
+
+    padding:10px;
+
+    background:#222;
+
+    color:white;
+
+    border:1px solid #666;
+
+    border-radius:8px;
+
+    font-size:14px;
+
+    pointer-events:none;
+
+    z-index:9999;
+
+    white-space:normal;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.4);
+
+}
 #talentContainer{
 
     position:relative;
@@ -113,7 +141,7 @@ body{
     min-height:40px;
 
     font-size:12px;
-border-radius: 50%;
+    border-radius: 50%;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -235,4 +263,108 @@ border-radius: 50%;
 
 .racePanel h3{
     margin-top:25px;
+}
+
+/* weight  */
+.carryWeight{
+
+    width:100%;
+    padding:8px 0;
+
+}
+
+.carryBar{
+
+    position:relative;
+
+    width:100%;
+    height:18px;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            to right,
+            #43b047 0%,
+            #43b047 33.33%,
+            #d7c63d 33.33%,
+            #d7c63d 66.66%,
+            #cf4040 66.66%,
+            #cf4040 100%
+        );
+
+}
+
+#carryMarker{
+
+    position:absolute;
+
+    top:-4px;
+
+    width:4px;
+    height:26px;
+
+    background:white;
+
+    left:0%;
+}
+
+.carryLabels{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:5px;
+
+    font-size:12px;
+
+}
+
+.carryCurrent{
+
+    text-align:center;
+
+    margin-top:6px;
+
+    font-weight:bold;
+
+}
+
+/* items */
+#inventoryHeaderRow{
+    font-size: 15px;
+}
+
+.equippedItem{
+
+    border: 3px solid gold;
+
+}
+
+.equippedItem td{
+
+    border-top: 3px solid gold;
+    border-bottom: 3px solid gold;
+
+}
+
+.equippedItem td:first-child{
+
+    border-left: 3px solid gold;
+
+}
+
+.equippedItem td:last-child{
+
+    border-right: 3px solid gold;
+
+}
+.itemIcon{
+
+    width: 32px;
+    height: 32px;
+
+    object-fit: contain;
+
 }

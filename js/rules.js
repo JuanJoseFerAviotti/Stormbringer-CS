@@ -25,11 +25,35 @@ const Rules = {
     
 
  getMaxHealth(stats){
-    return Math.floor(stats.constitution / 2 + Rules.getModifier(stats.strength)+6);
+
+    let hp = Math.floor((stats.constitution / 2) + Rules.getModifier(stats.strength))*character.level + 6;
+
+    if(getTalentRank("tough") > 0){
+        hp += character.level * 2;
+    }
+
+    return hp;
+
 },
  getArmor(stats){
-    return 10+Rules.getModifier(stats.agility);
-    
+
+    let baseArmor = 10;
+
+    if(character.equipped.armor){
+
+        const equippedArmor = items.find(
+            i => i.id === character.equipped.armor
+        );
+
+        if(equippedArmor){
+
+            baseArmor = Number(equippedArmor.armorValue) || 10;
+
+        }
+    }
+
+    return baseArmor + Rules.getModifier(stats.agility);
+
 }, getFinalStats(character){
 
     let stats = {};
@@ -93,7 +117,8 @@ return stats;
 },
  
  getMaxMana(stats){
-    return stats.soul;
+    let Mana = stats.soul*character.level;
+    return Mana;
 },
 getStatCost(score){
 
@@ -121,6 +146,23 @@ getStatCost(score){
     }
 
     return cost;
+},
+getWeightCapacity(strength){
+
+    return strength * 5;
+
+},
+
+getEncumbered(strength){
+
+    return strength * 10;
+
+},
+
+getHeavyEncumbered(strength){
+
+    return strength * 15;
+
 }
 
 };

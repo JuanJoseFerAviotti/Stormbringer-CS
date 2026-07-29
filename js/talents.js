@@ -14,9 +14,7 @@ fetch("js/talents.json")
 
     if(document.getElementById("talentTreeSelect").options.length > 0){
 
-        loadTalentTree(
-            document.getElementById("talentTreeSelect").value
-        );
+        loadTalentTree(currentTalentTree);
 
     }
 
@@ -39,7 +37,11 @@ document
 
 
 function loadTalentTree(treeName){
+currentTalentTree = treeName;
 
+    const select = document.getElementById("talentTreeSelect");
+
+    if(select)select.value = treeName;
 console.log("Talent tab:", document.getElementById("talents"));
     console.log("SVG:", document.getElementById("talentLines"));
 
@@ -80,6 +82,23 @@ normalTalents.forEach(talent=>{
 
         div.className="talent";
         div.id = talent.id;
+        div.addEventListener("mouseenter", e=>{
+
+    showTalentTooltip(e, talent);
+
+});
+
+div.addEventListener("mousemove", e=>{
+
+    moveTalentTooltip(e);
+
+});
+
+div.addEventListener("mouseleave", ()=>{
+
+    hideTalentTooltip();
+
+});
 
         div.innerHTML = `
     <div>${talent.name}</div>
@@ -122,6 +141,23 @@ standaloneTalents.forEach((talent,index)=>{
 
     div.className="talent";
     div.id=talent.id;
+    div.addEventListener("mouseenter", e=>{
+
+    showTalentTooltip(e, talent);
+
+});
+
+div.addEventListener("mousemove", e=>{
+
+    moveTalentTooltip(e);
+
+});
+
+div.addEventListener("mouseleave", ()=>{
+
+    hideTalentTooltip();
+
+});
 
     div.innerHTML = `
     <div>${talent.name}</div>
@@ -602,5 +638,38 @@ function updateTalentTreeSelector(){
     }else{
         currentTalentTree = select.value;
     }
+
+}
+function showTalentTooltip(event, talent){
+
+    const tooltip =
+        document.getElementById("talentTooltip");
+
+    tooltip.textContent =
+        talent.description || "No description.";
+
+    tooltip.style.display = "block";
+
+    moveTalentTooltip(event);
+
+}
+
+function moveTalentTooltip(event){
+
+    const tooltip =
+        document.getElementById("talentTooltip");
+
+    tooltip.style.left =
+        (event.clientX + 15) + "px";
+
+    tooltip.style.top =
+        (event.clientY + 15) + "px";
+
+}
+
+function hideTalentTooltip(){
+
+    document.getElementById("talentTooltip")
+        .style.display = "none";
 
 }

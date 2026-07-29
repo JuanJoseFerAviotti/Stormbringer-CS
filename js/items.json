@@ -1,0 +1,1067 @@
+[
+  
+    {
+      "id": "alchemists_supplies",
+      "name": "Alchemist's Supplies",
+      "type": "tool",
+      "category": "Tools and Crafting",
+      "cost": "50 sp",
+      "weight": 3.6,
+      "description": "Placeholder."
+    },
+    {
+      "id": "brewers_supplies",
+      "name": "Brewer's Supplies",
+      "type": "tool",
+      "category": "Tools and Crafting",
+      "cost": "20 sp",
+      "weight": 4.1,
+      "description": "Placeholder."
+    },
+    {
+      "id": "calligraphers_supplies",
+      "name": "Calligrapher's Supplies",
+      "type": "tool",
+      "category": "Tools and Crafting",
+      "cost": "10 sp",
+      "weight": 2.3,
+      "description": "Placeholder."
+    },
+    {
+      "id": "carpenters_tools",
+      "name": "Carpenter's Tools",
+      "type": "tool",
+      "category": "Tools and Crafting",
+      "cost": "8 sp",
+      "weight": 2.7,
+      "description": "Placeholder."
+    },
+    {
+      "id": "cartographers_tools",
+      "name": "Cartographer's Tools",
+      "type": "tool",
+      "category": "Tools and Crafting",
+      "cost": "15 sp",
+      "weight": 2.7,
+      "description": "Placeholder."
+    },
+    {
+      "id": "cobblers_tools",
+      "name": "Cobbler's Tools",
+      "type": "tool",
+      "category": "Tools and Crafting",
+      "cost": "5 sp",
+      "weight": 2.3,
+      "description": "Placeholder."
+    },
+    {
+      "id": "cooks_utensils",
+      "name": "Cook's Utensils",
+      "type": "tool",
+      "category": "Tools and Crafting",
+      "cost": "1 sp",
+      "weight": 3.6,
+      "description": "Placeholder."
+    },
+    {
+      "id": "glassblowers_tools",
+      "name": "Glassblower's Tools",
+      "type": "tool",
+      "category": "Tools and Crafting",
+      "cost": "30 sp",
+      "weight": 2.3,
+      "description": "Placeholder."
+    },
+    {
+      "id": "jewelers_tools",
+      "name": "Jeweler's Tools",
+      "type": "tool",
+      "category": "Tools and Crafting",
+      "cost": "25 sp",
+      "weight": 0.9,
+      "description": "Placeholder."
+    },
+    {
+      "id": "leatherworkers_tools",
+      "name": "Leatherworker's Tools",
+      "type": "tool",
+      "category": "Tools and Crafting",
+      "cost": "5 sp",
+      "weight": 2.3,
+      "description": "Placeholder."
+    },
+    {
+      "id": "masons_tools",
+      "name": "Mason's Tools",
+      "type": "tool",
+      "category": "Tools and Crafting",
+      "cost": "10 sp",
+      "weight": 3.6,
+      "description": "Placeholder."
+    },
+    {
+      "id": "painters_supplies",
+      "name": "Painter's Supplies",
+      "type": "tool",
+      "category": "Tools and Crafting",
+      "cost": "10 sp",
+      "weight": 2.3,
+      "description": "Placeholder."
+    },
+    {
+      "id": "potters_tools",
+      "name": "Potter's Tools",
+      "type": "tool",
+      "category": "Tools and Crafting",
+      "cost": "10 sp",
+      "weight": 1.4,
+      "description": "Placeholder."
+    },
+    {
+      "id": "smiths_tools",
+      "name": "Smith's Tools",
+      "type": "tool",
+      "category": "Tools and Crafting",
+      "cost": "20 sp",
+      "weight": 3.6,
+      "description": "Placeholder."
+    },
+    {
+      "id": "tinkers_tools",
+      "name": "Tinker's Tools",
+      "type": "tool",
+      "category": "Tools and Crafting",
+      "cost": "50 sp",
+      "weight": 4.5,
+      "description": "Placeholder."
+    },
+    {
+      "id": "weavers_tools",
+      "name": "Weaver's Tools",
+      "type": "tool",
+      "category": "Tools and Crafting",
+      "cost": "1 sp",
+      "weight": 2.3,
+      "description": "Placeholder."
+    },
+    {
+      "id": "woodcarvers_tools",
+      "name": "Woodcarver's Tools",
+      "type": "tool",
+      "category": "Tools and Crafting",
+      "cost": "1 sp",
+      "weight": 2.3,
+      "description": "Placeholder."
+    },
+  
+
+ 
+    {
+      "id": "dice_set",
+      "name": "Dice Set",
+      "type": "gaming set",
+      "category": "Gaming Sets",
+      "cost": "10 cp",
+      "weight": 0,
+      "description": "Placeholder."
+    },
+    {
+      "id": "playing_card_set",
+      "name": "Playing Card Set",
+      "type": "gaming set",
+      "category": "Gaming Sets",
+      "cost": "50 cp",
+      "weight": 0,
+      "description": "Placeholder."
+    },
+  
+
+  
+    {
+      "id": "bagpipes",
+      "name": "Bagpipes",
+      "type": "instrument",
+      "category": "Musical Instruments",
+      "cost": "30 sp",
+      "weight": 2.7,
+      "description": "Placeholder."
+    },
+    {
+      "id": "drum",
+      "name": "Drum",
+      "type": "instrument",
+      "category": "Musical Instruments",
+      "cost": "6 sp",
+      "weight": 1.4,
+      "description": "Placeholder."
+    },
+    {
+      "id": "dulcimer",
+      "name": "Dulcimer",
+      "type": "instrument",
+      "category": "Musical Instruments",
+      "cost": "25 sp",
+      "weight": 4.5,
+      "description": "Placeholder."
+    },
+    {
+      "id": "flute",
+      "name": "Flute",
+      "type": "instrument",
+      "category": "Musical Instruments",
+      "cost": "2 sp",
+      "weight": 0.5,
+      "description": "Placeholder."
+    },
+    {
+      "id": "lute",
+      "name": "Lute",
+      "type": "instrument",
+      "category": "Musical Instruments",
+      "cost": "35 sp",
+      "weight": 0.9,
+      "description": "Placeholder."
+    },
+    {
+      "id": "lyre",
+      "name": "Lyre",
+      "type": "instrument",
+      "category": "Musical Instruments",
+      "cost": "30 sp",
+      "weight": 0.9,
+      "description": "Placeholder."
+    },
+    {
+      "id": "horn",
+      "name": "Horn",
+      "type": "instrument",
+      "category": "Musical Instruments",
+      "cost": "3 sp",
+      "weight": 0.9,
+      "description": "Placeholder."
+    },
+    {
+      "id": "pan_flute",
+      "name": "Pan Flute",
+      "type": "instrument",
+      "category": "Musical Instruments",
+      "cost": "12 sp",
+      "weight": 0.9,
+      "description": "Placeholder."
+    },
+    {
+      "id": "shawm",
+      "name": "Shawm",
+      "type": "instrument",
+      "category": "Musical Instruments",
+      "cost": "2 sp",
+      "weight": 0.5,
+      "description": "Placeholder."
+    },
+    {
+      "id": "viol",
+      "name": "Viol",
+      "type": "instrument",
+      "category": "Musical Instruments",
+      "cost": "30 sp",
+      "weight": 0.5,
+      "description": "Placeholder."
+    },
+    {
+      "id": "navigators_tools",
+      "name": "Navigator's Tools",
+      "type": "tool",
+      "category": "Musical Instruments",
+      "cost": "25 sp",
+      "weight": 0.9,
+      "description": "Placeholder."
+    },
+    {
+      "id": "thieves_tools",
+      "name": "Thieves' Tools",
+      "type": "tool",
+      "category": "Musical Instruments",
+      "cost": "25 sp",
+      "weight": 0.5,
+      "description": "Placeholder."
+    },
+ 
+  
+
+    {
+        "id": "club",
+        "name": "Club",
+        "type": "weapon",
+        "category": "Simple Melee",
+        "cost": "10 cp",
+        "weight": 0.9,
+        "damage": "1d4",
+        "damageType": "bludgeoning",
+        "properties": ["Light"],
+        "weaponType": "blunt",
+        "description": "Placeholder."
+    },
+
+    {
+        "id": "dagger",
+        "name": "Dagger",
+        "type": "weapon",
+        "category": "Simple Melee",
+        "cost": "2 sp",
+        "weight": 0.5,
+        "damage": "1d4",
+        "damageType": "piercing",
+        "properties": ["Super-light", "Thrown (20/60)"],
+        "weaponType": "blade",
+        "description": "Placeholder."
+    },
+
+    {
+        "id": "greatclub",
+        "name": "Greatclub",
+        "type": "weapon",
+        "category": "Simple Melee",
+        "cost": "20 cp",
+        "weight": 4.5,
+        "damage": "1d8",
+        "damageType": "bludgeoning",
+        "properties": ["Two-handed"],
+        "weaponType": "blunt",
+        "description": "Placeholder."
+    },
+
+    {
+        "id": "handaxe",
+        "name": "Handaxe",
+        "type": "weapon",
+        "category": "Simple Melee",
+        "cost": "5 sp",
+        "weight": 0.9,
+        "damage": "1d6",
+        "damageType": "slashing",
+        "properties": ["Light", "Thrown (20/60)"],
+        "weaponType": "axe",
+        "description": "Placeholder."
+    },
+
+    {
+        "id": "javelin",
+        "name": "Javelin",
+        "type": "weapon",
+        "category": "Simple Melee",
+        "cost": "50 cp",
+        "weight": 0.9,
+        "damage": "1d6",
+        "damageType": "piercing",
+        "properties": ["Thrown (30/120)"],
+        "weaponType": "polearm",
+        "description": "Placeholder."
+    },
+
+    {
+        "id": "light_hammer",
+        "name": "Light Hammer",
+        "type": "weapon",
+        "category": "Simple Melee",
+        "cost": "2 sp",
+        "weight": 0.9,
+        "damage": "1d4",
+        "damageType": "bludgeoning",
+        "properties": ["Light", "Thrown (20/60)"],
+        "weaponType": "blunt",
+        "description": "Placeholder."
+    },
+
+    {
+        "id": "mace",
+        "name": "Mace",
+        "type": "weapon",
+        "category": "Simple Melee",
+        "cost": "5 sp",
+        "weight": 1.8,
+        "damage": "1d6",
+        "damageType": "bludgeoning",
+        "properties": [],
+        "weaponType": "blunt",
+        "description": "Placeholder."
+    },
+
+    {
+        "id": "quarterstaff",
+        "name": "Quarterstaff",
+        "type": "weapon",
+        "category": "Simple Melee",
+        "cost": "20 cp",
+        "weight": 1.8,
+        "damage": "1d6",
+        "damageType": "bludgeoning",
+        "properties": ["Versatile (1d8)"],
+        "weaponType": "blunt",
+        "description": "Placeholder."
+    },
+
+    {
+        "id": "sickle",
+        "name": "Sickle",
+        "type": "weapon",
+        "category": "Simple Melee",
+        "cost": "1 sp",
+        "weight": 0.9,
+        "damage": "1d4",
+        "damageType": "slashing",
+        "properties": ["Light"],
+        "weaponType": "blade",
+        "description": "Placeholder."
+    },
+
+    {
+        "id": "spear",
+        "name": "Spear",
+        "type": "weapon",
+        "category": "Simple Melee",
+        "cost": "1 sp",
+        "weight": 1.4,
+        "damage": "1d6",
+        "damageType": "piercing",
+        "properties": ["Thrown (20/60)", "Versatile (1d8)", "Reach"],
+        "weaponType": "polearm",
+        "description": "Placeholder."
+    },
+
+    {
+        "id": "light_crossbow",
+        "name": "Crossbow, Light",
+        "type": "weapon",
+        "category": "Simple Ranged",
+        "cost": "25 sp",
+        "weight": 2.3,
+        "damage": "1d10",
+        "damageType": "piercing",
+        "properties": [
+            "Ammunition",
+            "Range (80/320)",
+            "Loading (10)",
+            "Two-handed",
+            "Not-scaling"
+        ],
+        "weaponType": "crossbow",
+        "description": "Placeholder."
+    },
+
+    {
+        "id": "dart",
+        "name": "Dart",
+        "type": "weapon",
+        "category": "Simple Ranged",
+        "cost": "5 cp",
+        "weight": 0.1,
+        "damage": "1d4",
+        "damageType": "piercing",
+        "properties": ["Thrown (20/60)"],
+        "weaponType": "ranged",
+        "description": "Placeholder."
+    },
+
+    {
+        "id": "shortbow",
+        "name": "Shortbow",
+        "type": "weapon",
+        "category": "Simple Ranged",
+        "cost": "25 sp",
+        "weight": 0.9,
+        "damage": "1d8",
+        "damageType": "piercing",
+        "properties": [
+            "Ammunition",
+            "Range (80/320)",
+            "Two-handed"
+        ],
+        "weaponType": "bow",
+        "description": "Placeholder."
+    },
+
+    {
+        "id": "sling",
+        "name": "Sling",
+        "type": "weapon",
+        "category": "Simple Ranged",
+        "cost": "10 cp",
+        "weight": 0,
+        "damage": "1d6",
+        "damageType": "piercing",
+        "properties": [
+            "Ammunition",
+            "Range (30/120)"
+        ],
+        "weaponType": "ranged",
+        "description": "Placeholder."
+    },
+  {
+    "id": "battleaxe",
+    "name": "Battleaxe",
+    "type": "weapon",
+    "category": "Martial Melee",
+    "cost": "10 sp",
+    "weight": 1.8,
+    "damage": "1d8",
+    "damageType": "slashing",
+    "properties": ["Versatile (1d10)"],
+    "weaponType": ["axe"],
+    "description": "Placeholder."
+  },
+  {
+    "id": "flail",
+    "name": "Flail",
+    "type": "weapon",
+    "category": "Martial Melee",
+    "cost": "10 sp",
+    "weight": 0.9,
+    "damage": "1d8",
+    "damageType": "bludgeoning",
+    "properties": [],
+    "weaponType": ["blunt"],
+    "description": "Placeholder."
+  },
+  {
+    "id": "glaive",
+    "name": "Glaive",
+    "type": "weapon",
+    "category": "Martial Melee",
+    "cost": "20 sp",
+    "weight": 2.7,
+    "damage": "1d10",
+    "damageType": "slashing",
+    "properties": ["Heavy", "Reach", "Two-handed"],
+    "weaponType": ["polearm"],
+    "description": "Placeholder."
+  },
+  {
+    "id": "greataxe",
+    "name": "Greataxe",
+    "type": "weapon",
+    "category": "Martial Melee",
+    "cost": "30 sp",
+    "weight": 3.2,
+    "damage": "1d12",
+    "damageType": "slashing",
+    "properties": ["Heavy", "Two-handed"],
+    "weaponType": ["axe", "polearm"],
+    "description": "Placeholder."
+  },
+  {
+    "id": "greatsword",
+    "name": "Greatsword",
+    "type": "weapon",
+    "category": "Martial Melee",
+    "cost": "50 sp",
+    "weight": 2.7,
+    "damage": "2d6",
+    "damageType": "slashing",
+    "properties": ["Heavy", "Two-handed"],
+    "weaponType": ["blade"],
+    "description": "Placeholder."
+  },
+  {
+    "id": "halberd",
+    "name": "Halberd",
+    "type": "weapon",
+    "category": "Martial Melee",
+    "cost": "20 sp",
+    "weight": 2.7,
+    "damage": "1d10",
+    "damageType": "slashing",
+    "properties": ["Heavy", "Reach", "Two-handed"],
+    "weaponType": ["polearm"],
+    "description": "Placeholder."
+  },
+  {
+    "id": "lance",
+    "name": "Lance",
+    "type": "weapon",
+    "category": "Martial Melee",
+    "cost": "10 sp",
+    "weight": 2.7,
+    "damage": "1d12",
+    "damageType": "piercing",
+    "properties": ["Reach", "Special"],
+    "weaponType": ["polearm"],
+    "description": "Placeholder."
+  },
+  {
+    "id": "longsword",
+    "name": "Longsword",
+    "type": "weapon",
+    "category": "Martial Melee",
+    "cost": "15 sp",
+    "weight": 1.4,
+    "damage": "1d8",
+    "damageType": "slashing",
+    "properties": ["Versatile (1d10)"],
+    "weaponType": ["blade"],
+    "description": "Placeholder."
+  },
+  {
+    "id": "maul",
+    "name": "Maul",
+    "type": "weapon",
+    "category": "Martial Melee",
+    "cost": "10 sp",
+    "weight": 4.5,
+    "damage": "2d6",
+    "damageType": "bludgeoning",
+    "properties": ["Heavy", "Two-handed"],
+    "weaponType": ["blunt"],
+    "description": "Placeholder."
+  },
+  {
+    "id": "morningstar",
+    "name": "Morningstar",
+    "type": "weapon",
+    "category": "Martial Melee",
+    "cost": "15 sp",
+    "weight": 1.8,
+    "damage": "1d8",
+    "damageType": "piercing",
+    "properties": [],
+    "weaponType": ["blunt"],
+    "description": "Placeholder."
+  },
+  {
+    "id": "pike",
+    "name": "Pike",
+    "type": "weapon",
+    "category": "Martial Melee",
+    "cost": "5 sp",
+    "weight": 8.2,
+    "damage": "1d10",
+    "damageType": "piercing",
+    "properties": ["Heavy", "Reach", "Two-handed"],
+    "weaponType": ["polearm"],
+    "description": "Placeholder."
+  },
+  {
+    "id": "rapier",
+    "name": "Rapier",
+    "type": "weapon",
+    "category": "Martial Melee",
+    "cost": "25 sp",
+    "weight": 0.9,
+    "damage": "1d8",
+    "damageType": "piercing",
+    "properties": [],
+    "weaponType": ["blade"],
+    "description": "Placeholder."
+  },
+  {
+    "id": "scimitar",
+    "name": "Scimitar",
+    "type": "weapon",
+    "category": "Martial Melee",
+    "cost": "25 sp",
+    "weight": 1.4,
+    "damage": "1d6",
+    "damageType": "slashing",
+    "properties": ["Light"],
+    "weaponType": ["blade"],
+    "description": "Placeholder."
+  },
+  {
+    "id": "shortsword",
+    "name": "Shortsword",
+    "type": "weapon",
+    "category": "Martial Melee",
+    "cost": "10 sp",
+    "weight": 0.9,
+    "damage": "1d6",
+    "damageType": "piercing",
+    "properties": ["Light"],
+    "weaponType": ["blade"],
+    "description": "Placeholder."
+  },
+  {
+    "id": "trident",
+    "name": "Trident",
+    "type": "weapon",
+    "category": "Martial Melee",
+    "cost": "5 sp",
+    "weight": 1.8,
+    "damage": "1d6",
+    "damageType": "piercing",
+    "properties": ["Thrown (20/60)", "Versatile (1d8)"],
+    "weaponType": ["polearm"],
+    "description": "Placeholder."
+  },
+  {
+    "id": "war_pick",
+    "name": "War Pick",
+    "type": "weapon",
+    "category": "Martial Melee",
+    "cost": "5 sp",
+    "weight": 0.9,
+    "damage": "1d8",
+    "damageType": "piercing",
+    "properties": [],
+    "weaponType": ["axe"],
+    "description": "Placeholder."
+  },
+  {
+    "id": "warhammer",
+    "name": "Warhammer",
+    "type": "weapon",
+    "category": "Martial Melee",
+    "cost": "15 sp",
+    "weight": 0.9,
+    "damage": "1d8",
+    "damageType": "bludgeoning",
+    "properties": ["Versatile (1d10)"],
+    "weaponType": ["blunt"],
+    "description": "Placeholder."
+  },
+  {
+    "id": "whip",
+    "name": "Whip",
+    "type": "weapon",
+    "category": "Martial Melee",
+    "cost": "2 sp",
+    "weight": 1.4,
+    "damage": "1d4",
+    "damageType": "slashing",
+    "properties": ["Reach"],
+    "weaponType": ["ranged"],
+    "description": "Placeholder."
+  },
+
+  {
+    "id": "blowgun",
+    "name": "Blowgun",
+    "type": "weapon",
+    "category": "Martial Ranged",
+    "cost": "10 sp",
+    "weight": 0.5,
+    "damage": "1",
+    "damageType": "piercing",
+    "properties": ["Ammunition", "Range (25/100)", "Loading"],
+    "weaponType": ["ranged"],
+    "description": "Placeholder."
+  },
+  {
+    "id": "hand_crossbow",
+    "name": "Crossbow, Hand",
+    "type": "weapon",
+    "category": "Martial Ranged",
+    "cost": "75 sp",
+    "weight": 1.4,
+    "damage": "1d8",
+    "damageType": "piercing",
+    "properties": ["Ammunition", "Range (30/120)", "Light", "Loading (12)", "Not-scaling"],
+    "weaponType": ["crossbow"],
+    "description": "Placeholder."
+  },
+  {
+    "id": "heavy_crossbow",
+    "name": "Crossbow, Heavy",
+    "type": "weapon",
+    "category": "Martial Ranged",
+    "cost": "50 sp",
+    "weight": 8.2,
+    "damage": "3d6",
+    "damageType": "piercing",
+    "properties": ["Ammunition", "Range (100/400)", "Heavy", "Loading (14)", "Two-handed", "Not-scaling"],
+    "weaponType": ["crossbow"],
+    "description": "Placeholder."
+  },
+  {
+    "id": "arbalest",
+    "name": "Arbalest",
+    "type": "weapon",
+    "category": "Martial Ranged",
+    "cost": "80 sp",
+    "weight": 9.1,
+    "damage": "2d12",
+    "damageType": "piercing",
+    "properties": ["Ammunition", "Range (150/600)", "Heavy", "Loading (16)", "Two-handed", "Not-scaling"],
+    "weaponType": ["crossbow"],
+    "description": "Placeholder."
+  },
+  {
+    "id": "longbow",
+    "name": "Longbow",
+    "type": "weapon",
+    "category": "Martial Ranged",
+    "cost": "50 sp",
+    "weight": 0.9,
+    "damage": "1d12",
+    "damageType": "piercing",
+    "properties": ["Ammunition", "Range (150/600)", "Heavy", "Two-handed"],
+    "weaponType": ["bow"],
+    "description": "Placeholder."
+  },
+  {
+    "id": "net",
+    "name": "Net",
+    "type": "weapon",
+    "category": "Martial Ranged",
+    "cost": "1 sp",
+    "weight": 1.4,
+    "damage": null,
+    "damageType": null,
+    "properties": ["Special", "Thrown (5/15)"],
+    "weaponType": ["ranged"],
+    "description": "Placeholder."
+  },
+
+
+
+
+    {
+      "id": "arrows20",
+      "name": "Arrows (20)",
+      "type": "ammunition",
+      "category": "Arrow",
+      "cost": "1 sp",
+      "weight": 0.5,
+      "description": "Standard arrows.",
+      "modifiers": null
+    },
+    {
+      "id": "blowgunNeedles50",
+      "name": "Blowgun needles (50)",
+      "type": "ammunition",
+      "category": "Blowgun Needle",
+      "cost": "1 sp",
+      "weight": 0.5,
+      "description": "Standard blowgun needles.",
+      "modifiers": null
+    },
+    {
+      "id": "crossbowBolts20",
+      "name": "Crossbow bolts (20)",
+      "type": "ammunition",
+      "category": "Bolt",
+      "cost": "1 sp",
+      "weight": 0.7,
+      "description": "Standard crossbow bolts.",
+      "modifiers": null
+    },
+    {
+      "id": "slingBullets20",
+      "name": "Sling bullets (20)",
+      "type": "ammunition",
+      "category": "Bullet",
+      "cost": "4 cp",
+      "weight": 0.7,
+      "description": "Standard sling bullets.",
+      "modifiers": null
+    },
+
+    {
+      "id": "bodkin15",
+      "name": "Bodkin (15)",
+      "type": "ammunition",
+      "category": "Arrow",
+      "cost": "1 sp",
+      "weight": 0.5,
+      "description": "Armor-piercing arrows.",
+      "modifiers": {
+        "attackVsMediumHeavyArmor": 2
+      }
+    },
+    {
+      "id": "barbedBroadheads15",
+      "name": "Barbed Broadheads (15)",
+      "type": "ammunition",
+      "category": "Arrow",
+      "cost": "1 sp",
+      "weight": 0.5,
+      "description": "Broadheads that deal more damage against unarmored targets.",
+      "modifiers": {
+        "damageVsUnarmored": 1
+      }
+    },
+    {
+      "id": "forkedHead15",
+      "name": "Forked Head (15)",
+      "type": "ammunition",
+      "category": "Arrow",
+      "cost": "1 sp",
+      "weight": 0.5,
+      "description": "Designed for hunting birds.",
+      "modifiers": {
+        "attackVsBirds": 2,
+        "damageVsBirds": 2
+      }
+    },
+
+  
+
+    {
+      "id": "padded",
+      "name": "Padded",
+      "type": "armor",
+      "category": "Light",
+      "cost": "5 sp",
+      "weight": 3.6,
+      "armorValue": 2,
+      "stealthDisadvantage": true,
+      "strengthRequirement": null,
+      "description": "Padded armor."
+    },
+    {
+      "id": "leather",
+      "name": "Leather",
+      "type": "armor",
+      "category": "Light",
+      "cost": "10 sp",
+      "weight": 4.5,
+      "armorValue": 2,
+      "stealthDisadvantage": false,
+      "strengthRequirement": null,
+      "description": "Leather armor."
+    },
+    {
+      "id": "studdedLeather",
+      "name": "Studded Leather",
+      "type": "armor",
+      "category": "Light",
+      "cost": "45 sp",
+      "weight": 5.9,
+      "armorValue": 4,
+      "stealthDisadvantage": false,
+      "strengthRequirement": null,
+      "description": "Studded leather armor."
+    },
+
+    {
+      "id": "hide",
+      "name": "Hide",
+      "type": "armor",
+      "category": "Medium",
+      "cost": "10 sp",
+      "weight": 5.4,
+      "armorValue": 4,
+      "stealthDisadvantage": false,
+      "strengthRequirement": null,
+      "description": "Hide armor."
+    },
+    {
+      "id": "chainShirt",
+      "name": "Chain Shirt",
+      "type": "armor",
+      "category": "Medium",
+      "cost": "1 gp",
+      "weight": 9.1,
+      "armorValue": 6,
+      "stealthDisadvantage": false,
+      "strengthRequirement": null,
+      "description": "Chain shirt."
+    },
+    {
+      "id": "scaleMail",
+      "name": "Scale Mail",
+      "type": "armor",
+      "category": "Medium",
+      "cost": "1 gp",
+      "weight": 20.4,
+      "armorValue": 8,
+      "stealthDisadvantage": true,
+      "strengthRequirement": null,
+      "description": "Scale mail."
+    },
+    {
+      "id": "spikedArmor",
+      "name": "Spiked Armor",
+      "type": "armor",
+      "category": "Medium",
+      "cost": "2 gp",
+      "weight": 20.4,
+      "armorValue": 8,
+      "stealthDisadvantage": true,
+      "strengthRequirement": null,
+      "description": "Spiked armor."
+    },
+    {
+      "id": "breastplate",
+      "name": "Breastplate",
+      "type": "armor",
+      "category": "Medium",
+      "cost": "6 gp",
+      "weight": 9.1,
+      "armorValue": 8,
+      "stealthDisadvantage": false,
+      "strengthRequirement": null,
+      "description": "Breastplate."
+    },
+    {
+      "id": "halfplate",
+      "name": "Halfplate",
+      "type": "armor",
+      "category": "Medium",
+      "cost": "10 gp",
+      "weight": 18.1,
+      "armorValue": 10,
+      "stealthDisadvantage": true,
+      "strengthRequirement": null,
+      "description": "Halfplate."
+    },
+
+    {
+      "id": "ringMail",
+      "name": "Ring Mail",
+      "type": "armor",
+      "category": "Heavy",
+      "cost": "60 sp",
+      "weight": 18.1,
+      "armorValue": 8,
+      "stealthDisadvantage": true,
+      "strengthRequirement": null,
+      "description": "Ring mail."
+    },
+    {
+      "id": "chainMail",
+      "name": "Chain Mail",
+      "type": "armor",
+      "category": "Heavy",
+      "cost": "2 gp",
+      "weight": 24.9,
+      "armorValue": 12,
+      "stealthDisadvantage": true,
+      "strengthRequirement": 13,
+      "description": "Chain mail."
+    },
+    {
+      "id": "splint",
+      "name": "Splint",
+      "type": "armor",
+      "category": "Heavy",
+      "cost": "6 gp",
+      "weight": 27.2,
+      "armorValue": 14,
+      "stealthDisadvantage": true,
+      "strengthRequirement": 15,
+      "description": "Splint armor."
+    },
+    {
+      "id": "plate",
+      "name": "Plate",
+      "type": "armor",
+      "category": "Heavy",
+      "cost": "20 gp",
+      "weight": 29.5,
+      "armorValue": 16,
+      "stealthDisadvantage": true,
+      "strengthRequirement": 15,
+      "description": "Plate armor."
+    },
+
+    {
+      "id": "shield",
+      "name": "Shield",
+      "type": "shield",
+      "cost": "10 sp",
+      "weight": 2.7,
+      "armorBonus": 2,
+      "description": "Provides +2 Armor while equipped."
+    }
+
+  
+]

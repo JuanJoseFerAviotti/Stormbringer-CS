@@ -15,6 +15,22 @@
         "stat":"agility"
     },
 
+
+    "Deception":{
+        "stat":"charisma"
+    },
+
+    "Intimidation":{
+        "stat":"charisma"
+    },
+
+    "Performance":{
+        "stat":"charisma"
+    },
+
+    "Persuasion":{
+        "stat":"charisma"
+    },
     "Arcana":{
         "stat":"mind"
     },
@@ -53,21 +69,5 @@
 
     "Survival":{
         "stat":"mind"
-    },
-
-    "Deception":{
-        "stat":"charisma"
-    },
-
-    "Intimidation":{
-        "stat":"charisma"
-    },
-
-    "Performance":{
-        "stat":"charisma"
-    },
-
-    "Persuasion":{
-        "stat":"charisma"
     }
 }

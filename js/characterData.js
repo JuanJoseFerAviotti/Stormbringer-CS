@@ -49,10 +49,10 @@ function createDefaultCharacter() {
 
     const stats = Rules.getFinalStats(character);
 
-    character.maxHealth = Rules.getMaxHealth(stats);
-    character.maxMana = Rules.getMaxMana(stats);
+    character.maxHealth = Rules.getMaxHealth(stats, character.level);
+    character.maxMana = Rules.getMaxMana(stats,character.level);
     character.maxStamina = Rules.getMaxStamina(stats, character.level);
-    character.armor = Rules.getArmor(stats);
+    character.armor = Rules.getArmor(stats,character);
     character.health = character.maxHealth;
     character.mana = character.maxMana;
     character.stamina = character.maxStamina;

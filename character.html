@@ -124,12 +124,12 @@ Add
 
     <div class="tab" id="magic">
        <div class="spellFilters">
-<p>Primary Affinity</p>
+<p>Primary Affinity    Secondary Affinity</p>
 <select id="primaryElement"></select>
 
 <input id="primaryLevel" type="number" min="1" max="10">
 
-<p>Secondary Affinity</p>
+
 
 <select id="secondaryElement"></select>
 <input id="secondaryLevel" type="number" min="1" max="10">
@@ -164,8 +164,23 @@ Add
 </div>
 
 <hr>
+<table class="spellTable">
 
-<div id="spellList"></div>
+<thead>
+<tr>
+    <th>Name</th>
+    <th>Elements</th>
+    <th>Range</th>
+    <th>Circle</th>
+    <th></th>
+</tr>
+</thead>
+
+<tbody id="spellList">
+
+</tbody>
+
+</table>
     </div>
 
 </div>

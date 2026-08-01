@@ -1,14 +1,14 @@
-let items = [];
-
+window.items = [];
 
 fetch("js/items.json")
 .then(response => response.json())
 .then(data => {
 
-    items = data;
-      console.log("Items loaded:", items.length);
-    loadItemSuggestions();
+    window.items = data;
 
+    console.log("Items loaded:", window.items.length);
+
+    loadItemSuggestions();
     createInventoryTable();
 
 });

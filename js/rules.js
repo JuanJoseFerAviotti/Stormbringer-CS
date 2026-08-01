@@ -24,37 +24,58 @@ const Rules = {
     },
     
 
- getMaxHealth(stats){
+getMaxHealth(stats, level, talents = {}){
 
-    let hp = Math.floor((stats.constitution / 2) + Rules.getModifier(stats.strength))*character.level + 6;
+    let hp =
+        Math.floor((stats.constitution / 2) +
+        Rules.getModifier(stats.strength)) *
+        level + 6;
 
-    if(getTalentRank("tough") > 0){
-        hp += character.level * 2;
+    if((talents.tough || 0) > 0){
+        hp += level * 2;
     }
 
     return hp;
-
 },
- getArmor(stats){
+getArmor(stats, character) {
 
     let baseArmor = 10;
 
     if(character.equipped.armor){
 
-        const equippedArmor = items.find(
+        const armor = window.items.find(
             i => i.id === character.equipped.armor
         );
 
-        if(equippedArmor){
+        if(armor){
 
-            baseArmor = Number(equippedArmor.armorValue) || 10;
+            baseArmor = armor.armorValue;
 
         }
     }
+ let shieldBonus = 0;
 
-    return baseArmor + Rules.getModifier(stats.agility);
+    if(character.equipped.shield){
 
-}, getFinalStats(character){
+        const shield = window.items.find(
+            i => i.id === character.equipped.shield
+        );
+
+        if(shield){
+
+            shieldBonus = Number(shield.armorBonus) || 0;
+
+        }
+
+    }
+
+    return (
+        baseArmor +
+        Rules.getModifier(stats.agility) +
+        shieldBonus
+    );
+},
+getFinalStats(character){
 
     let stats = {};
 
@@ -93,20 +114,12 @@ const Rules = {
     }
 
 
-   console.log(
-    "Race:",
-    character.race,
-    "Gender:",
-    character.gender,
-    "Stats:",
-    stats
-);
 
 return stats;
 
 }, 
 
-  getMaxStamina(stats,level){
+getMaxStamina(stats,level){
 
     return Math.max(
         1,
@@ -116,8 +129,9 @@ return stats;
 
 },
  
- getMaxMana(stats){
-    let Mana = stats.soul*character.level;
+getMaxMana(stats,level){
+    
+    let Mana = stats.soul*level;
     return Mana;
 },
 getStatCost(score){

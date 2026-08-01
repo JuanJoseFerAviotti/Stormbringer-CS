@@ -40,6 +40,7 @@ function eightrest() {
 
     character.health += Rules.getModifier(stats.constitution) + (2 * character.level);
     character.mana = character.maxMana;
+    character.stamina = character.maxStamina;
     // Don't heal above max HP
     if (character.health > character.maxHealth) {
         character.health = character.maxHealth;
@@ -48,7 +49,7 @@ function eightrest() {
     if (character.mana > character.maxMana) {
         character.mana = character.maxMana;
     }
-
+    
     saveCharacter();
     updateHeader();
 }
@@ -116,7 +117,7 @@ document.getElementById("characterLevel").addEventListener("change", function(){
 
     recalculateDerivedStats();
 
-    updateStats();
+   
 
     updateSkills();
 
@@ -175,7 +176,7 @@ character.investedStats[stat]++;
 
 
     updateStats();
-      console.log("INCREASE CALLED:", stat);
+    
 
 }
 function decreaseStat(stat){
@@ -234,6 +235,7 @@ function updateStats(){
 
     recalculateDerivedStats();
     updateTalentTreeSelector();
+    updateSkills();
 
 }
 
@@ -257,21 +259,14 @@ updateHeader();
 localStorage.setItem("character", JSON.stringify(character));
 } */
 function recalculateDerivedStats(){
-
     const stats = Rules.getFinalStats(character);
-
-    character.maxHealth = Rules.getMaxHealth(stats);
-    character.maxMana = Rules.getMaxMana(stats);
+    character.maxHealth = Rules.getMaxHealth(stats, character.level);
+    character.maxMana = Rules.getMaxMana(stats, character.level);
     character.maxStamina = Rules.getMaxStamina(stats, character.level);
-
     character.maxPoints = Rules.getMaxPoints(character.level);
-    character.armor = Rules.getArmor(stats);
-    
-
+    character.armor = Rules.getArmor(stats, character);
     updateHeader();
-
     saveCharacter();
-
 }
 //math
 const BASE_STAT = 8;

@@ -238,6 +238,7 @@ function addSkillListeners(){
 
 }
 function updateSkills(){
+   console.log("updateSkills2", character.level);
 
     const stats=Rules.getFinalStats(character);
 

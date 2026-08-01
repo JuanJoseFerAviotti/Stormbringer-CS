@@ -269,18 +269,6 @@ function drawTalentLines(tree){
             const parent =
             document.getElementById(req);
 
-
-
-            console.log(
-                talent.name,
-                "requires",
-                req,
-                "parent:",
-                parent
-            );
-
-
-
             if(!parent)
                 return;
 
@@ -621,8 +609,7 @@ function updateTalentTreeSelector(){
 
     talentsData.trees.forEach(tree => {
 
-        if(stats[tree.requiredStat] < tree.minimumStat)
-            return;
+        if(stats[tree.requiredStat] < tree.minimumStat) return;
 
         const option = document.createElement("option");
 

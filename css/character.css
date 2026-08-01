@@ -368,3 +368,38 @@ body{
     object-fit: contain;
 
 }
+/* spell table */
+.spellTable {
+    width:100%;
+    border-collapse:collapse;
+}
+
+.spellTable th,
+.spellTable td {
+    padding:6px;
+    border-bottom:1px solid #555;
+    text-align:left;
+}
+
+
+.spellRow {
+    cursor:pointer;
+}
+
+
+.spellDetails {
+    display:none;
+    padding:10px;
+}
+
+
+.spellRow.open + .spellDetails {
+    display:table-row;
+}
+.elementIcon{
+
+    width:24px;
+    height:24px;
+    vertical-align:middle;
+
+}

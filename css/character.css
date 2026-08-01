@@ -403,3 +403,13 @@ body{
     vertical-align:middle;
 
 }
+.spellCard{
+    border-left:8px solid gray;
+    border-top:4px solid transparent;
+
+    border-right:1px solid #444;
+    border-bottom:1px solid #444;
+
+    padding:8px;
+    margin-bottom:6px;
+}

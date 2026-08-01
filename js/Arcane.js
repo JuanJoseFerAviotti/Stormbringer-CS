@@ -1,7 +1,23 @@
 //=============================
-// Arcane.js - PART 1
+// Arcane.js 
 //=============================
+const elementColors = {
 
+    lux: "#ffd700",
+
+    natura: "#3cb043",
+
+    gelum: "#00d4ff",
+
+    ignis: "#ff7a00",
+
+    umbra: "#202020",
+
+    arcane: "#9a4dff",
+
+    none: "#808080"
+
+};
 //-------------------------------------
 // Character
 //-------------------------------------
@@ -306,74 +322,7 @@ function canCastCharacter(spell) {
 // Spell list
 //-------------------------------------
 
-/* function updateSpellList() {
 
-
-    const div =
-        document.getElementById("spellList");
-
-    div.innerHTML = "";
-
-    spells
-        .filter(canCast)
-        .sort((a, b) =>
-            a.name.localeCompare(b.name)
-        )
-        .forEach(spell => {
-
-            const learned =
-                character.arcane.knownSpells.includes(
-                    spell.id
-                );
-
-            div.innerHTML += `
-
-            <div class="spellCard">
-
-                <h3>${spell.name}</h3>
-
-                <p><b>Elements:</b>
-                ${formatElements(spell.elements)}</p>
-
-                <p><b>Circles:</b>
-                ${spell.circles.join(", ")}</p>
-
-                <p><b>Category:</b>
-                ${spell.category}</p>
-
-                <p><b>Cost:</b>
-                x${spell.costMultiplier}</p>
-
-                <p><b>Casting Time:</b>
-                ${spell.castingTime}</p>
-
-                <p><b>Speed:</b>
-                ${spell.speed}</p>
-
-                <p>${spell.description}</p>
-
-                ${
-                    learned
-                    ?
-
-                    `<button disabled>
-                        Learned
-                    </button>`
-
-                    :
-
-                    `<button onclick="learnSpell('${spell.id}')">
-                        Learn
-                    </button>`
-                }
-
-            </div>
-
-            `;
-
-        });
-
-} */
 function updateSpellList(){
 
     const table =
@@ -384,18 +333,82 @@ function updateSpellList(){
 
     spells
     .filter(canCast)
-    .sort((a,b)=>a.name.localeCompare(b.name))
+    .sort((a, b) => {
+
+    function getPrimary(spell) {
+
+        let primary = "";
+        let level = -1;
+
+        for (const [element, value] of Object.entries(spell.elements)) {
+
+            if (value > level) {
+                level = value;
+                primary = element;
+            }
+
+        }
+
+        return {
+            element: primary,
+            level: level
+        };
+
+    }
+
+    const pa = getPrimary(a);
+    const pb = getPrimary(b);
+    
+
+    // Order elements
+    const order = {
+        lux: 0,
+        natura: 1,
+        gelum: 2,
+        ignis: 3,
+        umbra: 4,
+        arcane: 5
+    };
+
+    if (order[pa.element] !== order[pb.element])
+        return order[pa.element] - order[pb.element];
+
+    // Then by the level of that primary element
+    if (pa.level !== pb.level)
+        return pa.level - pb.level;
+
+    // Then by total element levels
+    const totalA =
+        Object.values(a.elements).reduce((x, y) => x + y, 0);
+
+    const totalB =
+        Object.values(b.elements).reduce((x, y) => x + y, 0);
+
+    if (totalA !== totalB)
+        return totalA - totalB;
+
+    // Finally alphabetical
+    return a.name.localeCompare(b.name);
+
+})
     .forEach(spell=>{
 
+const info = getSpellElements(spell);
 
+const primaryColor =
+    elementColors[info.primary];
+
+const secondaryColor =
+    info.secondary
+        ? elementColors[info.secondary]
+        : "transparent";
         const learned =
             character.arcane.knownSpells.includes(spell.id);
 
 
         table.innerHTML += `
 
-        <tr class="spellRow"
-            onclick="toggleSpell('${spell.id}')">
+        <tr class="spellRow spellCard" style=" border-left-color:${primaryColor};border-top-color:${secondaryColor};" onclick="toggleSpell('${spell.id}')" >
 
             <td>
                 ${spell.name}
@@ -406,11 +419,11 @@ function updateSpellList(){
             </td>
 
             <td>
-                ${spell.castRangeEffect}
+                ${spell.Range}
             </td>
 
             <td>
-                ${spell.circles.join(" ")}
+                ${spell.circle.join(" ")}
             </td>
 
             <td>
@@ -436,14 +449,17 @@ function updateSpellList(){
                 ${spell.description}
 
                 <br><br>
-
-                <b>Casting:</b>
+                <b>costmultiplier:</b>
+                ${spell.costMultiplier}
+                 
+                <b>Duration:</b>
                 ${spell.castingTime}
-
+                <b>Canalization:</b>
+                ${spell.Canalization}
                 <br>
 
-                <b>Range:</b>
-                ${spell.range}
+                <b>Area of effect range:</b>
+                ${spell.EffectRange ?? "Single Target"}
 
             </td>
 
@@ -590,3 +606,22 @@ document.getElementById("level2").value =
     character.arcane.secondary.level;
 
 loadSpells();
+
+
+function getSpellElements(spell){
+
+    const list = Object.entries(spell.elements)
+        .filter(([e,v]) => v > 0)
+        .sort((a,b)=>b[1]-a[1]);
+
+    return{
+
+        primary:
+            list[0]?.[0] ?? "none",
+
+        secondary:
+            list[1]?.[0] ?? null
+
+    };
+
+}

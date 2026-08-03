@@ -5,7 +5,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "f",
     "elements": {
       "lux": 1,
       "natura": 1,
@@ -14,16 +14,16 @@
       "arcane": 1,
       "ignis": 1
     },
-    "speed": "fast",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "f",
     "Range": null,
     "EffectRange": null,
     "effect": null,
-    "category": ".",
-    "subcategory": null
+    "category": [
+      "."
+    ]
   },
   {
     "id": "energy_form",
@@ -31,7 +31,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "ss",
     "elements": {
       "lux": 2,
       "natura": 2,
@@ -40,16 +40,16 @@
       "arcane": 2,
       "ignis": 2
     },
-    "speed": "very slow",
     "costMultiplier": "1",
     "castingTime": "50",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "ss",
     "Range": null,
     "EffectRange": null,
     "effect": null,
-    "category": ".",
-    "subcategory": null
+    "category": [
+      "."
+    ]
   },
   {
     "id": "luz_flurecen",
@@ -57,7 +57,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "Canalization optional",
     "elements": {
       "lux": 1,
       "natura": 0,
@@ -66,16 +66,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "50",
     "description": "Hace que un objeto emita luz similar a fluorecenia(si el objeto es muy grande la luz proviene de un circulo dento del objeto)",
-    "Canalization": "required",
+    "Canalization": "canalization optional",
     "Range": "touch",
     "EffectRange": "3",
     "effect": "ef",
-    "category": "utility",
-    "subcategory": null
+    "category": [
+      "utility"
+    ]
   },
   {
     "id": "escudo_basico",
@@ -83,7 +83,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "super slow",
     "elements": {
       "lux": 1,
       "natura": 0,
@@ -92,16 +92,16 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "super slow",
     "costMultiplier": "2",
     "castingTime": "50",
     "description": "le ser vivo afectado se enfuelve en un escudo a unos centimetros de la piel que bloque cualquier objeto con mucha energia kinetica(segun reflexion del objeto, objetos con poca reflacion pueden atravesar el escudo) el escudo solo pude dentener x cantidad de energia kinetica y al romperse detiene el objeto que lo rompio",
-    "Canalization": "none",
+    "Canalization": "super slow",
     "Range": "1.5",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "shild",
-    "category": "Defencive",
-    "subcategory": null
+    "category": [
+      "Defencive"
+    ]
   },
   {
     "id": "luz_shape",
@@ -109,7 +109,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "Canalization optional",
     "elements": {
       "lux": 2,
       "natura": 0,
@@ -118,16 +118,16 @@
       "arcane": 0,
       "ignis": 1
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "100",
     "description": "crea una forma de luz esta emite mucha mas luz que (l)",
-    "Canalization": "required",
+    "Canalization": "canalization optional",
     "Range": "touch",
     "EffectRange": "9",
     "effect": "ef",
-    "category": "utility",
-    "subcategory": null
+    "category": [
+      "utility"
+    ]
   },
   {
     "id": "ligthstrike",
@@ -135,7 +135,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "fast",
     "elements": {
       "lux": 2,
       "natura": 0,
@@ -144,24 +144,24 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "fast",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "un has de luz que golpea contra cualquier cosa que choque",
-    "Canalization": "none",
+    "Canalization": "fast",
     "Range": "9",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "imbued_light",
     "name": "imbued light",
-   "circle": [
-      "invocation","effect"
+    "circle": [
+      "Invocation Effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 2,
       "natura": 0,
@@ -170,16 +170,16 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "150",
     "description": "imbuye a un objeto en luz(no emite tanta luz) lo que hace que \"queme\" a cualquier objeto que toque ",
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "heal",
@@ -187,7 +187,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 2,
       "natura": 2,
@@ -196,16 +196,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "50",
     "description": "Cura a un objetivo vivo (durante unos 50*tiempo de casto), puede curar heridas que regeneracion no podria y no deja cicatrices",
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "9",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "heal",
-    "category": "Heal",
-    "subcategory": null
+    "category": [
+      "Heal"
+    ]
   },
   {
     "id": "moonblast",
@@ -213,7 +213,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "fast",
     "elements": {
       "lux": 2,
       "natura": 0,
@@ -222,16 +222,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "fast",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "un has de sombra/luz que golpea contra cualquier cosa que choque, no emite luz y es dificil de ver en la oscuridad, es mas fuerte durante la noche , aun mas con luna llena(pero emite luz) ",
-    "Canalization": "none",
+    "Canalization": "fast",
     "Range": "9",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "flash_bang",
@@ -239,7 +239,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "fast",
     "elements": {
       "lux": 2,
       "natura": 0,
@@ -248,16 +248,16 @@
       "arcane": 0,
       "ignis": 2
     },
-    "speed": "fast",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "fast",
     "Range": "6.3",
-    "EffectRange": null,
+    "EffectRange": "3",
     "effect": "dmg",
-    "category": "CC",
-    "subcategory": null
+    "category": [
+      "CC"
+    ]
   },
   {
     "id": "ligth_shield",
@@ -265,7 +265,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 3,
       "natura": 0,
@@ -274,16 +274,16 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "200",
     "description": "el ser vivo afectado se enfuelve en un escudo de luz lo que lo hace brillar, a unos centimetros de la piel que bloque cualquier objeto con mucha energia kinetica(segun reflexion del objeto, objetos con poca reflacion pueden atravesar el escudo) el escudo solo pude dentener x cantidad de energia kinetica y al romperse detiene el objeto que lo rompio",
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "1.5",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "shild",
-    "category": "Defencive",
-    "subcategory": null
+    "category": [
+      "Defencive"
+    ]
   },
   {
     "id": "flash_heal",
@@ -291,7 +291,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "fast",
     "elements": {
       "lux": 3,
       "natura": 1,
@@ -300,16 +300,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "fast",
     "costMultiplier": "1",
     "castingTime": "1.5",
     "description": "Cura a un objetivo vivo rapidamente, pero a mayor coste, puede curar heridas que regeneracion no podria y no deja cicatrices",
-    "Canalization": "none",
+    "Canalization": "fast",
     "Range": "6",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "heal",
-    "category": "Heal",
-    "subcategory": null
+    "category": [
+      "Heal"
+    ]
   },
   {
     "id": "bind",
@@ -317,7 +317,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "fast",
     "elements": {
       "lux": 3,
       "natura": 0,
@@ -326,24 +326,24 @@
       "arcane": 2,
       "ignis": 0
     },
-    "speed": "fast",
     "costMultiplier": "1",
     "castingTime": "*",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "fast",
     "Range": null,
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "CC",
-    "subcategory": null
+    "category": [
+      "CC"
+    ]
   },
   {
     "id": "analisis_heal",
-    "name": "analisis heal ",
+    "name": "analisis heal",
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 3,
       "natura": 3,
@@ -352,24 +352,24 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "0.5",
     "castingTime": "5",
     "description": "un objetivo recive una pequeña curacion pero el casteador recive informacions sobre lo curado ",
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "1.5",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "heal",
-    "category": "Heal",
-    "subcategory": null
+    "category": [
+      "Heal"
+    ]
   },
   {
     "id": "light_smite",
     "name": "Light Smite",
-   "circle": [
-      "invocation","effect"
+    "circle": [
+      "Invocation Effect"
     ],
-    "type": null,
+    "type": "fast",
     "elements": {
       "lux": 4,
       "natura": 0,
@@ -378,16 +378,16 @@
       "arcane": 1,
       "ignis": 1
     },
-    "speed": "fast",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "fast",
     "Range": null,
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "expel_darknes",
@@ -395,7 +395,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 4,
       "natura": 0,
@@ -404,24 +404,24 @@
       "arcane": 0,
       "ignis": 3
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "30",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "utility",
-    "subcategory": null
+    "category": [
+      "utility"
+    ]
   },
   {
     "id": "crystal_shild",
     "name": "crystal shild",
-   "circle": [
-      "invocation","effect"
+    "circle": [
+      "Invocation Effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 4,
       "natura": 0,
@@ -430,24 +430,24 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "200",
     "description": "el ser vivo afectado se enfuelve en un escudo de pequeños crystales que absorben los hechisos lansados que lo golpeanlo que lo hace brillar, a unos centimetros de la piel que bloque cualquier objeto con mucha energia kinetica(segun reflexion del objeto, objetos con poca reflacion pueden atravesar el escudo) el escudo solo pude dentener x cantidad de energia kinetica y al romperse detiene el objeto que lo rompio",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "1.5",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "shild",
-    "category": "Defencive",
-    "subcategory": null
+    "category": [
+      "Defencive"
+    ]
   },
   {
     "id": "dispel",
     "name": "Dispel",
-   "circle": [
-      "Proyectill","effect"
+    "circle": [
+      "Proyectill Effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 4,
       "natura": 0,
@@ -456,16 +456,16 @@
       "arcane": 3,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "*",
     "description": "cuando se usa este círculo sobre otro ese se cancela",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "6",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "utility",
-    "subcategory": null
+    "category": [
+      "utility"
+    ]
   },
   {
     "id": "complet_heal",
@@ -473,7 +473,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "ss",
     "elements": {
       "lux": 4,
       "natura": 4,
@@ -482,24 +482,24 @@
       "arcane": 1,
       "ignis": 1
     },
-    "speed": "very slow",
     "costMultiplier": "1",
     "castingTime": "50",
     "description": "cura al objetivo, puede curar enfermedades ",
-    "Canalization": "none",
+    "Canalization": "ss",
     "Range": "3",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "heal",
-    "category": "Heal",
-    "subcategory": null
+    "category": [
+      "Heal"
+    ]
   },
   {
     "id": "moonlightilusion_ilusion_no_color",
     "name": "Moonlightilusion(ilusion no color)",
-   "circle": [
-      "invocation","effect"
+    "circle": [
+      "Invocation Effect"
     ],
-    "type": null,
+    "type": "ss",
     "elements": {
       "lux": 4,
       "natura": 0,
@@ -508,24 +508,24 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "very slow",
     "costMultiplier": "1",
     "castingTime": "150",
     "description": "crea una ilusión en blanco y negro",
-    "Canalization": "none",
+    "Canalization": "ss",
     "Range": "1.5",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "utility",
-    "subcategory": null
+    "category": [
+      "utility"
+    ]
   },
   {
     "id": "under_moonlight",
     "name": "under Moonlight",
-   "circle": [
-      "invocation","effect"
+    "circle": [
+      "Invocation Effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 5,
       "natura": 1,
@@ -534,16 +534,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "50",
     "description": "crea una zona de perpueto ocaso (en día oscurese , de noche ilumina) los hechisos moonlight cuentan como estando bajo luna llena",
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "12",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Buff",
-    "subcategory": null
+    "category": [
+      "Buff"
+    ]
   },
   {
     "id": "crystal_blast",
@@ -551,7 +551,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 5,
       "natura": 0,
@@ -560,16 +560,16 @@
       "arcane": 1,
       "ignis": 1
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "lanza esquirlas de crystal en un cono ",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "3",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "MidRangeAttack",
-    "subcategory": null
+    "category": [
+      "MidRangeAttack"
+    ]
   },
   {
     "id": "lightnova",
@@ -577,7 +577,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 6,
       "natura": 0,
@@ -586,16 +586,16 @@
       "arcane": 1,
       "ignis": 2
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "explocion de luz alrededor del lansador",
-    "Canalization": "none",
-    "Range": "self",
+    "Canalization": "n",
+    "Range": "self-6",
     "EffectRange": "6",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "sun",
@@ -603,7 +603,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "Canalization optional",
     "elements": {
       "lux": 6,
       "natura": 1,
@@ -612,24 +612,22 @@
       "arcane": 0,
       "ignis": 5
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "10",
     "description": null,
-    "Canalization": "required",
+    "Canalization": "canalization optional",
     "Range": "touch",
     "EffectRange": "90",
     "effect": "ef",
-    "category": "utility",
-    "subcategory": null
+    "category": [
+      "utility"
+    ]
   },
   {
     "id": "crystal_nova",
     "name": "crystal nova",
-   "circle": [
-      "invocation","Proyectill"
-    ],
-    "type": null,
+    "circle": [],
+    "type": "n",
     "elements": {
       "lux": 8,
       "natura": 1,
@@ -638,16 +636,16 @@
       "arcane": 1,
       "ignis": 1
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "explocion de crystal alrededor del lansador",
-    "Canalization": "none",
-    "Range": "self",
+    "Canalization": "n",
+    "Range": "self-6",
     "EffectRange": "6",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "heat",
@@ -655,7 +653,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "Canalization optional",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -664,16 +662,16 @@
       "arcane": 0,
       "ignis": 1
     },
-    "speed": "canalización",
     "costMultiplier": "1",
     "castingTime": "0",
     "description": "libera calor en una dirección ",
-    "Canalization": "optional",
-    "Range": "self",
+    "Canalization": "canalization optional",
+    "Range": "1.5",
     "EffectRange": "1.5",
     "effect": "dmg",
-    "category": "utility",
-    "subcategory": null
+    "category": [
+      "utility"
+    ]
   },
   {
     "id": "flame",
@@ -681,7 +679,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "canalización",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -690,24 +688,24 @@
       "arcane": 0,
       "ignis": 1
     },
-    "speed": "canalización",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "flame like a lighter",
-    "Canalization": "none",
+    "Canalization": "canalización",
     "Range": null,
-    "EffectRange": null,
+    "EffectRange": "undifind",
     "effect": "dmg",
-    "category": "utility",
-    "subcategory": null
+    "category": [
+      "utility"
+    ]
   },
   {
     "id": "fire_imbued",
-    "name": "fire imbued ",
-   "circle": [
-      "invocation","effect"
+    "name": "fire imbued",
+    "circle": [
+      "Invocation Effect"
     ],
-    "type": null,
+    "type": "Canalization optional",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -716,16 +714,16 @@
       "arcane": 1,
       "ignis": 2
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "200",
     "description": "imbulle a un objeto en calor y fuego",
-    "Canalization": "none",
+    "Canalization": "canalization optional",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "ascuas",
@@ -733,7 +731,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "canalización",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -742,16 +740,16 @@
       "arcane": 0,
       "ignis": 2
     },
-    "speed": "canalización",
     "costMultiplier": "1",
     "castingTime": "0",
     "description": "lansa un cono de particulas de fuego y aire caiente ",
-    "Canalization": "optional",
-    "Range": "self",
-    "EffectRange": "1,5 Cone",
+    "Canalization": "canalización",
+    "Range": "1.5",
+    "EffectRange": "1.5",
     "effect": "dmg",
-    "category": "MidRangeAttack",
-    "subcategory": null
+    "category": [
+      "MidRangeAttack"
+    ]
   },
   {
     "id": "fire_bolt",
@@ -759,7 +757,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -768,16 +766,16 @@
       "arcane": 1,
       "ignis": 2
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "9",
     "EffectRange": "1.5 sphere",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "fireheart",
@@ -785,7 +783,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 0,
       "natura": 2,
@@ -794,16 +792,16 @@
       "arcane": 0,
       "ignis": 2
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "100",
     "description": "(keeps warm)resistance to frost",
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "buff",
-    "subcategory": null
+    "category": [
+      "buff"
+    ]
   },
   {
     "id": "blue_fire",
@@ -811,7 +809,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "modifier",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -820,16 +818,16 @@
       "arcane": 0,
       "ignis": 2
     },
-    "speed": "modifier",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "modificador, puede agregarse a un hechiso de fuego para agregarle las propiedades del elemento. El fuego absorbe calor del alrdedor hacindose mas intenso, enfria y calienta el obejto rapidamente.covierte el color del fuego en celeste",
-    "Canalization": "none",
+    "Canalization": "modifier",
     "Range": "mod",
-    "EffectRange": null,
+    "EffectRange": "mod",
     "effect": "ef",
-    "category": "modifier",
-    "subcategory": null
+    "category": [
+      "modifier"
+    ]
   },
   {
     "id": "frendly_fire",
@@ -837,7 +835,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "modifier",
     "elements": {
       "lux": 0,
       "natura": 2,
@@ -846,16 +844,16 @@
       "arcane": 0,
       "ignis": 2
     },
-    "speed": "modifier",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "modificador, puede agregarse a un hechiso de fuego para agregarle las propiedades del elemento. El fuego puede ignorar cosas no asiendoles daño pese a que las toque.covierte el color del fuego en verde",
-    "Canalization": "none",
+    "Canalization": "modifier",
     "Range": "mod",
-    "EffectRange": null,
+    "EffectRange": "mod",
     "effect": "ef",
-    "category": "modifier",
-    "subcategory": null
+    "category": [
+      "modifier"
+    ]
   },
   {
     "id": "holy_fire",
@@ -863,7 +861,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "modifier",
     "elements": {
       "lux": 2,
       "natura": 0,
@@ -872,16 +870,16 @@
       "arcane": 0,
       "ignis": 2
     },
-    "speed": "modifier",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "modificador, puede agregarse a un hechiso de fuego para agregarle las propiedades del elemento. El fuego infligue daño de luz y emite mas luz, covierte el color del fuego en amarillo dorado",
-    "Canalization": "none",
+    "Canalization": "modifier",
     "Range": "mod",
-    "EffectRange": null,
+    "EffectRange": "mod",
     "effect": "ef",
-    "category": "modifier",
-    "subcategory": null
+    "category": [
+      "modifier"
+    ]
   },
   {
     "id": "black_fire",
@@ -889,7 +887,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "modifier",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -898,16 +896,16 @@
       "arcane": 0,
       "ignis": 2
     },
-    "speed": "modifier",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "modificador, puede agregarse a un hechiso de fuego para agregarle las propiedades del elemento. El fuego inflinge daño de sombras y no da casi luz.covierte el color del fuego en negro",
-    "Canalization": "none",
+    "Canalization": "modifier",
     "Range": "mod",
-    "EffectRange": null,
+    "EffectRange": "mod",
     "effect": "ef",
-    "category": "modifier",
-    "subcategory": null
+    "category": [
+      "modifier"
+    ]
   },
   {
     "id": "traking_fire",
@@ -915,7 +913,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "modifier",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -924,16 +922,16 @@
       "arcane": 2,
       "ignis": 2
     },
-    "speed": "modifier",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "modificador, puede agregarse a un hechiso de fuego para agregarle las propiedades del elemento. El fuego puede teledirigirse al objetivo",
-    "Canalization": "none",
+    "Canalization": "modifier",
     "Range": "mod",
-    "EffectRange": null,
+    "EffectRange": "mod",
     "effect": "ef",
-    "category": "modifier",
-    "subcategory": null
+    "category": [
+      "modifier"
+    ]
   },
   {
     "id": "heat_sking",
@@ -941,7 +939,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "canalización",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -950,16 +948,16 @@
       "arcane": 2,
       "ignis": 2
     },
-    "speed": "canalización",
     "costMultiplier": "1",
     "castingTime": "*",
     "description": null,
-    "Canalization": "none",
-    "Range": null,
-    "EffectRange": null,
+    "Canalization": "canalización",
+    "Range": "-",
+    "EffectRange": "mod",
     "effect": "dmg",
-    "category": "utility",
-    "subcategory": null
+    "category": [
+      "utility"
+    ]
   },
   {
     "id": "flamethrower",
@@ -967,7 +965,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "canalización",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -976,16 +974,16 @@
       "arcane": 0,
       "ignis": 3
     },
-    "speed": "canalización",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "canalisa una llamarada de fuego",
-    "Canalization": "optional",
-    "Range": "self",
+    "Canalization": "canalización",
+    "Range": "3 cone",
     "EffectRange": "3 cone",
     "effect": "dmg",
-    "category": "MidRangeAttack",
-    "subcategory": null
+    "category": [
+      "MidRangeAttack"
+    ]
   },
   {
     "id": "absorber_fuego",
@@ -993,7 +991,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "canalización",
     "elements": {
       "lux": 0,
       "natura": 1,
@@ -1002,16 +1000,16 @@
       "arcane": 0,
       "ignis": 3
     },
-    "speed": "canalización",
     "costMultiplier": "1",
     "castingTime": "0",
     "description": "absorbe el fuego de alrededor para generar mana",
-    "Canalization": "required",
+    "Canalization": "canalización",
     "Range": "self",
     "EffectRange": "7.5",
     "effect": "ef",
-    "category": "utility",
-    "subcategory": null
+    "category": [
+      "utility"
+    ]
   },
   {
     "id": "concentrated_fire_bolt",
@@ -1019,7 +1017,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "fast",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -1028,16 +1026,16 @@
       "arcane": 2,
       "ignis": 3
     },
-    "speed": "fast",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "lansa una bola de fuego, crea un impacto un poco mas grande que la bola",
-    "Canalization": "none",
+    "Canalization": "fast",
     "Range": "9",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "fire_whip",
@@ -1045,7 +1043,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 0,
       "natura": 1,
@@ -1054,16 +1052,16 @@
       "arcane": 2,
       "ignis": 3
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "200",
     "description": "invoca un latigo de fuego, no quema al invocador",
-    "Canalization": "none",
-    "Range": null,
-    "EffectRange": null,
+    "Canalization": "slow",
+    "Range": "-",
+    "EffectRange": "invocation",
     "effect": "ef",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "fire_smite",
@@ -1071,7 +1069,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -1080,16 +1078,16 @@
       "arcane": 1,
       "ignis": 4
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "inbues a wepon so the next attack deals +dmg",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "fire_ball",
@@ -1097,7 +1095,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "fast",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -1106,16 +1104,16 @@
       "arcane": 1,
       "ignis": 4
     },
-    "speed": "fast",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "fast",
     "Range": "9",
     "EffectRange": "3 sphere",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "fire_tornedo",
@@ -1123,7 +1121,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 0,
       "natura": 1,
@@ -1132,24 +1130,24 @@
       "arcane": 0,
       "ignis": 4
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "6",
     "EffectRange": "6 sphere",
     "effect": "ef",
-    "category": "summon",
-    "subcategory": null
+    "category": [
+      "summon"
+    ]
   },
   {
     "id": "ashbringer_imbued",
     "name": "Ashbringer imbued",
-   "circle": [
-      "invocation","effect"
+    "circle": [
+      "Invocation Effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -1158,24 +1156,24 @@
       "arcane": 1,
       "ignis": 4
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "200",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "ashbringer_smite",
     "name": "Ashbringer Smite",
-   "circle": [
-      "invocation","effect"
+    "circle": [
+      "Invocation Effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -1184,16 +1182,16 @@
       "arcane": 1,
       "ignis": 5
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "inbues a wepon so the next attack deals +dmg",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "flame_nova",
@@ -1201,7 +1199,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -1210,16 +1208,16 @@
       "arcane": 0,
       "ignis": 5
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "self",
     "EffectRange": "7.5",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "elemental",
@@ -1227,7 +1225,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "super slow",
     "elements": {
       "lux": 0,
       "natura": 2,
@@ -1236,16 +1234,16 @@
       "arcane": 1,
       "ignis": 5
     },
-    "speed": "super slow",
     "costMultiplier": "1",
     "castingTime": "150",
     "description": null,
-    "Canalization": "none",
-    "Range": "1",
+    "Canalization": "super slow",
+    "Range": "1-5",
     "EffectRange": "5",
     "effect": "ef",
-    "category": "summon",
-    "subcategory": null
+    "category": [
+      "summon"
+    ]
   },
   {
     "id": "desintagrate",
@@ -1253,7 +1251,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -1262,16 +1260,16 @@
       "arcane": 0,
       "ignis": 8
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "6",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "fire_bloom",
@@ -1279,7 +1277,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 6,
@@ -1288,16 +1286,16 @@
       "arcane": 0,
       "ignis": 12
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "tira una semilla si hace contacto con un ser vivo la flor se abre y puede ser reactivada invitas vesec mientras siga y el objetivo esté vivo hace mucho daño ",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "9",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "fire_nuke",
@@ -1305,7 +1303,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "super slow",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -1314,16 +1312,16 @@
       "arcane": 1,
       "ignis": 12
     },
-    "speed": "super slow",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": null,
-    "Canalization": "none",
-    "Range": "15",
+    "Canalization": "super slow",
+    "Range": "15-3/6/9",
     "EffectRange": "3/6/9",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "starfire",
@@ -1331,7 +1329,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 2,
       "natura": 0,
@@ -1340,42 +1338,16 @@
       "arcane": 2,
       "ignis": 2
     },
-    "speed": "normal",
     "costMultiplier": ".",
     "castingTime": ".",
     "description": ".",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": ".",
-    "EffectRange": null,
+    "EffectRange": ".",
     "effect": ".",
-    "category": "modifier",
-    "subcategory": null
-  },
-  {
-    "id": "",
-    "name": ".",
-    "circle": [
-      "None"
-    ],
-    "type": null,
-    "elements": {
-      "lux": 0,
-      "natura": 0,
-      "gelum": 0,
-      "umbra": 0,
-      "arcane": 0,
-      "ignis": 0
-    },
-    "speed": "normal",
-    "costMultiplier": ".",
-    "castingTime": ".",
-    "description": ".",
-    "Canalization": "none",
-    "Range": ".",
-    "EffectRange": null,
-    "effect": ".",
-    "category": ".",
-    "subcategory": null
+    "category": [
+      "modifier"
+    ]
   },
   {
     "id": "arcane_ball",
@@ -1383,7 +1355,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -1392,16 +1364,16 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "6",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "mage_hand",
@@ -1409,7 +1381,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "Canalization",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -1418,16 +1390,16 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "50",
     "description": "wind telekinetic hand",
-    "Canalization": "required",
-    "Range": "6",
-    "EffectRange": null,
+    "Canalization": "canalization",
+    "Range": "(c)6",
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "arcane_eye",
@@ -1435,7 +1407,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "Canalization optional",
     "elements": {
       "lux": 1,
       "natura": 0,
@@ -1444,16 +1416,16 @@
       "arcane": 2,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "100",
     "description": "permite ver el mundo espirtiual",
-    "Canalization": "required",
-    "Range": "touch",
-    "EffectRange": "9",
+    "Canalization": "canalization optional",
+    "Range": "(c)-touch-9",
+    "EffectRange": "?",
     "effect": "ef",
-    "category": "buff",
-    "subcategory": null
+    "category": [
+      "buff"
+    ]
   },
   {
     "id": "booming_voice",
@@ -1461,7 +1433,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -1470,16 +1442,16 @@
       "arcane": 2,
       "ignis": 0
     },
-    "speed": "canali",
     "costMultiplier": "1",
     "castingTime": "50",
     "description": "speeker",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "arcane_blast",
@@ -1487,7 +1459,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "fast",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -1496,16 +1468,16 @@
       "arcane": 3,
       "ignis": 0
     },
-    "speed": "fast",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "wave in a cone",
-    "Canalization": "none",
+    "Canalization": "fast",
     "Range": "self",
     "EffectRange": "3",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "arcane_slash",
@@ -1513,7 +1485,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "fast",
     "elements": {
       "lux": 1,
       "natura": 0,
@@ -1522,24 +1494,24 @@
       "arcane": 3,
       "ignis": 0
     },
-    "speed": "fast",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "slashing lux dmg",
-    "Canalization": "none",
-    "Range": "7.5",
+    "Canalization": "fast",
+    "Range": "7.5-1.5",
     "EffectRange": "1.5",
     "effect": "dmg",
-    "category": "MidRangeAttack",
-    "subcategory": null
+    "category": [
+      "MidRangeAttack"
+    ]
   },
   {
     "id": "imbue_seeking",
     "name": "imbue seeking",
-   "circle": [
-      "invocation","effect"
+    "circle": [
+      "Invocation Effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -1548,16 +1520,16 @@
       "arcane": 3,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "100",
     "description": "gives bonus to attack rolls = (dmg)? range attacks get advantage",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "time_back",
@@ -1565,7 +1537,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "canalización",
     "elements": {
       "lux": 2,
       "natura": 0,
@@ -1574,20 +1546,20 @@
       "arcane": 3,
       "ignis": 0
     },
-    "speed": "canalización",
     "costMultiplier": "1",
     "castingTime": "0",
     "description": "(mending)",
-    "Canalization": "none",
+    "Canalization": "canalización",
     "Range": "1.5",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "utility",
-    "subcategory": null
+    "category": [
+      "utility"
+    ]
   },
   {
     "id": "mind_link",
-    "name": "mind link ",
+    "name": "mind link",
     "circle": [
       "effect"
     ],
@@ -1600,16 +1572,16 @@
       "arcane": 3,
       "ignis": 0
     },
-    "speed": null,
     "costMultiplier": "1",
     "castingTime": "100",
     "description": "share emotions and sensations as one",
     "Canalization": "none",
     "Range": null,
-    "EffectRange": null,
-    "effect": null,
-    "category": null,
-    "subcategory": null
+    "EffectRange": "undifind",
+    "effect": "ef",
+    "category": [
+      "utility"
+    ]
   },
   {
     "id": "telepathy",
@@ -1617,7 +1589,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 3,
@@ -1626,16 +1598,16 @@
       "arcane": 3,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "100",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "6",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "utility",
-    "subcategory": null
+    "category": [
+      "utility"
+    ]
   },
   {
     "id": "charm",
@@ -1643,7 +1615,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "fast",
     "elements": {
       "lux": 0,
       "natura": 2,
@@ -1652,16 +1624,16 @@
       "arcane": 3,
       "ignis": 0
     },
-    "speed": "fast",
     "costMultiplier": "1",
     "castingTime": "100",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "fast",
     "Range": "3",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "CC",
-    "subcategory": null
+    "category": [
+      "CC"
+    ]
   },
   {
     "id": "telekinesis",
@@ -1669,7 +1641,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "Canalization optional",
     "elements": {
       "lux": 0,
       "natura": 1,
@@ -1678,16 +1650,16 @@
       "arcane": 3,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "100",
     "description": null,
-    "Canalization": "required",
-    "Range": "6",
+    "Canalization": "canalization optional",
+    "Range": "(c)6-1.5",
     "EffectRange": "1.5",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "bane",
@@ -1695,7 +1667,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "fast",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -1704,24 +1676,24 @@
       "arcane": 3,
       "ignis": 0
     },
-    "speed": "fast",
     "costMultiplier": "1",
     "castingTime": "100",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "fast",
     "Range": "3",
-    "EffectRange": null,
+    "EffectRange": "3",
     "effect": "ef",
-    "category": "Debuff",
-    "subcategory": null
+    "category": [
+      "Debuff"
+    ]
   },
   {
     "id": "ilusion_onecolor",
     "name": "ilusion(onecolor)",
-   "circle": [
-      "invocation","effect"
+    "circle": [
+      "Invocation Effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 1,
       "natura": 0,
@@ -1730,16 +1702,16 @@
       "arcane": 3,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "100",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "utility",
-    "subcategory": null
+    "category": [
+      "utility"
+    ]
   },
   {
     "id": "haste",
@@ -1747,7 +1719,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "Canalization optional",
     "elements": {
       "lux": 1,
       "natura": 0,
@@ -1756,16 +1728,16 @@
       "arcane": 4,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "50",
     "description": null,
-    "Canalization": "required",
+    "Canalization": "canalization optional",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "buff",
-    "subcategory": null
+    "category": [
+      "buff"
+    ]
   },
   {
     "id": "spirit_blast",
@@ -1773,7 +1745,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "fast",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -1782,24 +1754,24 @@
       "arcane": 4,
       "ignis": 0
     },
-    "speed": "fast",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "igonora no metales o seres vivos (aramdura no de metal es ignorada, puede atravesar paredes)",
-    "Canalization": "none",
+    "Canalization": "fast",
     "Range": "9",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "arcane_missils",
     "name": "arcane missils",
-   "circle": [
-      "Proyectill","effect"
+    "circle": [
+      "Proyectill Effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -1808,16 +1780,16 @@
       "arcane": 4,
       "ignis": 1
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "mientras mas tiempos cargas este heciso mas misiles puedes dispara al soltar/activar el heciso todos los misiles cargado salen disparados hacia el objetivos los misiles no pueden ser esquivados peros is vlocados por metal(si tiene armadura de metal (hierro>bronze) ase un spellcasting check y comparolo con  AC de la armadura; por ejemplo: si es el mismo numero 3/4 pegan, AC>spell+2 1/4 pega AC>spell+4 0 pegan y si AC+2<spell todos pegan  )",
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "9",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "pulsefire_bolt",
@@ -1825,7 +1797,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -1834,16 +1806,16 @@
       "arcane": 4,
       "ignis": 3
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "12",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "animate",
@@ -1851,7 +1823,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "super slow",
     "elements": {
       "lux": 1,
       "natura": 1,
@@ -1860,16 +1832,16 @@
       "arcane": 4,
       "ignis": 1
     },
-    "speed": "super slow",
     "costMultiplier": "1",
     "castingTime": "150",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "super slow",
     "Range": "1.5",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "summon",
-    "subcategory": null
+    "category": [
+      "summon"
+    ]
   },
   {
     "id": "all_seeing_eye",
@@ -1877,7 +1849,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 1,
       "natura": 3,
@@ -1886,16 +1858,16 @@
       "arcane": 4,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "150",
     "description": "como arcane eye pero en todas direcciones y no solo en el campo de visión (?)",
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "buff",
-    "subcategory": null
+    "category": [
+      "buff"
+    ]
   },
   {
     "id": "untraceable_soul",
@@ -1903,7 +1875,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "s",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -1912,16 +1884,16 @@
       "arcane": 4,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "150",
     "description": "el objetivo es invisible a efectos como arcane eye (Aunque la fuerza del arcane eye comparado con este hechiso determinara la efectividad)",
-    "Canalization": "none",
+    "Canalization": "s",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "buff",
-    "subcategory": null
+    "category": [
+      "buff"
+    ]
   },
   {
     "id": "complet_cleans_mind",
@@ -1929,7 +1901,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 1,
       "natura": 3,
@@ -1938,16 +1910,16 @@
       "arcane": 5,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "150",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "teleportation_flash",
@@ -1955,7 +1927,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "fast",
     "elements": {
       "lux": 3,
       "natura": 1,
@@ -1964,16 +1936,16 @@
       "arcane": 5,
       "ignis": 0
     },
-    "speed": "fast",
     "costMultiplier": "1",
     "castingTime": "1",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "fast",
     "Range": "self",
     "EffectRange": "4.5",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "battle_reading",
@@ -1981,7 +1953,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 4,
@@ -1990,16 +1962,16 @@
       "arcane": 5,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "150",
     "description": "reads the oponent superficial intations, predicting the next atacts (buff ac ageinst target)",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "12",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "buff",
-    "subcategory": null
+    "category": [
+      "buff"
+    ]
   },
   {
     "id": "shear_memory",
@@ -2007,7 +1979,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "c",
     "elements": {
       "lux": 1,
       "natura": 4,
@@ -2016,16 +1988,16 @@
       "arcane": 6,
       "ignis": 0
     },
-    "speed": "c",
     "costMultiplier": "1",
     "castingTime": "1",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "c",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "accelerate",
@@ -2033,7 +2005,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "N",
     "elements": {
       "lux": 4,
       "natura": 1,
@@ -2042,24 +2014,24 @@
       "arcane": 6,
       "ignis": 0
     },
-    "speed": "N",
     "costMultiplier": "1",
     "castingTime": "150",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "ilucion",
     "name": "ilucion",
-   "circle": [
-      "invocation","effect"
+    "circle": [
+      "Invocation Effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 1,
       "natura": 0,
@@ -2068,24 +2040,24 @@
       "arcane": 6,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "300",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": null,
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "soul_anchor",
     "name": "soul anchor",
-   "circle": [
-      "invocation","effect"
+    "circle": [
+      "Invocation Effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 1,
       "natura": 1,
@@ -2094,16 +2066,16 @@
       "arcane": 7,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "voldemort thing",
-    "Canalization": "none",
-    "Range": "Touch",
-    "EffectRange": "touch",
+    "Canalization": "n",
+    "Range": "Touch-touch",
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "inprint_memory",
@@ -2111,7 +2083,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "c",
     "elements": {
       "lux": 1,
       "natura": 5,
@@ -2120,16 +2092,16 @@
       "arcane": 7,
       "ignis": 0
     },
-    "speed": "c",
     "costMultiplier": "1",
     "castingTime": "1",
     "description": "guarda una memorya en una gema",
-    "Canalization": "none",
+    "Canalization": "c",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "balefire",
@@ -2137,7 +2109,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 1,
       "natura": 0,
@@ -2146,16 +2118,16 @@
       "arcane": 7,
       "ignis": 6
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "consentrated beam of fire ",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "100",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "portal",
@@ -2163,7 +2135,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "ss",
     "elements": {
       "lux": 4,
       "natura": 0,
@@ -2172,16 +2144,16 @@
       "arcane": 8,
       "ignis": 0
     },
-    "speed": "very slow",
     "costMultiplier": "1",
     "castingTime": "50",
     "description": null,
-    "Canalization": "none",
-    "Range": "1.5",
+    "Canalization": "ss",
+    "Range": "1.5-1.5",
     "EffectRange": "1.5",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "kugelblitz",
@@ -2189,7 +2161,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "super slow",
     "elements": {
       "lux": 7,
       "natura": 0,
@@ -2198,16 +2170,16 @@
       "arcane": 10,
       "ignis": 0
     },
-    "speed": "super slow",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": null,
-    "Canalization": "none",
-    "Range": "15",
+    "Canalization": "super slow",
+    "Range": "15-9",
     "EffectRange": "9",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "arcane_bomb",
@@ -2215,7 +2187,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "super slow",
     "elements": {
       "lux": 1,
       "natura": 0,
@@ -2224,16 +2196,16 @@
       "arcane": 14,
       "ignis": 0
     },
-    "speed": "super slow",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": null,
-    "Canalization": "none",
-    "Range": "15",
+    "Canalization": "super slow",
+    "Range": "15-9",
     "EffectRange": "9",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "shred_soul",
@@ -2243,23 +2215,23 @@
     ],
     "type": null,
     "elements": {
-      "lux": 5,
-      "natura": 5,
+      "lux": 1,
+      "natura": 1,
       "gelum": 0,
       "umbra": 0,
-      "arcane": 10,
-      "ignis": 5
+      "arcane": 1,
+      "ignis": 1
     },
-    "speed": null,
     "costMultiplier": "1",
     "castingTime": null,
     "description": null,
     "Canalization": "none",
     "Range": "1.5",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "MidRangeAttack",
-    "subcategory": null
+    "category": [
+      "MidRangeAttack"
+    ]
   },
   {
     "id": "shadow",
@@ -2267,7 +2239,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "super slow",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -2276,16 +2248,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "super slow",
     "costMultiplier": "1",
     "castingTime": "50",
     "description": "become surrounded by shadow (+#dmg# to AC)",
-    "Canalization": "none",
+    "Canalization": "super slow",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "buff",
-    "subcategory": null
+    "category": [
+      "buff"
+    ]
   },
   {
     "id": "nightvision",
@@ -2293,7 +2265,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 1,
       "natura": 0,
@@ -2302,16 +2274,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "200",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "buff",
-    "subcategory": null
+    "category": [
+      "buff"
+    ]
   },
   {
     "id": "shadow_bolt",
@@ -2319,7 +2291,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "fast",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -2328,24 +2300,24 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "fast",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": null,
-    "Canalization": "none",
-    "Range": "9",
+    "Canalization": "fast",
+    "Range": "9-1.5",
     "EffectRange": "1.5",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "imbue_sombra",
     "name": "imbue sombra",
-   "circle": [
-      "invocation","effect"
+    "circle": [
+      "Invocation Effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -2354,16 +2326,16 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "200",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "stealth",
@@ -2371,7 +2343,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -2380,16 +2352,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "100",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "buff",
-    "subcategory": null
+    "category": [
+      "buff"
+    ]
   },
   {
     "id": "shadow_blade",
@@ -2397,7 +2369,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "super slow",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -2406,16 +2378,16 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "super slow",
     "costMultiplier": "1",
     "castingTime": "50",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "super slow",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "curse_lance",
@@ -2423,7 +2395,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "fast",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -2432,24 +2404,25 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "fast",
     "costMultiplier": "1",
     "castingTime": "50",
     "description": "throws a dark shadow proyectil damage done by this cant be heal for the duration of the spell",
-    "Canalization": "none",
+    "Canalization": "fast",
     "Range": "9",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": "debuff"
+    "category": [
+      "RangeAttack",
+      "debuff"
+    ]
   },
   {
     "id": "imbue_poision",
     "name": "imbue poision",
-   "circle": [
-      "invocation","effect"
+    "circle": [
+      "Invocation Effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 0,
       "natura": 2,
@@ -2458,24 +2431,24 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "150",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "sleep",
-    "name": "sleep ",
+    "name": "sleep",
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 0,
       "natura": 3,
@@ -2484,16 +2457,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "500",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "3",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "CC",
-    "subcategory": null
+    "category": [
+      "CC"
+    ]
   },
   {
     "id": "fear",
@@ -2501,7 +2474,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "fast",
     "elements": {
       "lux": 0,
       "natura": 1,
@@ -2510,16 +2483,16 @@
       "arcane": 2,
       "ignis": 0
     },
-    "speed": "fast",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "fast",
     "Range": "6",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "CC",
-    "subcategory": null
+    "category": [
+      "CC"
+    ]
   },
   {
     "id": "darkness",
@@ -2527,7 +2500,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "super slow",
     "elements": {
       "lux": 1,
       "natura": 0,
@@ -2536,24 +2509,24 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "super slow",
     "costMultiplier": "1",
     "castingTime": "200",
     "description": null,
-    "Canalization": "none",
-    "Range": "self",
+    "Canalization": "super slow",
+    "Range": "self-9",
     "EffectRange": "9",
     "effect": "ef",
-    "category": "CC",
-    "subcategory": null
+    "category": [
+      "CC"
+    ]
   },
   {
     "id": "blindness",
     "name": "blindness",
-   "circle": [
-      "Proyectill","effect"
+    "circle": [
+      "Proyectill Effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 3,
       "natura": 0,
@@ -2562,16 +2535,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "50",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "6",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "debuff",
-    "subcategory": null
+    "category": [
+      "debuff"
+    ]
   },
   {
     "id": "dark_skyes",
@@ -2579,7 +2552,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "super slow",
     "elements": {
       "lux": 0,
       "natura": 1,
@@ -2588,16 +2561,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "super slow",
     "costMultiplier": "1",
     "castingTime": "200",
     "description": null,
-    "Canalization": "none",
-    "Range": "touch",
+    "Canalization": "super slow",
+    "Range": "touch-60",
     "EffectRange": "60",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "compel",
@@ -2605,7 +2578,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 0,
       "natura": 1,
@@ -2614,24 +2587,24 @@
       "arcane": 3,
       "ignis": 1
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "200",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "3",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "CC",
-    "subcategory": null
+    "category": [
+      "CC"
+    ]
   },
   {
     "id": "ilusion_mind_based",
     "name": "ilusion (mind based)",
-   "circle": [
-      "invocation","effect"
+    "circle": [
+      "Invocation Effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 1,
       "natura": 0,
@@ -2640,16 +2613,16 @@
       "arcane": 3,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "100",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "6",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "shadow_embrace",
@@ -2657,7 +2630,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 0,
       "natura": 1,
@@ -2666,16 +2639,16 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "200",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "self",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "pain_curse",
@@ -2683,7 +2656,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 1,
@@ -2692,16 +2665,16 @@
       "arcane": 0,
       "ignis": 3
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "10000",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "3",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "debuff",
-    "subcategory": null
+    "category": [
+      "debuff"
+    ]
   },
   {
     "id": "health_curse",
@@ -2709,7 +2682,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 1,
@@ -2718,16 +2691,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "10000",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "3",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "debuff",
-    "subcategory": null
+    "category": [
+      "debuff"
+    ]
   },
   {
     "id": "weakness_curse",
@@ -2735,7 +2708,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 3,
@@ -2744,16 +2717,16 @@
       "arcane": 0,
       "ignis": 1
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "10000",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "3",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "debuff",
-    "subcategory": null
+    "category": [
+      "debuff"
+    ]
   },
   {
     "id": "sensless_curse",
@@ -2761,7 +2734,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 3,
       "natura": 1,
@@ -2770,16 +2743,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "10000",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "3",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "debuff",
-    "subcategory": null
+    "category": [
+      "debuff"
+    ]
   },
   {
     "id": "mindless_curse",
@@ -2787,7 +2760,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 1,
@@ -2796,24 +2769,24 @@
       "arcane": 3,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "10000",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "3",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "debuff",
-    "subcategory": null
+    "category": [
+      "debuff"
+    ]
   },
   {
     "id": "animate_death",
     "name": "Animate death",
-   "circle": [
-      "invocation","effect"
+    "circle": [
+      "Invocation Effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 0,
       "natura": 1,
@@ -2822,16 +2795,16 @@
       "arcane": 4,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "300",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "summon",
-    "subcategory": null
+    "category": [
+      "summon"
+    ]
   },
   {
     "id": "reanimate_cadaver",
@@ -2839,7 +2812,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "super slow",
     "elements": {
       "lux": 0,
       "natura": 4,
@@ -2848,16 +2821,16 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "super slow",
     "costMultiplier": "1",
     "castingTime": "150",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "super slow",
     "Range": "3",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "summon",
-    "subcategory": null
+    "category": [
+      "summon"
+    ]
   },
   {
     "id": "shadow_elemental",
@@ -2865,7 +2838,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "ss",
     "elements": {
       "lux": 0,
       "natura": 1,
@@ -2874,16 +2847,16 @@
       "arcane": 2,
       "ignis": 0
     },
-    "speed": "very slow",
     "costMultiplier": "1",
     "castingTime": "*",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "ss",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "summon",
-    "subcategory": null
+    "category": [
+      "summon"
+    ]
   },
   {
     "id": "shadow_jump_o_sf",
@@ -2891,7 +2864,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 1,
@@ -2900,16 +2873,16 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "*",
     "description": null,
-    "Canalization": "none",
-    "Range": "self",
+    "Canalization": "n",
+    "Range": "self-9",
     "EffectRange": "9",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "cursed_flame",
@@ -2917,7 +2890,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -2926,16 +2899,16 @@
       "arcane": 0,
       "ignis": 5
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "damage cretures feel the pain for ever (max HP lower by dmg taken)",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "12",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "corupt_mind",
@@ -2943,7 +2916,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 5,
@@ -2952,16 +2925,16 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "200",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "6",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "CC",
-    "subcategory": null
+    "category": [
+      "CC"
+    ]
   },
   {
     "id": "shadow_form",
@@ -2969,7 +2942,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 0,
       "natura": 1,
@@ -2978,24 +2951,24 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "200",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "self",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "buff",
-    "subcategory": null
+    "category": [
+      "buff"
+    ]
   },
   {
     "id": "shred_soul",
     "name": "shred soul",
-   "circle": [
-      "Proyectill","effect"
+    "circle": [
+      "Proyectill Effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 1,
       "natura": 1,
@@ -3004,16 +2977,16 @@
       "arcane": 6,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "kill a creature with less than (dmg*2) mana",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "3",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "freeze",
@@ -3021,7 +2994,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "Canalization optional",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -3030,16 +3003,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "canalizacion",
     "costMultiplier": "1",
     "castingTime": "*",
     "description": null,
-    "Canalization": "optional",
-    "Range": "1.5",
-    "EffectRange": null,
+    "Canalization": "canalization optional",
+    "Range": "touch",
+    "EffectRange": "1.5",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "desumidificar",
@@ -3047,7 +3020,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "Canalization optional",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -3056,16 +3029,16 @@
       "arcane": 0,
       "ignis": 1
     },
-    "speed": "canalizacion",
     "costMultiplier": "1",
     "castingTime": "*",
     "description": null,
-    "Canalization": "optional",
-    "Range": "1,5",
+    "Canalization": "canalization optional",
+    "Range": "touch",
     "EffectRange": "1.5",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "wind_blast",
@@ -3073,7 +3046,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 1,
@@ -3082,24 +3055,24 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": null,
-    "Canalization": "none",
-    "Range": "self",
-    "EffectRange": "1.5",
+    "Canalization": "n",
+    "Range": "self-1.5",
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "MidRangeAttack",
-    "subcategory": null
+    "category": [
+      "MidRangeAttack"
+    ]
   },
   {
     "id": "imbued_frost",
     "name": "imbued frost",
-   "circle": [
-      "invocation","effect"
+    "circle": [
+      "Invocation Effect"
     ],
-    "type": null,
+    "type": "modificador",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -3108,16 +3081,16 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "modificador",
     "costMultiplier": "1",
     "castingTime": "150",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "modificador",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "ice_move",
@@ -3125,7 +3098,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -3134,24 +3107,24 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "6",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "wind",
-    "name": "wind ",
+    "name": "wind",
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "Canalization optional",
     "elements": {
       "lux": 0,
       "natura": 2,
@@ -3160,16 +3133,16 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "canalizacion",
     "costMultiplier": "1",
     "castingTime": "*",
     "description": null,
-    "Canalization": "optional",
-    "Range": "self",
+    "Canalization": "canalization optional",
+    "Range": "touch",
     "EffectRange": "3",
     "effect": "dmg",
-    "category": "MidRangeAttack",
-    "subcategory": null
+    "category": [
+      "MidRangeAttack"
+    ]
   },
   {
     "id": "black_ice",
@@ -3177,7 +3150,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "modifaier ",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -3186,16 +3159,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "modifaier ",
     "costMultiplier": "1",
     "castingTime": "*",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "modifaier ",
     "Range": "mod",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "modifier",
-    "subcategory": null
+    "category": [
+      "modifier"
+    ]
   },
   {
     "id": "prismatic_ice",
@@ -3203,7 +3176,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "modifaier ",
     "elements": {
       "lux": 2,
       "natura": 0,
@@ -3212,16 +3185,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "modifaier ",
     "costMultiplier": "1",
     "castingTime": "*",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "modifaier ",
     "Range": "mod",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "modifier",
-    "subcategory": null
+    "category": [
+      "modifier"
+    ]
   },
   {
     "id": "fog",
@@ -3229,7 +3202,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "super slow",
     "elements": {
       "lux": 0,
       "natura": 1,
@@ -3238,16 +3211,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "super slow",
     "costMultiplier": "1",
     "castingTime": "200",
     "description": "crates a fog claud of radius #size# *3m, characters in the fog have disavantage on atacks and savin throws ",
-    "Canalization": "none",
+    "Canalization": "super slow",
     "Range": "self",
     "EffectRange": "3",
     "effect": "ef",
-    "category": "CC",
-    "subcategory": null
+    "category": [
+      "CC"
+    ]
   },
   {
     "id": "clean",
@@ -3255,7 +3228,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "canalizacion",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -3264,16 +3237,16 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "canalizacion",
     "costMultiplier": "1",
     "castingTime": "*",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "canalizacion",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "objeto_de_hielo",
@@ -3281,7 +3254,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -3290,16 +3263,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "*",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "3",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "cone_of_cold",
@@ -3307,7 +3280,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -3316,16 +3289,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "self",
     "EffectRange": "3",
     "effect": "dmg",
-    "category": "MidRangeAttack",
-    "subcategory": null
+    "category": [
+      "MidRangeAttack"
+    ]
   },
   {
     "id": "air_slash",
@@ -3333,7 +3306,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "fast",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -3342,16 +3315,16 @@
       "arcane": 2,
       "ignis": 0
     },
-    "speed": "fast",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "fast",
     "Range": "7.5",
     "EffectRange": "1.5",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "absorb_fire",
@@ -3359,7 +3332,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "Canalization optional",
     "elements": {
       "lux": 0,
       "natura": 1,
@@ -3368,24 +3341,24 @@
       "arcane": 0,
       "ignis": 1
     },
-    "speed": "canalización",
     "costMultiplier": "1",
     "castingTime": "0",
     "description": null,
-    "Canalization": "optional",
-    "Range": "self",
+    "Canalization": "canalization optional",
+    "Range": "touch",
     "EffectRange": "7.5",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "ice_armor_shild",
     "name": "ice armor(shild)",
-   "circle": [
-      "invocation","effect"
+    "circle": [
+      "Invocation Effect"
     ],
-    "type": null,
+    "type": "super slow",
     "elements": {
       "lux": 1,
       "natura": 1,
@@ -3394,16 +3367,16 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "super slow",
     "costMultiplier": "1",
     "castingTime": "100",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "super slow",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Defencive",
-    "subcategory": null
+    "category": [
+      "Defencive"
+    ]
   },
   {
     "id": "weather_dome",
@@ -3411,7 +3384,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "super slow",
     "elements": {
       "lux": 0,
       "natura": 2,
@@ -3420,16 +3393,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "super slow",
     "costMultiplier": "1",
     "castingTime": "200",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "super slow",
     "Range": "6",
     "EffectRange": "6",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "frost_smite",
@@ -3437,7 +3410,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -3446,16 +3419,16 @@
       "arcane": 1,
       "ignis": 1
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "inbues a wepon so the next attack deals +dmg",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "air_bomb",
@@ -3463,7 +3436,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -3472,16 +3445,16 @@
       "arcane": 3,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "9",
-    "EffectRange": "3 sphere",
+    "EffectRange": "3",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "rainstorm",
@@ -3489,7 +3462,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "super slow",
     "elements": {
       "lux": 0,
       "natura": 2,
@@ -3498,16 +3471,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "super slow",
     "costMultiplier": "1",
     "castingTime": "200",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "super slow",
     "Range": "touch",
     "EffectRange": "60",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "frost_bomb",
@@ -3515,7 +3488,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -3524,16 +3497,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "9",
-    "EffectRange": "3 sphere",
+    "EffectRange": "3",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "blizzard",
@@ -3541,7 +3514,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "super slow",
     "elements": {
       "lux": 0,
       "natura": 3,
@@ -3550,24 +3523,24 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "super slow",
     "costMultiplier": "1",
     "castingTime": "200",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "super slow",
     "Range": "touch",
     "EffectRange": "60",
     "effect": "ef",
-    "category": "summon",
-    "subcategory": null
+    "category": [
+      "summon"
+    ]
   },
   {
     "id": "air_buble",
     "name": "air buble",
-   "circle": [
-      "invocation","effect"
+    "circle": [
+      "Invocation Effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 0,
       "natura": 1,
@@ -3576,24 +3549,24 @@
       "arcane": 3,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "200",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "touch",
     "EffectRange": "0.5",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "live_ice_chain_armor",
     "name": "live ice chain armor",
-   "circle": [
-      "invocation","effect"
+    "circle": [
+      "Invocation Effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 3,
@@ -3602,16 +3575,16 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "500",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "elemental",
@@ -3619,7 +3592,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "super slow",
     "elements": {
       "lux": 0,
       "natura": 3,
@@ -3628,16 +3601,16 @@
       "arcane": 1,
       "ignis": 1
     },
-    "speed": "super slow",
     "costMultiplier": "1",
     "castingTime": "1000",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "super slow",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "summon",
-    "subcategory": null
+    "category": [
+      "summon"
+    ]
   },
   {
     "id": "flight",
@@ -3645,7 +3618,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "Canalization optional",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -3654,24 +3627,24 @@
       "arcane": 4,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "150",
     "description": null,
-    "Canalization": "required",
+    "Canalization": "canalization optional",
     "Range": "3",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "deap_freeze",
     "name": "deap freeze",
-   "circle": [
-      "invocation","effect"
+    "circle": [
+      "Invocation Effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 0,
       "natura": 3,
@@ -3680,16 +3653,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "Deals dmg to a creatur afected by frost , dmg delt cannot be heal  and is a persentage of cretur hp",
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "6",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "midRangeAttack",
-    "subcategory": null
+    "category": [
+      "midRangeAttack"
+    ]
   },
   {
     "id": "storm",
@@ -3697,7 +3670,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "SS",
     "elements": {
       "lux": 0,
       "natura": 4,
@@ -3706,16 +3679,16 @@
       "arcane": 0,
       "ignis": 1
     },
-    "speed": "SS",
     "costMultiplier": "1",
     "castingTime": "200",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "ss",
     "Range": "touch",
     "EffectRange": "60",
     "effect": "ef",
-    "category": "summon",
-    "subcategory": null
+    "category": [
+      "summon"
+    ]
   },
   {
     "id": "huracain",
@@ -3723,7 +3696,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "ss",
     "elements": {
       "lux": 0,
       "natura": 6,
@@ -3732,16 +3705,16 @@
       "arcane": 4,
       "ignis": 1
     },
-    "speed": "very slow",
     "costMultiplier": "1",
     "castingTime": "500",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "ss",
     "Range": "60",
     "EffectRange": "60",
     "effect": "inv",
-    "category": "summon",
-    "subcategory": null
+    "category": [
+      "summon"
+    ]
   },
   {
     "id": "cyclone",
@@ -3749,7 +3722,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "SS",
     "elements": {
       "lux": 0,
       "natura": 7,
@@ -3758,16 +3731,16 @@
       "arcane": 0,
       "ignis": 1
     },
-    "speed": "SS",
     "costMultiplier": "1",
     "castingTime": "200",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "ss",
     "Range": "60",
     "EffectRange": "60",
     "effect": "ef",
-    "category": "summon",
-    "subcategory": null
+    "category": [
+      "summon"
+    ]
   },
   {
     "id": "frost_nova",
@@ -3775,7 +3748,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 0,
       "natura": 0,
@@ -3784,16 +3757,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "9",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "midRangeAttack",
-    "subcategory": null
+    "category": [
+      "midRangeAttack"
+    ]
   },
   {
     "id": "blade_of_frostdeath",
@@ -3801,7 +3774,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "N",
     "elements": {
       "lux": 0,
       "natura": 2,
@@ -3810,24 +3783,22 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "N",
     "costMultiplier": "1",
     "castingTime": "150",
     "description": "ignores armor ",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": null,
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "lighting",
-    "name": "lighting ",
-   "circle": [
-      "invocation","Proyectill"
-    ],
-    "type": null,
+    "name": "lighting",
+    "circle": [],
+    "type": "slow",
     "elements": {
       "lux": 3,
       "natura": 3,
@@ -3836,16 +3807,16 @@
       "arcane": 0,
       "ignis": 3
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "*",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "9",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "regenerate",
@@ -3853,7 +3824,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "super slow",
     "elements": {
       "lux": 0,
       "natura": 1,
@@ -3862,16 +3833,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "super slow",
     "costMultiplier": "1",
     "castingTime": "50",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "super slow",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "heal",
-    "category": "Heal",
-    "subcategory": null
+    "category": [
+      "Heal"
+    ]
   },
   {
     "id": "energised",
@@ -3879,7 +3850,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 1,
@@ -3888,16 +3859,16 @@
       "arcane": 0,
       "ignis": 1
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "100",
     "description": "(≈coffe) ignore exaution, + (dmg) to ST and AChecks",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "buff",
-    "subcategory": null
+    "category": [
+      "buff"
+    ]
   },
   {
     "id": "painkiller",
@@ -3905,7 +3876,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 1,
@@ -3914,16 +3885,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "100",
     "description": "ignores wounds effects (+dmg to saving throws",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "buff",
-    "subcategory": null
+    "category": [
+      "buff"
+    ]
   },
   {
     "id": "plant_growth",
@@ -3931,7 +3902,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "super slow",
     "elements": {
       "lux": 0,
       "natura": 2,
@@ -3940,16 +3911,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "super slow",
     "costMultiplier": "1",
     "castingTime": "400",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "super slow",
     "Range": "3",
     "EffectRange": "3",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "beast_calm",
@@ -3957,7 +3928,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 2,
@@ -3966,16 +3937,16 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "100",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "6",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "CC",
-    "subcategory": null
+    "category": [
+      "CC"
+    ]
   },
   {
     "id": "plant_whip",
@@ -3983,7 +3954,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 1,
       "natura": 2,
@@ -3992,16 +3963,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "*",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "MidRangeAttack",
-    "subcategory": null
+    "category": [
+      "MidRangeAttack"
+    ]
   },
   {
     "id": "heal",
@@ -4009,7 +3980,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 2,
       "natura": 2,
@@ -4018,16 +3989,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "50",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "9",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "heal",
-    "category": "Heal",
-    "subcategory": null
+    "category": [
+      "Heal"
+    ]
   },
   {
     "id": "clear_mind",
@@ -4035,7 +4006,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 1,
       "natura": 2,
@@ -4044,16 +4015,16 @@
       "arcane": 2,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "50",
     "description": "helps clear de mind and focus of the afected, (Durin the duration you +1d4 to abilty checks)",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "6",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "buff",
-    "subcategory": null
+    "category": [
+      "buff"
+    ]
   },
   {
     "id": "fast_regeneration",
@@ -4061,7 +4032,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 1,
       "natura": 3,
@@ -4070,16 +4041,16 @@
       "arcane": 0,
       "ignis": 1
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "100",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "1.5",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "heal",
-    "category": "Heal",
-    "subcategory": null
+    "category": [
+      "Heal"
+    ]
   },
   {
     "id": "strenght",
@@ -4087,7 +4058,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 3,
@@ -4096,16 +4067,16 @@
       "arcane": 0,
       "ignis": 1
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "150",
     "description": "give extra strenght",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "buff",
-    "subcategory": null
+    "category": [
+      "buff"
+    ]
   },
   {
     "id": "speak_with_animals",
@@ -4113,7 +4084,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 0,
       "natura": 3,
@@ -4122,16 +4093,16 @@
       "arcane": 2,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": null,
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "6",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "restrein",
@@ -4139,7 +4110,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 2,
       "natura": 3,
@@ -4148,16 +4119,16 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "plants restring objective",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "9",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "CC",
-    "subcategory": null
+    "category": [
+      "CC"
+    ]
   },
   {
     "id": "leech",
@@ -4165,7 +4136,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 3,
@@ -4174,16 +4145,16 @@
       "arcane": 3,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "dmg y roba mana del objetivo",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "absorbtion_shield",
@@ -4191,7 +4162,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 1,
       "natura": 4,
@@ -4200,16 +4171,16 @@
       "arcane": 1,
       "ignis": 1
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "200",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "1.5",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "shild",
-    "category": "Defencive",
-    "subcategory": null
+    "category": [
+      "Defencive"
+    ]
   },
   {
     "id": "traduccion",
@@ -4217,7 +4188,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "super slow",
     "elements": {
       "lux": 1,
       "natura": 4,
@@ -4226,16 +4197,16 @@
       "arcane": 2,
       "ignis": 0
     },
-    "speed": "super slow",
     "costMultiplier": "1",
     "castingTime": "*",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "super slow",
     "Range": "6",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "manasteal_imbued",
@@ -4243,7 +4214,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "slow",
     "elements": {
       "lux": 1,
       "natura": 4,
@@ -4252,16 +4223,16 @@
       "arcane": 3,
       "ignis": 0
     },
-    "speed": "slow",
     "costMultiplier": "1",
     "castingTime": "100",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "slow",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "beast_bond",
@@ -4269,7 +4240,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 1,
       "natura": 4,
@@ -4278,16 +4249,16 @@
       "arcane": 1,
       "ignis": 1
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "*",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "6",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "ash_to_life_to_ash",
@@ -4295,7 +4266,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 5,
@@ -4304,16 +4275,16 @@
       "arcane": 0,
       "ignis": 4
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "Lansa una llamarada que quema a los enemigos, pero mientras mas enmigos quemados mas puede curar a los aliados tocados por la llama",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "9",
-    "EffectRange": "3 sphere",
+    "EffectRange": "3",
     "effect": "ef",
-    "category": "RangeAttack",
-    "subcategory": null
+    "category": [
+      "RangeAttack"
+    ]
   },
   {
     "id": "beastwarg",
@@ -4321,7 +4292,7 @@
     "circle": [
       "effect"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 5,
@@ -4330,16 +4301,16 @@
       "arcane": 4,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "500",
     "description": "take control of a beast",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "6",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Utility",
-    "subcategory": null
+    "category": [
+      "Utility"
+    ]
   },
   {
     "id": "treant",
@@ -4347,7 +4318,7 @@
     "circle": [
       "invocation"
     ],
-    "type": null,
+    "type": "super slow",
     "elements": {
       "lux": 3,
       "natura": 5,
@@ -4356,16 +4327,16 @@
       "arcane": 1,
       "ignis": 1
     },
-    "speed": "super slow",
     "costMultiplier": "1",
     "castingTime": "*",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "super slow",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "summon",
-    "subcategory": null
+    "category": [
+      "summon"
+    ]
   },
   {
     "id": "7_hit_drain",
@@ -4373,7 +4344,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 6,
@@ -4382,24 +4353,24 @@
       "arcane": 4,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "each hit leaves a mark that steals mana, stacking unitl 7",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": "touch",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "demon_slayer_dash_attack",
-    "name": "demon slayer dash attack ",
+    "name": "demon slayer dash attack",
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 6,
@@ -4408,16 +4379,16 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "can only target caster, the caster dashes mostly in a stright line x meters, during the dash the caster can chosee to do damge = weapon attack + spells dmg to any creature in the path.dex save(1/2 dmg)",
-    "Canalization": "none",
-    "Range": "self",
-    "EffectRange": "9(+wpn range)",
+    "Canalization": "n",
+    "Range": "self-9(+wpn range)",
+    "EffectRange": "self-9(+wpn range)",
     "effect": "dmg",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "dash_fire",
@@ -4425,7 +4396,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 6,
@@ -4434,16 +4405,16 @@
       "arcane": 1,
       "ignis": 4
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "extra dmg=fire ",
-    "Canalization": "none",
-    "Range": "self",
-    "EffectRange": "9(+wpn range)",
+    "Canalization": "n",
+    "Range": "self-9(+wpn range)",
+    "EffectRange": "self-9(+wpn range)",
     "effect": "dmg",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "dash_shadow",
@@ -4451,7 +4422,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 6,
@@ -4460,16 +4431,16 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "extra dmg=shadow the caster can appear at any point on the dash ",
-    "Canalization": "none",
-    "Range": "self",
-    "EffectRange": "9(+wpn range)",
+    "Canalization": "n",
+    "Range": "self-9(+wpn range)",
+    "EffectRange": "self-9(+wpn range)",
     "effect": "dmg",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "dash_arcane",
@@ -4477,7 +4448,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 6,
@@ -4486,16 +4457,16 @@
       "arcane": 5,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "extra dmg=weapon disavantage on save",
-    "Canalization": "none",
-    "Range": "self",
-    "EffectRange": "9(+wpn range)",
+    "Canalization": "n",
+    "Range": "self-9(+wpn range)",
+    "EffectRange": "self-9(+wpn range)",
     "effect": "dmg",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "dash_ice",
@@ -4503,7 +4474,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 0,
       "natura": 6,
@@ -4512,16 +4483,16 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "extra dmg=ice ",
-    "Canalization": "none",
-    "Range": "self",
-    "EffectRange": "9(+wpn range)",
+    "Canalization": "n",
+    "Range": "self-9(+wpn range)",
+    "EffectRange": "self-9(+wpn range)",
     "effect": "dmg",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "dash_light",
@@ -4529,7 +4500,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 4,
       "natura": 6,
@@ -4538,24 +4509,24 @@
       "arcane": 1,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "extra dmg=lux (longer range)",
-    "Canalization": "none",
-    "Range": "self",
-    "EffectRange": "12(+wpn range)",
+    "Canalization": "n",
+    "Range": "self-12(+wpn range)",
+    "EffectRange": "self-12(+wpn range)",
     "effect": "dmg",
-    "category": "Spellsword",
-    "subcategory": null
+    "category": [
+      "Spellsword"
+    ]
   },
   {
     "id": "revive",
     "name": "revive",
-   "circle": [
-      "invocation","effect"
+    "circle": [
+      "Invocation Effect"
     ],
-    "type": null,
+    "type": "super slow",
     "elements": {
       "lux": 7,
       "natura": 7,
@@ -4564,16 +4535,16 @@
       "arcane": 1,
       "ignis": 1
     },
-    "speed": "super slow",
     "costMultiplier": "1",
     "castingTime": "*",
     "description": null,
-    "Canalization": "none",
+    "Canalization": "super slow",
     "Range": "1.5",
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "ef",
-    "category": "Heal",
-    "subcategory": null
+    "category": [
+      "Heal"
+    ]
   },
   {
     "id": "brable_death",
@@ -4581,7 +4552,7 @@
     "circle": [
       "Proyectill"
     ],
-    "type": null,
+    "type": "n",
     "elements": {
       "lux": 4,
       "natura": 10,
@@ -4590,15 +4561,15 @@
       "arcane": 0,
       "ignis": 0
     },
-    "speed": "normal",
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
     "description": "on contact a brable plant stratrs growing on the objectic saping healh an mana",
-    "Canalization": "none",
+    "Canalization": "n",
     "Range": null,
-    "EffectRange": null,
+    "EffectRange": "single target",
     "effect": "dmg",
-    "category": "MidRangeAttack",
-    "subcategory": null
+    "category": [
+      "MidRangeAttack"
+    ]
   }
 ]

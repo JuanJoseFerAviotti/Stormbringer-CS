@@ -1,9 +1,8 @@
 window.races = {};
 fetch("js/races.json")
-.then(response => response.json())
-.then(data => {
-
-   window.races = data;
+  .then((response) => response.json())
+  .then((data) => {
+    window.races = data;
 
     loadRaceSelect();
 
@@ -12,164 +11,118 @@ fetch("js/races.json")
     recalculateDerivedStats();
 
     updateStats();
+  });
+document.getElementById("genderSelect").addEventListener("change", function () {
+  character.gender = this.value;
 
+  recalculateDerivedStats();
+  updateStats();
+  MagicSystems();
+  saveCharacter();
 });
-document
-.getElementById("genderSelect")
-.addEventListener("change", function(){
+function loadRaceSelect() {
+  const select = document.getElementById("raceSelect");
 
-    character.gender = this.value;
+  select.innerHTML = "";
 
-    recalculateDerivedStats();
-    updateStats();
-    saveCharacter();
+  for (const race in races) {
+    const option = document.createElement("option");
 
-});
-function loadRaceSelect(){
+    option.value = race;
+    option.textContent = race;
 
-    const select = document.getElementById("raceSelect");
+    select.appendChild(option);
+  }
 
-    select.innerHTML = "";
-
-    for(const race in races){
-
-        const option = document.createElement("option");
-
-        option.value = race;
-        option.textContent = race;
-
-        select.appendChild(option);
-
-    }
-
-
-    select.value = character.race;
-
+  select.value = character.race;
 }
-document
-.getElementById("raceSelect")
-.addEventListener("change", function(){
+document.getElementById("raceSelect").addEventListener("change", function () {
+  character.race = this.value;
 
-    character.race = this.value;
+  updateRaceInfo();
 
-    updateRaceInfo();
+  recalculateDerivedStats();
 
-    recalculateDerivedStats();
-
-    updateStats();
-
-    saveCharacter();
-
+  updateStats();
+  MagicSystems();
+  saveCharacter();
 });
-function updateRaceInfo(){
+function updateRaceInfo() {
+  const race = window.races[character.race];
 
-    const race = window.races[character.race];
+  if (!race) return;
 
-    if(!race)
-        return;
+  document.getElementById("raceDescription").textContent =
+    race.description || "No description.";
 
+  // Magic
 
-    document.getElementById("raceDescription").textContent =
-        race.description || "No description.";
+  const magicBox = document.getElementById("raceMagic");
 
+  magicBox.innerHTML = "";
 
-    // Magic
+  for (const magic of Object.keys(race.magic || {})) {
+    const li = document.createElement("li");
 
-    const magicBox =
-        document.getElementById("raceMagic");
+    li.textContent = magic;
 
-    magicBox.innerHTML = "";
+    magicBox.appendChild(li);
+  }
 
-    for(const magic of race.magic || []){
+  // Skills / abilities
 
-        const li = document.createElement("li");
+  const abilityBox = document.getElementById("raceAbilities");
 
-        li.textContent = magic;
+  abilityBox.innerHTML = "";
 
-        magicBox.appendChild(li);
+  for (const skill of race.skills || []) {
+    const li = document.createElement("li");
 
-    }
+    li.textContent = skill;
 
+    abilityBox.appendChild(li);
+  }
 
-    // Skills / abilities
+  // Bonuses
 
-    const abilityBox =
-        document.getElementById("raceAbilities");
+  const bonusBox = document.getElementById("raceBonuses");
 
-    abilityBox.innerHTML = "";
+  bonusBox.innerHTML = "";
 
-    for(const skill of race.skills || []){
+  const male = race.genders.Male.bonuses;
 
-        const li = document.createElement("li");
+  const female = race.genders.Female.bonuses;
 
-        li.textContent = skill;
+  const maleTitle = document.createElement("h4");
 
-        abilityBox.appendChild(li);
+  maleTitle.textContent = "Male:";
 
-    }
+  bonusBox.appendChild(maleTitle);
 
+  for (const stat in male) {
+    const li = document.createElement("li");
 
-    // Bonuses
+    li.textContent = stat + " " + formatBonus(male[stat]);
 
-    const bonusBox =
-        document.getElementById("raceBonuses");
+    bonusBox.appendChild(li);
+  }
 
-    bonusBox.innerHTML = "";
+  const femaleTitle = document.createElement("h4");
 
+  femaleTitle.textContent = "Female:";
 
-    const male =
-        race.genders.Male.bonuses;
+  bonusBox.appendChild(femaleTitle);
 
+  for (const stat in female) {
+    const li = document.createElement("li");
 
-    const female =
-        race.genders.Female.bonuses;
+    li.textContent = stat + " " + formatBonus(female[stat]);
 
-
-    const maleTitle =
-        document.createElement("h4");
-
-    maleTitle.textContent = "Male:";
-
-    bonusBox.appendChild(maleTitle);
-
-
-    for(const stat in male){
-
-        const li=document.createElement("li");
-
-        li.textContent =
-            stat + " " + formatBonus(male[stat]);
-
-        bonusBox.appendChild(li);
-
-    }
-
-
-    const femaleTitle =
-        document.createElement("h4");
-
-    femaleTitle.textContent = "Female:";
-
-    bonusBox.appendChild(femaleTitle);
-
-
-    for(const stat in female){
-
-        const li=document.createElement("li");
-
-        li.textContent =
-            stat + " " + formatBonus(female[stat]);
-
-        bonusBox.appendChild(li);
-
-    }
-
+    bonusBox.appendChild(li);
+  }
 }
-function formatBonus(value){
+function formatBonus(value) {
+  if (value > 0) return "+" + value;
 
-    if(value > 0)
-        return "+" + value;
-
-    return value;
-
+  return value;
 }

@@ -4,179 +4,128 @@
 window.races = {};
 
 window.racesLoaded = fetch("js/races.json")
-    .then(response => response.json())
-    .then(data => {
-
-        window.races = data;
-
-    });
+  .then((response) => response.json())
+  .then((data) => {
+    window.races = data;
+  });
 const Rules = {
+  BASE_STAT: 8,
+  MAX_STAT: 20,
 
-    BASE_STAT: 8,
-    MAX_STAT: 20,
+  getModifier(score) {
+    return Math.floor((score - 10) / 2);
+  },
 
-    getModifier(score){
-        return Math.floor((score - 10) / 2);
-    },
+  getMaxPoints(level) {
+    return 41 + level * 4;
+  },
 
-    getMaxPoints(level){
-        return 41 + level * 4;
-    },
-    
-
-getMaxHealth(stats, level, talents = {}){
-
+  getMaxHealth(stats, level, talents = {}) {
     let hp =
-        Math.floor((stats.constitution / 2) +
-        Rules.getModifier(stats.strength)) *
-        level + 6;
+      Math.floor(stats.constitution / 2 + Rules.getModifier(stats.strength)) *
+        level +
+      6;
 
-    if((talents.tough || 0) > 0){
-        hp += level * 2;
+    if ((talents.tough || 0) > 0) {
+      hp += level * 2;
     }
 
     return hp;
-},
-getArmor(stats, character) {
-
+  },
+  getArmor(stats, character) {
     let baseArmor = 10;
 
-    if(character.equipped.armor){
+    if (character.equipped.armor) {
+      const armor = window.items.find((i) => i.id === character.equipped.armor);
 
-        const armor = window.items.find(
-            i => i.id === character.equipped.armor
-        );
-
-        if(armor){
-
-            baseArmor = armor.armorValue;
-
-        }
+      if (armor) {
+        baseArmor = armor.armorValue;
+      }
     }
- let shieldBonus = 0;
+    let shieldBonus = 0;
 
-    if(character.equipped.shield){
+    if (character.equipped.shield) {
+      const shield = window.items.find(
+        (i) => i.id === character.equipped.shield,
+      );
 
-        const shield = window.items.find(
-            i => i.id === character.equipped.shield
-        );
-
-        if(shield){
-
-            shieldBonus = Number(shield.armorBonus) || 0;
-
-        }
-
+      if (shield) {
+        shieldBonus = Number(shield.armorBonus) || 0;
+      }
     }
 
-    return (
-        baseArmor +
-        Rules.getModifier(stats.agility) +
-        shieldBonus
-    );
-},
-getFinalStats(character){
-
+    return baseArmor + Rules.getModifier(stats.agility) + shieldBonus;
+  },
+  getFinalStats(character) {
     let stats = {};
 
     // Base 8 + player point buy
-    for(const stat in character.investedStats){
-
-        stats[stat] =
-            8 + character.investedStats[stat];
-
+    for (const stat in character.investedStats) {
+      stats[stat] = 8 + character.investedStats[stat];
     }
-
 
     // Race + Gender bonuses
     const race = window.races[character.race];
 
-    if(race){
+    if (race) {
+      const gender = race.genders[character.gender];
 
-        const gender = race.genders[character.gender];
+      if (gender) {
+        const bonuses = gender.bonuses;
 
-        if(gender){
-
-            const bonuses = gender.bonuses;
-
-            for(const stat in bonuses){
-
-                if(stats[stat] !== undefined){
-
-                    stats[stat] += bonuses[stat];
-
-                }
-
-            }
-
+        for (const stat in bonuses) {
+          if (stats[stat] !== undefined) {
+            stats[stat] += bonuses[stat];
+          }
         }
-
+      }
     }
 
+    return stats;
+  },
 
-
-return stats;
-
-}, 
-
-getMaxStamina(stats,level){
-
+  getMaxStamina(stats, level) {
     return Math.max(
-        1,
-        this.getModifier(stats.constitution) *
-        (1 + Math.floor((level + 1) / 6))
+      1,
+      this.getModifier(stats.constitution) * (1 + Math.floor((level + 1) / 6)),
     );
+  },
 
-},
- 
-getMaxMana(stats,level){
-    
-    let Mana = stats.soul*level;
+  getMaxMana(stats, level) {
+    let Mana = stats.soul * level;
     return Mana;
-},
-getStatCost(score){
-
+  },
+  getStatCost(score) {
     let cost = 0;
 
     // Going below base gives points back
-    if(score < this.BASE_STAT){
+    if (score < this.BASE_STAT) {
+      for (let i = this.BASE_STAT; i > score; i--) {
+        cost -= 1;
+      }
 
-        for(let i = this.BASE_STAT; i > score; i--){
-            cost -= 1;
-        }
-
-        return cost;
+      return cost;
     }
 
     // Buying above base
-    while(score > this.BASE_STAT){
+    while (score > this.BASE_STAT) {
+      if (score <= 13) cost += 1;
+      else cost += 2;
 
-        if(score <= 13)
-            cost += 1;
-        else
-            cost += 2;
-
-        score--;
+      score--;
     }
 
     return cost;
-},
-getWeightCapacity(strength){
-
+  },
+  getWeightCapacity(strength) {
     return strength * 5;
+  },
 
-},
-
-getEncumbered(strength){
-
+  getEncumbered(strength) {
     return strength * 10;
+  },
 
-},
-
-getHeavyEncumbered(strength){
-
+  getHeavyEncumbered(strength) {
     return strength * 15;
-
-}
-
+  },
 };

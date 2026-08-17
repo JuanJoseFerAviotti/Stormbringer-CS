@@ -798,7 +798,7 @@
           "id":"magic_spark_arcane",
           "name":"Magic Spark: Arcane",
           "requires":[],
-          "maxRank":2,"description":"placeholder description"
+          "maxRank":2,"description":"Upgrades your chanse to be able to cast arcane spells. Each rank increases your chanses by 1 level."
         },
 
         {

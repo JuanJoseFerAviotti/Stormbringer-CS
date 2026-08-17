@@ -1,0 +1,479 @@
+[
+  {
+    "id": "shapeshift",
+    "name": "Shapeshift",
+    "talent": "shapeshift",
+    "description": "You transform into a creature. The transformation begins with a few seconds of black mist.",
+    "baseCost": null,
+    "overcharge": false,
+    "costFormula": null,
+    "effect": null,
+    "effectFormula": null,
+    "effectDescription": "Unlocks shapeshifting forms.",
+    "passive": false
+  },
+
+  {
+    "id": "shapeshift_air",
+    "name": "SS: Air",
+    "talent": "shapeshift_air",
+    "description": "You transform into flying creatures. The creatures are always the same. The number of creatures equals your size.",
+    "baseCost": 2,
+    "overcharge": 1,
+    "costFormula": {
+      "operation": "multiply",
+      "values": ["level", "baseCost", "overcharge"]
+    },
+    "effect": null,
+    "effectFormula": null,
+    "effectDescription": "Number of creatures equals your size.",
+    "passive": false
+  },
+
+  {
+    "id": "shapeshift_earth",
+    "name": "SS: Earth",
+    "talent": "shapeshift_earth",
+    "description": "You transform into terrestrial creatures. The creatures are always the same. The number of creatures equals your size.",
+    "baseCost": 2,
+    "overcharge": 1,
+    "costFormula": {
+      "operation": "multiply",
+      "values": ["level", "baseCost", "overcharge"]
+    },
+    "effect": null,
+    "effectFormula": null,
+    "effectDescription": "Number of creatures equals your size.",
+    "passive": false
+  },
+
+  {
+    "id": "shapeshift_water",
+    "name": "SS: Water",
+    "talent": "shapeshift_water",
+    "description": "You transform into aquatic creatures. The creatures are always the same. The number of creatures equals your size.",
+    "baseCost": 2,
+    "overcharge": 1,
+    "costFormula": {
+      "operation": "multiply",
+      "values": ["level", "baseCost", "overcharge"]
+    },
+    "effect": null,
+    "effectFormula": null,
+    "effectDescription": "Number of creatures equals your size.",
+    "passive": false
+  },
+
+  {
+    "id": "shapeshift_beast",
+    "name": "SS: Beast",
+    "talent": "shapeshift_beast",
+    "description": "You transform into a beast based on your true form. You have a possibility of losing control.",
+    "baseCost": 6,
+    "overcharge": 1,
+    "costFormula": {
+      "operation": "multiply",
+      "values": ["level", "baseCost", "overcharge"]
+    },
+    "effect": null,
+    "effectFormula": null,
+    "effectDescription": "Transformation into a beast based on your true form.",
+    "passive": false
+  },
+
+  {
+    "id": "true_form",
+    "name": "SS: True Form",
+    "talent": "true_form",
+    "description": "You transform into your true form. The first transformation requires a ritual.",
+    "baseCost": 6,
+    "overcharge": 1,
+    "costFormula": {
+      "operation": "multiply",
+      "values": ["level", "baseCost", "overcharge"]
+    },
+    "effect": null,
+    "effectFormula": null,
+    "effectDescription": "Transform into your true form.",
+    "passive": false
+  },
+
+  {
+    "id": "consume_form",
+    "name": "Consume Form",
+    "talent": "consume_form",
+    "description": "Consume the charge of your true form and transform it into mana. This mana can temporarily exceed your maximum mana.",
+    "baseCost": -13,
+    "overcharge": 1,
+    "costFormula": {
+      "operation": "multiply",
+      "values": ["level", "baseCost", "overcharge"]
+    },
+    "effect": null,
+    "effectFormula": null,
+    "effectDescription": "Generates mana that can temporarily exceed maximum mana.",
+    "passive": false
+  },
+
+  {
+    "id": "regeneration",
+    "name": "Regeneration",
+    "talent": "regeneration",
+    "description": "Each turn, consumes mana to regenerate.",
+    "baseCost": 2,
+    "overcharge": 1,
+    "costFormula": {
+      "operation": "multiply",
+      "values": ["level", "baseCost", "overcharge"]
+    },
+    "effect": 0,
+    "effectFormula": {
+      "operation": "multiply",
+      "values": ["level", "overcharge", "constitutionModifier"]
+    },
+    "effectDescription": "+ HP regeneration.",
+    "passive": false
+  },
+
+  {
+    "id": "reinforce_skin",
+    "name": "Reinforce Skin",
+    "talent": "reinforce_skin",
+    "description": "Your skin becomes extra resistant.",
+    "baseCost": null,
+    "overcharge": 1,
+    "costFormula": null,
+    "effect": 0,
+    "effectFormula": {
+      "operation": "multiply",
+      "values": ["level", "overcharge"]
+    },
+    "effectDescription": "+ AC.",
+    "passive": true
+  },
+
+  {
+    "id": "defense_burst",
+    "name": "Defense Burst",
+    "talent": "defense_burst",
+    "description": "Mana moves through your skin making you extra resistant for one turn. It can be maintained by paying the cost for each additional turn. Can be used as a reaction or bonus action.",
+    "baseCost": 4,
+    "overcharge": 1,
+    "costFormula": {
+      "operation": "multiply",
+      "values": ["level", "baseCost", "overcharge"]
+    },
+    "effect": 0,
+    "effectFormula": {
+      "operation": "multiply",
+      "values": ["level", "overcharge", 2]
+    },
+    "effectDescription": "+ AC.",
+    "passive": false
+  },
+
+  {
+    "id": "kinetic_absorption",
+    "name": "Kinetic Absorption",
+    "talent": "kinetic_absorption",
+    "description": "Mana moves through your skin when receiving a hit. One quarter of the damage is converted into mana. Can be maintained by paying the cost for each additional turn. Can be used as a reaction or bonus action.",
+    "baseCost": 2,
+    "overcharge": false,
+    "costFormula": {
+      "operation": "multiply",
+      "values": ["level", "baseCost", "overcharge"]
+    },
+    "effect": 0,
+    "effectFormula": {
+      "operation": "multiply",
+      "values": [
+        {
+          "operation": "divide",
+          "values": ["level", 10]
+        },
+        100
+      ]
+    },
+    "effectDescription": "% of damage absorbed and converted into mana.",
+    "passive": false
+  },
+
+  {
+    "id": "electric_absorption",
+    "name": "Electric Absorption",
+    "talent": "electric_absorption",
+    "description": "Absorb electrical damage and convert part of it into mana.",
+    "baseCost": null,
+    "overcharge": false,
+    "costFormula": null,
+    "effect": 0,
+    "effectFormula": {
+      "operation": "multiply",
+      "values": [
+        {
+          "operation": "divide",
+          "values": ["level", 5]
+        },
+        100
+      ]
+    },
+    "effectDescription": "% of electrical damage absorbed and converted into mana.",
+    "passive": true
+  },
+
+  {
+    "id": "bestial_agility",
+    "name": "Bestial Agility",
+    "talent": "bestial_agility",
+    "description": "Your body becomes more agile.",
+    "baseCost": null,
+    "overcharge": false,
+    "costFormula": null,
+    "effect": 0,
+    "effectFormula": {
+      "operation": "multiply",
+      "values": ["level", "overcharge"]
+    },
+    "effectDescription": "+ Agility and extra actions.",
+    "passive": true
+  },
+
+  {
+    "id": "agility_burst",
+    "name": "Agility Burst",
+    "talent": "agility_burst",
+    "description": "Temporarily increase your agility.",
+    "baseCost": 4,
+    "overcharge": 1,
+    "costFormula": {
+      "operation": "multiply",
+      "values": ["level", "baseCost", "overcharge"]
+    },
+    "effect": 0,
+    "effectFormula": {
+      "operation": "multiply",
+      "values": [2, "level", "overcharge"]
+    },
+    "effectDescription": "+ Agility and extra actions.",
+    "passive": false
+  },
+
+  {
+    "id": "bestial_strength",
+    "name": "Bestial Strength",
+    "talent": "bestial_strength",
+    "description": "Your body becomes stronger.",
+    "baseCost": null,
+    "overcharge": false,
+    "costFormula": null,
+    "effect": 0,
+    "effectFormula": {
+      "operation": "multiply",
+      "values": ["level", "overcharge"]
+    },
+    "effectDescription": "+ Strength.",
+    "passive": true
+  },
+
+  {
+    "id": "strength_burst",
+    "name": "Strength Burst",
+    "talent": "strength_burst",
+    "description": "Temporarily increase your strength.",
+    "baseCost": 4,
+    "overcharge": 1,
+    "costFormula": {
+      "operation": "multiply",
+      "values": ["level", "baseCost", "overcharge"]
+    },
+    "effect": 0,
+    "effectFormula": {
+      "operation": "multiply",
+      "values": ["level", "overcharge"]
+    },
+    "effectDescription": "+ Strength.",
+    "passive": false
+  },
+
+  {
+    "id": "mental_speed",
+    "name": "Mental Speed",
+    "talent": "mental_speed",
+    "description": "Increase the speed of your mind.",
+    "baseCost": null,
+    "overcharge": false,
+    "costFormula": null,
+    "effect": 0,
+    "effectFormula": {
+      "operation": "multiply",
+      "values": ["level", "overcharge"]
+    },
+    "effectDescription": "+ Mind.",
+    "passive": true
+  },
+
+  {
+    "id": "mental_burst",
+    "name": "Mental Burst",
+    "talent": "mental_burst",
+    "description": "Temporarily increase your mental ability.",
+    "baseCost": 2,
+    "overcharge": 1,
+    "costFormula": {
+      "operation": "multiply",
+      "values": ["level", "baseCost", "overcharge"]
+    },
+    "effect": 0,
+    "effectFormula": {
+      "operation": "multiply",
+      "values": ["level", "overcharge"]
+    },
+    "effectDescription": "+ Mind.",
+    "passive": false
+  },
+
+  {
+    "id": "electric_shock",
+    "name": "Electric Shock",
+    "talent": "electric_shock",
+    "description": "Deal electrical damage through direct contact or if the target is connected to metal.",
+    "baseCost": 4,
+    "overcharge": 1,
+    "costFormula": {
+      "operation": "multiply",
+      "values": ["level", "baseCost", "overcharge"]
+    },
+    "effect": 0,
+    "effectFormula": {
+      "operation": "multiply",
+      "values": ["level", "overcharge"]
+    },
+    "effectDescription": "D4 electrical damage.",
+    "passive": false
+  },
+
+  {
+    "id": "reflex",
+    "name": "Reflex",
+    "talent": "reflex",
+    "description": "Your reflexes become enhanced.",
+    "baseCost": null,
+    "overcharge": false,
+    "costFormula": null,
+    "effect": 0,
+    "effectFormula": {
+      "operation": "multiply",
+      "values": ["level", "overcharge"]
+    },
+    "effectDescription": "+ AC.",
+    "passive": true
+  },
+
+  {
+    "id": "natural_weapons",
+    "name": "Natural Weapons",
+    "talent": "natural_weapons",
+    "description": "Your natural weapons become more dangerous.",
+    "baseCost": null,
+    "overcharge": false,
+    "costFormula": null,
+    "effect": 0,
+    "effectFormula": {
+      "operation": "multiply",
+      "values": ["level", "overcharge"]
+    },
+    "effectDescription": "D4 slashing damage added to unarmed strikes.",
+    "passive": true
+  },
+
+  {
+    "id": "nw_overcharge",
+    "name": "NW Overcharge",
+    "talent": "nw_overcharge",
+    "description": "Overcharge your natural weapons.",
+    "baseCost": 4,
+    "overcharge": 1,
+    "costFormula": {
+      "operation": "multiply",
+      "values": ["level", "baseCost", "overcharge"]
+    },
+    "effect": 0,
+    "effectFormula": {
+      "operation": "multiply",
+      "values": ["level", "overcharge"]
+    },
+    "effectDescription": "D6 slashing damage added to unarmed strikes.",
+    "passive": false
+  },
+
+  {
+    "id": "antibody_overcharge",
+    "name": "Antibody Overcharge",
+    "talent": "antibody_overcharge",
+    "description": "Your body becomes resistant to sickness.",
+    "baseCost": null,
+    "overcharge": false,
+    "costFormula": null,
+    "effect": 0,
+    "effectFormula": {
+      "operation": "multiply",
+      "values": ["level", "overcharge"]
+    },
+    "effectDescription": "Immunity to sickness.",
+    "passive": true
+  },
+
+  {
+    "id": "venom",
+    "name": "Venom",
+    "talent": "venom",
+    "description": "Your bites or stings deal additional poison damage. The poison can be extracted and applied to weapons.",
+    "baseCost": 1,
+    "overcharge": 1,
+    "costFormula": {
+      "operation": "multiply",
+      "values": ["level", "baseCost", "overcharge"]
+    },
+    "effect": 0,
+    "effectFormula": {
+      "operation": "multiply",
+      "values": ["level", "overcharge"]
+    },
+    "effectDescription": "D4 poison damage to bites or stings.",
+    "passive": false
+  },
+
+  {
+    "id": "venom_master",
+    "name": "Venom Master",
+    "talent": "venom_master",
+    "description": "Improves your mastery over venom.",
+    "baseCost": null,
+    "overcharge": 1,
+    "costFormula": null,
+    "effect": 0,
+    "effectFormula": {
+      "operation": "multiply",
+      "values": ["level", "overcharge"]
+    },
+    "effectDescription": "Improves Venom.",
+    "passive": true
+  },
+
+  {
+    "id": "force_reflection",
+    "name": "Force Reflection",
+    "talent": "force_reflection",
+    "description": "Reduce incoming damage to 0 or duplicate the damage.",
+    "baseCost": 8,
+    "overcharge": 1,
+    "costFormula": {
+      "operation": "multiply",
+      "values": ["level", "baseCost", "overcharge"]
+    },
+    "effect": null,
+    "effectFormula": null,
+    "effectDescription": "Reduces damage to 0 or duplicates damage.",
+    "passive": false
+  }
+]

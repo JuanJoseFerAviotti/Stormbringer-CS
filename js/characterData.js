@@ -1,61 +1,78 @@
 function createDefaultCharacter() {
+  const character = {
+    name: "Test",
+    level: 1,
 
-    const character = {
-        name: "Test",
+    race: "Human Midgard",
+    gender: "Male",
+
+    health: 10,
+    mana: 8,
+    stamina: 1,
+    armor: 10,
+
+    investedStats: {
+      strength: 0,
+      agility: 0,
+      constitution: 0,
+      charisma: 0,
+      mind: 0,
+      soul: 0,
+    },
+
+    skills: {},
+    talents: {},
+    inventory: [],
+    equipped: {
+      weapon: null,
+      armor: null,
+      shield: null,
+    },
+    arcane: {
+      enabled: false,
+
+      primary: {
+        element: "",
         level: 1,
+      },
 
-        race: "Human Midgard",
-        gender: "Male",
-
-        health: 10,
-        mana: 8,
-        stamina: 1,
-        armor: 10,
-
-        investedStats: {
-            strength: 0,
-            agility: 0,
-            constitution: 0,
-            charisma: 0,
-            mind: 0,
-            soul: 0
-        },
-
-        skills: {},
-        talents: {},
-        inventory: [],
-        equipped:{
-    weapon:null,
-    armor:null,
-    shield:null
-},arcane: {
-
-    enabled: false,
-
-    primary: {
+      secondary: {
         element: "",
-        level: 1
+        level: 1,
+      },
+
+      knownSpells: [],
+    },
+    spiritWhisper: {
+      enabled: false,
     },
 
-    secondary: {
-        element: "",
-        level: 1
+    liveblood: {
+      enabled: false,
     },
 
-    knownSpells: []
+    demonBlood: {
+      enabled: false,
+    },
 
-},
-    };
+    monsterHunter: {
+      enabled: false,
+    },
 
-    const stats = Rules.getFinalStats(character);
+    pocketDimension: {
+      enabled: false,
+    },
+  };
 
-    character.maxHealth = Rules.getMaxHealth(stats, character.level);
-    character.maxMana = Rules.getMaxMana(stats,character.level);
-    character.maxStamina = Rules.getMaxStamina(stats, character.level);
-    character.armor = Rules.getArmor(stats,character);
-    character.health = character.maxHealth;
-    character.mana = character.maxMana;
-    character.stamina = character.maxStamina;
+  const stats = Rules.getFinalStats(character);
 
-    return character;
+  character.maxHealth = Rules.getMaxHealth(stats, character.level);
+  character.maxMana = Rules.getMaxMana(stats, character.level);
+  character.maxStamina = Rules.getMaxStamina(stats, character.level);
+  character.armor = Rules.getArmor(stats, character);
+  character.health = character.maxHealth;
+  character.mana = character.maxMana;
+  character.stamina = character.maxStamina;
+
+  return character;
 }

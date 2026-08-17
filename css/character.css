@@ -206,6 +206,13 @@ body{
     gap:40px;
     align-items:flex-start;
 }
+.magicPanel{
+    margin-top: 10px;
+    
+    display:flex;
+    flex-direction:column;
+   border: rgb(114, 114, 114) 2px solid;
+}
 
 .statsPanel{
     flex:1;
@@ -412,4 +419,8 @@ body{
 
     padding:8px;
     margin-bottom:6px;
+}
+magicPanel{
+    display: flex;
+    flex-direction: column;
 }

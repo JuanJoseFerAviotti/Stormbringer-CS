@@ -3,16 +3,11 @@
 // ==========================
 
 function newCharacter() {
+  const character = createDefaultCharacter();
 
-    const character = createDefaultCharacter();
+  localStorage.setItem("currentCharacter", JSON.stringify(character));
 
-    localStorage.setItem(
-        "currentCharacter",
-        JSON.stringify(character)
-    );
-
-    window.location.href = "character.html";
-
+  window.location.href = "character.html";
 }
 
 // ==========================
@@ -20,19 +15,13 @@ function newCharacter() {
 // ==========================
 
 function continueCharacter() {
+  const saved = localStorage.getItem("currentCharacter");
 
-    const saved = localStorage.getItem("currentCharacter");
-
-    if (saved) {
-
-        window.location.href = "character.html";
-
-    } else {
-
-        alert("No saved character found.");
-
-    }
-
+  if (saved) {
+    window.location.href = "character.html";
+  } else {
+    alert("No saved character found.");
+  }
 }
 
 // ==========================
@@ -40,36 +29,31 @@ function continueCharacter() {
 // ==========================
 
 function exportCharacter() {
+  const data = localStorage.getItem("currentCharacter");
 
-    const data = localStorage.getItem("currentCharacter");
+  if (!data) {
+    alert("No character to export.");
+    return;
+  }
 
-    if (!data) {
+  const character = JSON.parse(data);
 
-        alert("No character to export.");
-        return;
+  const blob = new Blob([JSON.stringify(character, null, 4)], {
+    type: "application/json",
+  });
 
-    }
+  const url = URL.createObjectURL(blob);
 
-    const character = JSON.parse(data);
+  const a = document.createElement("a");
 
-    const blob = new Blob(
-        [JSON.stringify(character, null, 4)],
-        { type: "application/json" }
-    );
+  a.href = url;
+  a.download = (character.name || "Character") + ".json";
 
-    const url = URL.createObjectURL(blob);
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
 
-    const a = document.createElement("a");
-
-    a.href = url;
-    a.download = (character.name || "Character") + ".json";
-
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-
-    URL.revokeObjectURL(url);
-
+  URL.revokeObjectURL(url);
 }
 
 // ==========================
@@ -77,36 +61,23 @@ function exportCharacter() {
 // ==========================
 
 function importCharacter(event) {
+  const file = event.target.files[0];
 
-    const file = event.target.files[0];
+  if (!file) return;
 
-    if (!file)
-        return;
+  const reader = new FileReader();
 
-    const reader = new FileReader();
+  reader.onload = function () {
+    try {
+      JSON.parse(reader.result);
 
-    reader.onload = function () {
+      localStorage.setItem("currentCharacter", reader.result);
 
-        try {
+      window.location.href = "character.html";
+    } catch {
+      alert("That isn't a valid character file.");
+    }
+  };
 
-            JSON.parse(reader.result);
-
-            localStorage.setItem(
-                "currentCharacter",
-                reader.result
-            );
-
-            window.location.href = "character.html";
-
-        }
-        catch {
-
-            alert("That isn't a valid character file.");
-
-        }
-
-    };
-
-    reader.readAsText(file);
-
+  reader.readAsText(file);
 }

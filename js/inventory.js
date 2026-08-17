@@ -1,17 +1,15 @@
 window.items = [];
 
 fetch("js/items.json")
-.then(response => response.json())
-.then(data => {
-
+  .then((response) => response.json())
+  .then((data) => {
     window.items = data;
 
     console.log("Items loaded:", window.items.length);
 
     loadItemSuggestions();
     createInventoryTable();
-
-});
+  });
 
 /* function createInventoryTable(){
 
@@ -69,58 +67,35 @@ fetch("js/items.json")
     updateInventoryWeight();
 
 } */
-function removeItem(index){
+function removeItem(index) {
+  character.inventory.splice(index, 1);
 
-    character.inventory.splice(index,1);
+  saveCharacter();
 
-    saveCharacter();
-
-    createInventoryTable();
-
+  createInventoryTable();
 }
-function updateInventoryWeight(){
+function updateInventoryWeight() {
+  let weight = 0;
 
-    let weight = 0;
+  character.inventory.forEach((storedItem) => {
+    const item = items.find((i) => i.id === storedItem.id);
 
+    if (item) {
+      weight += item.weight * storedItem.amount;
+    }
+  });
 
-    character.inventory.forEach(storedItem=>{
+  const stats = Rules.getFinalStats(character);
 
-        const item =
-        items.find(i=>i.id === storedItem.id);
+  const max = stats.strength * 5;
 
+  const encumbered = stats.strength * 10;
 
-        if(item){
+  const heavy = stats.strength * 15;
 
-            weight += item.weight * storedItem.amount;
+  document.getElementById("currentWeight").textContent = weight.toFixed(1);
 
-        }
-
-    });
-
-
-
-    const stats = Rules.getFinalStats(character);
-
-
-    const max =
-    stats.strength * 5;
-
-
-    const encumbered =
-    stats.strength * 10;
-
-
-    const heavy =
-    stats.strength * 15;
-
-
-
-    document.getElementById("currentWeight")
-    .textContent =
-    weight.toFixed(1);
-
-
-/* 
+  /* 
     document.getElementById("maxWeight")
     .textContent =
     max;
@@ -145,7 +120,7 @@ function updateInventoryWeight(){
 
  */
 
- /*    let percent =
+  /*    let percent =
     (weight / max) * 100;
 
 
@@ -156,30 +131,18 @@ function updateInventoryWeight(){
     document.getElementById("weightFill").style.width = percent + "%";
  */
 }
-function loadItemSelector(){
+function loadItemSelector() {
+  const select = document.getElementById("itemSelect");
 
-    const select =
-    document.getElementById("itemSelect");
+  items.forEach((item) => {
+    let option = document.createElement("option");
 
+    option.value = item.id;
 
-    items.forEach(item=>{
+    option.textContent = item.name;
 
-        let option =
-        document.createElement("option");
-
-
-        option.value =
-        item.id;
-
-
-        option.textContent =
-        item.name;
-
-
-        select.appendChild(option);
-
-    });
-
+    select.appendChild(option);
+  });
 }
 /* function addSelectedItem(){
 
@@ -215,117 +178,68 @@ function loadItemSelector(){
     createInventoryTable();
 
 } */
-function loadItemSuggestions(){
+function loadItemSuggestions() {
+  const list = document.getElementById("itemSuggestions");
 
-    const list =
-    document.getElementById("itemSuggestions");
+  items.forEach((item) => {
+    let option = document.createElement("option");
 
+    option.value = item.name;
 
-    items.forEach(item=>{
+    list.appendChild(option);
+  });
+}
+function addSelectedItem() {
+  const name = document.getElementById("itemSearch").value;
 
-        let option =
-        document.createElement("option");
+  const item = items.find((i) => i.name === name);
 
+  if (!item) {
+    alert("Item not found");
+    return;
+  }
 
-        option.value =
-        item.name;
+  let existing = character.inventory.find((i) => i.id === item.id);
 
-
-        list.appendChild(option);
-
+  if (existing) {
+    existing.amount++;
+  } else {
+    character.inventory.push({
+      id: item.id,
+      amount: 1,
     });
+  }
 
+  saveCharacter();
+
+  createInventoryTable();
+
+  document.getElementById("itemSearch").value = "";
 }
-function addSelectedItem(){
+function removeItem(id) {
+  const index = character.inventory.findIndex((item) => item.id === id);
 
-    const name =
-    document.getElementById("itemSearch").value;
+  if (index !== -1) {
+    character.inventory[index].amount--;
 
-
-    const item =
-    items.find(i => i.name === name);
-
-
-    if(!item){
-
-        alert("Item not found");
-        return;
-
+    if (character.inventory[index].amount <= 0) {
+      character.inventory.splice(index, 1);
     }
+  }
 
+  saveCharacter();
 
-    let existing =
-    character.inventory.find(
-        i=>i.id === item.id
-    );
-
-
-    if(existing){
-
-        existing.amount++;
-
-    }
-    else{
-
-        character.inventory.push({
-
-            id:item.id,
-            amount:1
-
-        });
-
-    }
-
-
-    saveCharacter();
-
-    createInventoryTable();
-
-
-    document.getElementById("itemSearch").value="";
-
+  createInventoryTable();
 }
-function removeItem(id){
+function createInventoryTable() {
+  const table = document.getElementById("inventoryTable");
 
-    const index =
-    character.inventory.findIndex(
-        item=>item.id === id
-    );
+  const header = document.getElementById("inventoryHeader");
 
+  table.innerHTML = "";
+  header.innerHTML = "";
 
-    if(index !== -1){
-
-        character.inventory[index].amount--;
-
-
-        if(character.inventory[index].amount <= 0){
-
-            character.inventory.splice(index,1);
-
-        }
-
-    }
-
-
-    saveCharacter();
-
-    createInventoryTable();
-
-}
-function createInventoryTable(){
-
-    const table =
-    document.getElementById("inventoryTable");
-
-    const header =
-    document.getElementById("inventoryHeader");
-
-
-    table.innerHTML="";
-    header.innerHTML="";
-
-
-    header.innerHTML=`
+  header.innerHTML = `
 
     <tr id="inventoryHeaderRow">
         <th>Icon</th>
@@ -343,42 +257,28 @@ function createInventoryTable(){
 
     `;
 
+  character.inventory.forEach((storedItem) => {
+    const item = items.find((i) => i.id === storedItem.id);
 
-    character.inventory.forEach(storedItem=>{
+    if (!item) return;
 
+    let properties = "";
 
-        const item =
-        items.find(i=>i.id === storedItem.id);
+    if (item.properties) {
+      properties = item.properties.join(", ");
+    }
 
+    let row = document.createElement("tr");
+    const equipped =
+      character.equipped.weapon === item.id ||
+      character.equipped.armor === item.id ||
+      character.equipped.shield === item.id;
 
-        if(!item)
-            return;
+    if (equipped) {
+      row.classList.add("equippedItem");
+    }
 
-
-        let properties = "";
-
-        if(item.properties){
-
-            properties =
-            item.properties.join(", ");
-
-        }
-
-
-        let row = document.createElement("tr");
-const equipped =
-
-    character.equipped.weapon === item.id ||
-    character.equipped.armor === item.id ||
-    character.equipped.shield === item.id;
-
-if(equipped){
-
-    row.classList.add("equippedItem");
-
-}
-
-        row.innerHTML=`
+    row.innerHTML = `
 <td>
 <img
     src="icons/${item.id}.svg"
@@ -392,12 +292,12 @@ if(equipped){
         <td>
 
 ${
-item.damage ??
-item.armor ??
-item.armorValue ??
-item.bonus ??
-item.armorBonus ??
-"-"
+  item.damage ??
+  item.armor ??
+  item.armorValue ??
+  item.bonus ??
+  item.armorBonus ??
+  "-"
 }
 
 </td>
@@ -405,10 +305,7 @@ item.armorBonus ??
 
 <td>
 
-${
-item.damageType ??
-(item.type === "armor" ? "Armor" : "-")
-}
+${item.damageType ?? (item.type === "armor" ? "Armor" : "-")}
 
 </td>
 
@@ -434,10 +331,8 @@ item.damageType ??
         <td>
 
 <button onclick="${
-    equipped
-        ? `unequipItem('${item.id}')`
-        : `equipItem('${item.id}')`
-}">
+      equipped ? `unequipItem('${item.id}')` : `equipItem('${item.id}')`
+    }">
 ${equipped ? "Unequip" : "Equip"}
 </button>
 
@@ -454,67 +349,39 @@ X
 
         `;
 
+    table.appendChild(row);
+  });
 
-        table.appendChild(row);
-
-
-    });
-
-
-    updateInventoryWeight();
-
+  updateInventoryWeight();
 }
-function equipItem(id){
+function equipItem(id) {
+  const item = items.find((i) => i.id === id);
 
-    const item =
-    items.find(i=>i.id === id);
+  if (!item) return;
 
+  if (item.type === "armor") {
+    character.equipped.armor = id;
+  } else if (item.type === "weapon") {
+    character.equipped.weapon = id;
+  } else if (item.type === "shield") {
+    character.equipped.shield = id;
+  }
 
-    if(!item) return;
+  saveCharacter();
 
-
-    if(item.type === "armor"){
-
-        character.equipped.armor = id;
-
-    }
-
-
-    else if(item.type === "weapon"){
-
-        character.equipped.weapon = id;
-
-    }
-
-
-    else if(item.type === "shield"){
-
-        character.equipped.shield = id;
-
-    }
-
-
-saveCharacter();
-
-createInventoryTable();
-recalculateDerivedStats();
-
+  createInventoryTable();
+  recalculateDerivedStats();
 }
-function unequipItem(id){
+function unequipItem(id) {
+  if (character.equipped.weapon === id) character.equipped.weapon = null;
 
-    if(character.equipped.weapon === id)
-        character.equipped.weapon = null;
+  if (character.equipped.armor === id) character.equipped.armor = null;
 
-    if(character.equipped.armor === id)
-        character.equipped.armor = null;
+  if (character.equipped.shield === id) character.equipped.shield = null;
 
-    if(character.equipped.shield === id)
-        character.equipped.shield = null;
+  saveCharacter();
 
-    saveCharacter();
+  createInventoryTable();
 
-    createInventoryTable();
-
-    recalculateDerivedStats();
-
+  recalculateDerivedStats();
 }

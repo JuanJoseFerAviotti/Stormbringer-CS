@@ -1,377 +1,394 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Character Sheet</title>
-    <link rel="stylesheet" href="css/character.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/character.css" />
+  </head>
+  <body>
+    <button onclick="location.href = 'index.html'">Back to Menu</button
+    ><button onclick="eightrest()">8 hrs rest</button
+    ><button onclick="twentyfourrest()">24 hrs rest</button>
+    <button onclick="reload()">¿?</button>
+    <div id="characterHeader">
+      <div class="headerRow">
+        <span
+          >Name: <strong id="name"></strong
+          ><input type="text" id="characterName"
+        /></span>
+        <span
+          >Level: <strong id="level"></strong
+          ><input
+            class="inputbar"
+            type="number"
+            id="characterLevel"
+            min="1"
+            value="1"
+        /></span>
 
-    <button onclick="location.href='index.html'">
-Back to Menu
-</button><button onclick="eightrest()">
-8 hrs rest
-</button><button onclick="twentyfourrest()">
-24 hrs rest
-</button>
-<button onclick="reload()">
-¿?
-</button>
-<div id="characterHeader">
-
-    <div class="headerRow">
-        <span>Name: <strong id="name"></strong><input type="text" id="characterName"></span>
-        <span>Level: <strong id="level"></strong><input class="inputbar"
-    type="number"
-    id="characterLevel"
-    min="1"
-    value="1"></span>
-    
-
-          
-
-            <span>Points</span><span id="availablePoints">45</span>/
-<span id="maxPointsHeader">45</span>
-    
-
-    <div class="headerRow">
-
-        <span>Health:
-            <input class="inputbar" id="health" type="number"> /
-            <strong id="maxHealth"></strong>
+        <span>Points</span><span id="availablePoints">45</span>/
+        <span id="maxPointsHeader">45</span>
+      </div>
+      <div class="headerRow">
+        <span
+          >Health: <input class="inputbar" id="health" type="number" /> /
+          <strong id="maxHealth"></strong>
         </span>
 
-        <span>Mana:
-            <input class="inputbar" id="mana" type="number"> /
-            <strong id="maxMana"></strong>
+        <span
+          >Mana: <input class="inputbar" id="mana" type="number" /> /
+          <strong id="maxMana"></strong>
         </span>
 
-        <span>Mana Regen:
-            <strong id="manaRegen"></strong>
+        <span
+          >Mana Regen:
+          <strong id="manaRegen"></strong>
         </span>
 
-        <span>Stamina:
-            <input class="inputbar" id="stamina" type="number"> /
-            <strong id="maxStamina"></strong>
+        <span
+          >Stamina: <input class="inputbar" id="stamina" type="number" /> /
+          <strong id="maxStamina"></strong>
         </span>
 
-        <span>Armor:
-            <strong id="armor">10</strong>
+        <span
+          >Armor:
+          <strong id="armor">10</strong>
         </span>
+      </div>
 
-    </div>
+      <div id="tabs">
+        <button class="tabButton" data-tab="Actions">Actions</button>
+        <button class="tabButton active" data-tab="stats">Stats</button>
+        <button class="tabButton" data-tab="skills">Skills</button>
+        <button class="tabButton" data-tab="inventory">Inventory</button>
+        <button class="tabButton" data-tab="magic">Magic</button>
+        <button class="tabButton" data-tab="talents">Talents</button>
+      </div>
 
-</div>
+      <div id="tabContent">
+        <div id="inventory" class="tab">
+          <h2>Inventory</h2>
 
-<div id="tabs">
+          <div>
+            Weight:
+            <span id="currentWeight">0</span>
+            /
+            <span id="maxWeight">0</span>
+            kg
+          </div>
 
-    <button class="tabButton active" data-tab="stats">Stats</button>
-    <button class="tabButton" data-tab="skills">Skills</button>
-    <button class="tabButton" data-tab="inventory">Inventory</button>
-    <button class="tabButton" data-tab="magic">Magic</button>
-    <button class="tabButton" data-tab="talents">Talents</button>
+          <div>
+            <input
+              id="itemSearch"
+              list="itemSuggestions"
+              placeholder="Search item"
+            />
 
-</div>
+            <datalist id="itemSuggestions"></datalist>
 
-<div id="tabContent">
+            <button onclick="addSelectedItem()">Add</button>
+          </div>
 
-    
+          <table>
+            <thead id="inventoryHeader"></thead>
 
-   
-    <div id="inventory" class="tab">
-
-    <h2>Inventory</h2>
-
-    <div>
-        Weight:
-        <span id="currentWeight">0</span>
-        /
-        <span id="maxWeight">0</span>
-        kg
-    </div>
-
-
-    <table>
-<div>
-
-<input 
-id="itemSearch"
-list="itemSuggestions"
-placeholder="Search item">
-<datalist id="itemSuggestions"></datalist>
-<button onclick="addSelectedItem()">
-Add
-</button>
-
-</div>
-
-
-
-        <table>
-
-<thead id="inventoryHeader">
-
-</thead>
-
-<tbody id="inventoryTable">
-
-</tbody>
-
-</table>
-
-
-</div>
-
-    <div class="tab" id="magic">
-       <div class="spellFilters">
-<p>Primary Affinity    Secondary Affinity</p>
-<select id="primaryElement"></select>
-
-<input id="primaryLevel" type="number" min="1" max="10">
-
-
-
-<select id="secondaryElement"></select>
-<input id="secondaryLevel" type="number" min="1" max="10">
-
-<h4>spell list</h4>
-    <label>Element 1</label>
-    <select id="element1">
-        <option value="lux">Lux</option>
-        <option value="natura">Natura</option>
-        <option value="gelum">Gelum</option>
-        <option value="umbra">Umbra</option>
-        <option value="arcane">Arcane</option>
-        <option value="ignis">Ignis</option>
-    </select>
-
-    <select id="level1"></select>
-
-    <br><br>
-
-    <label>Element 2</label>
-    <select id="element2">
-        <option value="lux">Lux</option>
-        <option value="natura">Natura</option>
-        <option value="gelum">Gelum</option>
-        <option value="umbra">Umbra</option>
-        <option value="arcane">Arcane</option>
-        <option value="ignis">Ignis</option>
-    </select>
-
-    <select id="level2"></select>
-
-</div>
-
-<hr>
-<table class="spellTable">
-
-<thead>
-<tr>
-    <th>Name</th>
-    <th>Elements</th>
-    <th>Range</th>
-    <th>Circle</th>
-    <th></th>
-</tr>
-</thead>
-
-<tbody id="spellList">
-
-</tbody>
-
-</table>
-    </div>
-
-</div>
-<div class="tab active" id="stats">
-
-    <div class="statsContainer">
-
-        <!-- LEFT SIDE -->
-        <div class="statsPanel">
-
-            <!-- <h2>Stats</h2>
-
-            <H4>Pointis</H4><span id="availablePoints">45</span>
-/
-<span id="maxPointsHeader">45</span> -->
-
-            <table class="statsTable">
-
-                <thead>
-                    <tr>
-                        <th>Stat</th>
-                        <th>Score</th>
-                        <th>Mod</th>
-                        <th></th>
-                        
-                        <th></th><th>Invested</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-
-                    <tr data-stat="strength">
-                        <td>Strength</td>
-                        <td id="strengthValue">8</td>
-                        <td id="strengthMod">-1</td>
-                        <td><button class="minus" data-stat="strength">−</button></td>
-                        <td id="strengthInvested" class="Investedpoints">0</td>
-                        <td><button class="plus" data-stat="strength">+</button></td>
-                    </tr>
-
-                    <tr data-stat="agility">
-                        <td>Agility</td>
-                        <td id="agilityValue">8</td>
-                        <td id="agilityMod">-1</td>
-                        <td><button class="minus" data-stat="agility">−</button></td>
-                        <td id="agilityInvested" class="Investedpoints">0</td>
-                        <td><button class="plus" data-stat="agility">+</button></td>
-                    </tr>
-
-                    <tr data-stat="constitution">
-                        <td>Constitution</td>
-                        <td id="constitutionValue">8</td>
-                        <td id="constitutionMod">-1</td>
-                        <td><button class="minus" data-stat="constitution">−</button></td>
-                        <td id="constitutionInvested" class="Investedpoints">0</td>
-                        <td><button class="plus" data-stat="constitution">+</button></td>
-                    </tr>
-
-                    <tr data-stat="charisma">
-                        <td>Charisma</td>
-                        <td id="charismaValue">8</td>
-                        <td id="charismaMod">-1</td>
-                        <td><button class="minus" data-stat="charisma">−</button></td>
-                        <td id="charismaInvested" class="Investedpoints">0</td>
-                        <td><button class="plus" data-stat="charisma">+</button></td>
-                    </tr>
-
-                    <tr data-stat="mind">
-                        <td>Mind</td>
-                        <td id="mindValue">8</td>
-                        <td id="mindMod">-1</td>
-                        <td><button class="minus" data-stat="mind">−</button></td>
-                        <td id="mindInvested" class="Investedpoints">0</td>
-                        <td><button class="plus" data-stat="mind">+</button></td>
-                    </tr>
-
-                    <tr data-stat="soul">
-                        <td>Soul</td>
-                        <td id="soulValue">8</td>
-                        <td id="soulMod">-1</td>
-                        <td><button class="minus" data-stat="soul">−</button></td>
-                        <td id="soulInvested" class="Investedpoints">0</td>
-                        <td><button class="plus" data-stat="soul">+</button></td>
-                    </tr>
-
-                </tbody>
-
-            </table>
-
+            <tbody id="inventoryTable"></tbody>
+          </table>
         </div>
+        <div class="tab" id="magic">
+          <select id="magicSystemSelect">
+            <option value="arcane">Arcane</option>
+          </select>
+          <div id="arcaneMagic" class="magicSystemContent">
+            <div class="spellFilters">
+              <p>Primary Affinity Secondary Affinity</p>
+              <select id="primaryElement"></select>
 
+              <input id="primaryLevel" type="number" min="1" max="10" />
+
+              <select id="secondaryElement"></select>
+              <input id="secondaryLevel" type="number" min="1" max="10" />
+
+              <h4>spell list</h4>
+              <label>Element 1</label>
+              <select id="element1">
+                <option value="lux">Lux</option>
+                <option value="natura">Natura</option>
+                <option value="gelum">Gelum</option>
+                <option value="umbra">Umbra</option>
+                <option value="arcane">Arcane</option>
+                <option value="ignis">Ignis</option>
+              </select>
+
+              <select id="level1"></select>
+
+              <br /><br />
+
+              <label>Element 2</label>
+              <select id="element2">
+                <option value="lux">Lux</option>
+                <option value="natura">Natura</option>
+                <option value="gelum">Gelum</option>
+                <option value="umbra">Umbra</option>
+                <option value="arcane">Arcane</option>
+                <option value="ignis">Ignis</option>
+              </select>
+
+              <select id="level2"></select>
+            </div>
+
+            <hr />
+            <table class="spellTable">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Elements</th>
+                  <th>Range</th>
+                  <th>Circle</th>
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody id="spellList"></tbody>
+            </table>
+          </div>
+          <div id="spiritWhisperMagic" class="magicSystemContent">
+            <select id="spiritWhisperElement"></select>
+            <select id="spiritWhisperLevel"></select>
+           <table class="spellTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Elements</th>
+            <th>Range</th>
+            <th>Circle</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody id="spiritWhisperSpellList"></tbody>
+</table>
+          </div>
+          <div id="liveBloodMagic" class="magicSystemContent">
+            <h1>live blood</h1>
+          </div>
+          <div id="demonBloodMagic" class="magicSystemContent">
+            <h1>demon blood</h1>
+          </div>
+          <div id="monsterHunterMagic" class="magicSystemContent">
+            <h1>monster hunter</h1>
+          </div>
+          <div id="pocketDimensionMagic" class="magicSystemContent">
+            <h1>pocket dimension</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab active" id="stats">
+      <div class="statsContainer">
+        <!-- LEFT SIDE -->
+        <div class="leftsidestats">
+          <div class="statsPanel">
+            <table class="statsTable">
+              <thead>
+                <tr>
+                  <th>Stat</th>
+                  <th>Score</th>
+                  <th>Mod</th>
+                  <th></th>
+
+                  <th></th>
+                  <th>Invested</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr data-stat="strength">
+                  <td>Strength</td>
+                  <td id="strengthValue">8</td>
+                  <td id="strengthMod">-1</td>
+                  <td><button class="minus" data-stat="strength">−</button></td>
+                  <td id="strengthInvested" class="Investedpoints">0</td>
+                  <td><button class="plus" data-stat="strength">+</button></td>
+                </tr>
+
+                <tr data-stat="agility">
+                  <td>Agility</td>
+                  <td id="agilityValue">8</td>
+                  <td id="agilityMod">-1</td>
+                  <td><button class="minus" data-stat="agility">−</button></td>
+                  <td id="agilityInvested" class="Investedpoints">0</td>
+                  <td><button class="plus" data-stat="agility">+</button></td>
+                </tr>
+
+                <tr data-stat="constitution">
+                  <td>Constitution</td>
+                  <td id="constitutionValue">8</td>
+                  <td id="constitutionMod">-1</td>
+                  <td>
+                    <button class="minus" data-stat="constitution">−</button>
+                  </td>
+                  <td id="constitutionInvested" class="Investedpoints">0</td>
+                  <td>
+                    <button class="plus" data-stat="constitution">+</button>
+                  </td>
+                </tr>
+
+                <tr data-stat="charisma">
+                  <td>Charisma</td>
+                  <td id="charismaValue">8</td>
+                  <td id="charismaMod">-1</td>
+                  <td><button class="minus" data-stat="charisma">−</button></td>
+                  <td id="charismaInvested" class="Investedpoints">0</td>
+                  <td><button class="plus" data-stat="charisma">+</button></td>
+                </tr>
+
+                <tr data-stat="mind">
+                  <td>Mind</td>
+                  <td id="mindValue">8</td>
+                  <td id="mindMod">-1</td>
+                  <td><button class="minus" data-stat="mind">−</button></td>
+                  <td id="mindInvested" class="Investedpoints">0</td>
+                  <td><button class="plus" data-stat="mind">+</button></td>
+                </tr>
+
+                <tr data-stat="soul">
+                  <td>Soul</td>
+                  <td id="soulValue">8</td>
+                  <td id="soulMod">-1</td>
+                  <td><button class="minus" data-stat="soul">−</button></td>
+                  <td id="soulInvested" class="Investedpoints">0</td>
+                  <td><button class="plus" data-stat="soul">+</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- MAGIC SYSTEMS -->
+          <div class="magicPanel">
+            <h4>Magic Systems</h4>
+            <label>
+              <input type="checkbox" id="magicArcane" />
+              Arcane
+              <p class="magicArcaneProb"></p>
+            </label>
+
+            <label>
+              <input type="checkbox" id="magicSpiritWhisper" />
+              Spirit Whisper
+              <p class="magicSpiritWhisperProb"></p>
+            </label>
+
+            <label>
+              <input type="checkbox" id="magicLiveBlood" />
+              Live Blood
+              <p class="magicLiveBloodProb"></p>
+            </label>
+
+            <label>
+              <input type="checkbox" id="magicDemonBlood" />
+              Demon Blood
+              <p class="magicDemonBloodProb"></p>
+            </label>
+
+            <label>
+              <input type="checkbox" id="magicMonsterHunter" />
+              Monster Hunter
+              <p class="magicMonsterHunterProb"></p>
+            </label>
+
+            <label>
+              <input type="checkbox" id="magicPocketDimension" />
+              Pocket Dimension
+              <p class="magicPocketDimensionProb"></p>
+            </label>
+          </div>
+        </div>
         <!-- RIGHT SIDE -->
         <div class="racePanel">
+          <h2>Character</h2>
 
-            <h2>Character</h2>
+          <label for="raceSelect">Race</label>
+          <select id="raceSelect"></select>
 
-            <label for="raceSelect">Race</label>
-            <select id="raceSelect"></select>
+          <select id="genderSelect">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
 
-            <select id="genderSelect">
-    <option value="Male">Male</option>
-    <option value="Female">Female</option>
-</select>
+          <hr />
 
-            <hr>
+          <h3>Description</h3>
 
-            <h3>Description</h3>
+          <p id="raceDescription">Select a race.</p>
 
-            <p id="raceDescription">
-                Select a race.
-            </p>
+          <h3>Racial Bonuses</h3>
 
-            <h3>Racial Bonuses</h3>
+          <ul id="raceBonuses"></ul>
 
-            <ul id="raceBonuses"></ul>
+          <h3>Starting Magic</h3>
 
-            <h3>Starting Magic</h3>
+          <ul id="raceMagic"></ul>
 
-            <ul id="raceMagic"></ul>
+          <h3>Starting Abilities</h3>
 
-            <h3>Starting Abilities</h3>
-
-            <ul id="raceAbilities"></ul>
-
+          <ul id="raceAbilities"></ul>
         </div>
-
+      </div>
     </div>
+    <div id="skills" class="tab">
+      <h2>Skills</h2>
 
-</div>
-<div id="skills" class="tab">
-
-    <h2>Skills</h2>
-
-    <p>
+      <p>
         Starting Free Proficiencies:
         <span id="freeProficiencies">2</span>
-    </p>
+      </p>
 
-
-    <table>
-
+      <table>
         <thead>
-            <tr>
-                <th>Skill</th>
-                <th>Passive</th>
-                <th>Active</th>
-                <th>Proficiency</th>
-                <th>Expertise</th>
-            </tr>
+          <tr>
+            <th>Skill</th>
+            <th>Passive</th>
+            <th>Active</th>
+            <th>Proficiency</th>
+            <th>Expertise</th>
+          </tr>
         </thead>
 
-        <tbody id="skillsTable">
+        <tbody id="skillsTable"></tbody>
+      </table>
+    </div>
+    <div id="talents" class="tab">
+      <h2>Talents</h2>
 
-        </tbody>
-
-    </table>
-
-</div>
-<div id="talents" class="tab">
-
-    <h2>Talents</h2>
-
-    <select id="talentTreeSelect">
+      <select id="talentTreeSelect">
         <option value="strength">Strength</option>
         <option value="agility">Agility</option>
         <option value="constitution">Constitution</option>
         <option value="mind">Mind</option>
         <option value="charisma">Charisma</option>
         <option value="liveblood">Live Blood</option>
-    </select>
+      </select>
 
-<div id="talentArea">
+      <div id="talentArea">
+        <svg id="talentLines"></svg>
 
-    <svg id="talentLines"></svg>
+        <div id="talentContainer"></div>
+      </div>
+    </div>
+    <div id="Actions" class="tab">
+      <h3>Actions per turn</h3>
+      <h3 id="actionsperturn">3</h3>
+    </div>
+    <div id="talentTooltip"></div>
 
-    <div id="talentContainer"></div>
+    <script src="js/rules.js"></script>
+    <script src="js/races.js"></script>
+    <script src="js/skills.js"></script>
+    <script src="js/inventory.js"></script>
 
-</div>
-<div id="talentTooltip"></div>
-
-<script src="js/rules.js"></script>
-<script src="js/races.js"></script>
-<script src="js/skills.js"></script>
-<script src="js/inventory.js"></script>
-
-<script src="js/characterData.js"></script>
-<script src="js/characterpage.js"></script>
-<script src="js/Arcane.js"></script>
-<script src="js/talents.js"></script>
-
-
-
-</body>
+    <script src="js/characterData.js"></script>
+    <script src="js/characterpage.js"></script>
+    <script src="js/Arcane.js"></script>
+    <script src="js/talents.js"></script>
+  </body>
 </html>

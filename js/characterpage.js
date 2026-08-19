@@ -322,6 +322,10 @@ buttons.forEach((button) => {
     if (button.dataset.tab === "talents") {
       loadTalentTree(currentTalentTree);
     }
+
+    if (button.dataset.tab === "magic") {
+      MagicSystems();
+    }
   });
 });
 function loadCharacterToUI() {
@@ -331,6 +335,7 @@ function loadCharacterToUI() {
   updateSkills();
   updateRaceInfo();
   updateHeader();
+  
 }
 function getSpentTalentPoints() {
   let spent = 0;
@@ -352,20 +357,17 @@ function showMagicSystem(system) {
     div.style.display = "none";
   });
 
-  const selected = document.getElementById(
-    system === "arcane" ? "arcaneMagic" : system + "Magic",
-  );
+  const panelIds = {
+    arcane: "arcaneMagic",
+    spiritWhisper: "spiritWhisperMagic",
+    liveblood: "liveBloodMagic",
+    demonBlood: "demonBloodMagic",
+    monsterHunter: "monsterHunterMagic",
+    pocketDimension: "pocketDimensionMagic",
+    magicArtifact: "ArtifactsMagic",
+  };
 
-  if (selected) {
-    selected.style.display = "block";
-  }
-}
-function showMagicSystem(system) {
-  document.querySelectorAll(".magicSystemContent").forEach((div) => {
-    div.style.display = "none";
-  });
-
-  const selected = document.getElementById(system + "Magic");
+  const selected = document.getElementById(panelIds[system]);
 
   if (selected) {
     selected.style.display = "block";
@@ -391,10 +393,10 @@ function updateMagicSystems() {
   ).checked;
 
   saveCharacter();
-
+updateLiveBloodTable();
   updateMagicSystemSelector();
 }
-function updateMagicSystemSelector() {
+/* function updateMagicSystemSelector() {
   const select = document.getElementById("magicSystemSelect");
 
   select.innerHTML = "";
@@ -440,8 +442,55 @@ function updateMagicSystemSelector() {
   if (select.options.length > 0) {
     showMagicSystem(select.value);
   }
-}
-function MagicSystems() {
+} */
+/* function updateMagicSystemSelector() {
+  const select = document.getElementById("magicSystemSelect");
+
+  select.innerHTML = "";
+
+  const systems = [
+    {
+      id: "arcane",
+      name: "Arcane",
+    },
+    {
+      id: "spiritWhisper",
+      name: "Spirit Whisper",
+    },
+    {
+      id: "liveblood",
+      name: "Live Blood",
+    },
+    {
+      id: "demonBlood",
+      name: "Demon Blood",
+    },
+    {
+      id: "monsterHunter",
+      name: "Monster Hunter",
+    },
+    {
+      id: "pocketDimension",
+      name: "Pocket Dimension",
+    },
+  ];
+
+  systems.forEach((system) => {
+    if (!character[system.id]?.enabled) return;
+
+    const option = document.createElement("option");
+
+    option.value = system.id;
+    option.textContent = system.name;
+
+    select.appendChild(option);
+  });
+
+  if (select.options.length > 0) {
+    showMagicSystem(select.value);
+  }
+} */
+/* function MagicSystems() {
   // Required potential for each magic system
   const required = {
     arcane: 3,
@@ -532,5 +581,177 @@ function MagicSystems() {
      
 
   saveCharacter();
+  updateMagicSystemSelector();
+} */
+function updateMagicSystemSelector() {
+  const select = document.getElementById("magicSystemSelect");
+
+  if (!select) return;
+
+  select.innerHTML = "";
+
+  const systems = [
+    {
+      id: "arcane",
+      name: "Arcane",
+    },
+    {
+      id: "spiritWhisper",
+      name: "Spirit Whisper",
+    },
+    {
+      id: "liveblood",
+      name: "Live Blood",
+    },
+    {
+      id: "demonBlood",
+      name: "Demon Blood",
+    },
+    {
+      id: "monsterHunter",
+      name: "Monster Hunter",
+    },
+    {
+      id: "pocketDimension",
+      name: "Pocket Dimension",
+    },
+  ];
+
+  // =================================
+  // Add available magic systems
+  // =================================
+
+  systems.forEach((system) => {
+    if (!character[system.id]?.enabled) {
+      return;
+    }
+
+    const option = document.createElement("option");
+
+    option.value = system.id;
+    option.textContent = system.name;
+
+    select.appendChild(option);
+  });
+
+  // =================================
+  // Magic Artifact
+  // ALWAYS available
+  // =================================
+
+  const artifact = document.createElement("option");
+
+  artifact.value = "magicArtifact";
+  artifact.textContent = "Magic Artifact";
+
+  select.appendChild(artifact);
+
+  // =================================
+  // Select something
+  // =================================
+
+  if (select.options.length > 0) {
+    // If there is magic, select the first
+    // actual magic system.
+    //
+    // Otherwise select Magic Artifact.
+
+    if (select.options.length > 1) {
+      select.selectedIndex = 0;
+    } else {
+      select.value = "magicArtifact";
+    }
+
+    showMagicSystem(select.value);
+  }
+}
+function MagicSystems() {
+  const race = races[character.race];
+
+  if (!race) {
+    console.log("Magic systems: race not found", character.race);
+    return;
+  }
+
+  const required = {
+    spiritWhisper: 1,
+    liveblood: 1,
+    demonBlood: 1,
+
+    arcane: 3,
+    pocketDimension: 3,
+    monsterHunter: 3,
+  };
+
+  const potential = {
+    spiritWhisper: 0,
+    liveblood: 0,
+    demonBlood: 0,
+
+    arcane: 0,
+    pocketDimension: 0,
+    monsterHunter: 0,
+  };
+
+  // ================================
+  // Race magic
+  // ================================
+
+  const raceMagic = race.magic || {};
+
+  for (const system in potential) {
+    if (raceMagic[system]) {
+      potential[system] += Number(raceMagic[system]);
+    }
+  }
+  const gender = race.genders?.[character.gender];
+
+  const genderMagic = gender?.magic || {};
+
+  for (const system in potential) {
+    if (genderMagic[system]) {
+      potential[system] += Number(genderMagic[system]);
+    }
+  }
+
+  // ================================
+  // Talents
+  // ================================
+
+  potential.arcane += getTalentRank("magic_spark_arcane");
+
+  // ================================
+  // Update character systems
+  // ================================
+
+  character.spiritWhisper = character.spiritWhisper || {};
+
+  character.liveblood = character.liveblood || {};
+
+  character.demonBlood = character.demonBlood || {};
+
+  character.arcane = character.arcane || {};
+
+  character.pocketDimension = character.pocketDimension || {};
+
+  character.monsterHunter = character.monsterHunter || {};
+
+  for (const system in required) {
+    character[system].enabled = potential[system] >= required[system];
+  }
+
+  console.log("Magic potential:", potential);
+
+  console.log("Magic systems:", {
+    spiritWhisper: character.spiritWhisper.enabled,
+    liveblood: character.liveblood.enabled,
+    demonBlood: character.demonBlood.enabled,
+    arcane: character.arcane.enabled,
+    pocketDimension: character.pocketDimension.enabled,
+    monsterHunter: character.monsterHunter.enabled,
+  });
+
+  saveCharacter();
+
   updateMagicSystemSelector();
 }

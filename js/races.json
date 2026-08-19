@@ -56,7 +56,7 @@
         }
       }
     },
-    "magic": { "arcane": 1, "Liveblood": 1 },
+    "magic": { "arcane": 1, "liveblood": 1 },
 
     "skills": ["Arcana"]
   },
@@ -76,7 +76,7 @@
         }
       }
     },
-    "magic": { "Liveblood": 1 },
+    "magic": { "liveblood": 1 },
     "skills": ["Perception"]
   },
 

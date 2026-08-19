@@ -97,7 +97,7 @@
         </div>
         <div class="tab" id="magic">
           <select id="magicSystemSelect">
-            <option value="arcane">Arcane</option>
+             <option value="magicArtifact">Magic Artifact</option>
           </select>
           <div id="arcaneMagic" class="magicSystemContent">
             <div class="spellFilters">
@@ -155,22 +155,42 @@
           <div id="spiritWhisperMagic" class="magicSystemContent">
             <select id="spiritWhisperElement"></select>
             <select id="spiritWhisperLevel"></select>
-           <table class="spellTable">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Elements</th>
-            <th>Range</th>
-            <th>Circle</th>
-            <th></th>
-        </tr>
-    </thead>
+            <table class="spellTable">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Elements</th>
+                  <th>Range</th>
+                  <th>Circle</th>
+                  <th></th>
+                </tr>
+              </thead>
 
-    <tbody id="spiritWhisperSpellList"></tbody>
-</table>
+              <tbody id="spiritWhisperSpellList"></tbody>
+            </table>
           </div>
           <div id="liveBloodMagic" class="magicSystemContent">
-            <h1>live blood</h1>
+            
+              <h1>LiveBlood</h1>
+
+              <div id="livebloodInfo">
+                <span>LiveBlood Level: </span>
+                <span id="livebloodLevel">0</span>
+              </div>
+
+              <table id="livebloodTable">
+                <thead>
+                  <tr>
+                    <th>Power</th>
+                    <th>Cost</th>
+                    <th>Effect</th>
+                    <th>Use</th>
+                  </tr>
+                </thead>
+
+                <tbody id="livebloodTableBody"></tbody>
+              </table>
+            
           </div>
           <div id="demonBloodMagic" class="magicSystemContent">
             <h1>demon blood</h1>
@@ -180,6 +200,9 @@
           </div>
           <div id="pocketDimensionMagic" class="magicSystemContent">
             <h1>pocket dimension</h1>
+          </div>
+          <div id="ArtifactsMagic" class="magicSystemContent">
+            <h1>Magic Artifacts</h1>
           </div>
         </div>
       </div>
@@ -390,5 +413,6 @@
     <script src="js/characterpage.js"></script>
     <script src="js/Arcane.js"></script>
     <script src="js/talents.js"></script>
+    <script src="js/liveblood.js"></script>
   </body>
 </html>

@@ -1028,7 +1028,7 @@
       "id": "liveblood_level",
       "name": "LiveBlood Level",
       "requires": ["liveblood_practice"],
-      "maxRank": 1
+      "maxRank": 10
     }
 
   ]

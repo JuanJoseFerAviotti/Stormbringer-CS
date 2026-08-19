@@ -424,3 +424,6 @@ magicPanel{
     display: flex;
     flex-direction: column;
 }
+.magicSystemContent {
+    display: none;
+}

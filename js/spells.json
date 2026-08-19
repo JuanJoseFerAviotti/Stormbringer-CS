@@ -4381,7 +4381,7 @@
     },
     "costMultiplier": "1",
     "castingTime": "afecta fuerza",
-    "description": "can only target caster, the caster dashes mostly in a stright line x meters, during the dash the caster can chosee to do damge = weapon attack + spells dmg to any creature in the path.dex save(1/2 dmg)",
+    "description": "(this is not a spell is the templete for the other elemental dashes)can only target caster, the caster dashes mostly in a stright line x meters, during the dash the caster can chosee to do damge = weapon attack + spells dmg to any creature in the path.dex save(1/2 dmg)",
     "Canalization": "n",
     "Range": "self-9(+wpn range)",
     "EffectRange": "self-9(+wpn range)",

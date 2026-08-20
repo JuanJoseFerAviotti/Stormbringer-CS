@@ -179,13 +179,7 @@ if(category !== currentCategory){
     updateSkills();
 
 }
-function getProficiencyBonus(){
 
-    return Math.floor(
-        2 + ((character.level-1)/4)
-    );
-
-}
 function addSkillListeners(){
 
     document.querySelectorAll(".proficiency")
@@ -280,11 +274,11 @@ document.getElementById("heavyEncumbered").textContent =
 
 
         if(character.skills[skill]?.proficiency)
-            prof += getProficiencyBonus();
+            prof += Rules.getProficiencyBonus(character);
 
 
         if(character.skills[skill]?.expertise)
-            prof += getProficiencyBonus();
+            prof += Rules.getProficiencyBonus(character);
 
 
 

@@ -301,7 +301,8 @@ function buyTalent(talent) {
   loadTalentTree(currentTalentTree);
   MagicSystems();
   updateStats();
-    updateLiveBloodTable();
+  updateLiveBloodTable();
+  updateActionsTable();
 }
 function unlearnTalent(talent) {
   let rank = getTalentRank(talent.id);
@@ -319,7 +320,8 @@ function unlearnTalent(talent) {
   loadTalentTree(currentTalentTree);
   updateStats();
   MagicSystems();
-    updateLiveBloodTable();
+  updateLiveBloodTable();
+  updateActionsTable();
 }
 function getTalentRank(id) {
   return character.talents[id] || 0;

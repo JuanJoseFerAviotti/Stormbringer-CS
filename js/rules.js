@@ -127,5 +127,22 @@ const Rules = {
 
   getHeavyEncumbered(strength) {
     return strength * 15;
-  },
+  },getMovementSpeed(character) {
+
+    const stats = Rules.getFinalStats(character);
+
+    let movement = 20;
+
+    // We'll add the actual talent checks here
+    // once we map the spreadsheet references
+    // to your talent IDs.
+
+    return Math.round(movement / 5) * 5;
+}, getProficiencyBonus(character){
+
+    return Math.floor(
+        2 + ((character.level-1)/4)
+    );
+
+}
 };

@@ -12,32 +12,32 @@
           "name":"Fighting Style",
           "requires":[],
           "maxRank":1,
-          "description":"Choose a fighting style from the list of available options."
+          "description":"You adopt a particular style of fighting as your specialty. Choose one of the following options. You can't take a Fighting Style option more than once, even if you later get to choose again."
         },
         {
           "id":"improved_critical",
           "name":"Improved Critical",
           "requires":["fighting_style"],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"Your weapon attacks score a critical hit on a roll of 19 or 20."
         },
         {
           "id":"remarkable_athlete",
           "name":"Remarkable Athlete",
           "requires":["improved_critical"],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"you can add half your proficiency bonus (rounded up) to any Strength, Dexterity, or Constitution check you make that doesn't already use your proficiency bonus. In addition, when you make a running long jump, the distance you can cover increases by a number of feet equal to your Strength modifier."
         },
         {
           "id":"superior_critical",
           "name":"Superior Critical",
           "requires":["remarkable_athlete"],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"Your weapon attacks score a critical hit on a roll of 18-20."
         },
 
         {
           "id":"combat_superiority",
           "name":"Combat Superiority",
           "requires":[],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"you learn maneuvers that are fueled by special dice called superiority dice."
         },
         {
           "id":"improved_combat_superiority",
@@ -50,100 +50,100 @@
           "id":"reckless_attack",
           "name":"Reckless Attack",
           "requires":[],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"You can throw aside all concern for defense to attack with fierce desperation. When you make your attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls this turn, but attack rolls against you have advantage until your next turn."
         },
         {
           "id":"brutal_critical",
           "name":"Brutal Critical",
           "requires":["reckless_attack"],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"You can roll one additional weapon damage die when determining the extra damage for a critical hit with a melee attack."
         },
         {
           "id":"improved_brutal_critical",
           "name":"Improved Brutal Critical",
           "requires":["brutal_critical"],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"This increases to two additional dice"
         },
         {
           "id":"master_brutal_critical",
           "name":"Master Brutal Critical",
           "requires":["improved_brutal_critical"],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"increases to three additional dice"
         },
 
         {
           "id":"stunning_strike",
           "name":"Stuning Strike",
           "requires":["reckless_attack"],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"when you deal 20% of ther targets HP or when you deal damage whith a heavy attack you can spend one stamina point to make the target must make a costitition saving throw (1/3 of the dmg recibe) or be stun for one turn"
         },
         {
           "id":"heavy_attack",
           "name":"Heavy Attack",
           "requires":["stunning_strike"],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"makes a mele weapons attack. double(+ HA extra damage) the damge die and the strength and proficiancy bonus"
         },
         {
           "id":"heavy_attack_damage",
           "name":"Heavy Attack Extra Damage",
           "requires":["heavy_attack"],
-          "maxRank":8,"description":"placeholder description"
+          "maxRank":8,"description":"HA Extra dmg insted of double you can triple or cuadruple the damage"
         },
 
         {
           "id":"born_to_the_saddle",
           "name":"Born to the Saddle",
           "requires":[],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"Your mastery as a rider becomes apparent. You have advantage on saving throws made to avoid falling off your mount. If you fall off your mount and descend no more than 10 feet, you can land on your feet if you’re not incapacitated. Finally, mounting or dismounting a creature costs you only 5 feet of movement, rather than half your speed."
         },
         {
           "id":"unwavering_mark",
           "name":"Unwavering Mark",
           "requires":["born_to_the_saddle"],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"You can menace your foes, foiling their attacks and punishing them for harming others. When you hit a creature with a melee weapon attack, you can mark the creature until the end of your next turn. This effect ends early if you are incapacitated or you die, or if someone else marks the creature. While it is within 5 feet of you, a creature marked by you has disadvantage on any attack roll that doesn't target you. In addition, if a creature marked by you deals damage to anyone other than you, you can make a special melee weapon attack against the marked creature as a action on your next turn. You have advantage on the attack roll, and if it hits, the attack's weapon deals extra damage to the target equal to half your level. Regardless of the number of creatures you mark, you can make this special attack a number of times equal to your Strength modifier (a minimum of once), and you regain all expended uses of it when you finish a long rest."
         },
         {
           "id":"warding_maneuver",
           "name":"Warding Maneuver",
           "requires":["unwavering_mark"],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"You learn to fend off strikes directed at you, your mount, or other creatures nearby. If you or a creature you can see within 5 feet of you is hit by an attack, you can roll 1d8 as a reaction if you're wielding a melee weapon or a shield. Roll the die, and add the number rolled to the target's AC against that attack. If the attack still hits, the target has resistance against the attack's damage. You can use this feature a number of times equal to your Constitution modifier (a minimum of once), and you regain all expended uses of it when you finish a long rest."
         },
         {
           "id":"hold_the_line",
           "name":"Hold the Line",
           "requires":["warding_maneuver"],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"You become a master of locking down your enemies. Creatures provoke an opportunity attack from you when they move 5 feet or more while within your reach, and if you hit a creature with an opportunity attack, the target's speed is reduced to 0 until the end of the current turn."
         },
         {
           "id":"ferocious_charger",
           "name":"Ferocious Charger",
           "requires":["hold_the_line"],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"you can run down your foes, whether you're mounted or not. If you move at least 10 feet in a straight line right before attacking a creature and you hit it with the attack, that target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Strength modifier) or be knocked prone. You can use this feature only once on each of your turns."
         },
         {
           "id":"vigilant_defender",
           "name":"Vigilant Defender",
           "requires":["ferocious_charger"],
-          "maxRank":2,"description":"placeholder description"
+          "maxRank":2,"description":"you respond to danger with extraordinary vigilance. In combat, you get a special reaction that you can take once on every creature's turn, except your turn. You can use this special reaction only to make an opportunity attack, and you can't use it on the same turn that you take your normal reaction."
         },
 
         {
           "id":"fighting_spirit",
           "name":"Fighting Spirit",
           "requires":[],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"Your intensity in battle can shield you and help you strike true. As a action on your turn, you can give yourself advantage on all weapon attack rolls until the end of the current turn. When you do so, you also gain 5 temporary hit points. The number of hit points increases when you reach certain levels in this class, increasing to 10 at 10th level and 15 at 15th level. You can use this feature three times. You regain all expended uses of it when you finish a long rest."
         },
         {
           "id":"tireless_spirit",
           "name":"Tireless Spirit",
           "requires":["fighting_spirit"],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"when you roll initiative and have no uses of Fighting Spirit remaining, you regain one use."
         },
         {
           "id":"rapid_strike",
           "name":"Rapid Strike",
           "requires":["tireless_spirit"],
-          "maxRank":2,"description":"placeholder description"
+          "maxRank":2,"description":"you learn to trade accuracy for swift strikes. If you take the Attack action on your turn and have advantage on an attack roll against against one of the targets, you can forgo the advantage for that roll to make an additional weapon attack against that target, as part of the same action. You can do so no more than once per turn."
         },
         {
           "id":"strength_before_death",
@@ -353,6 +353,11 @@
           "name":"Danger Sense",
           "requires":[],
           "maxRank":1,"description":"placeholder description"
+        },{
+          "id":"Runner",
+          "name":"Runner",
+          "requires":[],
+          "maxRank":1,"description":"Your movement speed increases by your Agility modifier."
         },
 
         {
@@ -394,7 +399,7 @@
           "id":"second_wind",
           "name":"Second Wind",
           "requires":[],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"On your turn, you can use an action to regain hit points equal to 1d10 + your constitution modifier level. You restore stamina equal to 1/3 of the healing done by this ability Once you use this feature, you must finish a short or long rest before you can use it again."
         },
         {
           "id":"indomitable",
@@ -413,31 +418,31 @@
           "id":"rage",
           "name":"Rage",
           "requires":[],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"In battle, you fight with primal ferocity. On your turn, you can enter a rage as a action. While raging, you gain the following benefits: When you make a melee weapon attack using Strength, you gain a bonus to the damage roll equal Strenght modifier, half if in heavy armor. if you aren't wearing heavy armor: You have resistance to bludgeoning, piercing, and slashing damage. You have advantage on Strength checks and Strength saving throws. If you are able to cast spells, you can't cast them or concentrate on them while raging. Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you haven't attacked a hostile creature since your last turn or taken damage since then. You can also end your rage on your turn as a free action."
         },
         {
           "id":"unarmored_defense",
           "name":"Unarmored Defense",
           "requires":["rage"],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"While you are not wearing any armor, your armor class equals 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit."
         },
         {
           "id":"relentless_rage",
           "name":"Relentless Rage",
           "requires":["unarmored_defense"],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"your rage can keep you fighting despite grievous wounds. If you drop to 0 hit points while you're raging and don't die outright, you can make a DC 10 Constitution saving throw. If you succeed, you drop to 1 hit point instead. Each time you use this feature after the first, the DC increases by 5. When you finish a short or long rest, the DC resets to 10."
         },
         {
           "id":"persistent_rage",
           "name":"Persistent Rage",
           "requires":["relentless_rage"],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"your rage is so fierce that it ends early only if you fall unconscious or if you choose to end it."
         },
         {
           "id":"primal_champion",
           "name":"Primal Champion",
           "requires":["persistent_rage"],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"you embody the power of the wilds. Your Strength and Constitution scores increase by 4. Your maximum for those scores is now 24.(Half if lvl<10)."
         },
 
         {
@@ -477,7 +482,7 @@
           "id":"partial_hit",
           "name":"Partial Hit",
           "requires":[],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"description":"if when hit the atack roll is equal to your AC you take half damage, +1 to AC "
         },
         {
           "id":"durable",
@@ -501,7 +506,8 @@
           "id":"bastion",
           "name":"Bastion",
           "requires":[],
-          "maxRank":1
+          "maxRank":1,"description":"cant recive crits"
+
         }
 
       ]

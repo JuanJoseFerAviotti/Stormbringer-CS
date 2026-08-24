@@ -116,51 +116,55 @@ function getActionCostText(action) {
     return `${cost.value} Stamina`;
   }
 
-  return "";
+  return cost.type;
 }
 function getActionEffectText(action) {
   if (action.id === "move") {
-    return `${Rules.getMovementSpeed(character)} ft`;
-  } else if(action.id === "second_wind") {
-    return Rules.getModifier(stats.constitution)
-  }
+    return `${getMovementSpeed()} ft / ${(getMovementSpeed() * 0.3).toFixed(1)} m`;
+ } else if (action.id === "second_wind") {
+    const stats = Rules.getFinalStats(character);
+    return Rules.getModifier(stats.constitution);
+}
   else {return getActionDamageText(action);
   }
 
   
 }
-const stats = Rules.getFinalStats(character);
 
 function getActionAttackText(action) {
   if (!action.attack) {
-    return "not found";
+    return "";
   }
 
-  return "D 20 +" + (Rules.getModifier(stats[action.attack.ability]) + Rules.getProficiencyBonus(character)) + " roll";
+  const stats = Rules.getFinalStats(character);
+
+  return "D 20 +" +
+    (Rules.getModifier(stats[action.attack.ability]) +
+      Rules.getProficiencyBonus(character)) +
+    " roll";
 }
 function getActionDamageText(action) {
-
+ const stats = Rules.getFinalStats(character);
     if (!action.damage)
-        return "not found";
+        return "";
 
     if (!character.equipped.weapon)
         return "1D4 + " + Rules.getModifier(stats.strength);
 
-    console.log("=== WEAPON DEBUG ===");
-    console.log("equipped:", JSON.stringify(character.equipped.weapon));
-    console.log("itemsData:", itemsData);
-    console.log("itemsData length:", itemsData.length);
+    
 
     const weapon = itemsData.find(
         item => item.id === character.equipped.weapon
     );
 
-    console.log("weapon found:", weapon);
+  
 
     if (!weapon)
         return "Weapon not found: " + character.equipped.weapon;
 
-    const abilityModifier = Rules.getModifier(stats.strength);
+   
+
+const abilityModifier = Rules.getModifier(stats.strength);
 
     return `${weapon.damage} + ${abilityModifier}`;
 }
@@ -171,6 +175,90 @@ function getActionDescriptionText(action) {
 function getAttacksText(action) {
   if (!action.attacks) return "";
   
-    return (character.talents?.[action.attacks] || 0)+" ";
+    return (1+character.talents?.[action.attacks] || 0)+" ";
   
+}
+function getMovementSpeed() {
+
+    const stats = Rules.getFinalStats(character);
+
+    const strengthMod =
+        Rules.getModifier(stats.strength);
+
+    const agilityMod =
+        Rules.getModifier(stats.agility);
+
+    const constitutionMod =
+        Rules.getModifier(stats.constitution);
+
+
+    let movement = 20;
+
+
+    // Runner
+    if ((character.talents?.Runner || 0) > 0) {
+
+        movement += agilityMod * 2.5;
+
+    }
+
+
+    // Charger
+    if ((character.talents?.charger || 0) > 0) {
+
+        movement += strengthMod * 2.5;
+
+    }
+
+
+    // Relentless Rage
+    if ((character.talents?.relentless_rage || 0) > 0) {
+
+        movement += constitutionMod * 2.5;
+
+    }
+
+
+    // Armor category
+    const armorCategory =
+        getEquippedArmorCategory();
+
+
+    if (
+        armorCategory === "Light" ||
+        armorCategory === "Medium"
+    ) {
+
+        movement += 5;
+
+    }
+    else if (armorCategory === "Heavy") {
+
+        movement += 0;
+
+    }
+    else {
+
+        movement += 5;
+
+    }
+
+
+    // MROUND(..., 5)
+    return Math.round(movement / 5) * 5;
+}function getEquippedArmorCategory() {
+
+    if (!character.equipped?.armor) {
+        return "";
+    }
+
+    const armor = itemsData.find(
+        item => item.id === character.equipped.armor
+    );
+
+    if (!armor) {
+        return "";
+    }
+
+    return armor.category;
 }

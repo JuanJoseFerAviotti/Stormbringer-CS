@@ -14,9 +14,10 @@
   {
     "id": "simple_weapon_attack",
     "name": "Simple Weapon Attack",
+    "description": "attack with your equipped weapon, first attack is 1 action, each additional attack costs 2 actions.",
     "cost": {
       "type": "actions",
-      "value": "1 + number of S.W.A"
+      "value": "2"
     },
     "unlock": {
       "type": "always"
@@ -55,9 +56,21 @@
   {
     "id": "defend",
     "name": "Defend",
+    "description": "attack rolls against you have disadvantage, and you gain advantage on Dexterity saving throws until your next turn.",
     "cost": {
       "type": "actions",
       "value": 2
+    },
+    "unlock": {
+      "type": "always"
+    }
+  }, {
+    "id": "disengage",
+    "name": "Disengage",
+    "description": "Move away from hostile reach without triggering an opportunity attack.",
+    "cost": {
+      "type": "actions",
+      "value": 1
     },
     "unlock": {
       "type": "always"
@@ -84,7 +97,7 @@
   {
     "id": "flurry_of_blows",
     "name": "Flurry of Blows",
-    "description": "2 attacks per Flurry.",
+    "description": "attacks per Flurry.",
     "cost": {
       "type": "actions",
       "value": 2,
@@ -94,7 +107,7 @@
       "type": "talent",
       "talent": "flurry_of_blows"
     },
-    "attacks": "flurry_of_blows",
+    "attacks": "flurry_extra_attack",
     "attack": {
       "type": "weapon",
       "ability": "strength"
@@ -136,8 +149,7 @@
       "value": 1
     },
     "unlock": {
-      "type": "talent",
-      "talent": "steady_aim"
+      "type": "always"
     }
   },
 
@@ -174,7 +186,7 @@
     "name": "Second Wind",
     "description": "+ 1d10 self-heal and restore stamina equal to 1/3 of the healing.",
     "cost": {
-      "type": "stamina",
+      "type": "once per shortrest",
       "value": "0"
     },
     "unlock": {
@@ -214,7 +226,7 @@
   {
     "id": "stunning_strike",
     "name": "Stunning Strike",
-    "description": "Chance to stun an enemy.Constitution saving throw DC 8 + your proficiency bonus + your Strength modifier. On a failed save, the target is stunned until the end of their next turn.",
+    "description": "when you deal 20% of ther targets HP or when you deal damage whith a heavy attack you can spend one stamina point to make the target must make a costitition saving throw (1/3 of the dmg recibe) or be stun for one turn",
     "cost": {
       "type": "stamina",
       "value": 1
@@ -222,14 +234,20 @@
     "unlock": {
       "type": "talent",
       "talent": "stunning_strike" 
+    }
+  },
+   {
+    "id": "reckless_attack",
+    "name": "Reckless Attack",
+    "description":"Gaing advantage on melee weapon attack rolls this turn, but attack rolls against you have advantage until your next turn.",
+       
+    "cost": {
+      "type": "stamina",
+      "value": 1
     },
-    "attack": {
-      "type": "weapon",
-      "ability": "strength"
-    },
-    
-    "damage": {
-      "type": "weapon"
+    "unlock": {
+      "type": "talent",
+      "talent": "reckless_attack" 
     }
   },
 

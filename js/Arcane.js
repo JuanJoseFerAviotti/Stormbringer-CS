@@ -303,7 +303,7 @@ function updateSpellList() {
         ? elementColors[info.secondary]
         : "transparent";
       const learned = character.arcane.knownSpells.includes(spell.id);
-    
+
       table.innerHTML += `
 
         <tr class="spellRow spellCard" style=" border-left-color:${primaryColor};border-top-color:${secondaryColor};" onclick="toggleSpell('${spell.id}')" >
@@ -334,8 +334,7 @@ function updateSpellList() {
                 }
                 ${`<button onclick="openSpellCalculator('${spell.id}')">
                 Calculate
-                </button>`
-                }
+                </button>`}
             </td>
 
         </tr>
@@ -464,96 +463,73 @@ function getSpellElements(spell) {
 
 //Spirit Whisper
 function fillSpiritWhisperSelectors() {
+  const elementSelect = document.getElementById("spiritWhisperElement");
 
-    const elementSelect =
-        document.getElementById("spiritWhisperElement");
+  const levelSelect = document.getElementById("spiritWhisperLevel");
 
-    const levelSelect =
-        document.getElementById("spiritWhisperLevel");
+  if (!elementSelect || !levelSelect) return;
 
-    if (!elementSelect || !levelSelect) return;
+  elementSelect.innerHTML = "";
+  levelSelect.innerHTML = "";
 
-    elementSelect.innerHTML = "";
-    levelSelect.innerHTML = "";
+  const elements = ["lux", "natura", "gelum", "umbra", "arcane", "ignis"];
 
-    const elements = [
-        "lux",
-        "natura",
-        "gelum",
-        "umbra",
-        "arcane",
-        "ignis"
-    ];
+  elements.forEach((element) => {
+    const option = document.createElement("option");
 
-    elements.forEach(element => {
+    option.value = element;
+    option.textContent = element.charAt(0).toUpperCase() + element.slice(1);
 
-        const option = document.createElement("option");
+    elementSelect.appendChild(option);
+  });
 
-        option.value = element;
-        option.textContent =
-            element.charAt(0).toUpperCase() + element.slice(1);
+  for (let level = 1; level <= 20; level++) {
+    const option = document.createElement("option");
 
-        elementSelect.appendChild(option);
-    });
+    option.value = level;
+    option.textContent = level;
 
-    for (let level = 1; level <= 20; level++) {
+    levelSelect.appendChild(option);
+  }
 
-        const option = document.createElement("option");
+  elementSelect.addEventListener("change", updateSpiritWhisperSpellList);
 
-        option.value = level;
-        option.textContent = level;
+  levelSelect.addEventListener("change", updateSpiritWhisperSpellList);
 
-        levelSelect.appendChild(option);
-    }
-
-    elementSelect.addEventListener(
-        "change",
-        updateSpiritWhisperSpellList
-    );
-
-    levelSelect.addEventListener(
-        "change",
-        updateSpiritWhisperSpellList
-    );
-
-    updateSpiritWhisperSpellList();
+  updateSpiritWhisperSpellList();
 }
 
 function updateSpiritWhisperSpellList() {
-
   const table = document.getElementById("spiritWhisperSpellList");
 
   if (!table) return;
 
   table.innerHTML = "";
 
-  const spiritElement =
-    document.getElementById("spiritWhisperElement").value;
+  const spiritElement = document.getElementById("spiritWhisperElement").value;
 
-  const spiritLevel =
-    Number(document.getElementById("spiritWhisperLevel").value);
-
+  const spiritLevel = Number(
+    document.getElementById("spiritWhisperLevel").value,
+  );
 
   //========================================
   // FILTER
   //========================================
 
   const availableSpells = spells.filter((spell) => {
-
     if (!spell.elements) return false;
 
-    const activeElements = Object.entries(spell.elements)
-      .filter(([element, level]) => Number(level) > 0);
+    const activeElements = Object.entries(spell.elements).filter(
+      ([element, level]) => Number(level) > 0,
+    );
 
     if (activeElements.length === 0) return false;
-
 
     // Find PRIMARY element
     let primaryElement = null;
     let primaryLevel = -1;
 
     for (const [element, value] of activeElements) {
-
       const level = Number(value);
 
       if (level > primaryLevel) {
@@ -562,26 +538,21 @@ function updateSpiritWhisperSpellList() {
       }
     }
 
-
     // Spirit element must be primary
     if (primaryElement !== spiritElement) {
       return false;
     }
-
 
     // Primary cannot exceed Spirit level
     if (primaryLevel > spiritLevel) {
       return false;
     }
 
-
     // Other elements can only be half
     // of the spell's primary element
     const otherLimit = primaryLevel / 2;
 
-
     for (const [element, value] of activeElements) {
-
       if (element === spiritElement) continue;
 
       if (Number(value) > otherLimit) {
@@ -589,34 +560,25 @@ function updateSpiritWhisperSpellList() {
       }
     }
 
-
     return true;
   });
-
 
   //========================================
   // SORT
   //========================================
 
   availableSpells.sort((a, b) => {
+    const levelA = Number(a.elements[spiritElement] || 0);
 
-    const levelA =
-      Number(a.elements[spiritElement] || 0);
-
-    const levelB =
-      Number(b.elements[spiritElement] || 0);
+    const levelB = Number(b.elements[spiritElement] || 0);
 
     if (levelA !== levelB) {
       return levelA - levelB;
     }
 
-    const totalA =
-      Object.values(a.elements)
-        .reduce((x, y) => x + Number(y), 0);
+    const totalA = Object.values(a.elements).reduce((x, y) => x + Number(y), 0);
 
-    const totalB =
-      Object.values(b.elements)
-        .reduce((x, y) => x + Number(y), 0);
+    const totalB = Object.values(b.elements).reduce((x, y) => x + Number(y), 0);
 
     if (totalA !== totalB) {
       return totalA - totalB;
@@ -625,23 +587,18 @@ function updateSpiritWhisperSpellList() {
     return a.name.localeCompare(b.name);
   });
 
-
   //========================================
   // CREATE ROWS
   //========================================
 
   availableSpells.forEach((spell) => {
-
     const info = getSpellElements(spell);
 
-    const primaryColor =
-      elementColors[info.primary];
+    const primaryColor = elementColors[info.primary];
 
-    const secondaryColor =
-      info.secondary
-        ? elementColors[info.secondary]
-        : "transparent";
-
+    const secondaryColor = info.secondary
+      ? elementColors[info.secondary]
+      : "transparent";
 
     //======================================
     // SPELL ROW
@@ -675,7 +632,15 @@ function updateSpiritWhisperSpellList() {
         </td>
 
         <td>
-        </td>
+    <button
+        onclick="
+            event.stopPropagation();
+            openSpiritWhisperSpellCalculator('${spell.id}')
+        "
+    >
+        Calculate
+    </button>
+</td>
 
       </tr>
 
@@ -715,10 +680,8 @@ function updateSpiritWhisperSpellList() {
     `;
   });
 }
-    function toggleSpiritWhisperSpell(id) {
-
-  const row =
-    document.getElementById("spirit-details-" + id);
+function toggleSpiritWhisperSpell(id) {
+  const row = document.getElementById("spirit-details-" + id);
 
   if (!row) return;
 
@@ -731,1029 +694,1267 @@ function updateSpiritWhisperSpellList() {
 // ============================================================
 // SPELL CALCULATOR
 // ============================================================
-function renderSpellCalculator(spell) {
+function renderSpellCalculator(spell, magicSystem = "arcane") {
+  // --------------------------------------------------------
+  // Find calculator container
+  // --------------------------------------------------------
 
-    // --------------------------------------------------------
-    // Find calculator container
-    // --------------------------------------------------------
+  let container = document.getElementById("spellCalculator");
 
-    let container =
-        document.getElementById(
-            "spellCalculator"
-        );
+  // --------------------------------------------------------
+  // If the container does not exist, create it.
+  // --------------------------------------------------------
+
+  if (!container) {
+    container = document.createElement("div");
+
+    container.id = "spellCalculator";
+
+    // Put it at the end of the body
+
+    document.body.appendChild(container);
+  }
+
+  // --------------------------------------------------------
+  // Create calculator
+  // --------------------------------------------------------
+  const spellInfo = getSpellElements(spell);
+  const primaryColor = elementColors[spellInfo.primary] || elementColors.none;
+
+  container.innerHTML = `
+
+    <div class="spell-calculator"
+         style="--spell-color: ${primaryColor};">
+
+        <div class="spell-calculator-header">
+            <h3 >${spell.name}</h3>
+        </div>
+
+        <table class="spellCalculatorTable">
+
+            <!-- SPELL INFORMATION -->
+            <tr class="section-header">
+                <th colspan="2">
+                    Spell Information
+                </th>
+            </tr>
+
+<tr>
+    <td colspan="2" id="calculatorElements" class="magic-circle-cell"></td>
+</tr>
+
+            <tr>
+                <td>Effect</td>
+                <td>${spell.effect || "None"}</td>
+            </tr>
+
+            <tr>
+                <td>Effect Range</td>
+                <td id="spellCalcEffectRange"></td>
+            </tr>
+
+            <tr>
+                <td>Range</td>
+                <td id="spellCalcRange"></td>
+            </tr>
+
+            <tr>
+                <td>Canalization</td>
+                <td>${spell.Canalization || "N"}</td>
+            </tr>
 
 
-    // --------------------------------------------------------
-    // If the container does not exist, create it.
-    // --------------------------------------------------------
+            <!-- INPUTS -->
+            <tr class="section-header">
+                <th colspan="2">
+                    Inputs
+                </th>
+            </tr>
 
-    if (!container) {
+            <tr>
+                <td>Key</td>
+               <td>
+    <input
+        id="spellCalcKey"
+        type="number"
+        value="0"
+        min="0"
+        max="3"
+        step="1"
+    >
+</td>
+            </tr>
 
-        container =
-            document.createElement("div");
+            <tr>
+                <td>Cast Time</td>
+                <td>
+                    <input
+                        id="spellCalcCastTime"
+                        type="number"
+                        value="1"
+                        step="0.1"
+                    >
+                </td>
+            </tr>
 
-        container.id =
-            "spellCalculator";
+            <tr>
+                <td>Speed</td>
+                <td>
+                    <input
+                        id="spellCalcSpeed"
+                        type="number"
+                        value="1"
+                        step="0.1"
+                    >
+                </td>
+            </tr>
+
+            <tr>
+                <td>Size</td>
+                <td>
+                    <input
+                        id="spellCalcSize"
+                        type="number"
+                        value="1"
+                        step="0.1"
+                    >
+                </td>
+            </tr>
 
 
-        // Put it at the end of the body
+            <!-- RESULTS -->
+            <tr class="section-header">
+                <th colspan="2">
+                    Results
+                </th>
+            </tr>
 
-        document.body.appendChild(
-            container
-        );
+            <tr>
+                <td>Cost</td>
+                <td id="spellCalcCost"></td>
+            </tr>
+
+            <tr>
+                <td>Prime Damage</td>
+                <td id="spellCalcPrimeDamage"></td>
+            </tr>
+
+            <tr>
+                <td>Damage</td>
+                <td id="spellCalcDamage"></td>
+            </tr>
+
+            <tr>
+                <td>Damage Dice</td>
+                <td id="spellCalcDice"></td>
+            </tr>
+
+            <tr>
+                <td>Prime Duration</td>
+                <td id="spellCalcPrimeDuration"></td>
+            </tr>
+
+            <tr>
+                <td>Duration</td>
+                <td id="spellCalcDuration"></td>
+            </tr>
+
+            <tr>
+                <td>Elemental Power</td>
+                <td id="spellCalcElementalPower"></td>
+            </tr>
+
+        </table>
+
+    </div>
+`;
+
+  // --------------------------------------------------------
+  // Fill spell information
+  // --------------------------------------------------------
+/* 
+  document.getElementById("calculatorCircle").textContent =
+    getSpellCircleLevel(spell); */
+document.getElementById("calculatorElements").innerHTML =
+    formatMagicCircle(
+        spell,
+        Number(document.getElementById("spellCalcKey")?.value) || 0
+    );
+  //formatElementsIcons(spell.elements);
+
+  // --------------------------------------------------------
+  // Update calculator whenever an input changes
+  // --------------------------------------------------------
+
+  const inputs = container.querySelectorAll("input");
+
+  inputs.forEach((input) => {
+    input.addEventListener("input", () => {
+      updateSpellCalculator(spell, magicSystem);
+
+      if (input.id === "spellCalcKey") {
+        updateMagicCircle(spell);
+      }
+    });
+  });
+
+  // --------------------------------------------------------
+  // Initial calculation
+  // --------------------------------------------------------
+
+  updateSpellCalculator(spell, magicSystem);
+  updateMagicCircle(spell);
+}
+function openSpellCalculator(spellId) {
+  const spell = spells.find((spell) => spell.id === spellId);
+
+  if (!spell) {
+    console.error("Spell not found:", spellId);
+
+    return;
+  }
+
+  renderSpellCalculator(spell);
+}
+function openSpiritWhisperSpellCalculator(spellId) {
+  const spell = spells.find((spell) => spell.id === spellId);
+
+  if (!spell) {
+    console.error("Spell not found:", spellId);
+
+    return;
+  }
+
+  renderSpellCalculator(spell, "spiritWhisper");
+}
+function formatSpellElements(spell) {
+  return Object.entries(spell.elements || {})
+    .filter(([element, amount]) => Number(amount) > 0)
+    .map(([element, amount]) => `${element} ${amount}`)
+    .join(", ");
+}
+
+function updateSpellCalculator(spell, magicSystem = "arcane") {
+  const result = calculateSpell(
+    spell,
+    {
+      key: document.getElementById("spellCalcKey").value,
+
+      castTime: document.getElementById("spellCalcCastTime").value,
+
+      speed: document.getElementById("spellCalcSpeed").value,
+
+      size: document.getElementById("spellCalcSize").value,
+    },
+    magicSystem,
+  );
+
+  // --------------------------------------------------------
+  // Cost
+  // --------------------------------------------------------
+
+  document.getElementById("spellCalcCost").textContent = result.cost;
+
+  // --------------------------------------------------------
+  // Range
+  // --------------------------------------------------------
+
+  document.getElementById("spellCalcRange").textContent = result.range;
+
+  // --------------------------------------------------------
+  // Effect range
+  // --------------------------------------------------------
+
+  document.getElementById("spellCalcEffectRange").textContent =
+    result.effectRange;
+  // --------------------------------------------------------
+  // Prime damage
+  // --------------------------------------------------------
+
+  document.getElementById("spellCalcPrimeDamage").textContent =
+    result.damagePrime;
+
+  // --------------------------------------------------------
+  // Damage
+  // --------------------------------------------------------
+
+  document.getElementById("spellCalcDamage").textContent = result.damage;
+
+  // --------------------------------------------------------
+  // Dice
+  // --------------------------------------------------------
+
+  document.getElementById("spellCalcDice").textContent = result.dice;
+
+  // --------------------------------------------------------
+  // Prime duration
+  // --------------------------------------------------------
+
+  document.getElementById("spellCalcPrimeDuration").textContent =
+    result.primeDuration;
+
+  // --------------------------------------------------------
+  // Duration
+  // --------------------------------------------------------
+
+  if (result.duration > 0) {
+    document.getElementById("spellCalcDuration").textContent =
+      `${result.duration} turns ` +
+      `(${result.durationSeconds} sec / ` +
+      `${result.durationMinutes.toFixed(2)} min / ` +
+      `${result.durationHours.toFixed(2)} hrs)`;
+  } else {
+    document.getElementById("spellCalcDuration").textContent =
+      "Instant / Concentration";
+  }
+
+  // --------------------------------------------------------
+  // Elemental power
+  // --------------------------------------------------------
+
+  document.getElementById("spellCalcElementalPower").textContent =
+    result.elementalPower;
+}
+function even(value) {
+  value = Math.ceil(Number(value));
+
+  if (!Number.isFinite(value)) {
+    return 0;
+  }
+
+  return value % 2 === 0 ? value : value + 1;
+}
+
+function getCharacterArcaneElements() {
+  const result = {
+    primaryElement: null,
+    primaryElementLevel: 1,
+    secondaryElement: null,
+    secondaryElementLevel: 1,
+  };
+
+  if (!character?.arcane) {
+    return result;
+  }
+
+  if (character.arcane.primary) {
+    result.primaryElement = String(
+      character.arcane.primary.element || "",
+    ).toLowerCase();
+
+    result.primaryElementLevel = Number(character.arcane.primary.level) || 1;
+  }
+
+  if (character.arcane.secondary) {
+    result.secondaryElement = String(
+      character.arcane.secondary.element || "",
+    ).toLowerCase();
+
+    result.secondaryElementLevel =
+      Number(character.arcane.secondary.level) || 1;
+  }
+
+  return result;
+}
+
+function getSpellElementCount(spell, element) {
+  if (!element) {
+    return 0;
+  }
+
+  return Number(spell.elements?.[element] || 0);
+}
+
+function getCircleLevel(spell) {
+  return Object.values(spell.elements || {}).reduce(
+    (total, value) => total + (Number(value) || 0),
+    0,
+  );
+}
+
+function getSpellEffectType(spell) {
+  const categories = Array.isArray(spell.category)
+    ? spell.category.map((value) => String(value).toLowerCase())
+    : [];
+
+  const effect = String(spell.effect || "").toLowerCase();
+
+  const effectRange = String(spell.EffectRange || "").toLowerCase();
+
+  if (categories.includes("heal") || effect === "heal") {
+    return "heal";
+  }
+
+  if (categories.includes("shild") || effect === "shild") {
+    return "shild";
+  }
+
+  if (
+    categories.includes("summon") ||
+    effect === "inv" ||
+    effect === "summon"
+  ) {
+    return "inv";
+  }
+
+  if (categories.includes("effect") || effect === "ef" || effect === "eff") {
+    return "ef";
+  }
+
+  if (effectRange === Number.isFinite(Number(effectRange))) {
+    return "aoe";
+  }
+
+  if (effect === "dmg") {
+    return "dmg";
+  }
+
+  return null;
+}
+function scaleRange(range, size) {
+  if (range === null || range === undefined) {
+    return "—";
+  }
+
+  const text = String(range).trim();
+
+  // Look for a number at the beginning
+  const match = text.match(/^(\d+(?:\.\d+)?)\s*(.*)$/);
+
+  // No number = something like "single target"
+  if (!match) {
+    return text;
+  }
+
+  const baseValue = Number(match[1]);
+  const unit = match[2];
+
+  const calculatedValue = baseValue * size;
+
+  return unit ? `${calculatedValue} ${unit}` : calculatedValue;
+}
+
+function calculateSpell(spell, inputs, magicSystem = "arcane") {
+  const key = Number(inputs.key) +1 ;
+
+  const castTime = Number(inputs.castTime) || 1;
+
+  const speed = Number(inputs.speed) || 1;
+
+  const size = Number(inputs.size) || 1;
+
+  const calculatedRange = scaleRange(spell.Range, size);
+
+  const calculatedEffectRange = scaleRange(spell.EffectRange, size);
+  const circleLevel = getCircleLevel(spell);
+
+  let primaryElement = null;
+  let secondaryElement = null;
+
+  let primaryElementCount = 0;
+  let secondaryElementCount = 0;
+
+  let primaryElementLevel = 1;
+  let secondaryElementLevel = 1;
+
+  let otherElementCount = 0;
+
+  // ============================================================
+  // ARCANE
+  // ============================================================
+
+  if (magicSystem === "arcane") {
+    const characterElements = getCharacterArcaneElements();
+
+    primaryElement = characterElements.primaryElement;
+
+    secondaryElement = characterElements.secondaryElement;
+
+    primaryElementCount = getSpellElementCount(spell, primaryElement);
+
+    secondaryElementCount = getSpellElementCount(spell, secondaryElement);
+
+    primaryElementLevel =
+      primaryElementCount > 0 ? characterElements.primaryElementLevel : 1;
+
+    secondaryElementLevel =
+      secondaryElementCount > 0 ? characterElements.secondaryElementLevel : 1;
+
+    otherElementCount =
+      circleLevel - primaryElementCount - secondaryElementCount;
+  }
+
+  // ============================================================
+  // SPIRIT WHISPER
+  // ============================================================
+  else if (magicSystem === "spiritWhisper") {
+    const spiritElement = document.getElementById("spiritWhisperElement").value;
+
+    const spiritLevel =
+      Number(document.getElementById("spiritWhisperLevel").value) || 1;
+
+    primaryElement = spiritElement;
+
+    primaryElementCount = getSpellElementCount(spell, spiritElement);
+
+    primaryElementLevel = spiritLevel;
+
+    // Everything except the Spirit Whisper's
+    // element uses half its level.
+
+    const otherElementLevel = spiritLevel / 2;
+
+    otherElementCount = 0;
+
+    for (const [element, value] of Object.entries(spell.elements || {})) {
+      const amount = Number(value) || 0;
+
+      if (amount <= 0) {
+        continue;
+      }
+
+      if (element === spiritElement) {
+        continue;
+      }
+
+      otherElementCount += amount;
+    }
+  }
+
+  const costMultiplier = Number(spell.costMultiplier) || 1;
+
+  const canalization = String(spell.Canalization || "").toLowerCase();
+
+  const isCanalized = canalization === "c";
+
+  const rawCost =
+    circleLevel *
+    key *
+    castTime *
+    Math.pow(speed, 1.5) *
+    size *
+    costMultiplier *
+    (isCanalized ? 0.1 : 1);
+
+  const cost = Math.ceil(rawCost);
+
+  const variableTime = Number(spell.variableTime) || 0;
+
+  const durationPrime = Math.floor((castTime * variableTime) / 3);
+
+  let elementPower = 0;
+
+  if (magicSystem === "arcane") {
+    elementPower =
+      primaryElementCount * primaryElementLevel +
+      secondaryElementCount * secondaryElementLevel +
+      otherElementCount;
+  } else if (magicSystem === "spiritWhisper") {
+    const spiritLevel =
+      Number(document.getElementById("spiritWhisperLevel").value) || 1;
+
+    const otherElementLevel = spiritLevel / 2;
+
+    elementPower = primaryElementCount * spiritLevel;
+
+    for (const [element, value] of Object.entries(spell.elements || {})) {
+      if (element === primaryElement) {
+        continue;
+      }
+
+      const amount = Number(value) || 0;
+
+      elementPower += amount * otherElementLevel;
+    }
+  }
+
+  const baseDamage =
+    elementPower * ((castTime / 1.5) * speed * Math.min(size, 1));
+
+  const effectType = getSpellEffectType(spell);
+
+  let damagePrime;
+
+  if (effectType === "dmg") {
+    damagePrime = baseDamage;
+  } else if (effectType === "shild") {
+    damagePrime = baseDamage;
+  } else if (effectType === "heal") {
+    damagePrime = baseDamage / durationPrime;
+  } else if (effectType === "aoe") {
+    damagePrime = baseDamage / 3;
+  } else if (effectType === "inv") {
+    damagePrime = baseDamage;
+  } else if (effectType === "ef") {
+    damagePrime = baseDamage / (durationPrime / 10);
+  } else {
+    damagePrime = 0;
+  }
+
+  if (!Number.isFinite(damagePrime) || Number.isNaN(damagePrime)) {
+    damagePrime = 0;
+  }
+
+  const damage = Math.floor(damagePrime / 3);
+
+  let diceValue = 0;
+
+  if (damagePrime !== 0) {
+    diceValue = even((damagePrime + 4) / 1.5);
+  }
+
+  let diceCount;
+
+  if (diceValue < 20) {
+    if (diceValue > 12 && diceValue < 20) {
+      diceCount = 2;
+    } else {
+      diceCount = 1;
+    }
+  } else {
+    diceCount = Math.round(diceValue / 20);
+  }
+
+  let diceSize;
+
+  if (diceValue < 20) {
+    if (diceValue > 12 && diceValue < 20) {
+      diceSize = even(diceValue / 2);
+    } else {
+      diceSize = diceValue;
+    }
+  } else {
+    diceSize = 20;
+  }
+
+  let duration = 0;
+
+  if (!isCanalized) {
+    let durationValue = durationPrime * (damagePrime < 1 ? damagePrime : 1);
+
+    if (!Number.isFinite(durationValue) || Number.isNaN(durationValue)) {
+      durationValue = 0;
+    }
+
+    duration = Math.round(durationValue);
+  }
+
+  const durationSeconds = duration * 8;
+
+  const durationMinutes = durationSeconds / 60;
+
+  const durationHours = durationMinutes / 60;
+
+  return {
+    circleLevel,
+    range: calculatedRange,
+    effectRange: calculatedEffectRange,
+    primaryElement,
+    primaryElementCount,
+    primaryElementLevel,
+
+    secondaryElement,
+    secondaryElementCount,
+    secondaryElementLevel,
+
+    otherElementCount,
+
+    key,
+    castTime,
+    speed,
+    size,
+
+    costMultiplier,
+    cost,
+
+    elementPower,
+
+    effectType,
+
+    damagePrime,
+    damage,
+
+    diceValue,
+    diceCount,
+    diceSize,
+
+    dice: damagePrime !== 0 ? `${diceCount}d${diceSize}` : "0",
+
+    durationPrime,
+    duration,
+    durationSeconds,
+    durationMinutes,
+    durationHours,
+
+    canalization: isCanalized,
+  };
+}
+
+function getSpellCircleLevel(spell) {
+  return getCircleLevel(spell);
+}
+function getMagicCircleCenterImages(spell, key = 0) {
+
+    const circles = Array.isArray(spell.circle)
+        ? spell.circle
+        : [spell.circle];
+
+    const images = [];
+
+    const circleTypes = circles.map(circle =>
+        String(circle || "").toLowerCase().trim()
+    );
+
+   
+
+
+    // ==========================================
+    // INVOCATION
+    // ==========================================
+
+    if (
+        circleTypes.some(circle =>
+            circle.includes("invocation")
+        )
+    ) {
+        images.push({
+            src: "Icons/invocation.png",
+            size: 170,
+            type: "invocation"
+        });
     }
 
 
-    // --------------------------------------------------------
-    // Create calculator
-    // --------------------------------------------------------
+    // ==========================================
+    // EFFECT
+    // ==========================================
+
+    if (
+        circleTypes.some(circle =>
+            circle.includes("effect")
+        )
+    ) {
+        images.push({
+            src: "Icons/effect.png",
+            size: 124,
+            type: "effect"
+        });
+    }
 
-    container.innerHTML = `
 
-        <div class="spell-calculator">
+    // ==========================================
+    // PROJECTILE
+    // ==========================================
 
-            <h3>
-                ${spell.name}
-            </h3>
+    const isProjectile = circleTypes.some(circle =>
+        circle.includes("proyectill") ||
+        circle.includes("projectile")
+    );
 
+    console.log("Is projectile:", isProjectile);
 
-            <table class="spellCalculatorTable">
 
-                <tr>
-                    <th colspan="2">
-                        Spell Information
-                    </th>
-                </tr>
-
-                <tr>
-                    <td>
-                        Circle
-                    </td>
-
-                    <td id="calculatorCircle">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        Elements
-                    </td>
-
-                    <td id="calculatorElements">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        Effect
-                    </td>
-
-                    <td>
-                        ${spell.effect || "none"}
-                    </td>
-                </tr>
-
-               <tr>
-    <td>
-        Effect Range
-    </td>
-
-    <td id="spellCalcEffectRange">
-    </td>
-</tr>
-
-<tr>
-    <td>
-        Range
-    </td>
-
-    <td id="spellCalcRange">
-    </td>
-</tr>
-
-                <tr>
-                    <td>
-                        Canalization
-                    </td>
-
-                    <td>
-                        ${spell.Canalization || "n"}
-                    </td>
-                </tr>
-
-
-                <tr>
-                    <th colspan="2">
-                        Inputs
-                    </th>
-                </tr>
-
-
-                <tr>
-
-                    <td>
-                        Key
-                    </td>
-
-                    <td>
-                        <input
-                            id="spellCalcKey"
-                            type="number"
-                            value="1"
-                            step="1"
-                        >
-                    </td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>
-                        Cast Time
-                    </td>
-
-                    <td>
-                        <input
-                            id="spellCalcCastTime"
-                            type="number"
-                            value="1"
-                            step="0.1"
-                        >
-                    </td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>
-                        Speed
-                    </td>
-
-                    <td>
-                        <input
-                            id="spellCalcSpeed"
-                            type="number"
-                            value="1"
-                            step="0.1"
-                        >
-                    </td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>
-                        Size
-                    </td>
-
-                    <td>
-                        <input
-                            id="spellCalcSize"
-                            type="number"
-                            value="1"
-                            step="0.1"
-                        >
-                    </td>
-
-                </tr>
-
-
-                <tr>
-                    <th colspan="2">
-                        Results
-                    </th>
-                </tr>
-
-
-                <tr>
-
-                    <td>
-                        Cost
-                    </td>
-
-                    <td id="spellCalcCost">
-                    </td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>
-                        Prime Damage
-                    </td>
-
-                    <td id="spellCalcPrimeDamage">
-                    </td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>
-                        Damage
-                    </td>
-
-                    <td id="spellCalcDamage">
-                    </td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>
-                        Damage Dice
-                    </td>
-
-                    <td id="spellCalcDice">
-                    </td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>
-                        Prime Duration
-                    </td>
-
-                    <td id="spellCalcPrimeDuration">
-                    </td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>
-                        Duration
-                    </td>
-
-                    <td id="spellCalcDuration">
-                    </td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>
-                        Elemental Power
-                    </td>
-
-                    <td id="spellCalcElementalPower">
-                    </td>
-
-                </tr>
-
-            </table>
+    if (isProjectile) {
+
+        const projectileKey = Number(key) || 0;
+
+        console.log(
+            "Projectile key:",
+            projectileKey
+        );
+
+        if (projectileKey >= 1 && projectileKey <= 3) {
+
+            const imagePath =
+                `Icons/key${projectileKey}.png`;
+
+            console.log(
+                "ADDING KEY IMAGE:",
+                imagePath
+            );
+
+            images.push({
+                src: imagePath,
+                size: 80,
+                type: "projectile"
+            });
+        }
+    }
+
+
+    console.log(
+        "CENTER IMAGES RESULT:",
+        images
+    );
+
+    return images;
+}
+function formatMagicCircle(spell, key = 0) {
+  const elements = spell.elements || {};
+
+  const icons = {
+    arcane: "Icons/arcane.png",
+    lux: "Icons/lux.png",
+    natura: "Icons/natura.png",
+    gelum: "Icons/gelum.png",
+    umbra: "Icons/umbra.png",
+    ignis: "Icons/ignis.png",
+  };
+
+  // ==========================================
+  // CREATE ELEMENT SYMBOLS
+  // ==========================================
+
+  const symbols = [];
+
+  for (const [element, value] of Object.entries(elements)) {
+    const amount = Number(value) || 0;
+
+    for (let i = 0; i < amount; i++) {
+      if (!icons[element]) continue;
+
+      symbols.push({
+        element,
+        icon: icons[element],
+      });
+    }
+  }
+
+  const count = symbols.length;
+
+  if (count === 0) {
+    return "";
+  }
+
+  // ==========================================
+  // CIRCLE SIZE
+  // ==========================================
+
+  const size = 200;
+  const center = size / 2;
+
+  // ==========================================
+  // RADII
+  // ==========================================
+
+  // Where the element symbols are placed
+  const elementRadius = 78;
+
+  // Inner circle
+  const innerCircleRadius = 65;
+
+  // ==========================================
+  // CIRCLE TYPE
+  // ==========================================
+
+  let circleType = `${count}`;
+
+  if (count === 3) {
+    circleType = "triangle";
+  } else if (count === 4) {
+    circleType = "cross";
+  } else if (count === 5) {
+    circleType = "pentagram";
+  } else if (count === 6) {
+    circleType = "hexagram";
+  }
+
+  // ==========================================
+  // CENTER IMAGE
+  // ==========================================
+const centerImages = getMagicCircleCenterImages(spell, Number(key) || 0);
+
+  // ==========================================
+  // START HTML
+  // ==========================================
+
+  let result = `
+
+    <div
+        class="magic-circle"
+        style="
+            width:${size}px;
+            height:${size}px;
+        "
+    >
+
+        <div class="magic-circle-outer"></div>
+
+        <div
+            class="magic-circle-inner"
+            style="
+                left:${center}px;
+                top:${center}px;
+                width:${innerCircleRadius * 2}px;
+                height:${innerCircleRadius * 2}px;
+            "
+        ></div>
+
+        <svg
+            class="magic-circle-polygon"
+            viewBox="0 0 ${size} ${size}"
+        >
+
+            ${getMagicCircleLines(count, center, innerCircleRadius)}
+
+        </svg>
+`;
+
+  // ==========================================
+  // CENTER IMAGE
+  // ==========================================
+
+ // ==========================================
+// CENTER IMAGES
+// ==========================================
+
+centerImages.forEach((image, index) => {
+
+    result += `
+
+        <img
+            src="${image.src}"
+            class="magic-circle-center magic-circle-center-${index}"
+            style="
+                width:${image.size}px;
+                height:${image.size}px;
+                left:${center}px;
+                top:${center}px;
+                transform:translate(-50%, -50%);
+                position:absolute;
+                z-index:${10 + index};
+                filter: invert(1);
+            "
+            onerror="
+                console.error(
+                    'Magic circle image failed:',
+                    '${image.src}'
+                );
+                this.style.display='none';
+            "
+        >
+
+    `;
+});
+
+  // ==========================================
+  // ELEMENT SYMBOLS
+  // ==========================================
+
+  const angleStep = 360 / count;
+
+ symbols.forEach((symbol, index) => {
+    let x;
+    let y;
+    let rotation = 0;
+
+    // ======================================
+    // ONE ELEMENT
+    // ======================================
+
+    if (count === 1) {
+        x = center;
+        y = center;
+
+        // Keep the single symbol upright
+        rotation = 0;
+    }
+
+    // ======================================
+    // MULTIPLE ELEMENTS
+    // ======================================
+    else {
+        const angle = angleStep * index - 90;
+
+        const radians = (angle * Math.PI) / 180;
+
+        x = center + Math.cos(radians) * elementRadius;
+        y = center + Math.sin(radians) * elementRadius;
+
+        // Rotate the symbol so its bottom points
+        // toward the center of the magic circle.
+        rotation = angle + 90;
+    }
+
+    result += `
+
+        <img
+            src="${symbol.icon}"
+            title="${symbol.element}"
+            class="
+                magic-circle-symbol
+                ${count === 1 ? "magic-circle-single-symbol" : ""}
+            "
+            style="
+                left:${x}px;
+                top:${y}px;
+                transform:translate(-50%, -50%) rotate(${rotation}deg);
+            "
+        >
+
+    `;
+});
+
+  // ==========================================
+  // CLOSE
+  // ==========================================
+
+  result += `
 
         </div>
 
     `;
 
-
-    // --------------------------------------------------------
-    // Fill spell information
-    // --------------------------------------------------------
-
-    document.getElementById(
-        "calculatorCircle"
-    ).textContent =
-        getSpellCircleLevel(spell);
-
-
-    document.getElementById(
-        "calculatorElements"
-    ).textContent =
-        formatSpellElements(spell);
-
-
-    // --------------------------------------------------------
-    // Update calculator whenever an input changes
-    // --------------------------------------------------------
-
-    const inputs =
-        container.querySelectorAll(
-            "input"
-        );
-
-
-    inputs.forEach(
-        input => {
-
-            input.addEventListener(
-                "input",
-                () => {
-
-                    updateSpellCalculator(
-                        spell
-                    );
-                }
-            );
-        }
-    );
-
-    // --------------------------------------------------------
-    // Initial calculation
-    // --------------------------------------------------------
-
-    updateSpellCalculator(
-        spell
-    );
-}
-function openSpellCalculator(spellId) {
-
-    const spell =
-        spells.find(
-            spell =>
-                spell.id === spellId
-        );
-
-
-    if (!spell) {
-
-        console.error(
-            "Spell not found:",
-            spellId
-        );
-
-        return;
-    }
-
-
-    renderSpellCalculator(spell);
-}function formatSpellElements(spell) {
-
-    return Object.entries(
-        spell.elements || {}
-    )
-        .filter(
-            ([element, amount]) =>
-                Number(amount) > 0
-        )
-        .map(
-            ([element, amount]) =>
-                `${element} ${amount}`
-        )
-        .join(", ");
+  return result;
 }
 
+function getMagicCircleLines(count, center, radius) {
+  if (count < 2) {
+    return "";
+  }
 
-function updateSpellCalculator(spell) {
+  const points = [];
 
-    const result =
-        calculateSpell(
-            spell,
-            {
+  const angleStep = 360 / count;
 
-                key:
-                    document.getElementById(
-                        "spellCalcKey"
-                    ).value,
+  // ==========================================
+  // CREATE POINTS
+  // ==========================================
 
-                castTime:
-                    document.getElementById(
-                        "spellCalcCastTime"
-                    ).value,
+  for (let i = 0; i < count; i++) {
+    const angle = angleStep * i - 90;
 
-                speed:
-                    document.getElementById(
-                        "spellCalcSpeed"
-                    ).value,
+    const radians = (angle * Math.PI) / 180;
 
-                size:
-                    document.getElementById(
-                        "spellCalcSize"
-                    ).value
-            }
-        );
+    points.push({
+      x: center + Math.cos(radians) * radius,
 
+      y: center + Math.sin(radians) * radius,
+    });
+  }
 
-    // --------------------------------------------------------
-    // Cost
-    // --------------------------------------------------------
+  const lines = [];
 
-    document.getElementById(
-        "spellCalcCost"
-    ).textContent =
-        result.cost;
+  // ==========================================
+  // 2 ELEMENTS
+  // ==========================================
 
-// --------------------------------------------------------
-// Range
-// --------------------------------------------------------
+  if (count === 2) {
+    const a = points[0];
+    const b = points[1];
 
-document.getElementById(
-    "spellCalcRange"
-).textContent =
-    result.range;
+    lines.push(`
+            <line
+                x1="${a.x}"
+                y1="${a.y}"
+                x2="${b.x}"
+                y2="${b.y}"
+            />
+        `);
+  }
 
+  // ==========================================
+  // 3 ELEMENTS
+  // TRIANGLE
+  // ==========================================
+  else if (count === 3) {
+    for (let i = 0; i < 3; i++) {
+      const a = points[i];
 
-// --------------------------------------------------------
-// Effect range
-// --------------------------------------------------------
+      const b = points[(i + 1) % 3];
 
-document.getElementById(
-    "spellCalcEffectRange"
-).textContent =
-    result.effectRange;
-    // --------------------------------------------------------
-    // Prime damage
-    // --------------------------------------------------------
+      lines.push(`
+                <line
+                    x1="${a.x}"
+                    y1="${a.y}"
+                    x2="${b.x}"
+                    y2="${b.y}"
+                />
+            `);
+    }
+  }
 
-    document.getElementById(
-        "spellCalcPrimeDamage"
-    ).textContent =
-        result.damagePrime;
+  // ------------------------------------------
+  // 4 = TWO TRIANGLES TOUCHING AT TIPS
+  // ------------------------------------------
+  // ------------------------------------------
+  // 4 = TWO TRIANGLES TOUCHING AT THEIR TIPS
+  // ------------------------------------------
+  else if (count === 4) {
+    // Four element positions:
+    //
+    //       0          1
+    //
+    //
+    //       3          2
+    //
+    // The two triangles meet at the CENTER.
 
+    const topLeft = points[0];
+    const topRight = points[1];
+    const bottomRight = points[2];
+    const bottomLeft = points[3];
 
-    // --------------------------------------------------------
-    // Damage
-    // --------------------------------------------------------
+    // --------------------------------------
+    // LEFT TRIANGLE
+    // --------------------------------------
+    // Base: topLeft -> bottomLeft
+    // Sides: topLeft -> center
+    //        bottomLeft -> center
 
-    document.getElementById(
-        "spellCalcDamage"
-    ).textContent =
-        result.damage;
+    lines.push(`
+        <line
+            x1="${topLeft.x}"
+            y1="${topLeft.y}"
+            x2="${bottomLeft.x}"
+            y2="${bottomLeft.y}"
+        />
+    `);
 
+    lines.push(`
+        <line
+            x1="${topLeft.x}"
+            y1="${topLeft.y}"
+            x2="${center}"
+            y2="${center}"
+        />
+    `);
 
-    // --------------------------------------------------------
-    // Dice
-    // --------------------------------------------------------
+    lines.push(`
+        <line
+            x1="${bottomLeft.x}"
+            y1="${bottomLeft.y}"
+            x2="${center}"
+            y2="${center}"
+        />
+    `);
 
-    document.getElementById(
-        "spellCalcDice"
-    ).textContent =
-        result.dice;
+    // --------------------------------------
+    // RIGHT TRIANGLE
+    // --------------------------------------
+    // Base: topRight -> bottomRight
+    // Sides: topRight -> center
+    //        bottomRight -> center
 
+    lines.push(`
+        <line
+            x1="${topRight.x}"
+            y1="${topRight.y}"
+            x2="${bottomRight.x}"
+            y2="${bottomRight.y}"
+        />
+    `);
 
-    // --------------------------------------------------------
-    // Prime duration
-    // --------------------------------------------------------
+    lines.push(`
+        <line
+            x1="${topRight.x}"
+            y1="${topRight.y}"
+            x2="${center}"
+            y2="${center}"
+        />
+    `);
 
-    document.getElementById(
-        "spellCalcPrimeDuration"
-    ).textContent =
-        result.primeDuration;
+    lines.push(`
+        <line
+            x1="${bottomRight.x}"
+            y1="${bottomRight.y}"
+            x2="${center}"
+            y2="${center}"
+        />
+    `);
+  }
+  // ==========================================
+  // 5 ELEMENTS
+  // PENTAGRAM
+  // ==========================================
+  else if (count === 5) {
+    for (let i = 0; i < 5; i++) {
+      const a = points[i];
 
+      const b = points[(i + 2) % 5];
 
-    // --------------------------------------------------------
-    // Duration
-    // --------------------------------------------------------
+      lines.push(`
+                <line
+                    x1="${a.x}"
+                    y1="${a.y}"
+                    x2="${b.x}"
+                    y2="${b.y}"
+                />
+            `);
+    }
+  }
 
-    if (result.duration > 0) {
+  // ==========================================
+  // 6 ELEMENTS
+  // HEXAGRAM
+  // ==========================================
+  else if (count === 6) {
+    // First triangle
+    for (let i = 0; i < 3; i++) {
+      const a = points[i * 2];
 
-        document.getElementById(
-            "spellCalcDuration"
-        ).textContent =
+      const b = points[((i + 1) % 3) * 2];
 
-            `${result.duration} turns ` +
-            `(${result.durationSeconds} sec / ` +
-            `${result.durationMinutes.toFixed(2)} min / ` +
-            `${result.durationHours.toFixed(2)} hrs)`;
-
-    } else {
-
-        document.getElementById(
-            "spellCalcDuration"
-        ).textContent =
-            "Instant / Concentration";
+      lines.push(`
+                <line
+                    x1="${a.x}"
+                    y1="${a.y}"
+                    x2="${b.x}"
+                    y2="${b.y}"
+                />
+            `);
     }
 
+    // Second triangle
+    for (let i = 0; i < 3; i++) {
+      const a = points[i * 2 + 1];
 
-    // --------------------------------------------------------
-    // Elemental power
-    // --------------------------------------------------------
+      const b = points[((i + 1) % 3) * 2 + 1];
 
-    document.getElementById(
-        "spellCalcElementalPower"
-    ).textContent =
-        result.elementalPower;
-} 
-function even(value) {
-
-    value = Math.ceil(Number(value));
-
-    if (!Number.isFinite(value)) {
-        return 0;
+      lines.push(`
+                <line
+                    x1="${a.x}"
+                    y1="${a.y}"
+                    x2="${b.x}"
+                    y2="${b.y}"
+                />
+            `);
     }
+  }
 
-    return value % 2 === 0
-        ? value
-        : value + 1;
+  // ==========================================
+  // 7+ ELEMENTS
+  // ==========================================
+  else {
+    const step = Math.floor(count / 2);
+
+    for (let i = 0; i < count; i++) {
+      const a = points[i];
+
+      const b = points[(i + step) % count];
+
+      lines.push(`
+                <line
+                    x1="${a.x}"
+                    y1="${a.y}"
+                    x2="${b.x}"
+                    y2="${b.y}"
+                />
+            `);
+    }
+  }
+
+  return lines.join("");
 }
+function updateMagicCircle(spell) {
+    const container = document.getElementById("calculatorElements");
 
+    if (!container) return;
 
-function getCharacterArcaneElements() {
+    const keyInput = document.getElementById("spellCalcKey");
 
-    const result = {
-        primaryElement: null,
-        primaryElementLevel: 1,
-        secondaryElement: null,
-        secondaryElementLevel: 1
-    };
+    const key = Number(keyInput?.value) || 0;
 
-    if (!character?.arcane) {
-        return result;
-    }
-
-    if (character.arcane.primary) {
-
-        result.primaryElement =
-            String(
-                character.arcane.primary.element || ""
-            ).toLowerCase();
-
-        result.primaryElementLevel =
-            Number(
-                character.arcane.primary.level
-            ) || 1;
-    }
-
-    if (character.arcane.secondary) {
-
-        result.secondaryElement =
-            String(
-                character.arcane.secondary.element || ""
-            ).toLowerCase();
-
-        result.secondaryElementLevel =
-            Number(
-                character.arcane.secondary.level
-            ) || 1;
-    }
-
-    return result;
-}
-
-
-function getSpellElementCount(spell, element) {
-
-    if (!element) {
-        return 0;
-    }
-
-    return Number(
-        spell.elements?.[element] || 0
-    );
-}
-
-
-function getCircleLevel(spell) {
-
-    return Object.values(
-        spell.elements || {}
-    ).reduce(
-        (total, value) => total + (Number(value) || 0),
-        0
-    );
-}
-
-
-function getSpellEffectType(spell) {
-
-    const categories = Array.isArray(spell.category)
-        ? spell.category.map(value =>
-            String(value).toLowerCase()
-        )
-        : [];
-
-    const effect =
-        String(spell.effect || "").toLowerCase();
-
-    const effectRange =
-        String(spell.EffectRange || "").toLowerCase();
-
-
-    if (
-        categories.includes("heal") ||
-        effect === "heal"
-    ) {
-        return "heal";
-    }
-
-
-    if (
-        categories.includes("shild") ||
-        effect === "shild"
-    ) {
-        return "shild";
-    }
-
-
-    if (
-        categories.includes("summon") ||
-        effect === "inv" ||
-        effect === "summon"
-    ) {
-        return "inv";
-    }
-
-
-    if (
-        categories.includes("effect") ||
-        effect === "ef" ||
-        effect === "eff"
-    ) {
-        return "ef";
-    }
-
-
-    if (
-        effectRange === Number.isFinite(Number(effectRange))
-    ) {
-        return "aoe";
-    }
-
-
-    if (effect === "dmg") {
-        return "dmg";
-    }
-
-
-    return null;
-}
-function scaleRange(range, size) {
-
-    if (range === null || range === undefined) {
-        return "—";
-    }
-
-    const text = String(range).trim();
-
-    // Look for a number at the beginning
-    const match = text.match(/^(\d+(?:\.\d+)?)\s*(.*)$/);
-
-    // No number = something like "single target"
-    if (!match) {
-        return text;
-    }
-
-    const baseValue = Number(match[1]);
-    const unit = match[2];
-
-    const calculatedValue =
-        baseValue * size;
-
-    return unit
-        ? `${calculatedValue} ${unit}`
-        : calculatedValue;
-}
-
-function calculateSpell(spell, inputs) {
-
-    const key =
-        Number(inputs.key) || 1;
-
-    const castTime =
-        Number(inputs.castTime) || 1;
-
-    const speed =
-        Number(inputs.speed) || 1;
-
-    const size =
-        Number(inputs.size) || 1;
-
-const calculatedRange =
-    scaleRange(
-        spell.Range,
-        size
-    );
-
-const calculatedEffectRange =
-    scaleRange(
-        spell.EffectRange,
-        size
-    );
-    const circleLevel =
-        getCircleLevel(spell);
-
-
-    const characterElements =
-        getCharacterArcaneElements();
-
-
-    const primaryElement =
-        characterElements.primaryElement;
-
-    const secondaryElement =
-        characterElements.secondaryElement;
-
-
-    const primaryElementCount =
-        getSpellElementCount(
-            spell,
-            primaryElement
-        );
-
-
-    const secondaryElementCount =
-        getSpellElementCount(
-            spell,
-            secondaryElement
-        );
-
-
-    const primaryElementLevel =
-        primaryElementCount > 0
-            ? characterElements.primaryElementLevel
-            : 1;
-
-
-    const secondaryElementLevel =
-        secondaryElementCount > 0
-            ? characterElements.secondaryElementLevel
-            : 1;
-
-
-    const otherElementCount =
-        circleLevel -
-        primaryElementCount -
-        secondaryElementCount;
-
-
-    const costMultiplier =
-        Number(spell.costMultiplier) || 1;
-
-
-    const canalization =
-        String(
-            spell.Canalization || ""
-        ).toLowerCase();
-
-
-    const isCanalized =
-        canalization === "c";
-
-
-    const rawCost =
-        circleLevel *
-        key *
-        castTime *
-        Math.pow(speed, 1.5) *
-        size *
-        costMultiplier *
-        (isCanalized ? 0.1 : 1);
-
-
-    const cost =
-        Math.ceil(rawCost);
-
-
-    const variableTime =
-        Number(spell.variableTime) || 0;
-
-
-    const durationPrime =
-        Math.floor(
-            (castTime * variableTime) / 3
-        );
-
-
-    const elementPower =
-        (primaryElementCount *
-            primaryElementLevel) +
-
-        (secondaryElementCount *
-            secondaryElementLevel) +
-
-        otherElementCount;
-
-
-    const baseDamage =
-        elementPower *
-        (
-            (castTime / 1.5) *
-            speed *
-            Math.min(size, 1)
-        );
-
-
-    const effectType =
-        getSpellEffectType(spell);
-
-
-    let damagePrime;
-
-
-    if (effectType === "dmg") {
-
-        damagePrime =
-            baseDamage;
-
-    }
-    else if (effectType === "shild") {
-
-        damagePrime =
-            baseDamage;
-
-    }
-    else if (effectType === "heal") {
-
-        damagePrime =
-            baseDamage /
-            durationPrime;
-
-    }
-    else if (effectType === "aoe") {
-
-        damagePrime =
-            baseDamage / 3;
-
-    }
-    else if (effectType === "inv") {
-
-        damagePrime =
-            baseDamage;
-
-    }
-    else if (effectType === "ef") {
-
-        damagePrime =
-            baseDamage /
-            (durationPrime / 10);
-
-    }
-    else {
-
-        damagePrime = 0;
-    }
-
-
-    if (
-        !Number.isFinite(damagePrime) ||
-        Number.isNaN(damagePrime)
-    ) {
-        damagePrime = 0;
-    }
-
-
-    const damage =
-        Math.floor(
-            damagePrime / 3
-        );
-
-
-    let diceValue = 0;
-
-
-    if (damagePrime !== 0) {
-
-        diceValue =
-            even(
-                (damagePrime + 4) / 1.5
-            );
-    }
-
-
-    let diceCount;
-
-
-    if (diceValue < 20) {
-
-        if (
-            diceValue > 12 &&
-            diceValue < 20
-        ) {
-            diceCount = 2;
-        }
-        else {
-            diceCount = 1;
-        }
-
-    }
-    else {
-
-        diceCount =
-            Math.round(
-                diceValue / 20
-            );
-    }
-
-
-    let diceSize;
-
-
-    if (diceValue < 20) {
-
-        if (
-            diceValue > 12 &&
-            diceValue < 20
-        ) {
-
-            diceSize =
-                even(
-                    diceValue / 2
-                );
-
-        }
-        else {
-
-            diceSize =
-                diceValue;
-        }
-
-    }
-    else {
-
-        diceSize = 20;
-    }
-
-
-    let duration = 0;
-
-
-    if (!isCanalized) {
-
-        let durationValue =
-            durationPrime *
-            (
-                damagePrime < 1
-                    ? damagePrime
-                    : 1
-            );
-
-
-        if (
-            !Number.isFinite(durationValue) ||
-            Number.isNaN(durationValue)
-        ) {
-            durationValue = 0;
-        }
-
-
-        duration =
-            Math.round(
-                durationValue
-            );
-    }
-
-
-    const durationSeconds =
-        duration * 8;
-
-    const durationMinutes =
-        durationSeconds / 60;
-
-    const durationHours =
-        durationMinutes / 60;
-
-
-    return {
-
-        circleLevel,
-range: calculatedRange,
-    effectRange: calculatedEffectRange,
-        primaryElement,
-        primaryElementCount,
-        primaryElementLevel,
-
-        secondaryElement,
-        secondaryElementCount,
-        secondaryElementLevel,
-
-        otherElementCount,
-
-        key,
-        castTime,
-        speed,
-        size,
-
-        costMultiplier,
-        cost,
-
-        elementPower,
-
-        effectType,
-
-        damagePrime,
-        damage,
-
-        diceValue,
-        diceCount,
-        diceSize,
-
-        dice:
-            damagePrime !== 0
-                ? `${diceCount}d${diceSize}`
-                : "0",
-
-        durationPrime,
-        duration,
-        durationSeconds,
-        durationMinutes,
-        durationHours,
-
-        canalization: isCanalized
-    };
-}
-
-
-function getSpellCircleLevel(spell) {
-    return getCircleLevel(spell);
+  
+    container.innerHTML = formatMagicCircle(spell, key);
 }

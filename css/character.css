@@ -427,3 +427,617 @@ magicPanel{
 .magicSystemContent {
     display: none;
 }
+/* ============================================================
+   SPELL CALCULATOR
+   ============================================================ */
+
+.spell-calculator {
+    width: 100%;
+    max-width: 850px;
+    margin: 25px auto;
+    padding: 20px;
+
+    border-radius: 14px;
+
+    background: #1b1b1f;
+    color: #eee;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.35);
+
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.spell-calculator-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #444;
+}
+
+
+.spell-calculator-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+.spell-calculator-subtitle {
+    margin-top: 3px;
+
+    font-size: 0.85rem;
+    color: #999;
+}
+
+
+.spell-calculator-circle {
+    min-width: 70px;
+
+    padding: 8px 12px;
+
+    text-align: center;
+
+    border-radius: 10px;
+
+    background: #29292f;
+}
+
+
+.spell-calculator-circle span {
+    display: block;
+
+    font-size: 0.7rem;
+    color: #999;
+}
+
+
+.spell-calculator-circle strong {
+    display: block;
+
+    margin-top: 2px;
+
+    font-size: 1.3rem;
+}
+
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+
+.calculator-section {
+    margin-top: 18px;
+}
+
+
+.calculator-section-title {
+    margin-bottom: 10px;
+
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    letter-spacing: 0.08em;
+
+    color: #aaa;
+}
+
+
+/* ============================================================
+   SPELL INFORMATION
+   ============================================================ */
+
+.spell-info-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+}
+
+
+.spell-info-card {
+    padding: 12px;
+
+    border-radius: 9px;
+
+    background: #24242a;
+
+    border: 1px solid #35353c;
+}
+
+
+.spell-info-wide {
+    grid-column: 1 / -1;
+}
+
+
+.spell-info-label {
+    margin-bottom: 5px;
+
+    font-size: 0.72rem;
+
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    color: #888;
+}
+
+
+.spell-info-value {
+    font-size: 1rem;
+    font-weight: 500;
+
+    min-height: 20px;
+}
+
+
+/* ============================================================
+   INPUTS
+   ============================================================ */
+
+.calculator-input-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 10px;
+}
+
+
+.calculator-input-card {
+    padding: 12px;
+
+    border-radius: 9px;
+
+    background: #24242a;
+
+    border: 1px solid #35353c;
+}
+
+
+.calculator-input-card label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 0.75rem;
+
+    color: #999;
+}
+
+
+.calculator-input-card input {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 8px 9px;
+
+    border: 1px solid #444;
+    border-radius: 6px;
+
+    background: #151519;
+    color: #fff;
+
+    font-size: 1rem;
+}
+
+
+.calculator-input-card input:focus {
+    outline: none;
+
+    border-color: #777;
+
+    box-shadow:
+        0 0 0 2px rgba(255, 255, 255, 0.05);
+}
+
+
+/* ============================================================
+   RESULTS
+   ============================================================ */
+
+.calculator-results-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 10px;
+}
+
+
+.calculator-result-card {
+    padding: 13px;
+
+    border-radius: 9px;
+
+    background: #24242a;
+
+    border: 1px solid #35353c;
+}
+
+
+.calculator-result-label {
+    font-size: 0.72rem;
+
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+
+    color: #888;
+}
+
+
+.calculator-result-value {
+    margin-top: 5px;
+
+    font-size: 1.15rem;
+    font-weight: bold;
+}
+
+
+.calculator-result-important {
+    font-size: 1.4rem;
+}
+
+
+/* ============================================================
+   ELEMENTAL POWER
+   ============================================================ */
+
+.calculator-elemental-power {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    background: #29292f;
+}
+
+
+.calculator-elemental-power
+.calculator-result-label {
+    font-size: 0.8rem;
+}
+
+
+.calculator-elemental-power
+.calculator-result-value {
+    font-size: 1.7rem;
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 650px) {
+
+    .spell-calculator {
+        padding: 14px;
+    }
+
+
+    .spell-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .spell-info-wide {
+        grid-column: auto;
+    }
+
+
+    .calculator-input-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .calculator-results-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .calculator-elemental-power {
+        grid-column: 1 / -1;
+    }
+
+}
+/* =========================================
+   SPELL CALCULATOR
+   ========================================= */
+
+#spellCalculator {
+    width: 360px;
+    max-width: 100%;
+    margin: 15px auto;
+}
+
+.spell-calculator {
+    --spell-color: #808080;
+
+    background: var(--spell-color);
+
+    padding: 8px;
+    border-radius: 10px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.35);
+
+    color: white;
+}
+
+
+/* Title */
+
+.spell-calculator-header {
+    text-align: center;
+    padding: 3px 0 7px;
+}
+
+.spell-calculator-header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+
+/* Table */
+
+.spellCalculatorTable {
+    width: 100%;
+    border-collapse: collapse;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    border-radius: 7px;
+    overflow: hidden;
+
+    font-size: 13px;
+}
+
+
+/* Cells */
+
+.spellCalculatorTable td,
+.spellCalculatorTable th {
+    padding: 5px 8px;
+}
+
+
+/* Left column */
+
+.spellCalculatorTable td:first-child {
+    width: 45%;
+    font-weight: bold;
+}
+
+
+/* Section headers */
+
+.spellCalculatorTable .section-header th {
+    background: rgba(255, 255, 255, 0.12);
+
+    padding: 6px;
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+
+/* Normal rows */
+
+.spellCalculatorTable tr:not(.section-header) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* Inputs */
+
+.spellCalculatorTable input {
+    width: 70px;
+
+    box-sizing: border-box;
+
+    padding: 3px 5px;
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    border-radius: 4px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    color: white;
+
+    font-size: 13px;
+}
+
+
+/* Input focus */
+
+.spellCalculatorTable input:focus {
+    outline: none;
+
+    border-color: white;
+
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+/* Results */
+
+#spellCalcCost,
+#spellCalcDamage,
+#spellCalcDice,
+#spellCalcElementalPower {
+    font-weight: bold;
+}
+.magic-circle {
+    position: relative;
+    margin: 10px auto;
+}
+
+.magic-circle-outer,
+.magic-circle-inner {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+}
+
+
+/* ==========================================
+   OUTER CIRCLE
+   ========================================== */
+
+.magic-circle-outer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    width: 190px;
+    height: 190px;
+
+    transform: translate(-50%, -50%);
+
+    border: 2px solid currentColor;
+    border-radius: 50%;
+
+    box-sizing: border-box;
+}
+
+
+/* ==========================================
+   INNER CIRCLE
+   ========================================== */
+
+.magic-circle-inner {
+    width: 156px;
+    height: 156px;
+
+    border: 2px solid rgba(255, 255, 255, 0.75);
+
+    box-shadow:
+        inset 0 0 6px rgba(255,255,255,0.25);
+}
+
+
+/* ==========================================
+   ELEMENT SYMBOLS
+   ========================================== */
+
+.magic-circle-symbol {
+
+    position: absolute;
+
+    width: 27px;
+    height: 27px;
+
+    object-fit: contain;
+
+    transform:
+        translate(-50%, -50%);
+
+    z-index: 5;
+
+    filter:
+        drop-shadow(
+            0 0 3px rgba(255,255,255,0.8)
+        );
+}
+
+
+/* ==========================================
+   POLYGON / PENTAGRAM / HEXAGRAM
+   ========================================== */
+
+.magic-circle-polygon line {
+    stroke: rgba(255,255,255,0.8);
+    stroke-width: 1.5;
+    vector-effect: non-scaling-stroke;
+}
+
+
+.magic-circle-polygon polygon {
+
+    fill: none;
+
+    stroke: rgba(255,255,255,0.8);
+
+    stroke-width: 1.5;
+
+    vector-effect: non-scaling-stroke;
+}
+
+
+/* ==========================================
+   CENTER IMAGE
+   ========================================== */
+
+.magic-circle-center {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 55px;
+    height: 55px;
+
+    object-fit: contain;
+
+    transform:
+        translate(-50%, -50%);
+
+    z-index: 4;
+
+    filter:
+        drop-shadow(
+            0 0 4px rgba(255,255,255,0.7)
+        );
+}.magic-circle-inner {
+    position: absolute;
+
+    transform: translate(-50%, -50%);
+
+    border: 2px solid currentColor;
+    border-radius: 50%;
+
+    box-sizing: border-box;
+
+    pointer-events: none;
+}
+.magic-circle-center {
+    position: absolute;
+
+    transform: translate(-50%, -50%);
+
+    object-fit: contain;
+
+    pointer-events: none;
+}.magic-circle-cell {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.magic-circle-cell .magic-circle {
+    margin: 0 auto;
+}

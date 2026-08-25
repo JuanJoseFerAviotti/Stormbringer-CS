@@ -34,6 +34,7 @@
   {
     "id": "spell",
     "name": "Spell",
+    "description": "Check spell calculator for details.",
     "cost": {
       "type": "actions",
       "value": "variable"

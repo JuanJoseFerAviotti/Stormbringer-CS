@@ -42,12 +42,32 @@ function isActionUnlocked(action) {
   if (unlock.type === "talent") {
     return (character.talents?.[unlock.talent] || 0) > 0;
   }
+if (unlock.type === "magicSystem") {
 
-  if (unlock.type === "magicSystem") {
-    return unlock.systems.some(
-      (system) => character.magicSystems?.[system] === true,
-    );
-  }
+        return unlock.systems.some(system => {
+
+            if (system === "arcane")
+                return character.arcane?.enabled === true;
+
+            if (system === "spiritWhisper")
+                return character.spiritWhisper?.enabled === true;
+
+            if (system === "liveblood")
+                return character.liveblood?.enabled === true;
+
+            if (system === "demonBlood")
+                return character.demonBlood?.enabled === true;
+
+            if (system === "monsterHunter")
+                return character.monsterHunter?.enabled === true;
+
+            if (system === "pocketDimension")
+                return character.pocketDimension?.enabled === true;
+
+            return false;
+        });
+
+    }
 
   return false;
 }
@@ -132,39 +152,73 @@ function getActionEffectText(action) {
 }
 
 function getActionAttackText(action) {
-  if (!action.attack) {
-    return "";
-  }
 
-  const stats = Rules.getFinalStats(character);
+    if (!action.attack) {
+        return "";
+    }
 
-  return "D 20 +" +
-    (Rules.getModifier(stats[action.attack.ability]) +
-      Rules.getProficiencyBonus(character)) +
-    " roll";
+    const stats = Rules.getFinalStats(character);
+
+    // Spell attack
+    if (action.id === "spell") {
+
+        let ability;
+
+        if (character.arcane?.enabled) {
+            ability = "mind";
+        }
+        else if (character.spiritWhisper?.enabled) {
+            ability = "charisma";
+        }
+        else {
+            return "";
+        }
+
+        return "D20 +" +
+            (
+                Rules.getModifier(stats[ability]) +
+                Rules.getProficiencyBonus(character)
+            ) +
+            " roll";
+    }
+
+    // Normal actions
+    if (!action.attack.ability) {
+        return "";
+    }
+
+    return "D20 +" +
+        (
+            Rules.getModifier(stats[action.attack.ability]) +
+            Rules.getProficiencyBonus(character)
+        ) +
+        " roll";
 }
 function getActionDamageText(action) {
- const stats = Rules.getFinalStats(character);
+
+    const stats = Rules.getFinalStats(character);
+
     if (!action.damage)
         return "";
 
+    // Spell damage
+    if (action.id === "spell") {
+        return "Spell dependent";
+    }
+
+    // Normal weapon damage
     if (!character.equipped.weapon)
         return "1D4 + " + Rules.getModifier(stats.strength);
-
-    
 
     const weapon = itemsData.find(
         item => item.id === character.equipped.weapon
     );
 
-  
-
     if (!weapon)
         return "Weapon not found: " + character.equipped.weapon;
 
-   
-
-const abilityModifier = Rules.getModifier(stats.strength);
+    const abilityModifier =
+        Rules.getModifier(stats.strength);
 
     return `${weapon.damage} + ${abilityModifier}`;
 }

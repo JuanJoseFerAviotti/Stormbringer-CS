@@ -16,6 +16,45 @@ const elementColors = {
 
   none: "#808080",
 };
+function getAverageElementColor(elements) {
+    let totalR = 0;
+    let totalG = 0;
+    let totalB = 0;
+    let totalWeight = 0;
+
+    for (const [element, value] of Object.entries(elements || {})) {
+
+        const amount = Number(value) || 0;
+
+        if (amount <= 0) continue;
+
+        const color = elementColors[element];
+
+        if (!color) continue;
+
+        const hex = color.replace("#", "");
+
+        const r = parseInt(hex.substring(0, 2), 16);
+        const g = parseInt(hex.substring(2, 4), 16);
+        const b = parseInt(hex.substring(4, 6), 16);
+
+        totalR += r * amount;
+        totalG += g * amount;
+        totalB += b * amount;
+
+        totalWeight += amount;
+    }
+
+    if (totalWeight === 0) {
+        return "#ffffff";
+    }
+
+    return `rgb(
+        ${Math.round(totalR / totalWeight)},
+        ${Math.round(totalG / totalWeight)},
+        ${Math.round(totalB / totalWeight)}
+    )`;
+}
 //-------------------------------------
 // Character
 //-------------------------------------
@@ -1419,7 +1458,7 @@ function getMagicCircleCenterImages(spell, key = 0) {
     ) {
         images.push({
             src: "Icons/invocation.png",
-            size: 170,
+            size: 300,
             type: "invocation"
         });
     }
@@ -1436,7 +1475,7 @@ function getMagicCircleCenterImages(spell, key = 0) {
     ) {
         images.push({
             src: "Icons/effect.png",
-            size: 124,
+            size: 200,
             type: "effect"
         });
     }
@@ -1475,7 +1514,7 @@ function getMagicCircleCenterImages(spell, key = 0) {
 
             images.push({
                 src: imagePath,
-                size: 80,
+                size: 40,
                 type: "projectile"
             });
         }
@@ -1491,6 +1530,7 @@ function getMagicCircleCenterImages(spell, key = 0) {
 }
 function formatMagicCircle(spell, key = 0) {
   const elements = spell.elements || {};
+   const circleColor = getAverageElementColor(spell.elements);
 
   const icons = {
     arcane: "Icons/arcane.png",
@@ -1530,7 +1570,7 @@ function formatMagicCircle(spell, key = 0) {
   // CIRCLE SIZE
   // ==========================================
 
-  const size = 200;
+  const size = 300;
   const center = size / 2;
 
   // ==========================================
@@ -1538,10 +1578,8 @@ function formatMagicCircle(spell, key = 0) {
   // ==========================================
 
   // Where the element symbols are placed
-  const elementRadius = 78;
-
-  // Inner circle
-  const innerCircleRadius = 65;
+  const elementRadius = 135;
+const innerCircleRadius = 120;
 
   // ==========================================
   // CIRCLE TYPE
@@ -1575,6 +1613,7 @@ const centerImages = getMagicCircleCenterImages(spell, Number(key) || 0);
         style="
             width:${size}px;
             height:${size}px;
+            --circle-color:${circleColor};
         "
     >
 
@@ -1612,29 +1651,34 @@ centerImages.forEach((image, index) => {
 
     result += `
 
-        <img
-            src="${image.src}"
-            class="magic-circle-center magic-circle-center-${index}"
-            style="
-                width:${image.size}px;
-                height:${image.size}px;
-                left:${center}px;
-                top:${center}px;
-                transform:translate(-50%, -50%);
-                position:absolute;
-                z-index:${10 + index};
-                filter: invert(1);
-            "
-            onerror="
-                console.error(
-                    'Magic circle image failed:',
-                    '${image.src}'
-                );
-                this.style.display='none';
-            "
-        >
+    <div
+        class="magic-circle-center magic-circle-center-${index}"
+        style="
+            width:${image.size}px;
+            height:${image.size}px;
+            left:${center}px;
+            top:${center}px;
+            position:absolute;
+            transform:translate(-50%, -50%);
+            z-index:${10 + index};
 
-    `;
+            background-color:var(--circle-color);
+
+            -webkit-mask-image:url('${image.src}');
+            mask-image:url('${image.src}');
+
+            -webkit-mask-repeat:no-repeat;
+            mask-repeat:no-repeat;
+
+            -webkit-mask-position:center;
+            mask-position:center;
+
+            -webkit-mask-size:contain;
+            mask-size:contain;
+        "
+    ></div>
+
+`;
 });
 
   // ==========================================

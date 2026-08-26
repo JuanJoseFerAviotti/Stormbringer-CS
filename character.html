@@ -68,69 +68,46 @@
       <div id="tabContent">
         <div id="inventory" class="tab">
           <h2>Inventory</h2>
-<div id="itemCalculator">
 
-   <div id="itemCalculator">
+          <div id="itemCalculator">
+            <h3>Item Calculator</h3>
 
-    <h3>Item Calculator</h3>
+            <label> Item </label>
 
-    <label>
-        Item
-    </label>
+            <input
+              type="text"
+              id="itemCalculatorSearch"
+              list="itemCalculatorSuggestions"
+              placeholder="Search item"
+              onchange="updateItemCalculator()"
+            />
 
-    <input
-        type="text"
-        id="itemCalculatorSearch"
-        list="itemCalculatorSuggestions"
-        placeholder="Search item"
-        onchange="updateItemCalculator()"
-    >
+            <datalist id="itemCalculatorSuggestions"></datalist>
 
-    <datalist id="itemCalculatorSuggestions"></datalist>
+            <label> Material </label>
 
+            <select
+              id="itemMaterial"
+              onchange="updateItemCalculator()"
+            ></select>
 
-    <label>
-        Material
-    </label>
+            <label> Status </label>
 
-    <select
-        id="itemMaterial"
-        onchange="updateItemCalculator()">
-    </select>
+            <select id="itemStatus" onchange="updateItemCalculator()">
+              <option value="normal">Normal</option>
+              <option value="blunt">Blunt</option>
+              <option value="rusted">Rusted</option>
+              <option value="heavy rusted">Heavy Rusted</option>
+              <option value="sharpened">Sharpened</option>
+              <option value="perfect edge">Perfect Edge</option>
+            </select>
 
+            <div id="itemCalculatorResult">
+              <p>Select an item.</p>
+            </div>
 
-    <label>
-        Status
-    </label>
-
-    <select
-        id="itemStatus"
-        onchange="updateItemCalculator()">
-
-        <option value="normal">Normal</option>
-        <option value="blunt">Blunt</option>
-        <option value="rusted">Rusted</option>
-        <option value="heavy rusted">Heavy Rusted</option>
-        <option value="sharpened">Sharpened</option>
-        <option value="perfect edge">Perfect Edge</option>
-
-    </select>
-
-
-    <div id="itemCalculatorResult">
-
-        <p>
-            Select an item.
-        </p>
-
-    </div>
-
-
-    <button onclick="addModifiedItem()">
-        Add Item
-    </button>
-
-</div>
+            <button onclick="addModifiedItem()">Add Item</button>
+          </div>
           <div>
             Weight:
             <span id="currentWeight">0</span>
@@ -138,8 +115,6 @@
             <span id="maxWeight">0</span>
             kg
           </div>
-
-          
 
           <table>
             <thead id="inventoryHeader"></thead>
@@ -149,7 +124,7 @@
         </div>
         <div class="tab" id="magic">
           <select id="magicSystemSelect">
-             <option value="ArtifactsMagic">Magic Artifact</option>
+            <option value="ArtifactsMagic">Magic Artifact</option>
           </select>
           <div id="spellCalculator"></div>
           <div id="arcaneMagic" class="magicSystemContent">
@@ -222,34 +197,29 @@
               <tbody id="spiritWhisperSpellList"></tbody>
             </table>
           </div>
-         <div id="livebloodMagic" class="magicSystemContent">
+          <div id="livebloodMagic" class="magicSystemContent">
+            <h1>LiveBlood</h1>
 
-    <h1>LiveBlood</h1>
+            <div id="livebloodInfo">
+              <span>liveblood Level: </span>
+              <span id="livebloodLevel">0</span>
+            </div>
 
-    <div id="livebloodInfo">
-        <span>liveblood Level: </span>
-        <span id="livebloodLevel">0</span>
-    </div>
+            <table id="livebloodTable">
+              <thead>
+                <tr>
+                  <th>Power</th>
+                  <th>Level</th>
+                  <th>Overcharge</th>
+                  <th>Cost</th>
+                  <th>Effect</th>
+                </tr>
+              </thead>
 
-    <table id="livebloodTable">
-
-       <thead>
-  <tr>
-    <th>Power</th>
-    <th>Level</th>
-    <th>Overcharge</th>
-    <th>Cost</th>
-    <th>Effect</th>
-  </tr>
-</thead>
-
-        <tbody id="livebloodTableBody"></tbody>
-
-    </table>
-
-</div>
-            
+              <tbody id="livebloodTableBody"></tbody>
+            </table>
           </div>
+
           <div id="demonBloodMagic" class="magicSystemContent">
             <h1>demon blood</h1>
           </div>
@@ -263,225 +233,235 @@
             <h1>Magic Artifacts</h1>
           </div>
         </div>
-      
-    </div>
-    <div class="tab active" id="stats">
-      <div class="statsContainer">
-        <!-- LEFT SIDE -->
-        <div class="leftsidestats">
-          <div class="statsPanel">
-            <table class="statsTable">
-              <thead>
-                <tr>
-                  <th>Stat</th>
-                  <th>Score</th>
-                  <th>Mod</th>
-                  <th></th>
+      </div>
+      <div class="tab active" id="stats">
+        <div class="statsContainer">
+          <!-- LEFT SIDE -->
+          <div class="leftsidestats">
+            <div class="statsPanel">
+              <table class="statsTable">
+                <thead>
+                  <tr>
+                    <th>Stat</th>
+                    <th>Score</th>
+                    <th>Mod</th>
+                    <th></th>
 
-                  <th></th>
-                  <th>Invested</th>
-                </tr>
-              </thead>
+                    <th></th>
+                    <th>Invested</th>
+                  </tr>
+                </thead>
 
-              <tbody>
-                <tr data-stat="strength">
-                  <td>Strength</td>
-                  <td id="strengthValue">8</td>
-                  <td id="strengthMod">-1</td>
-                  <td><button class="minus" data-stat="strength">−</button></td>
-                  <td id="strengthInvested" class="Investedpoints">0</td>
-                  <td><button class="plus" data-stat="strength">+</button></td>
-                </tr>
+                <tbody>
+                  <tr data-stat="strength">
+                    <td>Strength</td>
+                    <td id="strengthValue">8</td>
+                    <td id="strengthMod">-1</td>
+                    <td>
+                      <button class="minus" data-stat="strength">−</button>
+                    </td>
+                    <td id="strengthInvested" class="Investedpoints">0</td>
+                    <td>
+                      <button class="plus" data-stat="strength">+</button>
+                    </td>
+                  </tr>
 
-                <tr data-stat="agility">
-                  <td>Agility</td>
-                  <td id="agilityValue">8</td>
-                  <td id="agilityMod">-1</td>
-                  <td><button class="minus" data-stat="agility">−</button></td>
-                  <td id="agilityInvested" class="Investedpoints">0</td>
-                  <td><button class="plus" data-stat="agility">+</button></td>
-                </tr>
+                  <tr data-stat="agility">
+                    <td>Agility</td>
+                    <td id="agilityValue">8</td>
+                    <td id="agilityMod">-1</td>
+                    <td>
+                      <button class="minus" data-stat="agility">−</button>
+                    </td>
+                    <td id="agilityInvested" class="Investedpoints">0</td>
+                    <td><button class="plus" data-stat="agility">+</button></td>
+                  </tr>
 
-                <tr data-stat="constitution">
-                  <td>Constitution</td>
-                  <td id="constitutionValue">8</td>
-                  <td id="constitutionMod">-1</td>
-                  <td>
-                    <button class="minus" data-stat="constitution">−</button>
-                  </td>
-                  <td id="constitutionInvested" class="Investedpoints">0</td>
-                  <td>
-                    <button class="plus" data-stat="constitution">+</button>
-                  </td>
-                </tr>
+                  <tr data-stat="constitution">
+                    <td>Constitution</td>
+                    <td id="constitutionValue">8</td>
+                    <td id="constitutionMod">-1</td>
+                    <td>
+                      <button class="minus" data-stat="constitution">−</button>
+                    </td>
+                    <td id="constitutionInvested" class="Investedpoints">0</td>
+                    <td>
+                      <button class="plus" data-stat="constitution">+</button>
+                    </td>
+                  </tr>
 
-                <tr data-stat="charisma">
-                  <td>Charisma</td>
-                  <td id="charismaValue">8</td>
-                  <td id="charismaMod">-1</td>
-                  <td><button class="minus" data-stat="charisma">−</button></td>
-                  <td id="charismaInvested" class="Investedpoints">0</td>
-                  <td><button class="plus" data-stat="charisma">+</button></td>
-                </tr>
+                  <tr data-stat="charisma">
+                    <td>Charisma</td>
+                    <td id="charismaValue">8</td>
+                    <td id="charismaMod">-1</td>
+                    <td>
+                      <button class="minus" data-stat="charisma">−</button>
+                    </td>
+                    <td id="charismaInvested" class="Investedpoints">0</td>
+                    <td>
+                      <button class="plus" data-stat="charisma">+</button>
+                    </td>
+                  </tr>
 
-                <tr data-stat="mind">
-                  <td>Mind</td>
-                  <td id="mindValue">8</td>
-                  <td id="mindMod">-1</td>
-                  <td><button class="minus" data-stat="mind">−</button></td>
-                  <td id="mindInvested" class="Investedpoints">0</td>
-                  <td><button class="plus" data-stat="mind">+</button></td>
-                </tr>
+                  <tr data-stat="mind">
+                    <td>Mind</td>
+                    <td id="mindValue">8</td>
+                    <td id="mindMod">-1</td>
+                    <td><button class="minus" data-stat="mind">−</button></td>
+                    <td id="mindInvested" class="Investedpoints">0</td>
+                    <td><button class="plus" data-stat="mind">+</button></td>
+                  </tr>
 
-                <tr data-stat="soul">
-                  <td>Soul</td>
-                  <td id="soulValue">8</td>
-                  <td id="soulMod">-1</td>
-                  <td><button class="minus" data-stat="soul">−</button></td>
-                  <td id="soulInvested" class="Investedpoints">0</td>
-                  <td><button class="plus" data-stat="soul">+</button></td>
-                </tr>
-              </tbody>
-            </table>
+                  <tr data-stat="soul">
+                    <td>Soul</td>
+                    <td id="soulValue">8</td>
+                    <td id="soulMod">-1</td>
+                    <td><button class="minus" data-stat="soul">−</button></td>
+                    <td id="soulInvested" class="Investedpoints">0</td>
+                    <td><button class="plus" data-stat="soul">+</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- MAGIC SYSTEMS -->
+            <div class="magicPanel">
+              <h4>Magic Systems</h4>
+              <label>
+                <input type="checkbox" id="magicArcane" />
+                Arcane
+                <p class="magicArcaneProb"></p>
+              </label>
+
+              <label>
+                <input type="checkbox" id="magicSpiritWhisper" />
+                Spirit Whisper
+                <p class="magicSpiritWhisperProb"></p>
+              </label>
+
+              <label>
+                <input type="checkbox" id="magicliveblood" />
+                Live Blood
+                <p class="magiclivebloodProb"></p>
+              </label>
+
+              <label>
+                <input type="checkbox" id="magicDemonBlood" />
+                Demon Blood
+                <p class="magicDemonBloodProb"></p>
+              </label>
+
+              <label>
+                <input type="checkbox" id="magicMonsterHunter" />
+                Monster Hunter
+                <p class="magicMonsterHunterProb"></p>
+              </label>
+
+              <label>
+                <input type="checkbox" id="magicPocketDimension" />
+                Pocket Dimension
+                <p class="magicPocketDimensionProb"></p>
+              </label>
+            </div>
           </div>
-          <!-- MAGIC SYSTEMS -->
-          <div class="magicPanel">
-            <h4>Magic Systems</h4>
-            <label>
-              <input type="checkbox" id="magicArcane" />
-              Arcane
-              <p class="magicArcaneProb"></p>
-            </label>
+          <!-- RIGHT SIDE -->
+          <div class="racePanel">
+            <h2>Character</h2>
 
-            <label>
-              <input type="checkbox" id="magicSpiritWhisper" />
-              Spirit Whisper
-              <p class="magicSpiritWhisperProb"></p>
-            </label>
+            <label for="raceSelect">Race</label>
+            <select id="raceSelect"></select>
 
-            <label>
-              <input type="checkbox" id="magicliveblood" />
-              Live Blood
-              <p class="magiclivebloodProb"></p>
-            </label>
+            <select id="genderSelect">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
 
-            <label>
-              <input type="checkbox" id="magicDemonBlood" />
-              Demon Blood
-              <p class="magicDemonBloodProb"></p>
-            </label>
+            <hr />
 
-            <label>
-              <input type="checkbox" id="magicMonsterHunter" />
-              Monster Hunter
-              <p class="magicMonsterHunterProb"></p>
-            </label>
+            <h3>Description</h3>
 
-            <label>
-              <input type="checkbox" id="magicPocketDimension" />
-              Pocket Dimension
-              <p class="magicPocketDimensionProb"></p>
-            </label>
+            <p id="raceDescription">Select a race.</p>
+
+            <h3>Racial Bonuses</h3>
+
+            <ul id="raceBonuses"></ul>
+
+            <h3>Starting Magic</h3>
+
+            <ul id="raceMagic"></ul>
+
+            <h3>Starting Abilities</h3>
+
+            <ul id="raceAbilities"></ul>
           </div>
         </div>
-        <!-- RIGHT SIDE -->
-        <div class="racePanel">
-          <h2>Character</h2>
+      </div>
+      <div id="skills" class="tab">
+        <h2>Skills</h2>
 
-          <label for="raceSelect">Race</label>
-          <select id="raceSelect"></select>
+        <p>
+          Starting Free Proficiencies:
+          <span id="freeProficiencies">2</span>
+        </p>
 
-          <select id="genderSelect">
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-          </select>
+        <table>
+          <thead>
+            <tr>
+              <th>Skill</th>
+              <th>Passive</th>
+              <th>Active</th>
+              <th>Proficiency</th>
+              <th>Expertise</th>
+            </tr>
+          </thead>
 
-          <hr />
+          <tbody id="skillsTable"></tbody>
+        </table>
+      </div>
+      <div id="talents" class="tab">
+        <h2>Talents</h2>
 
-          <h3>Description</h3>
+        <select id="talentTreeSelect">
+          <option value="strength">Strength</option>
+          <option value="agility">Agility</option>
+          <option value="constitution">Constitution</option>
+          <option value="mind">Mind</option>
+          <option value="charisma">Charisma</option>
+          <option value="liveblood">Live Blood</option>
+        </select>
 
-          <p id="raceDescription">Select a race.</p>
+        <div id="talentArea">
+          <svg id="talentLines"></svg>
 
-          <h3>Racial Bonuses</h3>
-
-          <ul id="raceBonuses"></ul>
-
-          <h3>Starting Magic</h3>
-
-          <ul id="raceMagic"></ul>
-
-          <h3>Starting Abilities</h3>
-
-          <ul id="raceAbilities"></ul>
+          <div id="talentContainer"></div>
         </div>
       </div>
-    </div>
-    <div id="skills" class="tab">
-      <h2>Skills</h2>
+      <div id="Actions" class="tab">
+        <h3>Actions per turn</h3>
+        <h3 id="actionsperturn">3</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Cost</th>
+              <th>Action</th>
+              <th>Attack</th>
+              <th>Damage</th>
+              <th>Description</th>
+              <th>Use</th>
+            </tr>
+          </thead>
 
-      <p>
-        Starting Free Proficiencies:
-        <span id="freeProficiencies">2</span>
-      </p>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Skill</th>
-            <th>Passive</th>
-            <th>Active</th>
-            <th>Proficiency</th>
-            <th>Expertise</th>
-          </tr>
-        </thead>
-
-        <tbody id="skillsTable"></tbody>
-      </table>
-    </div>
-    <div id="talents" class="tab">
-      <h2>Talents</h2>
-
-      <select id="talentTreeSelect">
-        <option value="strength">Strength</option>
-        <option value="agility">Agility</option>
-        <option value="constitution">Constitution</option>
-        <option value="mind">Mind</option>
-        <option value="charisma">Charisma</option>
-        <option value="liveblood">Live Blood</option>
-      </select>
-
-      <div id="talentArea">
-        <svg id="talentLines"></svg>
-
-        <div id="talentContainer"></div>
+          <tbody id="actionsTable"></tbody>
+        </table>
       </div>
     </div>
-    <div id="Actions" class="tab">
-      <h3>Actions per turn</h3>
-      <h3 id="actionsperturn">3</h3>
-      <table>
-    <thead>
-        <tr>
-            <th>Cost</th>
-            <th>Action</th>
-            <th>Attack</th>
-            <th>Damage</th>
-            <th>Description</th>
-            <th>Use</th>
-        </tr>
-    </thead>
-
-    <tbody id="actionsTable"></tbody>
-</table>
-    </div></div>
     <div id="talentTooltip"></div>
 
     <script src="js/rules.js"></script>
     <script src="js/races.js"></script>
     <script src="js/skills.js"></script>
 
-   <script src="js/inventory.js"></script>
-<script src="js/itemCalculator.js"></script>
+    <script src="js/inventory.js"></script>
+    <script src="js/itemCalculator.js"></script>
 
     <script src="js/characterData.js"></script>
     <script src="js/characterpage.js"></script>

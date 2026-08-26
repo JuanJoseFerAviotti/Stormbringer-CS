@@ -1220,8 +1220,8 @@
     ]
   },
   {
-    "id": "elemental",
-    "name": "Elemental",
+    "id": "fire_elemental",
+    "name": "Fire Elemental",
     "circle": [
       "invocation"
     ],
@@ -3587,8 +3587,8 @@
     ]
   },
   {
-    "id": "elemental",
-    "name": "elemental",
+    "id": "water_elemental",
+    "name": "Water Elemental",
     "circle": [
       "invocation"
     ],

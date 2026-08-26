@@ -206,13 +206,14 @@ function getActionDamageText(action) {
         return "Spell dependent";
     }
 
-    // Normal weapon damage
-    if (!character.equipped.weapon)
+    // No weapon equipped
+    if (!character.equipped?.weapon) {
         return "1D4 + " + Rules.getModifier(stats.strength);
+    }
 
-    const weapon = itemsData.find(
-        item => item.id === character.equipped.weapon
-    );
+    // Get the actual equipped inventory item
+    const weapon =
+        getItemById(character.equipped.weapon);
 
     if (!weapon)
         return "Weapon not found: " + character.equipped.weapon;
@@ -220,7 +221,16 @@ function getActionDamageText(action) {
     const abilityModifier =
         Rules.getModifier(stats.strength);
 
-    return `${weapon.damage} + ${abilityModifier}`;
+    const weaponDamage =
+        weapon.damage ?? "1D4";
+
+    const weaponModifier =
+        weapon.damageModifier ?? 0;
+
+    const totalModifier =
+        abilityModifier + weaponModifier;
+
+    return `${weaponDamage} + ${totalModifier}`;
 }
 function getActionDescriptionText(action) {
   if (!action.description) return "not found";
@@ -306,9 +316,8 @@ function getMovementSpeed() {
         return "";
     }
 
-    const armor = itemsData.find(
-        item => item.id === character.equipped.armor
-    );
+    const armor =
+        getItemById(character.equipped.armor);
 
     if (!armor) {
         return "";

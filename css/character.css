@@ -1052,4 +1052,10 @@ magicPanel{
 
 .magic-circle-polygon line {
     stroke: var(--circle-color);
+}.magic-circle-single-symbol{
+    width: 200px;
+    height: 200px;
+}
+.magic-circle-single-inner {
+    display: none;
 }

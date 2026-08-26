@@ -773,7 +773,7 @@
           "name":"Light Armor & Shield",
           "requires":[],
           "maxRank":1,
-          "equipment":"Leather Armor or Shield","description":"placeholder description"
+          "equipment":"Leather Armor or Shield","description":"if chosen when creating your character, you may choose to start with either leather armor or a shield."
         },
 
         {
@@ -781,7 +781,7 @@
           "name":"Medium & Heavy Armor",
           "requires":["light_armor_shield"],
           "maxRank":1,
-          "equipment":"Chain Mail","description":"placeholder description"
+          "equipment":"Chain Mail","description":"if chosen when creating your character, you can replace your leather armor with chain mail or start with leader armor and your shield."
         },
 
         {
@@ -789,7 +789,7 @@
           "name":"Simple Weapons",
           "requires":[],
           "maxRank":1,
-          "equipment":"Two Simple Weapons (max 100 gp)","description":"placeholder description"
+          "equipment":"Two Simple Weapons (max 50 gp)","description":"if chosen when creating your character, you may choose two simple weapons to start with, with a total cost of no more than 100 gp. "
         },
 
         {
@@ -797,7 +797,7 @@
           "name":"Martial Weapons",
           "requires":["simple_weapons"],
           "maxRank":1,
-          "equipment":"Replace Simple Weapons with Martial Weapons (max 100 gp)","description":"placeholder description"
+          "equipment":"Replace Simple Weapons with Martial Weapons (max 100 gp)","description":"if chosen when creating your character, you can replace your simple weapons with martial weapons, with a total cost of no more than 100 gp."
         },
 
         {
@@ -812,7 +812,7 @@
           "name":"Riding",
           "requires":[],
           "maxRank":1,
-          "equipment":"Riding Animal","description":"placeholder description"
+          "equipment":"Riding Animal","description":"if chosen when creating your character, you may choose to start with a riding animal."
         },
 
         {
@@ -820,7 +820,7 @@
           "name":"Sailor",
           "requires":[],
           "maxRank":1,
-          "equipment":"Small/Medium Vessel","description":"placeholder description"
+          "equipment":"Small/Medium Vessel","description":"if chosen when creating your character, you may choose to start with a small or medium vessel."
         },
 
         {
@@ -828,7 +828,7 @@
           "name":"Tools Proficiency",
           "requires":[],
           "maxRank":1,
-          "equipment":"Tools + Materials","description":"placeholder description"
+          "equipment":"Tools + Materials","description":"if chosen when creating your character, you may choose one set of artisan's tools, one musical instrument, or one gaming set to become proficient in. You also gain the necessary materials to use the tool or instrument."
         },
 
         {
@@ -836,15 +836,15 @@
           "name":"Skilled",
           "requires":[],
           "maxRank":1,
-          "effect":"Choose 3 skills to become proficient, or upgrade one proficiency to Expertise and gain one additional proficiency.","description":"placeholder description"
+          "effect":"Choose 3 skills to become proficient, or upgrade one proficiency to Expertise and gain one additional proficiency.","description":"Choose 3 skills to become proficient, or upgrade one proficiency to Expertise and gain one additional proficiency. "
         },
 
         {
-          "id":"other",
-          "name":"Other",
+          "id":"wealthy",
+          "name":"Wealthy",
           "requires":[],
           "maxRank":1,
-          "effect":"Gain an additional 60 gp (weapons may total up to 160 gp)."
+          "description":"Gain an additional 60 gp also(if chosen when creating your character your starting equipment cost is increased by 60 gp."
         }
 
       ]

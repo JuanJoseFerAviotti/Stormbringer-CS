@@ -935,7 +935,7 @@
       "id": "hide",
       "name": "Hide",
       "type": "armor",
-      "category": "Medium",
+      "category": "Light",
       "cost": "10 sp",
       "weight": 5.4,
       "armorValue": 4,

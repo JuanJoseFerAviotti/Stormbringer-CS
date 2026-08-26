@@ -17,7 +17,9 @@ const Rules = {
   },
 
   getMaxPoints(level) {
-    return 41 + level * 4;
+    /* return 41 + level * 4; */
+    return 66 + level * 4;
+
   },
 
   getMaxHealth(stats, level, talents = {}) {
@@ -32,30 +34,57 @@ const Rules = {
 
     return hp;
   },
-  getArmor(stats, character) {
+ getArmor(stats, character) {
+
     let baseArmor = 10;
 
-    if (character.equipped.armor) {
-      const armor = window.items.find((i) => i.id === character.equipped.armor);
 
-      if (armor) {
-        baseArmor = armor.armorValue;
-      }
+    if (character.equipped?.armor) {
+
+        const armor =
+            getItemById(
+                character.equipped.armor
+            );
+
+
+        if (armor) {
+
+            baseArmor =
+                Number(armor.armorValue) || 0;
+
+        }
+
     }
+
+
     let shieldBonus = 0;
 
-    if (character.equipped.shield) {
-      const shield = window.items.find(
-        (i) => i.id === character.equipped.shield,
-      );
 
-      if (shield) {
-        shieldBonus = Number(shield.armorBonus) || 0;
-      }
+    if (character.equipped?.shield) {
+
+        const shield =
+            getItemById(
+                character.equipped.shield
+            );
+
+
+        if (shield) {
+
+            shieldBonus =
+                Number(shield.armorBonus) || 0;
+
+        }
+
     }
 
-    return baseArmor + Rules.getModifier(stats.agility) + shieldBonus;
-  },
+
+    return (
+        baseArmor +
+        Rules.getModifier(stats.agility) +
+        shieldBonus
+    );
+
+},
   getFinalStats(character) {
     let stats = {};
 

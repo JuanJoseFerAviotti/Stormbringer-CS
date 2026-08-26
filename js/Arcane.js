@@ -831,7 +831,7 @@ function renderSpellCalculator(spell, magicSystem = "arcane") {
                         id="spellCalcCastTime"
                         type="number"
                         value="1"
-                        step="0.1"
+                        step="1"
                     >
                 </td>
             </tr>
@@ -843,7 +843,7 @@ function renderSpellCalculator(spell, magicSystem = "arcane") {
                         id="spellCalcSpeed"
                         type="number"
                         value="1"
-                        step="0.1"
+                        step="0.5"
                     >
                 </td>
             </tr>
@@ -855,7 +855,7 @@ function renderSpellCalculator(spell, magicSystem = "arcane") {
                         id="spellCalcSize"
                         type="number"
                         value="1"
-                        step="0.1"
+                        step="0.5"
                     >
                 </td>
             </tr>
@@ -873,24 +873,10 @@ function renderSpellCalculator(spell, magicSystem = "arcane") {
                 <td id="spellCalcCost"></td>
             </tr>
 
-            <tr>
-                <td>Prime Damage</td>
-                <td id="spellCalcPrimeDamage"></td>
-            </tr>
-
+           
             <tr>
                 <td>Damage</td>
                 <td id="spellCalcDamage"></td>
-            </tr>
-
-            <tr>
-                <td>Damage Dice</td>
-                <td id="spellCalcDice"></td>
-            </tr>
-
-            <tr>
-                <td>Prime Duration</td>
-                <td id="spellCalcPrimeDuration"></td>
             </tr>
 
             <tr>
@@ -898,10 +884,7 @@ function renderSpellCalculator(spell, magicSystem = "arcane") {
                 <td id="spellCalcDuration"></td>
             </tr>
 
-            <tr>
-                <td>Elemental Power</td>
-                <td id="spellCalcElementalPower"></td>
-            </tr>
+          
 
         </table>
 
@@ -1010,27 +993,28 @@ function updateSpellCalculator(spell, magicSystem = "arcane") {
   // Prime damage
   // --------------------------------------------------------
 
-  document.getElementById("spellCalcPrimeDamage").textContent =
+/*   document.getElementById("spellCalcPrimeDamage").textContent =
     result.damagePrime;
-
+ */
   // --------------------------------------------------------
   // Damage
   // --------------------------------------------------------
 
-  document.getElementById("spellCalcDamage").textContent = result.damage;
+  document.getElementById("spellCalcDamage").textContent =
+    `${result.dice} + ${result.damage}`;
 
   // --------------------------------------------------------
   // Dice
   // --------------------------------------------------------
-
-  document.getElementById("spellCalcDice").textContent = result.dice;
+/* 
+  document.getElementById("spellCalcDice").textContent = result.dice; */
 
   // --------------------------------------------------------
   // Prime duration
   // --------------------------------------------------------
-
+/* 
   document.getElementById("spellCalcPrimeDuration").textContent =
-    result.primeDuration;
+    result.primeDuration; */
 
   // --------------------------------------------------------
   // Duration
@@ -1051,8 +1035,7 @@ function updateSpellCalculator(spell, magicSystem = "arcane") {
   // Elemental power
   // --------------------------------------------------------
 
-  document.getElementById("spellCalcElementalPower").textContent =
-    result.elementalPower;
+  
 }
 function even(value) {
   value = Math.ceil(Number(value));
@@ -1277,7 +1260,7 @@ function calculateSpell(spell, inputs, magicSystem = "arcane") {
 
   const cost = Math.ceil(rawCost);
 
-  const variableTime = Number(spell.variableTime) || 0;
+  const variableTime = Number(spell.castingTime) || 0;
 
   const durationPrime = Math.floor((castTime * variableTime) / 3);
 
@@ -1620,14 +1603,14 @@ const centerImages = getMagicCircleCenterImages(spell, Number(key) || 0);
         <div class="magic-circle-outer"></div>
 
         <div
-            class="magic-circle-inner"
-            style="
-                left:${center}px;
-                top:${center}px;
-                width:${innerCircleRadius * 2}px;
-                height:${innerCircleRadius * 2}px;
-            "
-        ></div>
+    class="magic-circle-inner ${count === 1 ? "magic-circle-single-inner" : ""}"
+    style="
+        left:${center}px;
+        top:${center}px;
+        width:${innerCircleRadius * 2}px;
+        height:${innerCircleRadius * 2}px;
+    "
+></div>
 
         <svg
             class="magic-circle-polygon"

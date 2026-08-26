@@ -30,8 +30,8 @@ if (!character.spiritWhisper) {
     enabled: false,
   };
 }
-if (!character.liveBlood) {
-  character.liveBlood = {
+if (!character.liveblood) {
+  character.liveblood = {
     enabled: false,
   };
 }
@@ -146,7 +146,7 @@ document
   .addEventListener("change", updateMagicSystems);
 
 document
-  .getElementById("magicLiveBlood")
+  .getElementById("magicliveblood")
   .addEventListener("change", updateMagicSystems);
 
 document
@@ -316,7 +316,12 @@ buttons.forEach((button) => {
       .forEach((t) => t.classList.remove("active"));
 
     button.classList.add("active");
-
+console.log("TAB BUTTON:", button);
+console.log("DATA TAB:", button.dataset.tab);
+console.log(
+  "TAB ELEMENT:",
+  document.getElementById(button.dataset.tab)
+);
     document.getElementById(button.dataset.tab).classList.add("active");
 
     if (button.dataset.tab === "talents") {
@@ -362,11 +367,11 @@ function showMagicSystem(system) {
   const panelIds = {
     arcane: "arcaneMagic",
     spiritWhisper: "spiritWhisperMagic",
-    liveblood: "liveBloodMagic",
+    liveblood: "livebloodMagic",
     demonBlood: "demonBloodMagic",
     monsterHunter: "monsterHunterMagic",
     pocketDimension: "pocketDimensionMagic",
-    magicArtifact: "ArtifactsMagic",
+    ArtifactsMagic: "ArtifactsMagic",
   };
 
   const selected = document.getElementById(panelIds[system]);
@@ -381,8 +386,8 @@ function updateMagicSystems() {
   character.spiritWhisper.enabled =
     document.getElementById("magicSpiritWhisper").checked;
 
-  character.liveBlood.enabled =
-    document.getElementById("magicLiveBlood").checked;
+  character.liveblood.enabled =
+    document.getElementById("magicliveblood").checked;
 
   character.demonBlood.enabled =
     document.getElementById("magicDemonBlood").checked;
@@ -395,7 +400,7 @@ function updateMagicSystems() {
   ).checked;
 
   saveCharacter();
-updateLiveBloodTable();
+updatelivebloodTable();
   updateMagicSystemSelector();
 }
 
@@ -482,6 +487,9 @@ function updateMagicSystemSelector() {
   }
 }
 function MagicSystems() {
+  console.log("CHARACTER RACE:", character.race);
+console.log("AVAILABLE RACES:", Object.keys(races));
+console.log("FOUND RACE:", races[character.race]);
   const race = races[character.race];
 
   if (!race) {
@@ -570,4 +578,5 @@ function MagicSystems() {
   saveCharacter();
 
   updateMagicSystemSelector();
+  console.log("MAGIC 12 - selector updated");
 }

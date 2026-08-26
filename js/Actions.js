@@ -239,7 +239,7 @@ function getActionDescriptionText(action) {
 function getAttacksText(action) {
   if (!action.attacks) return "";
   
-    return (1+character.talents?.[action.attacks] || 0)+" ";
+    return (2+character.talents?.[action.attacks] || 2)+" ";
   
 }
 function getMovementSpeed() {

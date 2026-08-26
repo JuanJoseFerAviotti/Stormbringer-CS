@@ -1123,9 +1123,9 @@ function getSpellEffectType(spell) {
     return "ef";
   }
 
-  if (effectRange === Number.isFinite(Number(effectRange))) {
-    return "aoe";
-  }
+ if (Number.isFinite(Number(effectRange))) {
+  return "aoe";
+}
 
   if (effect === "dmg") {
     return "dmg";

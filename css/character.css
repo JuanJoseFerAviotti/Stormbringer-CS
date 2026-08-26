@@ -420,10 +420,7 @@ body{
     padding:8px;
     margin-bottom:6px;
 }
-magicPanel{
-    display: flex;
-    flex-direction: column;
-}
+
 .magicSystemContent {
     display: none;
 }

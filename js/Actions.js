@@ -1,6 +1,6 @@
 let actionsData = [];
 
-fetch("js/actions.json")
+fetch("js/Actions.json")
   .then((response) => response.json())
   .then((data) => {
     actionsData = data;

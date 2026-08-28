@@ -177,6 +177,7 @@ function saveMagicSettings() {
   );
 
   saveCharacter();
+  updateArcaneElementLevels();
 }
 
 //-------------------------------------
@@ -387,6 +388,8 @@ function updateSpellList() {
                 ${spell.description}
 
                 <br><br>
+                <b>Effect Range:</b>
+                ${spell.EffectRange}
                 <b>costmultiplier:</b>
                 ${spell.costMultiplier}
                  
@@ -1101,7 +1104,7 @@ function getSpellEffectType(spell) {
 
   const effect = String(spell.effect || "").toLowerCase();
 
-  const effectRange = String(spell.EffectRange || "").toLowerCase();
+  
 
   if (categories.includes("heal") || effect === "heal") {
     return "heal";
@@ -1123,15 +1126,15 @@ function getSpellEffectType(spell) {
     return "ef";
   }
 
- if (Number.isFinite(Number(effectRange))) {
-  return "aoe";
-}
-
   if (effect === "dmg") {
     return "dmg";
   }
 
   return null;
+}function getSpellAoE(spell) {
+  const effectRange = String(spell.EffectRange || "");
+
+  return /\d/.test(effectRange);
 }
 function scaleRange(range, size) {
   if (range === null || range === undefined) {
@@ -1290,22 +1293,26 @@ function calculateSpell(spell, inputs, magicSystem = "arcane") {
     }
   }
 
-  const baseDamage =
-    elementPower * ((castTime / 1.5) * speed * Math.min(size, 1));
+  let baseDamage =
+   10+ elementPower * ((castTime / 1.5) * speed * Math.min(size, 1));
 
   const effectType = getSpellEffectType(spell);
-
+const AoE =getSpellAoE(spell);
   let damagePrime;
+  const Area = parseFloat(spell.EffectRange);
+
+if (AoE && Number.isFinite(Area)) {
+  baseDamage *= 1 * Math.pow(Area, -0.2);
+}
 
   if (effectType === "dmg") {
-    damagePrime = baseDamage;
+    damagePrime = baseDamage; 
+    
   } else if (effectType === "shild") {
     damagePrime = baseDamage;
   } else if (effectType === "heal") {
     damagePrime = baseDamage / durationPrime;
-  } else if (effectType === "aoe") {
-    damagePrime = baseDamage / 3;
-  } else if (effectType === "inv") {
+  }  else if (effectType === "inv") {
     damagePrime = baseDamage;
   } else if (effectType === "ef") {
     damagePrime = baseDamage / (durationPrime / 10);
@@ -1316,13 +1323,13 @@ function calculateSpell(spell, inputs, magicSystem = "arcane") {
   if (!Number.isFinite(damagePrime) || Number.isNaN(damagePrime)) {
     damagePrime = 0;
   }
-
+console.log("DP"+damagePrime);
   const damage = Math.floor(damagePrime / 3);
 
   let diceValue = 0;
 
   if (damagePrime !== 0) {
-    diceValue = even((damagePrime + 4) / 1.5);
+    diceValue = even((damagePrime) / 1.5);
   }
 
   let diceCount;
@@ -1411,7 +1418,38 @@ function calculateSpell(spell, inputs, magicSystem = "arcane") {
     canalization: isCanalized,
   };
 }
+function Diceification(damagePrime){
+   let diceValue = 0;
 
+  if (damagePrime !== 0) {
+    diceValue = even((damagePrime + 4) / 1.5);
+  }
+
+  let diceCount;
+
+  if (diceValue < 20) {
+    if (diceValue > 12 && diceValue < 20) {
+      diceCount = 2;
+    } else {
+      diceCount = 1;
+    }
+  } else {
+    diceCount = Math.round(diceValue / 20);
+  }
+
+  let diceSize;
+
+  if (diceValue < 20) {
+    if (diceValue > 12 && diceValue < 20) {
+      diceSize = even(diceValue / 2);
+    } else {
+      diceSize = diceValue;
+    }
+  } else {
+    diceSize = 20;
+  }
+return diceCount +"D "+diceSize;
+}
 function getSpellCircleLevel(spell) {
   return getCircleLevel(spell);
 }
@@ -1984,4 +2022,55 @@ function updateMagicCircle(spell) {
 
   
     container.innerHTML = formatMagicCircle(spell, key);
+}
+
+//ELemental levels points
+function getArcaneAvailableElementLevels() {
+
+    if (!character.arcane?.enabled) {
+        return 0;
+    }
+
+    const arcanePractice =
+        character.talents?.arcane_practice || 0;
+
+    return Math.ceil(character.level / 2) + arcanePractice;
+}
+
+function getArcaneSpentElementLevels() {
+
+    const primaryLevel =
+        Number(character.arcane?.primary?.level) || 1;
+
+    const secondaryLevel =
+        Number(character.arcane?.secondary?.level) || 1;
+
+    return Math.max(primaryLevel - 1, 0) +
+           Math.max(secondaryLevel - 1, 0);
+}
+
+
+function getArcaneRemainingElementLevels() {
+
+    return getArcaneAvailableElementLevels()
+        - getArcaneSpentElementLevels();
+}
+function updateArcaneElementLevels() {
+
+    const display =
+        document.getElementById("arcaneElementLevels");
+
+    if (!display) return;
+
+    const available =
+        getArcaneAvailableElementLevels();
+
+    const spent =
+        getArcaneSpentElementLevels();
+
+    const remaining =
+        getArcaneRemainingElementLevels();
+
+    display.textContent =
+        `${available} available | ${spent} spent | ${remaining} remaining`;
 }

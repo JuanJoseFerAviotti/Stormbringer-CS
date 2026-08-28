@@ -303,6 +303,8 @@ function buyTalent(talent) {
   updateStats();
   updateLiveBloodTable();
   updateActionsTable();
+  
+  updateArcaneElementLevels();
 }
 function unlearnTalent(talent) {
   let rank = getTalentRank(talent.id);
@@ -322,6 +324,8 @@ function unlearnTalent(talent) {
   MagicSystems();
   updateLiveBloodTable();
   updateActionsTable();
+  
+  updateArcaneElementLevels();
 }
 function getTalentRank(id) {
   return character.talents[id] || 0;

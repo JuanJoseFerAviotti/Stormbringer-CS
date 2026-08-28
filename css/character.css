@@ -1056,3 +1056,7 @@ body{
 .magic-circle-single-inner {
     display: none;
 }
+.keyword {
+    text-decoration: underline dotted;
+    cursor: help;
+}

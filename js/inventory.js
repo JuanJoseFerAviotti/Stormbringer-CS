@@ -482,7 +482,9 @@ function createInventoryTable() {
                 ) {
 
                     properties =
-                        item.properties.join(", ");
+                        item.properties
+    .map(property => formatKeyword(property))
+    .join(", ")
 
                 }
                 else {

@@ -233,8 +233,14 @@ function getActionDamageText(action) {
     return `${weaponDamage} + ${totalModifier}`;
 }
 function getActionDescriptionText(action) {
-  if (!action.description) return "not found";
-  return action.description;
+
+    if (!action.description) return "";
+
+    return formatKeywordsInText(
+        action.description,
+        ["conditions"]
+    );
+
 }
 function getAttacksText(action) {
   if (!action.attacks) return "";

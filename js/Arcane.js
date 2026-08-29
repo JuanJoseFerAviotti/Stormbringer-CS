@@ -390,9 +390,6 @@ function updateSpellList() {
                 <br><br>
                 <b>Effect Range:</b>
                 ${spell.EffectRange}
-                <b>costmultiplier:</b>
-                ${spell.costMultiplier}
-                 
                 <b>Duration:</b>
                 ${spell.castingTime}
                 <b>Canalization:</b>

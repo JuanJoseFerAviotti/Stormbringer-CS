@@ -1060,3 +1060,18 @@ body{
     text-decoration: underline dotted;
     cursor: help;
 }
+.keyword:hover {
+    text-decoration: underline;
+}
+
+.keyword-tooltip {
+    position: absolute;
+    max-width: 350px;
+    padding: 10px;
+    background: white;
+    border: 1px solid #888;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    z-index: 10000;
+    white-space: pre-line;
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "id": "automatic_fire_crossbow",
+    "name": "Automatic Fire Crossbow",
+    "type": "magicArtifact",
+    "itemBase": "light_crossbow",
+    "cost": "250 gp",
+    "weight": 6,
+    "effects": {
+      "reload": {
+        "name": "Reload",
+        "cost": {
+          "type": "mana",
+          "value": 1
+        },
+        "effect": {
+          "type": "reload",
+          "amount": 1
+        }
+      },
+      "flurry_of_bolts": {
+        "name": "Flurry of Bolts",
+        "cost": {
+          "type": "actions",
+          "value": 3
+        },
+        "mana": {
+          "type": "perBolt",
+          "value": 2
+        },
+        "effect": {
+          "type": "fireBolts",
+          "bolts": 8,
+          "manaPerBolt": 2,
+          "requiresManualReload": true
+        }
+      }
+    }
+  },
+
+  {
+    "id": "necklace_of_power",
+    "name": "Necklace of Power",
+    "type": "magicArtifact",
+    "effects": {
+      "elementPower": {
+        "type": "elementPowerBonus",
+        "value": 2
+      }
+    }
+  },
+
+  {
+    "id": "infinity_bow",
+    "name": "Infinity Bow",
+    "type": "magicArtifact",
+    "itemBase": "bow",
+    "effects": {
+      "ammunition": {
+        "type": "manaAmmunition",
+        "manaPerShot": 1,
+        "noAmmunitionRequired": true
+      }
+    }
+  }
+]

@@ -462,7 +462,7 @@ function updateMagicSystemSelector() {
 
   const artifact = document.createElement("option");
 
-  artifact.value = "magicArtifact";
+  artifact.value = "ArtifactsMagic";
   artifact.textContent = "Magic Artifact";
 
   select.appendChild(artifact);
@@ -480,7 +480,7 @@ function updateMagicSystemSelector() {
     if (select.options.length > 1) {
       select.selectedIndex = 0;
     } else {
-      select.value = "magicArtifact";
+      select.value = "ArtifactsMagic";
     }
 
     showMagicSystem(select.value);

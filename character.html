@@ -232,20 +232,28 @@
           <div id="pocketDimensionMagic" class="magicSystemContent">
             <h1>pocket dimension</h1>
           </div>
-          <div id="ArtifactsMagic" class="magicSystemContent">
-            <table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Cost</th>
-                  <th>Weight</th>
-                  <th>Effects</th>
-                </tr>
-              </thead>
+          <div id="magicArtifactAdd">
 
-              <tbody id="magicArtifactsTable"></tbody>
-            </table>
-          </div>
+    <select id="magicArtifactSelect">
+        <option value="">Select Magic Artifact</option>
+    </select>
+
+    <button onclick="addMagicArtifact()">
+        Add
+    </button>
+
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Artifact</th>
+            <th>Effects</th>
+        </tr>
+    </thead>
+
+    <tbody id="magicArtifactsTable"></tbody>
+</table>
         </div>
       </div>
       <div class="tab active" id="stats">

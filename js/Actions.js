@@ -71,7 +71,7 @@ if (unlock.type === "magicSystem") {
 
   return false;
 }
-function updateActionsTable() {
+/* function updateActionsTable() {
   const table = document.getElementById("actionsTable");
 
   if (!table) return;
@@ -114,8 +114,108 @@ function updateActionsTable() {
 
     table.appendChild(row);
   }
+} */
+function updateActionsTable() {
+
+    const table =
+        document.getElementById("actionsTable");
+
+    if (!table)
+        return;
+
+    table.innerHTML = "";
+
+    for (const action of actionsData) {
+
+        if (!isActionUnlocked(action))
+            continue;
+
+        const row =
+            document.createElement("tr");
+
+        row.innerHTML = `
+            <td>
+                ${getActionCostText(action)}
+            </td>
+
+            <td>
+                ${action.name}
+            </td>
+
+            <td>
+                ${getActionAttackText(action)}
+            </td>
+
+            <td>
+                ${getActionEffectText(action)}
+            </td>
+
+            <td>
+                ${getAttacksText(action)}
+                ${getActionDescriptionText(action)}
+            </td>
+
+            <td>
+                <button onclick="useAction('${action.id}')">
+                    Use
+                </button>
+            </td>
+        `;
+
+        table.appendChild(row);
+    }
+
+
+    /*
+     * Magic Artifact Actions
+     */
+
+    const artifactActions =
+        getMagicArtifactActions();
+
+    for (const action of artifactActions) {
+
+        const row =
+            document.createElement("tr");
+
+        row.innerHTML = `
+            <td>
+                ${getMagicArtifactActionCostText(action)}
+            </td>
+
+            <td>
+                ${action.name}
+            </td>
+
+            <td>
+                -
+            </td>
+
+            <td>
+                ${getMagicArtifactActionEffectText(action)}
+            </td>
+
+            <td>
+                ${action.artifact.name}
+            </td>
+
+            <td>
+                <button
+                    onclick="useMagicArtifactAction(
+                        '${action.artifact.id}',
+                        '${action.id.split("_").pop()}'
+                    )"
+                >
+                    Use
+                </button>
+            </td>
+        `;
+
+        table.appendChild(row);
+
+    }
 }
-function getActionCostText(action) {
+  function getActionCostText(action) {
   const cost = action.cost;
 
   if (!cost) return "";
@@ -330,4 +430,101 @@ function getMovementSpeed() {
     }
 
     return armor.category;
+}function getMagicArtifactActions() {
+
+    const artifactActions = [];
+
+    if (!character.inventory)
+        return artifactActions;
+
+    character.inventory.forEach(storedItem => {
+
+        const artifact =
+            getMagicArtifact(storedItem.id);
+
+        if (!artifact || !artifact.effects)
+            return;
+
+        for (const effectId in artifact.effects) {
+
+            const effect =
+                artifact.effects[effectId];
+
+            artifactActions.push({
+
+                id:
+                    `${artifact.id}_${effectId}`,
+
+                name:
+                    effect.name,
+
+                artifact:
+                    artifact,
+
+                effect:
+                    effect
+
+            });
+
+        }
+
+    });
+
+    return artifactActions;
+}function getMagicArtifactActionCostText(action) {
+
+    const effect = action.effect;
+
+    let text = "";
+
+    if (effect.cost) {
+
+        if (effect.cost.type === "mana") {
+
+            text +=
+                `${effect.cost.value} Mana`;
+
+        }
+
+        else if (effect.cost.type === "actions") {
+
+            text +=
+                `${effect.cost.value} Actions`;
+
+        }
+
+    }
+
+    if (effect.mana?.type === "perBolt") {
+
+        if (text)
+            text += " + ";
+
+        text +=
+            `${effect.mana.value} Mana/Bolt`;
+
+    }
+
+    return text;
+}function getMagicArtifactActionEffectText(action) {
+
+    const effect =
+        action.effect.effect;
+
+    if (!effect)
+        return "";
+
+    if (effect.type === "reload") {
+
+        return `Reloads ${effect.amount} bolt`;
+
+    }
+
+    if (effect.type === "fireBolts") {
+
+        return `Fires up to ${effect.bolts} bolts`;
+
+    }
+
+    return effect.type;
 }

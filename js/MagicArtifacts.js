@@ -1,4 +1,4 @@
-fetch("js/magicartifacts.json")
+fetch("js/MagicArtifacts.json")
     .then(response => response.json())
     .then(data => {
 

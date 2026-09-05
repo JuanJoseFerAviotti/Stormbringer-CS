@@ -18,7 +18,7 @@
           "id":"improved_critical",
           "name":"Improved Critical",
           "requires":["fighting_style"],
-          "maxRank":1,"description":"Your weapon attacks score a critical hit on a roll of 19 or 20."
+          "maxRank":1,"icon": 5,"description":"Your weapon attacks score a critical hit on a roll of 19 or 20."
         },
         {
           "id":"remarkable_athlete",
@@ -174,7 +174,7 @@
           "id":"heavily_armored","name":"Heavily Armored","requires":[],"maxRank":1,"description":"placeholder description"
         },
         {
-          "id":"heavy_armor_master","name":"Heavy Armor Master","requires":[],"maxRank":1,"description":"placeholder description"
+          "id":"heavy_armor_master","name":"Heavy Armor Master","requires":[],"maxRank":1,"icon": 2,"description":"placeholder description"
         },
         {
           "id":"lightly_armored","name":"Lightly Armored","requires":[],"maxRank":1,"description":"placeholder description"
@@ -364,7 +364,7 @@
           "id":"fancy_footwork",
           "name":"Fancy Footwork",
           "requires":[],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"icon": 8,"description":"placeholder description"
         },
         {
           "id":"rakish_audacity",
@@ -405,7 +405,7 @@
           "id":"indomitable",
           "name":"Indomitable",
           "requires":["second_wind"],
-          "maxRank":3,"description":"placeholder description"
+          "maxRank":3,"icon": 6,"description":"placeholder description"
         },
         {
           "id":"survivor",
@@ -418,19 +418,19 @@
           "id":"rage",
           "name":"Rage",
           "requires":[],
-          "maxRank":1,"description":"In battle, you fight with primal ferocity. On your turn, you can enter a rage as a action. While raging, you gain the following benefits: When you make a melee weapon attack using Strength, you gain a bonus to the damage roll equal Strenght modifier, half if in heavy armor. if you aren't wearing heavy armor: You have resistance to bludgeoning, piercing, and slashing damage. You have advantage on Strength checks and Strength saving throws. If you are able to cast spells, you can't cast them or concentrate on them while raging. Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you haven't attacked a hostile creature since your last turn or taken damage since then. You can also end your rage on your turn as a free action."
+          "maxRank":1,"icon": 5,"description":"In battle, you fight with primal ferocity. On your turn, you can enter a rage as a action. While raging, you gain the following benefits: When you make a melee weapon attack using Strength, you gain a bonus to the damage roll equal Strenght modifier, half if in heavy armor. if you aren't wearing heavy armor: You have resistance to bludgeoning, piercing, and slashing damage. You have advantage on Strength checks and Strength saving throws. If you are able to cast spells, you can't cast them or concentrate on them while raging. Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you haven't attacked a hostile creature since your last turn or taken damage since then. You can also end your rage on your turn as a free action."
         },
         {
           "id":"unarmored_defense",
           "name":"Unarmored Defense",
           "requires":["rage"],
-          "maxRank":1,"description":"While you are not wearing any armor, your armor class equals 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit."
+          "maxRank":1,"icon": 4,"description":"While you are not wearing any armor, your armor class equals 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit."
         },
         {
           "id":"relentless_rage",
           "name":"Relentless Rage",
           "requires":["unarmored_defense"],
-          "maxRank":1,"description":"your rage can keep you fighting despite grievous wounds. If you drop to 0 hit points while you're raging and don't die outright, you can make a DC 10 Constitution saving throw. If you succeed, you drop to 1 hit point instead. Each time you use this feature after the first, the DC increases by 5. When you finish a short or long rest, the DC resets to 10."
+          "maxRank":1,"icon": 23,"description":"your rage can keep you fighting despite grievous wounds. If you drop to 0 hit points while you're raging and don't die outright, you can make a DC 10 Constitution saving throw. If you succeed, you drop to 1 hit point instead. Each time you use this feature after the first, the DC increases by 5. When you finish a short or long rest, the DC resets to 10."
         },
         {
           "id":"persistent_rage",
@@ -469,7 +469,7 @@
           "requires":["armor_expert"],
           "maxRank":2,"description":"placeholder description"
         }, {
-          "id":"tough","name":"Tough","requires":[],"maxRank":1,"description":"Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points."
+          "id":"tough","name":"Tough","requires":[],"maxRank":1,"icon": 0,"description":"Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points."
         },
 
         {
@@ -488,7 +488,7 @@
           "id":"durable",
           "name":"Durable",
           "requires":[],
-          "maxRank":1,"description":"placeholder description"
+          "maxRank":1,"icon": 1,"description":"placeholder description"
         },
         {
           "id":"resilient",
@@ -506,7 +506,7 @@
           "id":"bastion",
           "name":"Bastion",
           "requires":[],
-          "maxRank":1,"description":"cant recive crits"
+          "maxRank":1,"icon": 1,"description":"cant recive crits"
 
         }
 
@@ -954,7 +954,7 @@
     {
       "id": "strength_burst",
       "name": "Strength Burst",
-      "requires": ["bestial_strength"],
+      "requires": ["bestial_strength"],"icon": 3,
       "maxRank": 1
     },
 
@@ -1028,7 +1028,7 @@
       "id": "liveblood_practice",
       "name": "LiveBlood Practice",
       "requires": [],
-      "maxRank": 1
+      "maxRank": 1,"icon": 4
     },
     {
       "id": "liveblood_level",

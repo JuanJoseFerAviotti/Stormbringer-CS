@@ -1,6 +1,17 @@
 let talentsData;
 let currentTalentTree = "creation";
+const TALENT_SPRITE = {
+  width: 150,
+  height: 150,
 
+  columns: 8,
+    // Adjust icon position inside the talent
+       scale: 0.65,
+
+    offsetX: -10,
+    offsetY: -10,
+  image: "Icons/talent-icons.png",
+};
 document.addEventListener("DOMContentLoaded", () => {
   fetch("js/talents.json")
     .then((response) => response.json())
@@ -55,6 +66,7 @@ function loadTalentTree(treeName) {
 
     div.className = "talent";
     div.id = talent.id;
+
     div.addEventListener("mouseenter", (e) => {
       showTalentTooltip(e, talent);
     });
@@ -68,9 +80,10 @@ function loadTalentTree(treeName) {
     });
 
     div.innerHTML = `
-    <div>${talent.name}</div>
+    <div class="talentName">${talent.name}</div>
     <small>${getTalentRank(talent.id)} / ${talent.maxRank}</small>
 `;
+    applyTalentIcon(div, talent);
     div.addEventListener("click", () => {
       buyTalent(talent);
     });
@@ -94,6 +107,7 @@ function loadTalentTree(treeName) {
 
     div.className = "talent";
     div.id = talent.id;
+
     div.addEventListener("mouseenter", (e) => {
       showTalentTooltip(e, talent);
     });
@@ -107,9 +121,10 @@ function loadTalentTree(treeName) {
     });
 
     div.innerHTML = `
-    <div>${talent.name}</div>
+    <div class="talentName">${talent.name}</div>
     <small>${getTalentRank(talent.id)} / ${talent.maxRank}</small>
 `;
+    applyTalentIcon(div, talent);
     div.addEventListener("click", () => {
       buyTalent(talent);
     });
@@ -196,7 +211,6 @@ function drawTalentLines(tree) {
 
       line.setAttribute("stroke-width", "3");
 
-      
       svg.appendChild(line);
     });
   });
@@ -303,7 +317,7 @@ function buyTalent(talent) {
   updateStats();
   updateLiveBloodTable();
   updateActionsTable();
-  
+
   updateArcaneElementLevels();
 }
 function unlearnTalent(talent) {
@@ -324,7 +338,7 @@ function unlearnTalent(talent) {
   MagicSystems();
   updateLiveBloodTable();
   updateActionsTable();
-  
+
   updateArcaneElementLevels();
 }
 function getTalentRank(id) {
@@ -413,4 +427,56 @@ function moveTalentTooltip(event) {
 
 function hideTalentTooltip() {
   document.getElementById("talentTooltip").style.display = "none";
+}
+function applyTalentIcon(div, talent) {
+
+    const name = div.querySelector(".talentName");
+
+    // No valid icon → use old method
+    if (
+        talent.icon === undefined ||
+        talent.icon === null ||
+        !Number.isInteger(talent.icon) ||
+        talent.icon < 0
+    ) {
+        return false;
+    }
+
+    const iconIndex = talent.icon;
+
+    const column =
+        iconIndex % TALENT_SPRITE.columns;
+
+    const row =
+        Math.floor(
+            iconIndex / TALENT_SPRITE.columns
+        );
+
+    const scale = TALENT_SPRITE.scale;
+
+    const iconWidth =
+        TALENT_SPRITE.width * scale;
+
+    const iconHeight =
+        TALENT_SPRITE.height * scale;
+
+    div.style.backgroundImage =
+        `url("${TALENT_SPRITE.image}")`;
+
+    div.style.backgroundSize =
+        `${TALENT_SPRITE.columns * iconWidth}px auto`;
+
+    div.style.backgroundPosition =
+        `${-column * iconWidth + TALENT_SPRITE.offsetX}px ` +
+        `${-row * iconHeight + TALENT_SPRITE.offsetY}px`;
+
+    div.style.backgroundRepeat =
+        "no-repeat";
+
+    // Show that this talent has an icon
+    if (name) {
+        name.classList.add("hasIcon");
+    }
+
+    return true;
 }

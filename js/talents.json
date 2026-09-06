@@ -448,7 +448,7 @@
         {
           "id":"light_armor_shield",
           "name":"Light Armor & Shield",
-          "requires":[],
+          "requires":[],"icon":"leather-armor.svg",
           "maxRank":1,"description":"placeholder description"
         },
         {
@@ -771,7 +771,7 @@
         {
           "id":"light_armor_shield",
           "name":"Light Armor & Shield",
-          "requires":[],
+          "requires":[],"icon":"leather-armor.svg",
           "maxRank":1,
           "equipment":"Leather Armor or Shield","description":"if chosen when creating your character, you may choose to start with either leather armor or a shield."
         },
@@ -779,7 +779,7 @@
         {
           "id":"medium_heavy_armor",
           "name":"Medium & Heavy Armor",
-          "requires":["light_armor_shield"],
+          "requires":["light_armor_shield"],"icon":"chest-armor.svg",
           "maxRank":1,
           "equipment":"Chain Mail","description":"if chosen when creating your character, you can replace your leather armor with chain mail or start with leader armor and your shield."
         },
@@ -787,7 +787,7 @@
         {
           "id":"simple_weapons",
           "name":"Simple Weapons",
-          "requires":[],
+          "requires":[],"icon":"bo.svg",
           "maxRank":1,
           "equipment":"Two Simple Weapons (max 50 gp)","description":"if chosen when creating your character, you may choose two simple weapons to start with, with a total cost of no more than 100 gp. "
         },
@@ -797,13 +797,14 @@
           "name":"Martial Weapons",
           "requires":["simple_weapons"],
           "maxRank":1,
+          "icon":"axe-sword.svg",
           "equipment":"Replace Simple Weapons with Martial Weapons (max 100 gp)","description":"if chosen when creating your character, you can replace your simple weapons with martial weapons, with a total cost of no more than 100 gp."
         },
 
         {
           "id":"magic_spark_arcane",
           "name":"Magic Spark: Arcane",
-          "requires":[],
+          "requires":[],"icon":"sparkles.svg",
           "maxRank":2,"description":"Upgrades your chanse to be able to cast arcane spells. Each rank increases your chanses by 1 level."
         },
 
@@ -811,7 +812,7 @@
           "id":"riding",
           "name":"Riding",
           "requires":[],
-          "maxRank":1,
+          "maxRank":1,"icon":"horseshoe.svg",
           "equipment":"Riding Animal","description":"if chosen when creating your character, you may choose to start with a riding animal."
         },
 
@@ -819,14 +820,14 @@
           "id":"sailor",
           "name":"Sailor",
           "requires":[],
-          "maxRank":1,
+          "maxRank":1,"icon":"ship-wheel.svg",
           "equipment":"Small/Medium Vessel","description":"if chosen when creating your character, you may choose to start with a small or medium vessel."
         },
 
         {
           "id":"tools_proficiency",
           "name":"Tools Proficiency",
-          "requires":[],
+          "requires":[],"icon": "lockpicks.svg",
           "maxRank":1,
           "equipment":"Tools + Materials","description":"if chosen when creating your character, you may choose one set of artisan's tools, one musical instrument, or one gaming set to become proficient in. You also gain the necessary materials to use the tool or instrument."
         },
@@ -834,7 +835,7 @@
         {
           "id":"creation_skilled",
           "name":"Skilled",
-          "requires":[],
+          "requires":[],"icon": "skills.svg",
           "maxRank":1,
           "effect":"Choose 3 skills to become proficient, or upgrade one proficiency to Expertise and gain one additional proficiency.","description":"Choose 3 skills to become proficient, or upgrade one proficiency to Expertise and gain one additional proficiency. "
         },
@@ -844,6 +845,7 @@
           "name":"Wealthy",
           "requires":[],
           "maxRank":1,
+          "icon":"coins.svg",
           "description":"Gain an additional 60 gp also(if chosen when creating your character your starting equipment cost is increased by 60 gp."
         }
 

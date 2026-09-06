@@ -8,7 +8,7 @@ const TALENT_SPRITE = {
     // Adjust icon position inside the talent
        scale: 0.65,
 
-    offsetX: -10,
+    offsetX: -14,
     offsetY: -10,
   image: "Icons/talent-icons.png",
 };
@@ -81,7 +81,7 @@ function loadTalentTree(treeName) {
 
     div.innerHTML = `
     <div class="talentName">${talent.name}</div>
-    <small>${getTalentRank(talent.id)} / ${talent.maxRank}</small>
+    <small class="talentName">${getTalentRank(talent.id)} / ${talent.maxRank}</small>
 `;
     applyTalentIcon(div, talent);
     div.addEventListener("click", () => {
@@ -122,7 +122,7 @@ function loadTalentTree(treeName) {
 
     div.innerHTML = `
     <div class="talentName">${talent.name}</div>
-    <small>${getTalentRank(talent.id)} / ${talent.maxRank}</small>
+    <small class="talentName">${getTalentRank(talent.id)} / ${talent.maxRank}</small>
 `;
     applyTalentIcon(div, talent);
     div.addEventListener("click", () => {
@@ -430,53 +430,144 @@ function hideTalentTooltip() {
 }
 function applyTalentIcon(div, talent) {
 
+   
     const name = div.querySelector(".talentName");
 
-    // No valid icon → use old method
+    // No icon → use old method
     if (
         talent.icon === undefined ||
-        talent.icon === null ||
-        !Number.isInteger(talent.icon) ||
-        talent.icon < 0
+        talent.icon === null
     ) {
         return false;
     }
 
-    const iconIndex = talent.icon;
+// =====================================================
+// INDIVIDUAL IMAGE
+// =====================================================
 
-    const column =
-        iconIndex % TALENT_SPRITE.columns;
 
-    const row =
-        Math.floor(
-            iconIndex / TALENT_SPRITE.columns
+if (typeof talent.icon === "string") {
+
+    const img = document.createElement("img");
+
+    img.src = `Icons/${talent.icon}`;
+
+    img.className = "talentIcon";
+
+    img.alt = talent.name;
+
+    img.onerror = function () {
+
+        console.error(
+            "Talent icon failed to load:",
+            img.src
         );
 
-    const scale = TALENT_SPRITE.scale;
+        img.remove();
+    };
 
-    const iconWidth =
-        TALENT_SPRITE.width * scale;
+    div.appendChild(img);
 
-    const iconHeight =
-        TALENT_SPRITE.height * scale;
-
-    div.style.backgroundImage =
-        `url("${TALENT_SPRITE.image}")`;
-
-    div.style.backgroundSize =
-        `${TALENT_SPRITE.columns * iconWidth}px auto`;
-
-    div.style.backgroundPosition =
-        `${-column * iconWidth + TALENT_SPRITE.offsetX}px ` +
-        `${-row * iconHeight + TALENT_SPRITE.offsetY}px`;
-
-    div.style.backgroundRepeat =
-        "no-repeat";
-
-    // Show that this talent has an icon
     if (name) {
         name.classList.add("hasIcon");
     }
 
     return true;
+}
+
+    if (Number.isInteger(talent.icon)) {
+
+        const iconIndex = talent.icon;
+
+        const column =
+            iconIndex % TALENT_SPRITE.columns;
+
+        const row =
+            Math.floor(
+                iconIndex / TALENT_SPRITE.columns
+            );
+
+        const scale =
+            TALENT_SPRITE.scale;
+
+        const iconWidth =
+            TALENT_SPRITE.width * scale;
+
+        const iconHeight =
+            TALENT_SPRITE.height * scale;
+
+        div.style.backgroundImage =
+            `url("${TALENT_SPRITE.image}")`;
+
+        div.style.backgroundSize =
+            `${TALENT_SPRITE.columns * iconWidth}px auto`;
+
+        div.style.backgroundPosition =
+            `${-column * iconWidth + TALENT_SPRITE.offsetX}px ` +
+            `${-row * iconHeight + TALENT_SPRITE.offsetY}px`;
+
+        div.style.backgroundRepeat =
+            "no-repeat";
+
+        if (name) {
+            name.classList.add("hasIcon");
+        }
+
+        return true;
+    }
+
+
+    // =====================================================
+    // DIFFERENT SPRITE SHEET
+    // =====================================================
+
+    if (
+        typeof talent.icon === "object" &&
+        talent.icon.sheet &&
+        Number.isInteger(talent.icon.index)
+    ) {
+
+        const sheet = talent.icon.sheet;
+        const iconIndex = talent.icon.index;
+
+        const column =
+            iconIndex % TALENT_SPRITE.columns;
+
+        const row =
+            Math.floor(
+                iconIndex / TALENT_SPRITE.columns
+            );
+
+        const scale =
+            TALENT_SPRITE.scale;
+
+        const iconWidth =
+            TALENT_SPRITE.width * scale;
+
+        const iconHeight =
+            TALENT_SPRITE.height * scale;
+
+        div.style.backgroundImage =
+            `url("Icons/${sheet}")`;
+
+        div.style.backgroundSize =
+            `${TALENT_SPRITE.columns * iconWidth}px auto`;
+
+        div.style.backgroundPosition =
+            `${-column * iconWidth + TALENT_SPRITE.offsetX}px ` +
+            `${-row * iconHeight + TALENT_SPRITE.offsetY}px`;
+
+        div.style.backgroundRepeat =
+            "no-repeat";
+
+        if (name) {
+            name.classList.add("hasIcon");
+        }
+
+        return true;
+    }
+
+
+    // Invalid icon → old method
+    return false;
 }
